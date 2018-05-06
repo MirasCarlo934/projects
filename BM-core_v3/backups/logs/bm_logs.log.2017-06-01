@@ -1,0 +1,205 @@
+2017-06-01 16:59:38,182 INFO  [main] (MAIN.BusinessMachine) Starting BM...
+2017-06-01 16:59:39,678 INFO  [main] (DB.DBEngine) DBEngine started on url: jdbc:derby://192.168.1.5:1527/DB
+2017-06-01 16:59:40,635 INFO  [main] (DB.DBEngine) Connected to Derby DB!
+2017-06-01 16:59:40,793 INFO  [main] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-01 16:59:40,802 DEBUG [main] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-01 16:59:40,802 DEBUG [main] (MQTT.MQTTHandler) Callback set!
+2017-06-01 16:59:40,847 INFO  [main] (MAIN.Controller) Controller constructed!
+2017-06-01 16:59:40,925 INFO  [main] (PLEX.CIREngine) CIREngine started!
+2017-06-01 16:59:40,930 WARN  [main] (PLEX.CIREngine) A statement is found to contain an invalid CID!
+2017-06-01 16:59:40,931 WARN  [main] (PLEX.CIREngine) A statement is found to contain an invalid CID!
+2017-06-01 16:59:40,931 WARN  [main] (PLEX.CIREngine) A statement is found to contain an invalid CID!
+2017-06-01 16:59:40,932 WARN  [main] (PLEX.CIREngine) A statement is found to contain an invalid CID!
+2017-06-01 16:59:40,944 DEBUG [main] (OH.OHEngine) Updating OpenHAB...
+2017-06-01 16:59:40,944 DEBUG [main] (OH.OHEngine) Updating OpenHAB item registry...
+2017-06-01 16:59:41,069 DEBUG [main] (OH.OHEngine) Deleting undeleted items from registry...
+2017-06-01 16:59:41,092 WARN  [main] (OH.OHEngine) Item U7YY is already nonexistent in registry!
+2017-06-01 16:59:41,116 WARN  [main] (OH.OHEngine) Item U7YY is already nonexistent in registry!
+2017-06-01 16:59:41,137 WARN  [main] (OH.OHEngine) Item J444 is already nonexistent in registry!
+2017-06-01 16:59:41,170 WARN  [main] (OH.OHEngine) Item J444 is already nonexistent in registry!
+2017-06-01 16:59:41,204 WARN  [main] (OH.OHEngine) Item PLEX is already nonexistent in registry!
+2017-06-01 16:59:41,239 WARN  [main] (OH.OHEngine) Item PLEX is already nonexistent in registry!
+2017-06-01 16:59:41,268 WARN  [main] (OH.OHEngine) Item CRL0 is already nonexistent in registry!
+2017-06-01 16:59:41,292 WARN  [main] (OH.OHEngine) Item CRL0 is already nonexistent in registry!
+2017-06-01 16:59:41,314 WARN  [main] (OH.OHEngine) Item CJ7A is already nonexistent in registry!
+2017-06-01 16:59:41,335 WARN  [main] (OH.OHEngine) Item CJ7A is already nonexistent in registry!
+2017-06-01 16:59:41,359 WARN  [main] (OH.OHEngine) Item test is already nonexistent in registry!
+2017-06-01 16:59:41,386 WARN  [main] (OH.OHEngine) Item test is already nonexistent in registry!
+2017-06-01 16:59:41,406 WARN  [main] (OH.OHEngine) Item XKWG is already nonexistent in registry!
+2017-06-01 16:59:41,430 WARN  [main] (OH.OHEngine) Item XKWG is already nonexistent in registry!
+2017-06-01 16:59:41,454 WARN  [main] (OH.OHEngine) Item II81 is already nonexistent in registry!
+2017-06-01 16:59:41,479 WARN  [main] (OH.OHEngine) Item II81 is already nonexistent in registry!
+2017-06-01 16:59:41,509 WARN  [main] (OH.OHEngine) Item WJ48 is already nonexistent in registry!
+2017-06-01 16:59:41,534 WARN  [main] (OH.OHEngine) Item WJ48 is already nonexistent in registry!
+2017-06-01 16:59:41,560 WARN  [main] (OH.OHEngine) Item DKF5 is already nonexistent in registry!
+2017-06-01 16:59:41,583 WARN  [main] (OH.OHEngine) Item DKF5 is already nonexistent in registry!
+2017-06-01 16:59:41,605 WARN  [main] (OH.OHEngine) Item GD32 is already nonexistent in registry!
+2017-06-01 16:59:41,629 WARN  [main] (OH.OHEngine) Item GD32 is already nonexistent in registry!
+2017-06-01 16:59:41,653 WARN  [main] (OH.OHEngine) Item T3W0 is already nonexistent in registry!
+2017-06-01 16:59:41,684 WARN  [main] (OH.OHEngine) Item T3W0 is already nonexistent in registry!
+2017-06-01 16:59:41,684 DEBUG [main] (OH.OHEngine) Adding unadded items to registry...
+2017-06-01 16:59:41,739 INFO  [main] (MAIN.BusinessMachine) Config file core-config.xml loaded.
+2017-06-01 16:59:41,739 INFO  [main] (MAIN.ComponentRepository) Populating Components...
+2017-06-01 16:59:42,156 DEBUG [main] (MAIN.ComponentRepository) Adding component LLU3 into ComponentRepository...
+2017-06-01 16:59:42,157 DEBUG [main] (MAIN.ComponentRepository) Component LLU3 added!
+2017-06-01 16:59:42,158 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0006 of device: LLU3 with value: 1
+2017-06-01 16:59:42,433 DEBUG [main] (MAIN.ComponentRepository) Adding component II81 into ComponentRepository...
+2017-06-01 16:59:42,433 DEBUG [main] (MAIN.ComponentRepository) Component II81 added!
+2017-06-01 16:59:42,433 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0026 of device: II81 with value: 0
+2017-06-01 16:59:42,531 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0025 of device: II81 with value: 0
+2017-06-01 16:59:42,639 DEBUG [main] (MAIN.ComponentRepository) Adding component H7K5 into ComponentRepository...
+2017-06-01 16:59:42,639 DEBUG [main] (MAIN.ComponentRepository) Component H7K5 added!
+2017-06-01 16:59:42,640 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0011 of device: H7K5 with value: 1
+2017-06-01 16:59:42,699 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0036 of device: H7K5 with value: 0
+2017-06-01 16:59:42,801 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0035 of device: H7K5 with value: 0
+2017-06-01 16:59:42,901 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0034 of device: H7K5 with value: 1
+2017-06-01 16:59:43,043 DEBUG [main] (MAIN.ComponentRepository) Adding component WJ48 into ComponentRepository...
+2017-06-01 16:59:43,043 DEBUG [main] (MAIN.ComponentRepository) Component WJ48 added!
+2017-06-01 16:59:43,043 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0020 of device: WJ48 with value: 0
+2017-06-01 16:59:43,131 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0002 of device: WJ48 with value: 0
+2017-06-01 16:59:43,212 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0029 of device: WJ48 with value: 1
+2017-06-01 16:59:43,339 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0019 of device: WJ48 with value: 1
+2017-06-01 16:59:43,482 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0024 of device: WJ48 with value: 47
+2017-06-01 16:59:43,800 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0023 of device: WJ48 with value: 1
+2017-06-01 16:59:43,968 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0022 of device: WJ48 with value: 0
+2017-06-01 16:59:44,029 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0003 of device: WJ48 with value: 0
+2017-06-01 16:59:44,152 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0021 of device: WJ48 with value: 0
+2017-06-01 16:59:44,251 DEBUG [main] (MAIN.ComponentRepository) Adding component T3W0 into ComponentRepository...
+2017-06-01 16:59:44,251 DEBUG [main] (MAIN.ComponentRepository) Component T3W0 added!
+2017-06-01 16:59:44,251 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0039 of device: T3W0 with value: 0
+2017-06-01 16:59:44,334 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0038 of device: T3W0 with value: 0
+2017-06-01 16:59:44,428 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0037 of device: T3W0 with value: 1
+2017-06-01 16:59:44,517 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0044 of device: T3W0 with value: 0
+2017-06-01 16:59:44,635 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0043 of device: T3W0 with value: 0
+2017-06-01 16:59:44,717 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0042 of device: T3W0 with value: 0
+2017-06-01 16:59:44,817 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0041 of device: T3W0 with value: 0
+2017-06-01 16:59:44,920 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0040 of device: T3W0 with value: 0
+2017-06-01 16:59:45,040 DEBUG [main] (MAIN.ComponentRepository) Adding component R682 into ComponentRepository...
+2017-06-01 16:59:45,040 DEBUG [main] (MAIN.ComponentRepository) Component R682 added!
+2017-06-01 16:59:45,040 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0018 of device: R682 with value: 0
+2017-06-01 16:59:45,109 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0032 of device: R682 with value: -1
+2017-06-01 16:59:45,210 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0045 of device: R682 with value: -1
+2017-06-01 16:59:45,309 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0017 of device: R682 with value: 0
+2017-06-01 16:59:45,409 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0031 of device: R682 with value: 0
+2017-06-01 16:59:45,519 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0016 of device: R682 with value: 0
+2017-06-01 16:59:45,626 DEBUG [main] (MAIN.ComponentRepository) Setting property: 0030 of device: R682 with value: yes
+2017-06-01 16:59:45,641 INFO  [main] (MAIN.ComponentRepository) Devices population done!
+2017-06-01 16:59:45,641 INFO  [main] (MAIN.ComponentRepository) Retrieving rooms from DB...
+2017-06-01 16:59:45,721 DEBUG [main] (MAIN.ComponentRepository) Rooms retrieved!
+2017-06-01 16:59:45,721 INFO  [main] (MAIN.ComponentRepository) Retrieving OH bindings from DB...
+2017-06-01 16:59:46,119 DEBUG [main] (MAIN.ComponentRepository) Bindings retrieved!
+2017-06-01 16:59:46,119 INFO  [main] (MAIN.BusinessMachine) BusinessMachine started!
+2017-06-01 16:59:53,076 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-01 16:59:53,076 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {
+RID:"testmac",
+CID:"0002",
+RTY:"register",
+name:"Switcheroo",
+roomID:"CRL0"
+}
+2017-06-01 16:59:53,076 INFO  [MQTT Call: BM_win] (MAIN.Controller) Request received!
+2017-06-01 16:59:53,089 DEBUG [1:Process1] (REG.RegistrationModule) RegistrationModule request processing started!
+2017-06-01 16:59:53,240 INFO  [1:Process1] (REG.RegistrationModule) Registering component testmac to system...
+2017-06-01 16:59:53,240 DEBUG [1:Process1] (REG.RegistrationModule) Retrieving existing SSIDs from DB...
+2017-06-01 16:59:53,336 DEBUG [1:Process1] (REG.RegistrationModule) Existing SSIDs retrieved!
+2017-06-01 16:59:53,336 DEBUG [1:Process1] (REG.RegistrationModule) Retrieving Component product properties...
+2017-06-01 16:59:53,509 DEBUG [1:Process1] (REG.RegistrationModule) Component product properties retrieved!
+2017-06-01 16:59:53,509 DEBUG [1:Process1] (REG.RegistrationModule) Creating Component object...
+2017-06-01 16:59:53,510 INFO  [1:Process1] (REG.RegistrationModule) Component ML47 created!
+2017-06-01 16:59:53,510 DEBUG [1:Process1] (REG.COM:ML47) Persisting component to DB...
+2017-06-01 16:59:53,510 INFO  [1:Process1] (DB.DBAdaptor) Persisting component to DB...
+2017-06-01 16:59:53,511 DEBUG [1:Process1] (DB.DBAdaptor) Inserting component to components table!
+2017-06-01 16:59:53,609 DEBUG [1:Process1] (REG.COM:ML47) Persisting component's properties to DB...
+2017-06-01 16:59:53,610 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0029 to properties table!
+2017-06-01 16:59:53,720 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0002 to properties table!
+2017-06-01 16:59:53,859 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0024 to properties table!
+2017-06-01 16:59:53,956 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0003 to properties table!
+2017-06-01 16:59:54,059 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0022 to properties table!
+2017-06-01 16:59:54,156 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0023 to properties table!
+2017-06-01 16:59:54,259 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0020 to properties table!
+2017-06-01 16:59:54,366 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0021 to properties table!
+2017-06-01 16:59:54,467 DEBUG [1:Process1] (DB.DBAdaptor) Inserting property ML47_0019 to properties table!
+2017-06-01 16:59:54,564 DEBUG [1:Process1] (REG.COM:ML47) Adding item representation to DB...
+2017-06-01 16:59:54,564 DEBUG [1:Process1] (OH.OHAdaptor) Adding component ML47 to OpenHAB item registry...
+2017-06-01 16:59:55,560 DEBUG [1:Process1] (OH.OHAdaptor) Component registered successfully!
+2017-06-01 16:59:55,560 DEBUG [1:Process1] (REG.RegistrationModule) Publishing Component credentials to default topic...
+2017-06-01 16:59:55,561 INFO  [1:Process1] (REG.RegistrationModule) Registration complete!
+2017-06-01 16:59:55,587 DEBUG [1:Process1] (MQTT.MQTTHandler) Publishing message:{"RTY":"register","success":true,"topic":"ML47_topic","id":"ML47","RID":"testmac"} to ML47_topic
+2017-06-01 17:00:11,671 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-01 17:00:11,671 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {
+RID:"testmac",
+CID:"ML47",
+RTY:"detach",
+name:"Switcheroo",
+roomID:"CRL0"
+}
+2017-06-01 17:00:11,671 INFO  [MQTT Call: BM_win] (MAIN.Controller) Request received!
+2017-06-01 17:00:11,681 DEBUG [2:Process2] (DETACH.DetachmentModule) DetachmentModule request processing started!
+2017-06-01 17:00:11,681 INFO  [2:Process2] (DETACH.DetachmentModule) Detaching component ML47 from system...
+2017-06-01 17:00:11,682 DEBUG [2:Process2] (DETACH.COM:ML47) Deleting component from DB...
+2017-06-01 17:00:11,889 DEBUG [2:Process2] (DB.DBAdaptor) Deleting properties from DB...
+2017-06-01 17:00:12,087 DEBUG [2:Process2] (DETACH.COM:ML47) Deleting item representation from DB...
+2017-06-01 17:00:12,087 DEBUG [2:Process2] (DETACH.DetachmentModule) Deleting component from OH DB...
+2017-06-01 17:00:12,117 DEBUG [2:Process2] (OH.OHEngine) Deleting component ML47 from OpenHAB item registry...
+2017-06-01 17:00:12,601 DEBUG [2:Process2] (OH.OHEngine) Component deleted successfully!
+2017-06-01 17:00:12,601 INFO  [2:Process2] (DETACH.DetachmentModule) Detachment complete!
+2017-06-01 17:47:55,616 FATAL [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connection lost with MQTT server!
+Timed out waiting for a response from the server (32000)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:564)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:660)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:77)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2017-06-01 17:47:55,623 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Attempting to reconnect...
+2017-06-01 17:48:04,649 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-01 17:48:04,657 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-01 17:48:04,657 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Callback set!
+2017-06-01 18:13:04,660 FATAL [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connection lost with MQTT server!
+Timed out waiting for a response from the server (32000)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:564)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:660)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:77)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2017-06-01 18:13:04,661 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Attempting to reconnect...
+2017-06-01 18:13:13,709 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-01 18:13:13,719 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-01 18:13:13,719 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Callback set!
+2017-06-01 18:36:13,723 FATAL [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connection lost with MQTT server!
+Timed out waiting for a response from the server (32000)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:564)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:660)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:77)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2017-06-01 18:36:13,724 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Attempting to reconnect...
+2017-06-01 18:36:18,783 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-01 18:36:18,807 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-01 18:36:18,807 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Callback set!
+2017-06-01 19:03:18,796 FATAL [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connection lost with MQTT server!
+Timed out waiting for a response from the server (32000)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:564)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:660)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:77)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2017-06-01 19:03:18,797 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Attempting to reconnect...
+2017-06-01 19:03:27,930 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-01 19:03:27,965 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-01 19:03:27,965 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Callback set!
+2017-06-01 19:41:27,961 FATAL [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connection lost with MQTT server!
+Timed out waiting for a response from the server (32000)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:564)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:660)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:77)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2017-06-01 19:41:27,961 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Attempting to reconnect...
+2017-06-01 19:41:27,983 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-01 19:41:27,989 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-01 19:41:27,989 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Callback set!

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config/>
+	
+	<!-- repositories -->
+	<bean id="Components" class="bm.main.repositories.DeviceRepository">
+		<constructor-arg name="deviceQuery" value="${devices.queryString}"/>
+		<constructor-arg name="dbm" ref="DBManager"/>
+		<!-- <constructor-arg name="ohDBE" ref="OH.DBEngine"/> -->
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="pr" ref="Products"/>
+		<constructor-arg name="rr" ref="Rooms"/>
+		<!-- <constructor-arg name="deviceFactories">
+			<map>
+				key => product SSID
+          		<entry key="0010" value-ref="TimerFactory"/>
+       		</map>
+		</constructor-arg> -->
+	</bean>
+	<bean id="Rooms" class="bm.main.repositories.RoomRepository">
+		<constructor-arg name="dbe" ref="DBManager"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="getRoomsQuery" value="${rooms.queryString}"/>
+		<constructor-arg name="dba" ref="DBAdaptor"/>
+		<constructor-arg name="oha" ref="OHAdaptor"/>
+		<constructor-arg name="additionalAdaptors">
+			<array></array>
+		</constructor-arg>
+		<!-- <property name="mqttPublisher" ref="MQTTPublisher"/> -->
+	</bean>
+	<bean id="Products" class="bm.main.repositories.ProductRepository">
+		<constructor-arg name="dbe" ref="DBManager"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="getProductsQuery" value="${product.queryString}"/>
+		<constructor-arg name="getPropertyTypesQuery" value="${propertyType.queryString}"/>
+		<constructor-arg name="productFactory" ref="ProductFactory"/>
+		<constructor-arg name="specialProducts">
+			<map>
+				<!-- <entry key="0010" value-ref="TimerProductFactory"/> -->
+			</map>
+		</constructor-arg>
+	</bean>
+	<bean id="CIRs" class="bm.main.repositories.CIRRepository">
+		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
+		<constructor-arg name="componentRepository" ref="Components"/>
+		<constructor-arg name="fe" ref="CIR.FileEngine"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="errorLogDomain" value="{log.domain.error}"/>
+	</bean>
+	<bean id="UIRooms" class="ui.main.repositories.UIRoomRepository">
+		<constructor-arg name="dbe" ref="DBManager"/>
+		<constructor-arg name="ohDBE" ref="OH.DBEngine"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="logDomain" value="${log.domain.ui}"/>
+		<constructor-arg name="getRoomsQuery" value="${rooms.queryString}"/>
+		<constructor-arg name="dba" ref="DBAdaptor"/>
+		<constructor-arg name="oha" ref="OHAdaptor"/>
+		<constructor-arg name="additionalAdaptors">
+			<array></array>
+		</constructor-arg>
+		<constructor-arg name="roomRepository" ref="Rooms"/>
+		<constructor-arg name="ohRoomsTable" value="${oh.db.table.roomstable}"/>
+		<constructor-arg name="ssidColname" value="${oh.db.table.roomstable.ssid}"/>
+		<constructor-arg name="colorColname" value="${oh.db.table.roomstable.color}"/>
+	</bean>
+</beans>

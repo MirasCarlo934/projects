@@ -1,0 +1,154 @@
+2017-10-20 22:01:28,591 INFO  [main] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 22:01:28,592 DEBUG [main] (MQTT.MQTTClient) Subscribed to BM topic!
+2017-10-20 22:01:28,592 DEBUG [main] (MQTT.MQTTClient) Listener set!
+2017-10-20 22:01:28,592 DEBUG [main] (MQTT.MQTTClient) Publisher set!
+2017-10-20 22:13:46,015 FATAL [Timer-0] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 22:13:50,007 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 22:13:50,011 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 22:24:06,210 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 22:24:06,212 FATAL [SystemTimer] (MQTT.MQTTClient) Error reconnecting!
+Client is currently disconnecting (32102)
+	at org.eclipse.paho.client.mqttv3.MqttAsyncClient.reconnect(MqttAsyncClient.java:1150)
+	at org.eclipse.paho.client.mqttv3.MqttClient.reconnect(MqttClient.java:624)
+	at bm.mqtt.MQTTClient$MQTTClientReconnector.run(MQTTClient.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 22:24:07,077 FATAL [Timer-1] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 22:24:11,213 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 22:24:11,219 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 22:34:29,163 FATAL [Timer-2] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 22:34:33,410 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 22:34:33,411 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 22:44:50,219 FATAL [Timer-3] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 22:44:51,035 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 22:44:51,036 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 22:55:08,231 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 22:55:08,233 FATAL [SystemTimer] (MQTT.MQTTClient) Error reconnecting!
+Client is currently disconnecting (32102)
+	at org.eclipse.paho.client.mqttv3.MqttAsyncClient.reconnect(MqttAsyncClient.java:1150)
+	at org.eclipse.paho.client.mqttv3.MqttClient.reconnect(MqttClient.java:624)
+	at bm.mqtt.MQTTClient$MQTTClientReconnector.run(MQTTClient.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 22:55:08,242 FATAL [Timer-4] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 22:55:13,233 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 22:55:13,235 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 23:14:48,016 FATAL [Timer-5] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:14:52,014 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:14:52,017 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 23:25:09,203 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:25:09,207 FATAL [SystemTimer] (MQTT.MQTTClient) Error reconnecting!
+Client is currently disconnecting (32102)
+	at org.eclipse.paho.client.mqttv3.MqttAsyncClient.reconnect(MqttAsyncClient.java:1150)
+	at org.eclipse.paho.client.mqttv3.MqttClient.reconnect(MqttClient.java:624)
+	at bm.mqtt.MQTTClient$MQTTClientReconnector.run(MQTTClient.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:25:10,074 FATAL [Timer-6] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:25:14,211 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:25:14,219 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 23:35:30,404 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:35:30,404 FATAL [SystemTimer] (MQTT.MQTTClient) Error reconnecting!
+Client is currently disconnecting (32102)
+	at org.eclipse.paho.client.mqttv3.MqttAsyncClient.reconnect(MqttAsyncClient.java:1150)
+	at org.eclipse.paho.client.mqttv3.MqttClient.reconnect(MqttClient.java:624)
+	at bm.mqtt.MQTTClient$MQTTClientReconnector.run(MQTTClient.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:35:31,157 FATAL [Timer-7] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:35:35,405 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:35:35,407 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 23:45:52,215 FATAL [Timer-8] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:45:53,051 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:45:53,053 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!
+2017-10-20 23:56:10,227 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:56:10,227 FATAL [SystemTimer] (MQTT.MQTTClient) Error reconnecting!
+Client is currently disconnecting (32102)
+	at org.eclipse.paho.client.mqttv3.MqttAsyncClient.reconnect(MqttAsyncClient.java:1150)
+	at org.eclipse.paho.client.mqttv3.MqttClient.reconnect(MqttClient.java:624)
+	at bm.mqtt.MQTTClient$MQTTClientReconnector.run(MQTTClient.java:81)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:56:10,279 FATAL [Timer-9] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-10-20 23:56:15,228 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-10-20 23:56:15,229 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!

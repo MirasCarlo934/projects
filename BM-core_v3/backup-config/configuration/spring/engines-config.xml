@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config/>
+	
+	<!-- NON-CORE ENGINES -->
+	<bean id="PLEX.Listener.HTTPEngine" class="bm.main.engines.HTTPEngine">
+		<constructor-arg name="name" value="Plex-HTTPEngine"></constructor-arg>
+   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
+	</bean>
+	<bean id="PLEX.Updater.HTTPEngine" class="bm.main.engines.HTTPEngine">
+		<constructor-arg name="name" value="Plex-HTTPEngine"></constructor-arg>
+   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
+	</bean>
+   	
+   	<!-- CORE ENGINES -->
+   	<bean id="OH.HTTPEngine" class="bm.main.engines.HTTPEngine" scope="singleton">
+		<constructor-arg name="name" value="OH-HTTPEngine"/>
+   		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
+   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+   		<!-- <constructor-arg name="url" value="${oh.ip}"/> -->
+   	</bean>
+   	<bean id="OH.RulesFileEngine" class="bm.main.engines.FileEngine" scope="singleton">
+   		<constructor-arg name="name" value="OH-RulesFileEngine"/>
+   		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
+   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+   		<constructor-arg name="filepath" value="${oh.rules_filename}"/>
+   	</bean>
+   	<bean id="OH.SitemapFileEngine" class="bm.main.engines.FileEngine" scope="singleton">
+   		<constructor-arg name="name" value="OH-SitemapFileEngine"/>
+   		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
+   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+   		<constructor-arg name="filepath" value="${oh.sitemap_filename}"/>
+   	</bean>
+   	<bean id="CIR.FileEngine" class="bm.main.engines.FileEngine" scope="singleton">
+   		<constructor-arg name="name" value="CIR-FileEngine"/>
+   		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
+   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+   		<constructor-arg name="filepath" value="${cir.filepath}"/>
+   	</bean>
+	<bean id="DBManager" class="bm.main.engines.DBEngine" scope="singleton">
+		<constructor-arg name="name" value="MainDBEngine"/>
+		<constructor-arg name="logDomain" value="${log.domain.db}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="dbURL" value="${db.host}"/>
+		<constructor-arg name="dbusr" value="${db.dbusr}"/>
+		<constructor-arg name="dbpwd" value="${db.dbpwd}"/>
+		<constructor-arg name="sysTimer" ref="SystemTimer"/>
+		<constructor-arg name="reconnectPeriod" value="${db.reconnectPeriod}"/>
+	</bean>
+	<!-- <bean id="PlexEngine" class="bm.main.engines.PlexEngine" scope="singleton">
+		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="plexURL" value="${plex.serverURL}"/>
+		<constructor-arg name="URLPropSSID" value="${plex.URLproperty.propSSID}"/>
+		<constructor-arg name="playerProdSSID" value="${plex.playerProdSSID}"/>
+		<constructor-arg name="playerURLPropID" value="${plex.playerProperties.URL}"/>
+		<constructor-arg name="playerStatePropID" value="${plex.playerProperties.playerStatus}"/>
+		<constructor-arg name="playPropID" value="${plex.playerProperties.play}"/>
+		<constructor-arg name="pausePropID" value="${plex.playerProperties.pause}"/>
+		<constructor-arg name="progressPropID" value="${plex.playerProperties.stop}"/>
+		<constructor-arg name="stopPropID" value="${plex.playerProperties.stop}"/>
+		<constructor-arg name="progressPropID" value="${plex.playerProperties.progress}"/>
+	</bean> -->
+	<!-- <bean id="CIREngine" class="main.engines.CIREngine" scope="singleton">
+		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="cir_filepath" value="${cir.filepath}"/>
+		<constructor-arg name="componentRepository" ref="Components"/>
+	</bean> -->
+</beans>

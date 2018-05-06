@@ -1,0 +1,4 @@
+2018-05-06 10:25:04,653 INFO  [main] (MQTT.MQTTClient) Connected to MQTT!
+2018-05-06 10:25:04,658 DEBUG [main] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-05-06 10:25:04,658 DEBUG [main] (MQTT.MQTTClient) Listener set!
+2018-05-06 10:25:04,658 DEBUG [main] (MQTT.MQTTClient) Publisher set!

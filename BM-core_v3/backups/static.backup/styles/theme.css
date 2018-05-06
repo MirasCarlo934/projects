@@ -1,0 +1,98 @@
+body {
+	margin:0;
+}
+
+.textNormal, .textNormalWhite, .textNormalBold, .textNormalWhiteBold {
+	font-size: 18px;
+	font-family: Myriad Pro;
+}
+
+.textNormalBold {
+	font-weight: bold;
+}
+
+.textNormalWhite {
+	color: white;
+}
+
+.textCaption {
+	font-size: 12px;
+	font-family: Myriad Pro;
+	color: #999999;
+}
+
+div.body {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left:0px;
+	right:0px;
+	top:60px;
+}
+
+div.notifBox {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: solid 1px black; 
+	width: 300px;
+	text-align: left;
+	
+	left: 50%;
+	margin-left: -150px;
+	margin-top: 20px;
+	
+	background-color: white;
+	
+	position: relative;
+	
+	transition: all 0.3s;
+}
+
+div.notifBox:hover {
+	opacity: 0.5;
+}
+
+.notifHeader {
+	font-family: Myriad Pro;
+	/* font-weight: bold; */
+	font-size: 20px;
+	width: 280px;
+	margin-top:0px;
+	padding-left: 20px;
+	
+	/* -webkit-border-top-right-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	-moz-border-top-left-radius: 10px; */
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	/* border: solid 1px black;  */
+	
+	color: white;
+	background-color: black;
+}
+
+.notifMsg {
+	font-family: Myriad Pro;
+	font-size: 18px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+span.topbar {
+	/* margin-top: 10px; 
+	margin-left: auto;
+	margin-right: auto;*/
+	font-family: Myriad Pro;
+	font-size: 60px;
+	color: white;
+}
+
+.invisible {
+	background-color: inherit;
+	color: inherit;
+}

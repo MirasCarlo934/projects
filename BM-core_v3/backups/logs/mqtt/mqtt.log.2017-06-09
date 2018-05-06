@@ -1,0 +1,179 @@
+2017-06-09 23:33:56,376 INFO  [main] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-09 23:33:56,385 DEBUG [main] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-09 23:33:56,386 DEBUG [main] (MQTT.MQTTHandler) Callback set!
+2017-06-09 23:33:59,988 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:33:59,988 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0029',value:0}
+2017-06-09 23:34:00,321 DEBUG [1:Process1] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:34:02,948 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:02,949 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0029',value:1}
+2017-06-09 23:34:03,238 DEBUG [2:Process2] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:34:05,892 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:05,892 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:43}
+2017-06-09 23:34:06,071 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:06,071 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:43}
+2017-06-09 23:34:06,111 DEBUG [1:Process4] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":43} to KIX3_topic
+2017-06-09 23:34:06,161 DEBUG [1:Process4] (MQTT.MQTTHandler) Publishing message:0024_43 to openhab/KIX3_topic
+2017-06-09 23:34:06,212 DEBUG [3:Process3] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":43} to KIX3_topic
+2017-06-09 23:34:12,855 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:12,856 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:100}
+2017-06-09 23:34:13,055 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:13,057 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:100}
+2017-06-09 23:34:13,063 DEBUG [1:Process6] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":100} to KIX3_topic
+2017-06-09 23:34:13,113 DEBUG [1:Process6] (MQTT.MQTTHandler) Publishing message:0024_100 to openhab/KIX3_topic
+2017-06-09 23:34:13,163 DEBUG [2:Process5] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":100} to KIX3_topic
+2017-06-09 23:34:29,403 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:29,403 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"18fe34cf4fc1","CID":"18fe34cf4fc1","RTY":"bye"}
+2017-06-09 23:34:38,756 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:38,757 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:82}
+2017-06-09 23:34:38,962 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:38,962 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:82}
+2017-06-09 23:34:38,986 DEBUG [2:Process9] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":82} to KIX3_topic
+2017-06-09 23:34:39,035 DEBUG [2:Process9] (MQTT.MQTTHandler) Publishing message:0024_82 to openhab/KIX3_topic
+2017-06-09 23:34:39,136 DEBUG [1:Process8] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":82} to KIX3_topic
+2017-06-09 23:34:41,911 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:34:41,911 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:18fe34cf4fc1,CID:0002,RTY:register,name:Light1,roomID:CRL0,product:0002}
+2017-06-09 23:34:41,954 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"register","success":true,"topic":"KIX3_topic","id":"KIX3","RID":"18fe34cf4fc1"} to default_topic
+2017-06-09 23:34:42,020 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"POOP","value":1} to KIX3_topic
+2017-06-09 23:34:42,069 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0002","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:34:42,119 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"POOP","value":82} to KIX3_topic
+2017-06-09 23:34:42,169 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0003","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:34:42,219 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:34:42,270 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0023","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:34:42,320 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:34:42,370 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0021","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:34:42,420 DEBUG [3:Process10] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:35:02,226 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:02,226 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0021',value:0}
+2017-06-09 23:35:02,464 DEBUG [2:Process11] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0021","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:35:08,615 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:08,615 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0029',value:0}
+2017-06-09 23:35:08,873 DEBUG [1:Process12] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:35:10,323 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:10,323 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:0}
+2017-06-09 23:35:10,584 DEBUG [3:Process13] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:35:12,443 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:12,443 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0020',value:0}
+2017-06-09 23:35:12,697 DEBUG [2:Process14] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:35:19,900 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:19,900 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0019',value:0}
+2017-06-09 23:35:20,238 DEBUG [1:Process15] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:35:27,709 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:27,709 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0021',value:1}
+2017-06-09 23:35:27,978 DEBUG [3:Process16] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0021","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:35:36,244 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:36,244 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0019',value:1}
+2017-06-09 23:35:36,486 DEBUG [2:Process17] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:35:38,850 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:38,851 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0020',value:1}
+2017-06-09 23:35:39,106 DEBUG [1:Process18] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:35:41,409 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:41,409 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:1}
+2017-06-09 23:35:41,724 DEBUG [3:Process19] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:35:45,252 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:45,253 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:29}
+2017-06-09 23:35:45,434 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:35:45,434 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0024',value:29}
+2017-06-09 23:35:45,447 DEBUG [1:Process21] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":29} to KIX3_topic
+2017-06-09 23:35:45,497 DEBUG [1:Process21] (MQTT.MQTTHandler) Publishing message:0024_29 to openhab/KIX3_topic
+2017-06-09 23:35:45,548 DEBUG [2:Process20] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"OH-POOP","value":29} to KIX3_topic
+2017-06-09 23:36:07,333 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:36:07,333 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:0}
+2017-06-09 23:36:07,595 DEBUG [3:Process22] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:36:25,131 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:36:25,131 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0029","value":"1","RTY":"poop"}
+2017-06-09 23:36:25,363 DEBUG [1:Process23] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:36:30,554 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:36:30,554 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0019","value":"1","RTY":"poop"}
+2017-06-09 23:36:30,788 DEBUG [2:Process24] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:36:36,022 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:36:36,022 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:1}
+2017-06-09 23:36:36,328 DEBUG [3:Process25] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:36:37,077 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:36:37,078 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:0}
+2017-06-09 23:36:37,285 DEBUG [1:Process26] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:36:39,355 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:36:39,356 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0020',value:0}
+2017-06-09 23:36:39,601 DEBUG [2:Process27] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:36:41,896 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:36:41,896 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0020',value:1}
+2017-06-09 23:36:42,117 DEBUG [3:Process28] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:37:04,210 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:37:04,210 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0020',value:0}
+2017-06-09 23:37:04,510 DEBUG [1:Process29] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:37:08,149 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:37:08,149 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0019',value:0}
+2017-06-09 23:37:08,533 DEBUG [2:Process30] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:37:23,999 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:37:24,000 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0021","value":"1","RTY":"poop"}
+2017-06-09 23:37:24,275 DEBUG [3:Process31] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0021","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:37:56,968 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:37:56,968 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0019","value":"1","RTY":"poop"}
+2017-06-09 23:37:57,198 DEBUG [1:Process32] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:37:59,394 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:37:59,394 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0029","value":"1","RTY":"poop"}
+2017-06-09 23:37:59,665 DEBUG [2:Process33] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:39:12,130 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:39:12,130 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:1}
+2017-06-09 23:39:12,355 DEBUG [3:Process34] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:39:20,254 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:39:20,254 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:0}
+2017-06-09 23:39:20,516 DEBUG [1:Process35] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:46:07,360 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:46:07,360 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"18fe34cf4fc1","CID":"18fe34cf4fc1","RTY":"bye"}
+2017-06-09 23:56:25,175 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:56:25,176 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:18fe34cf4fc1,CID:0002,RTY:register,name:Light1,roomID:CRL0,product:0002}
+2017-06-09 23:56:25,181 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"register","success":true,"topic":"KIX3_topic","id":"KIX3","RID":"18fe34cf4fc1"} to default_topic
+2017-06-09 23:56:25,231 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"POOP","value":1} to KIX3_topic
+2017-06-09 23:56:25,282 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0002","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:56:25,292 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:56:25,292 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:18fe34cf4fc1,CID:0002,RTY:register,name:Light1,roomID:CRL0,product:0002}
+2017-06-09 23:56:25,333 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"POOP","value":29} to KIX3_topic
+2017-06-09 23:56:25,383 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0003","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:56:25,433 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"POOP","value":0} to KIX3_topic
+2017-06-09 23:56:25,483 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0023","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:56:25,533 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"POOP","value":0} to KIX3_topic
+2017-06-09 23:56:25,583 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0021","RID":"POOP","value":1} to KIX3_topic
+2017-06-09 23:56:25,634 DEBUG [3:Process37] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"POOP","value":1} to KIX3_topic
+2017-06-09 23:56:25,684 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"register","success":true,"topic":"KIX3_topic","id":"KIX3","RID":"18fe34cf4fc1"} to default_topic
+2017-06-09 23:56:25,734 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"POOP","value":1} to KIX3_topic
+2017-06-09 23:56:25,785 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0002","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:56:25,836 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0024","RID":"POOP","value":29} to KIX3_topic
+2017-06-09 23:56:25,886 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0003","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:56:25,936 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"POOP","value":0} to KIX3_topic
+2017-06-09 23:56:25,986 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0023","RID":"POOP","value":-1} to KIX3_topic
+2017-06-09 23:56:26,036 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"POOP","value":0} to KIX3_topic
+2017-06-09 23:56:26,086 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0021","RID":"POOP","value":1} to KIX3_topic
+2017-06-09 23:56:26,137 DEBUG [1:Process38] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"POOP","value":1} to KIX3_topic
+2017-06-09 23:57:14,009 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:14,009 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0029","value":"1","RTY":"poop"}
+2017-06-09 23:57:14,351 DEBUG [2:Process39] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:57:17,946 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:17,946 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0021","value":"1","RTY":"poop"}
+2017-06-09 23:57:18,277 DEBUG [3:Process40] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0021","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:57:25,430 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:25,431 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0020","value":"1","RTY":"poop"}
+2017-06-09 23:57:25,826 DEBUG [1:Process41] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0020","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:57:35,814 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:35,814 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0029","value":"1","RTY":"poop"}
+2017-06-09 23:57:36,136 DEBUG [2:Process42] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:57:42,195 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:42,195 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0019","value":"1","RTY":"poop"}
+2017-06-09 23:57:42,574 DEBUG [3:Process43] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:57:49,578 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:49,578 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0029","value":"1","RTY":"poop"}
+2017-06-09 23:57:49,871 DEBUG [1:Process44] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"0000","value":"1"} to KIX3_topic
+2017-06-09 23:57:52,603 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:52,603 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0029',value:0}
+2017-06-09 23:57:52,889 DEBUG [2:Process45] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:57:55,249 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:57:55,249 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0022',value:1}
+2017-06-09 23:57:55,558 DEBUG [3:Process46] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0022","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:58:02,490 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:58:02,490 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0019',value:0}
+2017-06-09 23:58:02,804 DEBUG [1:Process47] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"OH-POOP","value":0} to KIX3_topic
+2017-06-09 23:58:03,162 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:58:03,162 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {RID:'OH-POOP', CID:'KIX3',RTY:'poop',property:'0019',value:1}
+2017-06-09 23:58:03,508 DEBUG [2:Process48] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0019","RID":"OH-POOP","value":1} to KIX3_topic
+2017-06-09 23:58:10,145 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message arrived at topic BM
+2017-06-09 23:58:10,145 DEBUG [MQTT Call: BM_win] (MQTT.MQTTHandler) Message is: {"RID":"0000","CID":"KIX3","property":"0029","value":"1","RTY":"poop"}
+2017-06-09 23:58:10,450 DEBUG [3:Process49] (MQTT.MQTTHandler) Publishing message:{"RTY":"poop","success":true,"property":"0029","RID":"0000","value":"1"} to KIX3_topic

@@ -1,0 +1,15 @@
+2017-08-21 20:34:32,755 INFO  [main] (MQTT.MQTTClient) Connected to MQTT!
+2017-08-21 20:34:32,756 DEBUG [main] (MQTT.MQTTClient) Subscribed to BM topic!
+2017-08-21 20:34:32,756 DEBUG [main] (MQTT.MQTTClient) Listener set!
+2017-08-21 20:34:32,756 DEBUG [main] (MQTT.MQTTClient) Publisher set!
+2017-08-21 22:07:55,034 FATAL [Timer-0] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-08-21 22:07:59,017 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-08-21 22:07:59,023 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!

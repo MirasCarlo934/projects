@@ -1,0 +1,32 @@
+2017-06-10 00:10:52,601 INFO  [main] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-10 00:10:52,611 DEBUG [main] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-10 00:10:52,611 DEBUG [main] (MQTT.MQTTHandler) Callback set!
+2017-06-10 22:27:04,552 FATAL [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:575)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:660)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:77)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+2017-06-10 22:27:04,558 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Attempting to reconnect...
+2017-06-10 22:27:46,580 FATAL [MQTT Ping: BM_win] (MQTT.MQTTHandler) Cannot connect to MQTT due to MqttException!
+Unable to connect to server (32103) - java.net.ConnectException: Connection timed out: connect
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:79)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:590)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:70)
+	... 2 more
+2017-06-10 22:27:46,582 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Attempting to reconnect...
+2017-06-10 22:27:46,597 INFO  [MQTT Ping: BM_win] (MQTT.MQTTHandler) Connected to MQTT!
+2017-06-10 22:27:46,609 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Subscribed to BM topic!
+2017-06-10 22:27:46,609 DEBUG [MQTT Ping: BM_win] (MQTT.MQTTHandler) Callback set!

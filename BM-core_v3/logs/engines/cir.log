@@ -1,0 +1,5 @@
+2018-05-06 10:25:04,043 INFO  [main] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
+2018-05-06 10:25:04,101 INFO  [main] (CIR.CIRRepository) CIRRepository started!
+2018-05-06 10:25:05,348 DEBUG [main] (CIR.CIRRepository) Updating CIRRepository...
+2018-05-06 10:25:05,364 WARN  [main] (CIR.CIRRepository) Rule "Lights On 1" contains invalid component "J6L0" in arguments block. Disregarding rule!
+2018-05-06 10:25:05,364 WARN  [main] (CIR.CIRRepository) Rule "Lights Off 1" contains invalid component "J6L0" in arguments block. Disregarding rule!
