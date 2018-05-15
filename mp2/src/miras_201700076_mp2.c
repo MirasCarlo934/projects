@@ -7,8 +7,6 @@
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
-//TODO check if all pointers are freed
-//TODO ask if user textfile should not include own username in tagged people
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,7 +15,7 @@
 
 #define MAX_LEN 1024
 
-#define DEBUG 2
+#define DEBUG 1
 /*
  * Notes when debug mode is on level 1:
  * 	-no username checking
@@ -32,7 +30,7 @@
  * 	-entered tweet is not written to respective files
  */
 
-typedef struct tweet_{ //TODO if this is not allowable, reuse old solution [commented at the bottom of parseTweet()]
+typedef struct tweet_{
 	char **content;
 	char **tagged_people;
 	char **hashtags;
@@ -67,7 +65,7 @@ int showMenu();
 void sendTweet(char *user, char **users);
 Tweet parseTweet(char *tweetstr);
 bool verifyTweet(Tweet tweet, char *user, char **users);
-void publishTweet(Tweet tweet, char *user, char **users);
+void publishTweet(Tweet tweet, char *user);
 
 void viewNotifications(char *user);
 void viewWall(char *user);
@@ -78,7 +76,7 @@ void printTweet(Tweet tweet);
 void printPersonalTweet(PersonalTweet tweet);
 void printPublicTweet(PublicTweet tweet);
 
-//tweet memory management
+//memory management
 Tweet init_tweet();
 PersonalTweet init_personal_tweet();
 PublicTweet init_public_tweet();
@@ -94,7 +92,7 @@ void flush_stdin();
 
 int main(int argc, char const *argv[])
 {
-	char *user = (char *) malloc(1024);
+	char *user = 0;
 	char **users = 0;
 	int opt = 0;
 
@@ -105,7 +103,7 @@ int main(int argc, char const *argv[])
 		printf("Invalid number of arguments! Terminating...\n");
 		return 0;
 	} else {
-		user = (char *) realloc(user, (int)strlen(argv[1]));
+		user = (char *) malloc((char)(strlen(argv[1]) + 1));
 		strcpy(user, argv[1]);
 		printf("You entered: %s\n", user);
 	}
@@ -121,26 +119,36 @@ int main(int argc, char const *argv[])
 	createUsername(user);
 #endif
 
-	printf("Welcome, %s!\n", user);
-	opt = showMenu();
-//	opt = 1;
-	switch(opt) {
-		case 1:
-			sendTweet(user, users);
-			break;
-		case 2:
-			viewNotifications(user);
-			break;
-		case 3:
-			viewWall(user);
-			break;
-		case 4:
-			logout(user, users);
-			break;
+	while(1) {
+		printf("Welcome, %s!\n", user);
+		opt = showMenu();
+		bool out = false;
+		users = getUsers();
+		switch(opt) {
+			case 1:
+				sendTweet(user, users);
+				break;
+			case 2:
+				viewNotifications(user);
+				break;
+			case 3:
+				viewWall(user);
+				break;
+			case 4:
+#if DEBUG < 1
+				logout(user, users);
+#endif
+				out = true;
+				break;
+		}
+		if(out)break;
 	}
 
+	for(int i = 0; **users != '\0'; i++) {
+		free(*(users + i));
+	}
+	free(users);
 	free(user);
-//	flush_stdin();
 	return 0;
 }
 
@@ -150,6 +158,10 @@ int main(int argc, char const *argv[])
  */
 char** getUsers() {
 	FILE *fusers = fopen("users.txt", "r");
+	if(fusers == NULL) {
+		fopen("users.txt", "a");
+		fusers = fopen("users.txt", "r");
+	}
 	char u[1024];
 
 	int n = 0;
@@ -159,15 +171,11 @@ char** getUsers() {
 	char **users = (char **) malloc(sizeof(char *) * (n + 1));
 	int i = 0;
 	while(fscanf(fusers, "%s", u) != EOF) {
-//		printf("%p\n", users);
 		*(users + i) = (char *)malloc(sizeof(char) * (int)strlen(u));
 		strcpy(*(users + i), u);
-//		printf("from file: %s - %s[%p - %p]\n", u, *(users + i), users, u);
 		i++;
 	}
-//	for(int j = 0; j < i; j++) {
-//		printf("registry: %s[%p]\n", *(users + j), users);
-//	}
+
 	*(users + i) = (char *) malloc(sizeof(char));
 	**(users + i) = '\0';
 	fclose(fusers);
@@ -176,13 +184,12 @@ char** getUsers() {
 
 /**
  * Checks if the username already exists in the user registry.
- * @param user The username
+ * @param user The current username
  * @param users The list of all existing usernames
  * @return
  */
 bool checkUsername(char *user, char **users) {
 	for(int i = 0; **(users + i) != '\0'; i++) {
-//		printf("%s - %s\n", user, *(users + i));
 		if(strcmp(user, *(users + i)) == 0) {
 			return false;
 		}
@@ -190,30 +197,25 @@ bool checkUsername(char *user, char **users) {
 	return true;
 }
 
-//int checkUsername(char *user) {
-//	FILE *fusers = fopen("users.txt", "r");
-//	char *u = (char *) malloc(1024);
-//	while(fscanf(fusers, "%s", u) != EOF) {
-//		if(strcmp(user, u) == 0) {
-//			return 0;
-//		}
-//	}
-//	free(u);
-//	fclose(fusers);
-//	return 1;
-//}
-
+/**
+ * Creates a textfile for the current username.
+ * @param user The current username
+ */
 void createUsername(char *user) {
 	char *filename = (char *) malloc((int)strlen(user) + 4);
 	strcpy(filename, user);
 	strcat(filename, ".txt");
 	FILE *registry = fopen("users.txt", "a");
 	FILE *user_f = fopen(filename, "w");
-	fprintf(registry, "\n%s", user);
+	fprintf(registry, "%s\n", user);
 	fclose(registry);
 	fclose(user_f);
 }
 
+/**
+ * Displays the menu and accepts the option selected by the user. Option is checked prior to return.
+ * @return The option [int] selected by the user
+ */
 int showMenu() {
 	int a;
 	printf("(1) Send a Tweet\n");
@@ -222,7 +224,7 @@ int showMenu() {
 	printf("(4) Log Out\n");
 	printf("Enter here: ");
 	scanf("%i", &a);
-	if(a < 1 || a > 4) {
+	if(a < '1' || a > '4') {
 		printf("Invalid option!\n");
 		a = showMenu();
 	}
@@ -230,6 +232,11 @@ int showMenu() {
 	return a;
 }
 
+/**
+ * Handles the tweet-sending functionality of the program.
+ * @param user The current username
+ * @param users The list of all existing usernames
+ */
 void sendTweet(char *user, char **users) {
 	char *input = (char *)malloc(1);
 	Tweet tweet;
@@ -241,7 +248,7 @@ void sendTweet(char *user, char **users) {
 
 #if DEBUG < 2
 	if(verifyTweet(tweet, user, users)) {
-		publishTweet(tweet, user, users);
+		publishTweet(tweet, user);
 	} else {
 		printf("\nsending tweet failed\n");
 	}
@@ -250,96 +257,44 @@ void sendTweet(char *user, char **users) {
 	freeTweet(tweet);
 }
 
+/**
+ * Parses an input string into a Tweet struct.
+ * @param tweetstr The input string to be parsed
+ * @return The Tweet struct
+ */
 Tweet parseTweet(char *tweetstr) {
 	Tweet tweet = init_tweet();
 
-	printf("Input: %s\n", tweetstr); //TODO remove later
+	printf("Input: %s\n", tweetstr);
 	for(int i = 0; *(tweetstr + i) != '\0'; i++) {
-//		printf("i::%i = %c[%i]\n", i, *(tweetstr + i), *(tweetstr + i));
-		if(*(tweetstr + i) == '#') {
-			int chars = 0;
+		int chars = 0;
+		char *word = (char *)malloc(sizeof(char) * MAX_LEN);
+		for(; *(tweetstr + i) != ' ' && *(tweetstr + i) != '\0'; i++) {
+			*(word + chars) = *(tweetstr + i);
+			chars++;
+		}
+		*(word + chars) = '\0';
+		word = (char *)realloc(word, sizeof(char) * strlen(word));
+
+		if(*word == ' ') {
+			continue;
+		}
+		if(*word == '#') {
 			tweet.hashtags = (char **)realloc(tweet.hashtags, sizeof(char *) * (tweet.htag_i + 1));
-			char *word = (char *)malloc(sizeof(char));
-			for(; *(tweetstr + i) != ' ' && *(tweetstr + i) != '\0'; i++) {
-//				printf("hashtag::%i (%p - %p) = %c[%i]\n", i, tweet.hashtags + tweet.htag_i, word + chars, *(tweetstr + i), *(tweetstr + i));
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = *(tweetstr + i);
-				chars++;
-				if(*(tweetstr + i + 1) == '\0') {
-					break;
-				}
-			}
-			word = (char *)realloc(word, sizeof(char) * (chars + 1));
-			*(word + chars) = '\0';
 			*(tweet.hashtags + tweet.htag_i) = word;
 			tweet.htag_i++;
 		}
-		else if(*(tweetstr + i) == '@') {
-			int chars = 0;
+		else if(*word == '@') {
 			tweet.tagged_people = (char **)realloc(tweet.tagged_people, sizeof(char *) * (tweet.tag_i + 1));
-			char *word = (char *)malloc(sizeof(char));
-			for(; *(tweetstr + i) != ' ' && *(tweetstr + i) != '\0'; i++) {
-//				printf("tagged::%i (%p - %p) = %c[%i]\n", i, tweet.tagged_people + tweet.tag_i, word + chars, *(tweetstr + i), *(tweetstr + i));
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = *(tweetstr + i);
-				chars++;
-				if(*(tweetstr + i + 1) == '\0') {
-					break;
-				}
-			}
-			word = (char *)realloc(word, sizeof(char) * (chars + 1));
-			*(word + chars) = '\0';
 			*(tweet.tagged_people + tweet.tag_i) = word;
 			tweet.tag_i++;
 		}
 		else {
-			int chars = 0;
 			tweet.content = (char **)realloc(tweet.content, sizeof(char *) * (tweet.content_i + 1));
-//			printf("%i [%p]\n", tweet.content_i, *(tweet.content + tweet.content_i));
-			char *word = (char *)malloc(sizeof(char));
-			for(; *(tweetstr + i) != ' ' && *(tweetstr + i) != '\0'; i++) {
-//				printf("content::%i (%p - %p) = %c[%i]\n", i, word + tweet.content_i, word + chars, *(tweetstr + i), *(tweetstr + i));
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = *(tweetstr + i);
-				chars++;
-				if(*(tweetstr + i + 1) == '\0') {
-					break;
-				}
-			}
-			word = (char *)realloc(word, sizeof(char) * (chars + 1));
-			*(word + chars) = '\0';
 			*(tweet.content + tweet.content_i) = word;
-//			printf("%p -- %p\n", *(tweet.content + tweet.content_i), word);
 			tweet.content_i++;
 		}
 	}
-
-//	if(tweet.content_i > 0) {
-//		tweet.content = (char **)realloc(tweet.content, tweet.content_i);
-//		*(tweet.content + tweet.content_i) = (char *)malloc(1);
-//		**(tweet.content + tweet.content_i) = 'x';
-//	}
-//	if(tweet.htag_i > 0) {
-//		tweet.hashtags = (char **)realloc(tweet.hashtags, tweet.htag_i);
-//		*(tweet.hashtags + tweet.htag_i) = (char *)malloc(1);
-//		**(tweet.hashtags + tweet.htag_i) = 'x';
-//	}
-//	if(tweet.tag_i > 0) {
-//		tweet.tagged_people = (char **)realloc(tweet.tagged_people, tweet.tag_i);
-//		*(tweet.tagged_people + tweet.tag_i) = (char *)malloc(1);
-//		**(tweet.tagged_people + tweet.tag_i) = 'x';
-//	}
-
-//	*(tweet.content + content_i) = (char *)malloc(1);
-//	**(tweet.content + content_i) = 'x';
-//	*(tweet.hashtags + htag_i) = (char *)malloc(1);
-//	**(tweet.hashtags + htag_i) = 'x';
-//	*(tweet.tagged_people + tag_i) = (char *)malloc(1);
-//	**(tweet.tagged_people + tag_i) = 'x';
-
-//	printf("%s, %s, %i\n", *(tweet.content), *(tweet.content + 1), contents);
-//	**(tweet.tagged_people + tagschars) = '\0';
-//	printf("%s[%i], %s[%i]\n", *(tweet.content + tweet.content_i), tweet.content_i, *(tweet.hashtags + tweet.htag_i), tweet.htag_i);
 
 	return tweet;
 }
@@ -352,14 +307,13 @@ Tweet parseTweet(char *tweetstr) {
  * @return
  */
 bool verifyTweet(Tweet tweet, char *user, char **users) {
-	for(int i = 0; i < tweet.tag_i; i++) { //TODO modify if current tweet struct is not allowable
+	for(int i = 0; i < tweet.tag_i; i++) {
 		char *u = *(tweet.tagged_people + i);
 		bool b = false;
 		if(strcmp(u, user) == 0) {
 			return false;
 		}
 		for(int j = 0; **(users + j) != '\0'; j++) {
-//			printf("%s -- %s\n", u, *(users + j));
 			if(strcmp(u + 1, *(users + j)) == 0) {
 				b = true;
 				break;
@@ -377,10 +331,9 @@ bool verifyTweet(Tweet tweet, char *user, char **users) {
  * Publishes tweet to user textfiles.
  * @param tweet The tweet struct to be published
  * @param users The list of all usernames
- * @return
  */
-void publishTweet(Tweet tweet, char *user, char **users) {//TODO simplify if possible
-	if(tweet.tag_i == 0) {
+void publishTweet(Tweet tweet, char *user) {
+	if(tweet.tag_i == 0) { //publishes to public_tweets.txt
 		FILE *file = fopen("public_tweets.txt", "a");
 		fprintf(file, "%s", user);
 		if(tweet.content_i > 0) {
@@ -402,13 +355,13 @@ void publishTweet(Tweet tweet, char *user, char **users) {//TODO simplify if pos
 			}
 		}
 		fputc('\n', file);
+		fclose(file);
 	}
-	for(int i = 0; i < tweet.tag_i; i++) {
+	for(int i = 0; i < tweet.tag_i; i++) { //publishes to specific user textfile/s
 		char *tagged = *(tweet.tagged_people + i) + 1;
 		char *filename = (char *)malloc(sizeof(char) * ((int)strlen(tagged) + 4));
 		strcpy(filename, tagged);
 		strcat(filename, ".txt");
-//		printf("%s\n", filename);
 		FILE *file = fopen(filename, "a");
 		fprintf(file, "%s", user);
 
@@ -427,7 +380,6 @@ void publishTweet(Tweet tweet, char *user, char **users) {//TODO simplify if pos
 		if(tweet.tag_i > 0) {
 			for(int j = 0; j < tweet.tag_i; j++) {
 				char *content = *(tweet.tagged_people + j);
-//				printf("%s -- %s\n", tagged - 1, content);
 				if(strcmp(tagged - 1, content) == 0) {
 					continue;
 				} else {
@@ -453,7 +405,7 @@ void publishTweet(Tweet tweet, char *user, char **users) {//TODO simplify if pos
  * @param user The current username
  */
 void viewNotifications(char *user) {
-	putc('\n', stdout);
+	putchar('\n');
 	char *filename = (char *)malloc(sizeof(char) * (int)strlen(user) + 4);
 	FILE *file;
 
@@ -471,61 +423,39 @@ void viewNotifications(char *user) {
 			*(tweet.sender + i) = *(str + i);
 		}
 		*(tweet.sender + i) = '\0';
+
 		for(i++; *(str + i) != '\0'; i++) { // retrieves other data
-			if(*(str + i) == '#') { // retrieves hashtags
-				int chars = 0;
+			int chars = 0;
+			char *word = (char *)malloc(sizeof(char) * MAX_LEN);
+			for(; *(str + i) != ',' && *(str + i) != ' ' && *(str + i) != '\0'; i++) {
+				*(word + chars) = *(str + i);
+				chars++;
+			}
+			*(word + chars) = '\0';
+			word = (char *)realloc(word, sizeof(char) * (strlen(word) + 1));
+
+			if(*word == ' ') {
+				continue;
+			}
+			if(*word == '#') { // retrieves hashtags
 				tweet.hashtags = (char **)realloc(tweet.hashtags, sizeof(char *) * (tweet.htag_i + 1));
-				char *word = (char *)malloc(sizeof(char));
-				for(; *(str + i) != ',' && *(str + i) != '\0'; i++) {
-					word = (char *)realloc(word, sizeof(char) * (chars + 1));
-					*(word + chars) = *(str + i);
-					chars++;
-					if(*(str + i + 1) == '\0') {
-						break;
-					}
-				}
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = '\0';
 				*(tweet.hashtags + tweet.htag_i) = word;
 				tweet.htag_i++;
 			}
-			else if(*(str + i) == '@') { // retrieves tagged people
-				int chars = 0;
-				tweet.tagged_people = (char **)realloc(tweet.tagged_people, sizeof(char *) * (tweet.tag_i + 1));
-				char *word = (char *)malloc(sizeof(char));
-				for(; *(str + i) != ',' && *(str + i) != '\0'; i++) {
-					word = (char *)realloc(word, sizeof(char) * (chars + 1));
-					*(word + chars) = *(str + i);
-					chars++;
-					if(*(str + i + 1) == '\0') {
-						break;
-					}
-				}
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = '\0';
+			else if(*word == '@') { // retrieves tagged people
+				tweet.tagged_people = (char **)realloc(tweet.tagged_people, sizeof(char *) *
+						(tweet.tag_i + 1));
 				*(tweet.tagged_people + tweet.tag_i) = word;
 				tweet.tag_i++;
 			}
 			else { // retrieves content
-				int chars = 0;
 				tweet.content = (char **)realloc(tweet.content, sizeof(char *) * (tweet.content_i + 1));
-				char *word = (char *)malloc(sizeof(char));
-				for(; *(str + i) != ',' && *(str + i) != ' ' && *(str + i) != '\0'; i++) {
-					word = (char *)realloc(word, sizeof(char) * (chars + 1));
-					*(word + chars) = *(str + i);
-					chars++;
-					if(*(str + i + 1) == '\0') {
-						break;
-					}
-				}
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = '\0';
 				*(tweet.content + tweet.content_i) = word;
 				tweet.content_i++;
 			}
 		}
 		printPersonalTweet(tweet);
-		printf("\n\n");
+		printf("\n");
 		freePersonalTweet(tweet);
 	}
 	free(str);
@@ -537,8 +467,12 @@ void viewNotifications(char *user) {
  * @param user The current username
  */
 void viewWall(char *user) {
-	putc('\n', stdout);
+	putchar('\n');
 	FILE *file = fopen("public_tweets.txt", "r");
+	if(file == NULL) {
+		file = fopen("public_tweets.txt", "a");
+		file = fopen("public_tweets.txt", "r");
+	}
 	char *str = (char *)malloc(sizeof(char) * MAX_LEN);
 
 	while(fgets(str, MAX_LEN, file) != 0) {
@@ -554,37 +488,25 @@ void viewWall(char *user) {
 		}
 		*(tweet.sender + i) = '\0';
 		for(i++; *(str + i) != '\0'; i++) { // retrieves other data
-			if(*(str + i) == '#') { // retrieves hashtags
-				int chars = 0;
+			int chars = 0;
+			char *word = (char *)malloc(sizeof(char) * MAX_LEN);
+			for(; *(str + i) != ',' && *(str + i) != ' ' && *(str + i) != '\0'; i++) {
+				*(word + chars) = *(str + i);
+				chars++;
+			}
+			*(word + chars) = '\0';
+			word = (char *)realloc(word, sizeof(char) * (strlen(word) + 1));\
+
+			if(*word == ' ') {
+				continue;
+			}
+			if(*word == '#') { // retrieves hashtags
 				tweet.hashtags = (char **)realloc(tweet.hashtags, sizeof(char *) * (tweet.htag_i + 1));
-				char *word = (char *)malloc(sizeof(char));
-				for(; *(str + i) != ',' && *(str + i) != '\0'; i++) {
-					word = (char *)realloc(word, sizeof(char) * (chars + 1));
-					*(word + chars) = *(str + i);
-					chars++;
-					if(*(str + i + 1) == '\0') {
-						break;
-					}
-				}
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = '\0';
 				*(tweet.hashtags + tweet.htag_i) = word;
 				tweet.htag_i++;
 			}
 			else { // retrieves content
-				int chars = 0;
 				tweet.content = (char **)realloc(tweet.content, sizeof(char *) * (tweet.content_i + 1));
-				char *word = (char *)malloc(sizeof(char));
-				for(; *(str + i) != ',' && *(str + i) != ' ' && *(str + i) != '\0'; i++) {
-					word = (char *)realloc(word, sizeof(char) * (chars + 1));
-					*(word + chars) = *(str + i);
-					chars++;
-					if(*(str + i + 1) == '\0') {
-						break;
-					}
-				}
-				word = (char *)realloc(word, sizeof(char) * (chars + 1));
-				*(word + chars) = '\0';
 				*(tweet.content + tweet.content_i) = word;
 				tweet.content_i++;
 			}
@@ -597,8 +519,13 @@ void viewWall(char *user) {
 	fclose(file);
 }
 
+/**
+ * Deletes the current username from users.txt and also its textfile.
+ * @param user The current username
+ * @param users The list of all existing usernames
+ */
 void logout(char *user, char **users) {
-#if DEBUG == 0
+	users = getUsers();
 	FILE *registry = fopen("users.txt", "w");
 	char *filename = (char *)malloc(sizeof(char) * strlen(user) + 4);
 	strcpy(filename, user);
@@ -610,15 +537,16 @@ void logout(char *user, char **users) {
 	}
 	remove(filename);
 	fclose(registry);
-#endif
 }
 
+/**
+ * Prints a Tweet struct into STDOUT.
+ * @param tweet The Tweet struct
+ */
 void printTweet(Tweet tweet) {
 	if(tweet.content_i) {
 		printf("Content: ");
 		for(int i = 0; i < tweet.content_i; i++) {
-//			printf("%c :: %s[%p] ", **(tweet.content + i), *(tweet.content + i), *(tweet.content + i));
-//			printf("[%p]%s ",tweet.content + i, *(tweet.content + i));
 			printf("%s ", *(tweet.content + i));
 		}
 		printf("\n");
@@ -626,8 +554,6 @@ void printTweet(Tweet tweet) {
 	if(tweet.htag_i) {
 		printf("Hashtags: ");
 		for(int i = 0; i < tweet.htag_i; i++) {
-//			printf("%c :: %s[%p] ", **(tweet.content + i), *(tweet.hashtags + i), *(tweet.content + i));
-//			printf("[%p]%s ", tweet.hashtags + i, *(tweet.hashtags + i));
 			printf("%s ", *(tweet.hashtags + i));
 		}
 		printf("\n");
@@ -641,6 +567,10 @@ void printTweet(Tweet tweet) {
 	}
 }
 
+/**
+ * Prints a PersonalTweet struct into STDOUT.
+ * @param tweet The PersonalTweet struct
+ */
 void printPersonalTweet(PersonalTweet tweet) {
 	printf("@%s:\n", tweet.sender);
 	if(tweet.content_i) {
@@ -659,9 +589,14 @@ void printPersonalTweet(PersonalTweet tweet) {
 		for(int i = 0; i < tweet.tag_i; i++) {
 			printf("%s ", *(tweet.tagged_people + i));
 		}
+		printf("\n");
 	}
 }
 
+/**
+ * Prints a PublicTweet struct into STDOUT.
+ * @param tweet The PublicTweet struct
+ */
 void printPublicTweet(PublicTweet tweet) {
 	printf("@%s:\n", tweet.sender);
 	if(tweet.content_i) {
@@ -728,7 +663,6 @@ PublicTweet init_public_tweet() {
  */
 void freeTweet(Tweet tweet) {
 	for(int i = 0; i < tweet.content_i; i++) {
-//		printf("freeing %p\n", *(tweet.content + i));
 		free(*(tweet.content + i));
 	}
 	for(int i = 0; i < tweet.htag_i; i++) {
@@ -778,6 +712,11 @@ void freePublicTweet(PublicTweet tweet) {
 	free(tweet.hashtags);
 }
 
+/**
+ * Retrieves a string of character input from STDIN.
+ * @param input A char pointer that will contain the input
+ * @return the variable 'input' containing the input
+ */
 char* get_input(char *input) {
 	int i = 0;
 	while(1) {
@@ -797,7 +736,7 @@ char* get_input(char *input) {
 
 /**
  * Chops the supplied string to the first newline character, excluding the newline character.
- * @param str The string pointer
+ * @param str The char pointer to be chopped
  */
 void chop_newline(char *str) {
 	for(int j = 0; *(str + j) != '\0'; j++) {
@@ -808,7 +747,7 @@ void chop_newline(char *str) {
 }
 
 /**
- * Flushes all the contents of stdin.
+ * Flushes all the contents of STDIN.
  */
 void flush_stdin() {
 	int c = 0;
