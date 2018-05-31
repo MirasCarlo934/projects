@@ -27,7 +27,7 @@ public class DBAdaptor extends AbstAdaptor {
 	private String roomsTable;
 
 	public DBAdaptor(DBEngine dbe, String comsTable, String propsTable, String roomsTable) {
-		super(dbe.getLogDomain(), DBAdaptor.class.getSimpleName(), "database");
+		super(dbe.getLogDomain(), "0000000000", DBAdaptor.class.getSimpleName()/*, "database"*/);
 		this.dbe = dbe;
 		this.devsTable = comsTable;
 		this.propsTable = propsTable;
@@ -165,7 +165,7 @@ public class DBAdaptor extends AbstAdaptor {
 	
 	@Override
 	public void propertyValueUpdated(AbstProperty p, boolean waitUntilUpdated) throws AdaptorException {
-		LOG.trace("Updating property value of " + p.getStandardID() + " to " + p.getValue() + " in " + propsTable 
+		LOG.trace("Updating property value of " + p.getOH_ID() + " to " + p.getValue() + " in " + propsTable 
 				+ " in DB...");
 		Thread t = Thread.currentThread();
 		HashMap<String, Object> vals = new HashMap<String, Object>(1, 1);

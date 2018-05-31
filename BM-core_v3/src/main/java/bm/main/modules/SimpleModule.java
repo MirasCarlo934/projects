@@ -29,7 +29,6 @@ import bm.main.repositories.DeviceRepository;
  * @author carlomiras
  *
  */
-//TASK Module should not call adaptors where the request came from. Use new update() method with exception.
 public abstract class SimpleModule implements Runnable {
 	protected String logDomain;
 	protected Logger mainLOG;

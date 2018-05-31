@@ -33,7 +33,7 @@ import bm.jeep.device.ReqRequest;
 import bm.jeep.device.ResError;
 import bm.jeep.device.ResPOOP;
 import bm.jeep.device.ResRegister;
-import bm.main.BusinessMachine;
+import bm.main.Maestro;
 import bm.main.ConfigLoader;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
@@ -167,7 +167,7 @@ public class RegistrationModule extends SimpleModule {
 	private void updateDevice(ReqRegister request) {
 		Device c = dr.getDevice(request.mac);
 		mainLOG.info("Updating device " + c.getSSID() + " credentials...");
-		mainLOG.fatal(c.getProperties()[0].getStandardID());
+		mainLOG.fatal(c.getProperties()[0].getOH_ID());
 		try {
 			c.setName(request.name);
 			c.setRoom(rr.getRoom(request.room));

@@ -48,9 +48,11 @@ public class MQTTPublisher extends Sender {
 				try {
 					client.publish(m.topic, payload);
 				} catch (MqttPersistenceException e) {
-					LOG.error("Cannot publish message " + m.message + " to topic \"" + m.topic + "\"!", e);
+					LOG.error("Cannot publish message \"" + m.message + "\" to topic \"" + m.topic + "\" "
+							+ "topic!", e);
 				} catch (MqttException e) {
-					LOG.error("Cannot publish message " + m.message + " to topic \"" + m.topic + "\"!", e);
+					LOG.error("Cannot publish message \"" + m.message + "\" to topic \"" + m.topic + "\" "
+							+ "topic!", e);
 				}
 			}
 		}

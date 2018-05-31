@@ -30,7 +30,7 @@ import bm.context.devices.products.Product;
 import bm.context.properties.AbstProperty;
 import bm.context.properties.Property;
 import bm.jeep.device.ResError;
-import bm.main.BusinessMachine;
+import bm.main.Maestro;
 import bm.main.engines.AbstEngine;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;

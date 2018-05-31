@@ -45,7 +45,7 @@ public class OH_POOPExtension extends AbstModuleExtension {
 		parameters.put("null", p.transformValueToOHCommand());
 		
 		PutHTTPReq req = new PutHTTPReq(/*idg.generateMixedCharID(10), he, */ohIP + "/rest/items/" +
-				p.getStandardID() + "/state", headers, parameters, new int[]{200, 202});
+				p.getOH_ID() + "/state", headers, parameters, new int[]{200, 202});
 		try {
 			hs.sendHTTPRequest(req, false);
 		} catch (HTTPException e) {

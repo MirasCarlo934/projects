@@ -7,8 +7,8 @@ import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.rooms.Room;
 
 /**
- * A child class of <i>SmarthomeElement</i> class. A SmarthomeObject is a representation of an actual, physical object 
- * that generally belongs to a room.
+ * A child class of <i>SmarthomeElement</i> class. A SmarthomeObject is a representation of an actual, 
+ * physical object that generally belongs to a room.
  * @author carlomiras
  *
  */
@@ -39,7 +39,7 @@ public abstract class SymphonyObject extends SymphonyElement {
 	 * @param room The new parent room of this device
 	 * @throws AdaptorException 
 	 */
-	public void setRoom(Room room) throws AdaptorException {
+	public void setRoom(Room room) {
 		if(this.parentRoom != null) {
 			this.parentRoom.removeSmarthomeObject(this);
 		}

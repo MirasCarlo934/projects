@@ -17,18 +17,20 @@ import bm.main.engines.requests.DBEngine.DBEngineRequest;
 import bm.main.interfaces.Initializable;
 
 public abstract class AbstAdaptor {
-	private String serviceName;
+	private String id;
+	private String name;
 	protected final Logger LOG;
-	//protected AbstEngine engine;
 
 	/**
 	 * 
 	 * @param logDomain
+	 * @param adaptorID
 	 * @param adaptorName
-	 * @param serviceName the external service managed by this Adaptor (eg. 'plex' for PlexAdaptor)
+	 * @param serviceName
 	 */
-	public AbstAdaptor(String logDomain, String adaptorName, String serviceName) {
-		this.serviceName = serviceName;
+	public AbstAdaptor(String logDomain, String adaptorID, String adaptorName/*, String serviceName*/) {
+		this.id = adaptorID;
+		this.name = adaptorName;
 		LOG = Logger.getLogger(logDomain + "." + adaptorName);
 	}
 	
@@ -56,7 +58,11 @@ public abstract class AbstAdaptor {
 	public abstract void roomCredentialsUpdated(Room r, boolean waitUntilUpdated) throws AdaptorException;
 	public abstract void roomParentUpdated(Room r, boolean waitUntilUpdated) throws AdaptorException;
 	
-	public String getServiceName() {
-		return serviceName;
+	public String getName() {
+		return name;
+	}
+	
+	public String getID() {
+		return id;
 	}
 }

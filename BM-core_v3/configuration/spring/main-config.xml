@@ -7,16 +7,11 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:annotation-config/>
-	<bean name="properties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<!-- <value>..\..\..\configuration\bm.properties</value> -->
-				<value>file:configuration/bm.properties</value>
-				<value>file:configuration/user.properties</value>
-			</list>
-		</property>
-	</bean>
 	<!-- <import resource="modules-config.xml"/> -->
+	
+	<context:property-placeholder location="file:configuration/bm.properties" order="3" />
+	<context:property-placeholder location="file:configuration/ui.properties" order="2" ignore-unresolvable="true"/>
+	<context:property-placeholder location="file:configuration/user.properties" order="1" ignore-unresolvable="true"/>
 	
 	<!-- user properties manager -->
 	<bean id="UserPropertyManager" class="bm.main.UserPropertyManager">
@@ -37,12 +32,12 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		</constructor-arg>
 	</bean>
 	
-	<bean id="RawRequestQueue" class="java.util.LinkedList"></bean>
+	<bean id="RawMessageQueue" class="java.util.LinkedList"></bean>
 	<bean id="ModuleQueue" class="java.util.LinkedList"></bean>
 	<bean id="Controller" class="bm.main.controller.Controller">
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
-		<constructor-arg name="configLoader" ref="config"/>
-		<constructor-arg name="rawReqQueue" ref="RawRequestQueue"/>
+		<!-- <constructor-arg name="configLoader" ref="config"/> -->
+		<constructor-arg name="rawReqQueue" ref="RawMessageQueue"/>
 		<constructor-arg name="moduleQueue" ref="ModuleQueue"/>
 		<constructor-arg name="deviceRepository" ref="Components"/>
 	</bean>

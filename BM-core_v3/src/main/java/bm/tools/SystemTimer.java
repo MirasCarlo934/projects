@@ -16,8 +16,8 @@ public class SystemTimer extends Timer {
 
 	public SystemTimer(String logDomain, int refreshRate) {
 		super("SystemTimer");
-		this.refreshRate = refreshRate;
 		LOG = Logger.getLogger(logDomain + ".SystemTimer");
+		this.refreshRate = refreshRate;
 	}
 	
 	@Override

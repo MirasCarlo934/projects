@@ -60,7 +60,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	@Override
 	public void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Creating room " + SSID + " (" + name + ") in " + adaptor.getServiceName() + "...");
+		LOG.debug("Creating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");
 		adaptor.roomCreated(this, waitUntilCreated);
 		LOG.debug("Room " + SSID + " (" + name + ") created!");
 	}
@@ -79,7 +79,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	@Override
 	public void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Deleting room " + SSID + " (" + name + ") from " + adaptor.getServiceName() + "...");
+		LOG.debug("Deleting room " + SSID + " (" + name + ") from " + adaptor.getName() + "...");
 		adaptor.roomDeleted(this, waitUntilDeleted);
 		LOG.debug("Room " + SSID + " (" + name + ") deleted!");
 	}
@@ -88,7 +88,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	public void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) 
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Updating room " + SSID + " (" + name + ") in " + adaptor.getServiceName() + "...");
+		LOG.debug("Updating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");
 		adaptor.roomCredentialsUpdated(this, waitUntilUpdated);
 		LOG.debug("Room " + SSID + " (" + name + ") updated!");
 	}
@@ -181,7 +181,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	 * @param obj The SmarthomeObject to be added
 	 * @throws AdaptorException 
 	 */
-	public void addSmarthomeObject(SymphonyObject obj) throws AdaptorException {
+	public void addSmarthomeObject(SymphonyObject obj) {
 		addSmarthomeObject(obj, children.size() + 1);
 //		children.add(obj);
 //		obj.setRoomIndex(children.size() + 1);
@@ -195,7 +195,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	 * @param index The index of the SmarthomeObject
 	 * @throws AdaptorException 
 	 */
-	public void addSmarthomeObject(SymphonyObject obj, int index) throws AdaptorException {
+	public void addSmarthomeObject(SymphonyObject obj, int index) {
 		if(index <= children.size()) {
 			children.add(index, obj);
 		} else {
@@ -220,12 +220,12 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //		sortChildren();
 	}
 	
-	@Override
-	public void setIndex(int index) throws AdaptorException {
-		for(int i = 0; i < adaptors.length; i++) {
-			adaptors[i].roomCredentialsUpdated(this, true);
-		}
-	}
+//	@Override
+//	public void setIndex(int index) throws AdaptorException {
+//		for(int i = 0; i < adaptors.length; i++) {
+//			adaptors[i].roomCredentialsUpdated(this, true);
+//		}
+//	}
 	
 	public void removeSmarthomeObject(SymphonyObject obj) {
 		children.remove(obj);

@@ -41,12 +41,12 @@ public class OH_DetachmentExtension extends AbstModuleExtension {
 				OH_Initializer.deleteItem(mainLOG, hs, ohIP, d.getSSID(), true);
 				for(int i = 0; i < d.getProperties().length; i++) {
 					AbstProperty p = d.getProperties()[i];
-					mainLOG.trace("Deleting property " + p.getStandardID() + " from OpenHAB item registry...");	
+					mainLOG.trace("Deleting property " + p.getOH_ID() + " from OpenHAB item registry...");	
 					try {
-						OH_Initializer.deleteItem(mainLOG, hs, ohIP, p.getStandardID(), true);
+						OH_Initializer.deleteItem(mainLOG, hs, ohIP, p.getOH_ID(), true);
 						mainLOG.trace("Property deleted!");	
 					} catch (HTTPException e) {
-						mainLOG.error("Cannot delete property " + p.getStandardID() + " from registry", e);
+						mainLOG.error("Cannot delete property " + p.getOH_ID() + " from registry", e);
 					}
 				}
 			} catch (HTTPException e) {
@@ -56,7 +56,7 @@ public class OH_DetachmentExtension extends AbstModuleExtension {
 		} else { //deletes sole property of device in OH
 			AbstProperty p = d.getProperties()[0];
 			try {
-				OH_Initializer.deleteItem(mainLOG, hs, ohIP, p.getStandardID(), true);
+				OH_Initializer.deleteItem(mainLOG, hs, ohIP, p.getOH_ID(), true);
 			} catch (HTTPException e) {
 				mainLOG.error("Cannot delete device " + d.getSSID() + " from registry", e);
 			}

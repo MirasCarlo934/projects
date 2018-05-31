@@ -110,9 +110,9 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 			throws AdaptorException {
 		final Logger LOG = getLogger(parentLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
-			LOG.debug("Creating property " + getStandardID() + " in " + adaptor.getServiceName() + "...");
+			LOG.debug("Creating property " + getOH_ID() + " in " + adaptor.getName() + "...");
 			adaptor.propertyCreated(this, waitUntilCreated);
-			LOG.debug("Property " + getStandardID() + " created!");
+			LOG.debug("Property " + getOH_ID() + " created!");
 		}
 	}
 	
@@ -141,9 +141,9 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
-			LOG.debug("Deleting property " + getStandardID() + " from " + adaptor.getServiceName() + "...");
+			LOG.debug("Deleting property " + getOH_ID() + " from " + adaptor.getName() + "...");
 			adaptor.propertyDeleted(this, waitUntilDeleted);
-			LOG.debug("Property " + getStandardID() + " deleted!");
+			LOG.debug("Property " + getOH_ID() + " deleted!");
 		}
 	}
 	
@@ -155,10 +155,10 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 	public synchronized void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 		if(!propType.getOHIcon().equals("none")) {
 			Logger LOG = getLogger(parentLogDomain);
-			LOG.debug("Updating value of property " + getStandardID() + " in " + adaptor.getServiceName() + 
+			LOG.debug("Updating value of property " + getOH_ID() + " in " + adaptor.getName() + 
 					"...");
 			adaptor.propertyValueUpdated(this, waitUntilUpdated);
-			LOG.debug("Property " + getStandardID() + " updated!");
+			LOG.debug("Property " + getOH_ID() + " updated!");
 		}
 	}
 	
@@ -197,7 +197,7 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 	@Override
 	public JSONObject[] convertToItemsJSON() {
 		JSONObject json = new JSONObject();
-		json.put("name", getStandardID());
+		json.put("name", getOH_ID());
 		json.put("type", propType.getOHIcon());
 		if(parentDevice.getProperties().length > 1) {
 			json.put("groupNames", new String[]{parentDevice.getSSID()});
@@ -228,10 +228,9 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 	}
 
 	/**
-	 * Returns the value of this Property. Is usually overridden by child classes of the AbstProperty 
-	 * to return the value with the adequate data type.
+	 * Returns the value of this <i>Property</i>.
 	 * 
-	 * @return The value of this Property.
+	 * @return The value of this <i>Property</i>.
 	 */
 	public Object getValue() {
 		return value;
@@ -259,19 +258,40 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 	
 	/**
 	 * Sets the value of this property in this object and calls the external application adaptors to
-	 * handle this property value change. 
+	 * handle this property value change. This method must only be called when the value change did 
+	 * not come from a JEEP request (ie. CIR)
 	 * 
 	 * @param value The value of the property to be set
 	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
-	 * @throws Exception 
-	 * @throws HTTPException 
+	 * @param waitUntilUpdated <b><i>true</i></b> if thread must be set to wait until the adaptor/s have
+	 * 			completed processing, <b><i>false</i></b> if thread will not be set to wait.
+	 * @throws AdaptorException 
 	 */
 	public void setValue(Object value, String parentLogDomain, boolean waitUntilUpdated) 
 			throws AdaptorException {
+		setValue(value, null, parentLogDomain, waitUntilUpdated);
+	}
+	
+	/**
+	 * Sets the value of this property in this object and calls the external application adaptors to
+	 * handle this property value change. 
+	 * 
+	 * @param value The value of the property to be set
+	 * @param cid The CID of the component that sent the request to change the property value
+	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
+	 * @param waitUntilUpdated <b><i>true</i></b> if thread must be set to wait until the adaptor/s have
+	 * 			completed processing, <b><i>false</i></b> if thread will not be set to wait.
+	 * @throws AdaptorException
+	 */
+	public void setValue(Object value, String cid, String parentLogDomain, boolean waitUntilUpdated) 
+			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Setting value of property " + getStandardID() + " to " + value + "...");
+		LOG.debug("Setting value of property " + getOH_ID() + " to " + value + "...");
 		setValue(value);
-		update(parentLogDomain, waitUntilUpdated);
+		if(cid == null)
+			update(parentLogDomain, waitUntilUpdated);
+		else
+			updateExcept(new String[]{cid}, parentLogDomain, waitUntilUpdated);
 	}
 	
 	/**
@@ -371,7 +391,7 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 	
 	public void setDevice(Device device) {
 		this.parentDevice = device;
-		loggerName = getStandardID();
+		loggerName = getOH_ID();
 	}
 	
 	/**
@@ -380,7 +400,7 @@ public abstract class AbstProperty extends SymphonyElement implements OHItemmabl
 	 * 
 	 * @return the standard ID of this property
 	 */
-	public String getStandardID() {
+	public String getOH_ID() {
 		return parentDevice.getSSID() + "_" + SSID;
 	}
 	

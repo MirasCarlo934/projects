@@ -38,7 +38,7 @@ public class OHAdaptor extends AbstAdaptor {
 	private FileEngine sitemapFE;
 
 	public OHAdaptor(String logDomain, String ohIP, String ohSitemapName, HTTPSender he, FileEngine sitemapFE) {
-		super(logDomain, OHAdaptor.class.getSimpleName(), "openhab");
+		super(logDomain, "0000000001", OHAdaptor.class.getSimpleName()/*, "openhab"*/);
 		this.sitemapFE = sitemapFE;
 		this.httpSender = he;
 		this.ohIP = ohIP;
@@ -92,11 +92,11 @@ public class OHAdaptor extends AbstAdaptor {
 		parameters.put("null", p.transformValueToOHCommand());
 		
 		PutHTTPReq request = new PutHTTPReq(/*idg.generateMixedCharID(10), he, */ohIP + "/rest/items/" +
-				p.getStandardID() + "/state", headers, parameters, new int[]{200, 202});
+				p.getOH_ID() + "/state", headers, parameters, new int[]{200, 202});
 		try {
 			httpSender.sendHTTPRequest(request, false);
 		} catch (bm.comms.http.HTTPException e) {
-			AdaptorException a = new AdaptorException("Cannot update value of property " + p.getStandardID(), e);
+			AdaptorException a = new AdaptorException("Cannot update value of property " + p.getOH_ID(), e);
 			throw a;
 		}
 //		try {
@@ -129,7 +129,7 @@ public class OHAdaptor extends AbstAdaptor {
 		if(c.getProperties().length > 1) {
 			itemName = c.getSSID();
 		} else {
-			itemName = c.getProperties()[0].getStandardID();
+			itemName = c.getProperties()[0].getOH_ID();
 		}
 		try {
 			if(c.isActive()) {
@@ -153,7 +153,7 @@ public class OHAdaptor extends AbstAdaptor {
 
 	@Override
 	public void propertyCreated(AbstProperty p, boolean waitUntilPersisted) throws AdaptorException {
-		LOG.trace("Adding property " + p.getStandardID() + " to OpenHAB item registry!");
+		LOG.trace("Adding property " + p.getOH_ID() + " to OpenHAB item registry!");
 		JSONObject[] items = p.convertToItemsJSON();
 		addItems(items, waitUntilPersisted);
 		LOG.trace("Property added successfully!");
@@ -161,11 +161,11 @@ public class OHAdaptor extends AbstAdaptor {
 
 	@Override
 	public void propertyDeleted(AbstProperty p, boolean waitUntilDeleted) throws AdaptorException {
-		LOG.trace("Deleting property " + p.getStandardID() + " to OpenHAB item registry!");	
+		LOG.trace("Deleting property " + p.getOH_ID() + " to OpenHAB item registry!");	
 		try {
-			deleteItem(p.getStandardID(), waitUntilDeleted);
+			deleteItem(p.getOH_ID(), waitUntilDeleted);
 		} catch (AdaptorException e) {
-			throw new AdaptorException("Cannot delete property " + p.getStandardID() + " from registry", e);
+			throw new AdaptorException("Cannot delete property " + p.getOH_ID() + " from registry", e);
 		}
 	}
 

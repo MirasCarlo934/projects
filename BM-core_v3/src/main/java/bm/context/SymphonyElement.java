@@ -11,8 +11,6 @@ import bm.context.adaptors.DBAdaptor;
 import bm.context.adaptors.OHAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 
-// FIXME remove parentLogDomain field!
-
 public abstract class SymphonyElement {
 //	private static final Logger LOG = Logger.getLogger(SmarthomeElement.class);
 	protected String SSID;
@@ -54,7 +52,7 @@ public abstract class SymphonyElement {
 		return index;
 	}
 
-	public void setIndex(int index) throws AdaptorException {
+	public void setIndex(int index) {
 		this.index = index;
 	}
 
@@ -136,7 +134,7 @@ public abstract class SymphonyElement {
 		List<String> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.length; i++) {
 			AbstAdaptor adaptor = adaptors[i];
-			if(!excepts.contains(adaptor.getServiceName())) {
+			if(!excepts.contains(adaptor.getName())) {
 				create(adaptor, parentLogDomain, waitUntilCreated);
 			}
 		}
@@ -213,7 +211,7 @@ public abstract class SymphonyElement {
 		List<String> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.length; i++) {
 			AbstAdaptor adaptor = adaptors[i];
-			if(!excepts.contains(adaptor.getServiceName())) {
+			if(!excepts.contains(adaptor.getName())) {
 				delete(adaptor, parentLogDomain, waitUntilDeleted);
 			}
 		}
@@ -254,7 +252,6 @@ public abstract class SymphonyElement {
 		}
 	}
 	
-	//FIXME this method should NOT be abstract
 	/**
 	 * Updates this object to all plugged adaptors with the exception of some specified adaptors.
 	 * 
@@ -287,7 +284,7 @@ public abstract class SymphonyElement {
 		List<String> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.length; i++) {
 			AbstAdaptor adaptor = adaptors[i];
-			if(!excepts.contains(adaptor.getServiceName())) {
+			if(!excepts.contains(adaptor.getName())) {
 				update(adaptor, parentLogDomain, waitUntilUpdated);
 			}
 		}

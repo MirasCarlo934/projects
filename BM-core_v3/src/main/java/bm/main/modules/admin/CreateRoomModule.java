@@ -61,6 +61,16 @@ public class CreateRoomModule extends AbstAdminModule {
 		return true;
 	}
 	
+	/**
+	 * Creates a new <i>Room</i> in the Symphony environment. Initializes the new <i>Room</i> object then 
+	 * adds it to the <i>RoomRepository</i>
+	 * 
+	 * @param name The name of the new room
+	 * @param parentID The ID of the parent room of this room. Can be null to put in root room
+	 * @param index The index of this room inside its parent room
+	 * @return The new <i>Room</i> object
+	 * @throws AdaptorException if new Room cannot be created in one of the plugged adaptors
+	 */
 	public Room createRoom(String name, String parentID, int index) throws AdaptorException {
 		Room r;
 		if(parentID != null) {

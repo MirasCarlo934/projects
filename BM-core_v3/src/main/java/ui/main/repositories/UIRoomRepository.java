@@ -21,11 +21,11 @@ public class UIRoomRepository extends RoomRepository implements Initializable {
 	private Logger LOG;
 	private RoomRepository rr; // the RoomRepository of the Symphony instance
 	private DBEngine ohDBE;
+	
 	private String ohRoomsTable;
 	private String ssidColname;
 	private String colorColname;
 
-	//TASK make this run!
 	public UIRoomRepository(DBEngine dbe, String getRoomsQuery, String logDomain, IDGenerator idg, DBAdaptor dba,
 			OHAdaptor oha, AbstAdaptor[] additionalAdaptors, RoomRepository roomRepository, 
 			DBEngine ohDBE, String ohRoomsTable, String ssidColname, String colorColname) {
@@ -77,5 +77,13 @@ public class UIRoomRepository extends RoomRepository implements Initializable {
 	@Override
 	public UIRoom removeRoom(String roomID) {
 		return (UIRoom) super.removeRoom(roomID);
+	}
+	
+	public UIRoom[] getAllUIRooms() {
+		UIRoom[] rooms = new UIRoom[super.rooms.size()];
+		for(int i = 0; i < super.rooms.size(); i++) {			
+			rooms[i] = (UIRoom)getRoom(super.getAllRoomIDs()[i]);
+		}
+		return rooms;
 	}
 }

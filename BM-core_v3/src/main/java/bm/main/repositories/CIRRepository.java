@@ -215,7 +215,7 @@ public class CIRRepository /*extends AbstRepository*/ implements Initializable {
 						} else if(!dev.getProperty(pid).checkValueTypeValidity(pval)) {
 							AbstProperty prop = dev.getProperty(pid);
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property value \"" + pval + 
-									"\" for property " + prop.getStandardID() + " in arguments block. Disregarding rule!");
+									"\" for property " + prop.getOH_ID() + " in arguments block. Disregarding rule!");
 						}
 						ArgOperator operator = ArgOperator.translate(
 								raw_args_com_prop.getAttributeValue("operator"));
@@ -255,7 +255,7 @@ public class CIRRepository /*extends AbstRepository*/ implements Initializable {
 						} else if(!dev.getProperty(pid).checkValueTypeValidity(pval)) {
 							AbstProperty prop = dev.getProperty(pid);
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property value \"" + pval + 
-									"\" for property " + prop.getStandardID() + " in execution block. Disregarding rule!");
+									"\" for property " + prop.getOH_ID() + " in execution block. Disregarding rule!");
 							continue rulesLoop;
 						}
 						execs.add(new ExecutionBlock(cid, pid, pval));

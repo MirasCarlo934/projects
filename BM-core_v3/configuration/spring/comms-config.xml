@@ -48,7 +48,6 @@
 		<constructor-arg name="error_topic" value="${mqtt.topic.error}"/>
 		<constructor-arg name="controller" ref="Controller"/>
 		<constructor-arg name="sender" ref="MQTTPublisher"/>
-		<constructor-arg name="rawRequestQueue" ref="RawRequestQueue"/>
 	</bean>
 	<bean id="MQTTPublisher" class="bm.comms.mqtt.MQTTPublisher">
 		<constructor-arg name="name" value="MainMQTTPublisher"/>

@@ -142,7 +142,7 @@ public class POOPModule extends MultiModule {
 								exec.getPropSSID() + " to " + exec.getPropValue() + "...");
 						try {
 							affectedIDs.add(dev.getSSID() + "-" + prop2.getSSID());
-							prop2.setValue(exec.getPropValue(), logDomain, false);
+							prop2.setValue(exec.getPropValue(), poop.getCID(), logDomain, false);
 							prop2.sendPropertyValue(request.getSender()/*, poop.getRID(), dev.getSSID(), 
 									poop.getRTY(), propIDParam, propValParam*/);
 							propsToUpdate.add(prop2);

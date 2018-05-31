@@ -37,7 +37,7 @@ import bm.tools.IDGenerator;
  * @author carlomiras
  *
  */
-public class Property extends AbstProperty implements OHItemmable {
+public class Property extends AbstProperty {
 	
 	public Property(PropertyType propType, String SSID, /*String genericName, */String dispname, 
 			/*String ohItemType,*/ PropertyMode mode, /*PropertyValueType propValType,*/ DBAdaptor dba, 

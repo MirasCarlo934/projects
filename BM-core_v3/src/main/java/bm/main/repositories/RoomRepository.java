@@ -116,13 +116,14 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 			Room room = roomObjs.next();
 			if(room.getRoom() != null) {
 				Room parent = room.getRoom();
-				try {
-					room.setRoom(rooms.get(parent.getSSID()));
-				} catch (AdaptorException e) {
-					LOG.error("Room " + room.getSSID() + " (" + room.getName() + ") cannot be put into "
-							+ "its parent room (ID:" + parent.getSSID() + ", name:" + parent.getName() +")!", 
-							e);
-				}
+				room.setRoom(rooms.get(parent.getSSID()));
+//				try {
+//					room.setRoom(rooms.get(parent.getSSID()));
+//				} catch (AdaptorException e) {
+//					LOG.error("Room " + room.getSSID() + " (" + room.getName() + ") cannot be put into "
+//							+ "its parent room (ID:" + parent.getSSID() + ", name:" + parent.getName() +")!", 
+//							e);
+//				}
 			}
 		}
 		LOG.debug("Room retrieval complete!");

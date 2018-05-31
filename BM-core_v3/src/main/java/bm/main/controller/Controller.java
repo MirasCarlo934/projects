@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.context.ApplicationContext;
 
 import bm.comms.Sender;
 import bm.comms.mqtt.MQTTListener;
@@ -20,7 +21,7 @@ import bm.jeep.JEEPResponse;
 import bm.jeep.RawMessage;
 import bm.jeep.device.JEEPErrorResponse;
 import bm.jeep.device.ReqRequest;
-import bm.main.BusinessMachine;
+import bm.main.Maestro;
 import bm.main.ConfigLoader;
 import bm.main.interfaces.Initializable;
 import bm.main.modules.MultiModule;
@@ -29,20 +30,28 @@ import bm.main.repositories.DeviceRepository;
 
 public class Controller implements Runnable {
 	private Logger LOG;
-	private ConfigLoader cl;
-	private LinkedList<RawMessage> rawReqQueue;
+	private ApplicationContext appContext;
+	private LinkedList<RawMessage> rawMsgQueue;
 	private LinkedList<SimpleModule> moduleQueue;
 	private DeviceRepository dr;
 	private int rrn = 1;
 	
 	public Controller(String logDomain, LinkedList<RawMessage> rawReqQueue, LinkedList<SimpleModule> moduleQueue, 
-			ConfigLoader configLoader, DeviceRepository deviceRepository/*, MQTTPublisher mqttPublisher*/) {
+			/*ConfigLoader configLoader, */DeviceRepository deviceRepository/*, MQTTPublisher mqttPublisher*/) {
 		LOG = Logger.getLogger(logDomain + ".Controller");
-		this.cl = configLoader;
-		this.rawReqQueue = rawReqQueue;
+		this.appContext = Maestro.getApplicationContext();
+		this.rawMsgQueue = rawReqQueue;
 		this.moduleQueue = moduleQueue;
 		this.dr = deviceRepository;
 		LOG.info("Controller started!");
+	}
+	
+	/**
+	 * Adds a RawMessage to the RawMessage queue.
+	 * @param msg
+	 */
+	public void addRawMessage(RawMessage msg) {
+		rawMsgQueue.add(msg);
 	}
 	
 	/**
@@ -54,14 +63,14 @@ public class Controller implements Runnable {
 	@Override
 	public void run() {
 		while(!Thread.currentThread().isInterrupted()) {
-			RawMessage rawMsg = rawReqQueue.poll();
+			RawMessage rawMsg = rawMsgQueue.poll();
 			if(rawMsg != null) {
 				LOG.trace("New request found! Checking primary validity...");
 				if(checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.REQUEST) {
 					ReqRequest r = new ReqRequest(new JSONObject(rawMsg.getMessageStr()), rawMsg.getSender());
 					String rty = r.getString("RTY");	
 					LOG.trace("Retrieving module for RTY '" + rty + "'");
-					SimpleModule m = (SimpleModule) cl.getApplicationContext().getBean(rty);
+					SimpleModule m = (SimpleModule) appContext.getBean(rty);
 					m.setRequest(r);
 					LOG.trace("Adding module to ModuleQueue (RRN:" + rrn + ")");
 					moduleQueue.add(m);
@@ -71,7 +80,7 @@ public class Controller implements Runnable {
 							rawMsg.getSender());
 					String rty = r.getJSON().getString("RTY");	
 					LOG.trace("Retrieving module for RTY '" + rty + "'");
-					MultiModule m = (MultiModule) cl.getApplicationContext().getBean(rty);
+					MultiModule m = (MultiModule) appContext.getBean(rty);
 					LOG.trace("Returning response for '" + m.getName() + "' module. [RID: " + 
 							r.getRID() + "]");
 					m.returnResponse(r);
@@ -84,7 +93,8 @@ public class Controller implements Runnable {
 	 * Checks if the raw JEEP message string contains all the required primary parameters
 	 * 
 	 * @param request The Request object
-	 * @return <b><i>True</b></i> if the request is valid, <b><i>false</i></b> if: <br>
+	 * @return The JEEP message type of the request if valid (either <b><i>JEEPMessageType.REQUEST</b></i>
+	 * 		or <b><i>JEEPMessageType.RESPONSE</i></b>, <b><i>null</i></b> if: <br>
 	 * 		<ul>
 	 * 			<li>The intercepted request is not in JSON format</li>
 	 * 			<li>There are missing primary request parameters</li>
@@ -134,7 +144,7 @@ public class Controller implements Runnable {
 		
 		//#5 Checks if RTY exists
 		boolean b = false;
-		if(cl.getApplicationContext().containsBean(json.getString("RTY"))) {
+		if(appContext.containsBean(json.getString("RTY"))) {
 			b = true;
 		}
 		

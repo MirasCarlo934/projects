@@ -27,7 +27,6 @@ public abstract class AbstModuleExtension {
 		} else {
 			this.params = params;			
 		}
-//		this.mp = mp;
 	}
 	
 	public void processRequest(JEEPRequest request) {

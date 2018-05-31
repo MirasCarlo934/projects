@@ -35,11 +35,11 @@ public class UserPropertyManager extends Properties {
 			this.load(new FileInputStream(userPropsFile));
 		} catch (FileNotFoundException e) {
 			LOG.fatal("user.properties file not found! WebController cannot be started!");
-			BusinessMachine.errorStartup(new Exception("user.properties file not found! WebController "
+			Maestro.errorStartup(new Exception("user.properties file not found! WebController "
 					+ "cannot be started!", e), 300);
 		} catch (IOException e) {
 			LOG.fatal("user.properties file cannot be read! WebController cannot be started!");
-			BusinessMachine.errorStartup(new Exception("user.properties cannot be read! WebController "
+			Maestro.errorStartup(new Exception("user.properties cannot be read! WebController "
 					+ "cannot be started!", e), 300);
 		}
 		

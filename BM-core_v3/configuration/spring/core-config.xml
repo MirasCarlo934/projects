@@ -10,33 +10,59 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	This is the core config file.
 	This only contains the other config files that the BM will use.
 	-->
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
-			<!-- <value>..\..\..\configuration\bm.properties</value> -->
+			<value>..\..\..\configuration\bm.properties</value>
 			<value>file:configuration/bm.properties</value>
 		</property>
 	</bean>
 	
-		<bean id="config" class="bm.main.ConfigLoader">
-		    	<property name="configFiles">
-		      		<list>
-		      			<value>main-config.xml</value>
-		      			<value>repositories-config.xml</value>
-		      			<!-- <value>products-config.xml</value> -->
-		      			<value>adaptors-config.xml</value>
-		      			<value>comms-config.xml</value>
-		      			<value>engines-config.xml</value>
-		        			<value>modules-config.xml</value>
-		        			<value>tools-config.xml</value>
-		        			<value>openhab-config.xml</value>
-		      			<!-- <value>file:configuration/main-config.xml</value>
-		      			<value>file:configuration/products-config.xml</value>
-		      			<value>file:configuration/adaptors-config.xml</value>
-		      			<value>file:configuration/engines-config.xml</value>
-		        			<value>file:configuration/mqtt-config.xml</value>
-		        			<value>file:configuration/modules-config.xml</value>
-		        			<value>file:configuration/tools-config.xml</value> -->
-		      		</list>
-		    	</property>
-   		</bean> 
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>..\..\..\configuration\bm.properties</value>
+			<value>file:configuration/ui.properties</value>
+		</property>
+	</bean> -->
+	<!-- <bean name="properties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>..\..\..\configuration\bm.properties</value>
+				<value>file:configuration/bm.properties</value>
+				<value>file:configuration/ui.properties</value>
+				<value>file:configuration/user.properties</value>
+			</list>
+		</property>
+	</bean> -->
+	
+	<context:property-placeholder location="file:configuration/bm.properties" order="3" />
+	<context:property-placeholder location="file:configuration/ui.properties" order="2" ignore-unresolvable="true"/>
+	<context:property-placeholder location="file:configuration/user.properties" order="1" ignore-unresolvable="true"/>
+	
+	<import resource="file:configuration/spring/adaptors-config.xml"/>
+	<import resource="file:configuration/spring/comms-config.xml"/>
+	<import resource="file:configuration/spring/devices-config.xml"/>
+	<import resource="file:configuration/spring/engines-config.xml"/>
+	<import resource="file:configuration/spring/main-config.xml"/>
+	<import resource="file:configuration/spring/modules-config.xml"/>
+	<import resource="file:configuration/spring/openhab-config.xml"/>
+	<import resource="file:configuration/spring/product-config.xml"/>
+	<import resource="file:configuration/spring/repositories-config.xml"/>
+	<import resource="file:configuration/spring/tools-config.xml"/>
+	
+	<!-- <bean id="config" class="bm.main.ConfigLoader">
+		<constructor-arg name="configFiles">
+			<list>
+      			<value>file:configuration/spring/adaptors-config.xml</value>
+      			<value>file:configuration/spring/comms-config.xml</value>
+      			<value>file:configuration/spring/devices-config.xml</value>
+        			<value>file:configuration/spring/engines-config.xml</value>
+        			<value>file:configuration/spring/main-config.xml</value>
+        			<value>file:configuration/spring/modules-config.xml</value>
+        			<value>file:configuration/spring/openhab-config.xml</value>
+        			<value>file:configuration/spring/product-config.xml</value>
+        			<value>file:configuration/spring/repositories-config.xml</value>
+        			<value>file:configuration/spring/tools-config.xml</value>
+      		</list>
+		</constructor-arg>
+  	</bean>  -->
 </beans>

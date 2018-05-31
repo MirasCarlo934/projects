@@ -64,7 +64,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="dba" ref="DBAdaptor"/>
 		<constructor-arg name="oha" ref="OHAdaptor"/>
 		<constructor-arg name="additionalAdaptors">
-			<array></array>
+			<array>
+				<ref bean="UIAdaptor"/>
+			</array>
 		</constructor-arg>
 		<constructor-arg name="roomRepository" ref="Rooms"/>
 		<constructor-arg name="ohRoomsTable" value="${oh.db.table.roomstable}"/>

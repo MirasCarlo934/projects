@@ -112,4 +112,16 @@
 		<constructor-arg name="cir_filepath" value="${cir.filepath}"/>
 		<constructor-arg name="componentRepository" ref="Components"/>
 	</bean> -->
+	
+	<!-- UI ENGINES -->
+	<bean id="UI.DBEngine" class="bm.main.engines.DBEngine" scope="singleton">
+		<constructor-arg name="name" value="UIDBEngine"/>
+		<constructor-arg name="logDomain" value="${log.domain.ui}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="dbURL" value="${ui.db.host}"/>
+		<constructor-arg name="dbusr" value="${ui.db.dbusr}"/>
+		<constructor-arg name="dbpwd" value="${ui.db.dbpwd}"/>
+		<constructor-arg name="sysTimer" ref="SystemTimer"/>
+		<constructor-arg name="reconnectPeriod" value="${db.reconnectPeriod}"/>
+	</bean>
 </beans>

@@ -30,20 +30,20 @@ import bm.main.repositories.DeviceRepository;
  *
  */
 public class MQTTListener extends Listener implements MqttCallback {
-	private static Logger logger;
+//	private static Logger LOG;
 	private String default_topic;
 	private String error_topic;
 
 	public MQTTListener(String name, String logDomain, String default_topic, String error_topic, 
-			Controller controller, Sender sender, LinkedList<RawMessage> rawRequestQueue) {
-		super(name, logDomain, controller, sender, rawRequestQueue);
-		logger = Logger.getLogger(logDomain + "." + MQTTListener.class.getSimpleName());
+			Controller controller, Sender sender) {
+		super(name, logDomain, controller, sender);
+//		logger = Logger.getLogger(logDomain + "." + MQTTListener.class.getSimpleName());
 		setDefault_topic(default_topic);
 		setError_topic(error_topic);
 	}
 
 	public void connectionLost(Throwable arg0) {
-		logger.fatal("Connection lost with MQTT server!", arg0);
+		LOG.fatal("Connection lost with MQTT server!", arg0);
 	}
 
 	public void deliveryComplete(IMqttDeliveryToken arg0) {
@@ -51,21 +51,20 @@ public class MQTTListener extends Listener implements MqttCallback {
 		try {
 			m = arg0.getMessage();
 			if(m == null) {
-				logger.debug("Message published!");
+				LOG.debug("Message published!");
 			} else {
-				logger.error("Unable to deliver message: " + m.getPayload().toString());
+				LOG.error("Unable to deliver message: " + m.getPayload().toString());
 			}
 		} catch (MqttException e) {
-			logger.error("Unable to deliver message: " + m.getPayload().toString());
+			LOG.error("Unable to deliver message: " + m.getPayload().toString());
 		}
 	} 
 
 	public void messageArrived(String topic, MqttMessage msg) throws Exception {
 		System.out.println("\n\n");
-		logger.debug("Message arrived at topic " + topic);
-		logger.debug("Message is: \n" + msg.toString());
-//		controller.processRequest(msg.toString(), sender);
-		rawMessageQueue.add(new RawMessage(msg.toString(), sender));
+		LOG.debug("Message arrived at topic " + topic);
+		LOG.debug("Message is: \n" + msg.toString());
+		sendRawMessageToContoller(new RawMessage(msg.toString(), sender));
 	}
 
 	/**

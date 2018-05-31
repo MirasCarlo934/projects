@@ -87,15 +87,15 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	protected void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) 
 			throws AdaptorException {
 		final Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Creating device " + SSID + " in " + adaptor.getServiceName() + "...");
+		LOG.debug("Creating device " + SSID + " in " + adaptor.getName() + "...");
 		adaptor.deviceCreated(this, waitUntilCreated);
 		
-		LOG.debug("Creating properties of device " + SSID + " in " + adaptor.getServiceName() + "...");
+		LOG.debug("Creating properties of device " + SSID + " in " + adaptor.getName() + "...");
 		Iterator<AbstProperty> props = properties.values().iterator();
 		while(props.hasNext()) {
 			AbstProperty prop = props.next();
 			adaptor.propertyCreated(prop, waitUntilCreated);
-			LOG.debug("Property " + prop.getStandardID() + " of device " + SSID + " created!");
+			LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " created!");
 		}
 		LOG.debug("Device " + SSID + " created!");
 	}
@@ -108,24 +108,22 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	protected void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) 
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Deleting device " + SSID + " from " + adaptor.getServiceName() + "...");
+		LOG.debug("Deleting device " + SSID + " from " + adaptor.getName() + "...");
 		adaptor.deviceDeleted(this, waitUntilDeleted);
 		
 		Iterator<AbstProperty> props = properties.values().iterator();
-		LOG.debug("Deleting properties of device " + SSID + " from " + adaptor.getServiceName() + "...");
+		LOG.debug("Deleting properties of device " + SSID + " from " + adaptor.getName() + "...");
 		while(props.hasNext()) {
 			AbstProperty prop = props.next();
 			adaptor.propertyDeleted(prop, waitUntilDeleted);
-			LOG.debug("Property " + prop.getStandardID() + " of device " + SSID + " deleted!");
+			LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " deleted!");
 		}
 		parentRoom.removeSmarthomeObject(this);
 		LOG.debug("Device " + SSID + " deleted!");
 	}
 	
 	/**
-	 * Updates the component in all of the plugged adaptors. <br><br>
-	 * 
-	 * <b><i>NOTE:</i></b> Set the credentials in this component object <b>FIRST</b> before calling this method.
+	 * Updates the device in all of the plugged adaptors.
 	 */
 	@Override
 	protected void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) 
@@ -215,7 +213,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		Iterator<AbstProperty> props = properties.values().iterator();
 		while(props.hasNext()) {
 			AbstProperty prop = props.next();
-			LOG.trace(prop.getStandardID() + " = " + prop.getValue());
+			LOG.trace(prop.getOH_ID() + " = " + prop.getValue());
 			ResPOOP poop = new ResPOOP("POOP", SSID, poopRTY, sender, prop.getSSID(), prop.getValue());
 //			sender.send(poop);
 		}
@@ -363,12 +361,12 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		}
 	}
 	
-	@Override
-	public void setIndex(int index) throws AdaptorException {
-		for(int i = 0; i < adaptors.length; i++) {
-			adaptors[i].deviceCredentialsUpdated(this, true);
-		}
-	}
+//	@Override
+//	public void setIndex(int index) throws AdaptorException {
+//		for(int i = 0; i < adaptors.length; i++) {
+//			adaptors[i].deviceCredentialsUpdated(this, true);
+//		}
+//	}
 
 	public AbstProduct getProduct() {
 		return product;

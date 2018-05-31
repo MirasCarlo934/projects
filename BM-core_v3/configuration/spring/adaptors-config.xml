@@ -7,7 +7,6 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:annotation-config/>
-	
 	<!-- NON-CORE ADAPTORS -->
 	<!-- <bean id="PlexAdaptor" class="plex.PlexAdaptor" scope="prototype">
 		<constructor-arg name="serviceName" value="${plex.serviceName}"/>
@@ -43,5 +42,17 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="ohSitemapName" value="${oh.sitemap_name}"/>
 		<constructor-arg name="he" ref="HTTPSender"/>
 		<constructor-arg name="sitemapFE" ref="OH.SitemapFileEngine"/>
+	</bean>
+	
+	<!-- UI ADAPTORS -->
+	<bean id="UIAdaptor" class="ui.context.adaptors.UIAdaptor" scope="singleton">
+		<constructor-arg name="logDomain" value="${log.domain.ui}"/>
+		<constructor-arg name="adaptorID" value="0000000002"/>
+		<constructor-arg name="adaptorName" value="UIAdaptor"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="ui_roomstable" value="${ui.table.rooms}"/>
+		<constructor-arg name="ui_roomstable_ssid" value="${ui.table.rooms.ssid}"/>
+		<constructor-arg name="ui_roomstable_color" value="${ui.table.rooms.color}"/>
+		<constructor-arg name="uidbe" ref="UI.DBEngine"/>
 	</bean>
 </beans>

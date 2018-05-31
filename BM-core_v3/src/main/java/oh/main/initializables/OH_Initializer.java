@@ -71,7 +71,7 @@ public class OH_Initializer implements Initializable {
 				registerDevice(d);
 				for(int j = 0; j < d.getProperties().length; j++) {
 					AbstProperty p = d.getProperties()[j];
-					LOG.debug("Updating device property " + p.getStandardID() + "(" + p.getDisplayName() + ")");
+					LOG.debug("Updating device property " + p.getOH_ID() + "(" + p.getDisplayName() + ")");
 					p.createExcept(new AbstAdaptor[]{p.getMainDBAdaptor()}, logDomain, false);
 					p.update(logDomain, false);
 //					oha.persistProperty(p, false);

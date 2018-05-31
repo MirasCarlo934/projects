@@ -36,7 +36,7 @@ public class OH_DeviceChangeStateExtension extends AbstModuleExtension {
 		if(dev.getProperties().length > 1) {
 			itemName = dev.getSSID();
 		} else {
-			itemName = dev.getProperties()[0].getStandardID();
+			itemName = dev.getProperties()[0].getOH_ID();
 		}
 		try {
 			if(dev.isActive()) {

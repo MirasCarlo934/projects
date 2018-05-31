@@ -15,7 +15,7 @@ import bm.context.properties.PropertyMode;
 import bm.context.properties.PropertyType;
 import bm.context.properties.PropertyValueType;
 import bm.context.properties.bindings.Binding;
-import bm.main.BusinessMachine;
+import bm.main.Maestro;
 import bm.main.engines.AbstEngine;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
