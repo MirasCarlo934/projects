@@ -95,7 +95,7 @@
 ////					LOG.debug("Updating device property " + p.getOH_ID() + "(" + p.getDisplayName() + ")");
 ////					p.create(oha, logDomain, false);
 //////					p.createExcept(new AbstAdaptor[]{p.getMainDBAdaptor()}, logDomain, false);
-////					p.update(logDomain, false);
+////					p.updateRules(logDomain, false);
 //////					oha.persistProperty(p, false);
 ////				}
 ////			} catch (AdaptorException e) {
@@ -109,9 +109,9 @@
 ////			try {
 ////				rooms.next().create(oha, logDomain, false);
 ////			} catch (AdaptorException e) {
-////				LOG.fatal("Cannot update rooms in OpenHAB! OpenHAB might show erroneous " +
+////				LOG.fatal("Cannot updateRules rooms in OpenHAB! OpenHAB might show erroneous " +
 ////                        "rooms!", e);
-//////				mp.publishToErrorTopic("Cannot update rooms in OpenHAB sitemap! See log details!");
+//////				mp.publishToErrorTopic("Cannot updateRules rooms in OpenHAB sitemap! See log details!");
 ////			}
 ////		}
 //	}

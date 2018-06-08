@@ -122,7 +122,7 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
             try {
                 room.update(logDomain, false);
             } catch (AdaptorException e) {
-                LOG.error("Cannot update room " + room.getSSID() + " in environment!", e);
+                LOG.error("Cannot updateRules room " + room.getSSID() + " in environment!", e);
             }
         }
         LOG.debug("Rooms updated in Symphony Environment!");
@@ -143,9 +143,9 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 //			try {
 //				rooms.next().createExcept(new AbstAdaptor[]{dba}, logDomain, false);
 //			} catch (AdaptorException e) {
-//				LOG.fatal("Cannot update rooms in OpenHAB sitemap! OpenHAB will show erroneous sitemap contents!",
+//				LOG.fatal("Cannot updateRules rooms in OpenHAB sitemap! OpenHAB will show erroneous sitemap contents!",
 //						e);
-////				mp.publishToErrorTopic("Cannot update rooms in OpenHAB sitemap! See log details!");
+////				mp.publishToErrorTopic("Cannot updateRules rooms in OpenHAB sitemap! See log details!");
 //			}
 //		}
 //	}

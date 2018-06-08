@@ -17,7 +17,6 @@ public abstract class AbstAdaptor {
 	 * @param logDomain
 	 * @param adaptorID
 	 * @param adaptorName
-	 * @param serviceName
 	 */
 	public AbstAdaptor(String logDomain, String adaptorID, String adaptorName/*, String serviceName*/) {
 		this.id = adaptorID;

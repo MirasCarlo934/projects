@@ -40,18 +40,17 @@ public class Rule implements HTMLTransformable {
 	/**
 	 * Checks if the specified component, property, and property value satisfies an argument in this rule
 	 * 
-	 * @param d The component to be checked
-	 * @param p The property paired with the component to be checked. The property value to be checked will be 
+	 * @param p The property paired with the device to be checked. The property value to be checked will be
 	 * 		retrieved from this
 	 * @return <b>True</b> if the specified Component exists in the arguments section, 
 	 * 		<b>false</b> otherwise
 	 */
-	public boolean containsArgument(Device d, Property p) {
+	public boolean containsArgument(Property p) {
 		boolean b = false;
 		for(int i = 0; i < arguments.length; i++) {
 			Argument arg = arguments[i];
-			if(arg.getComID().equals(d.getSSID())) {
-				if(arg.getPropSSID().equals(p.getSSID())) {
+			if(arg.getDeviceID().equals(p.getDevice().getSSID())) {
+				if(arg.getPropertyID().equals(p.getSSID())) {
 					b = true;
 					break;
 				}
@@ -76,13 +75,13 @@ public class Rule implements HTMLTransformable {
 		
 		for(int i = 0; i < arguments.length; i++) {
 			Argument arg = arguments[i];
-			Device dev = coms.get(arg.getComID());
+			Device dev = coms.get(arg.getDeviceID());
 			if(dev == null) {
 				return false;
 			}
-			Property prop = dev.getProperty(arg.getPropSSID());
+			Property prop = dev.getProperty(arg.getPropertyID());
 			//FIXME Rule: Compare raw data types, not just strings! To avoid having to specify decimal numbers in CIR!
-			if(!prop.getValue().toString().equals(arg.getPropValue().toString())) {
+			if(!prop.getValue().toString().equals(arg.getPropertyValue().toString())) {
 				return false;
 			}
 		}
@@ -144,18 +143,18 @@ public class Rule implements HTMLTransformable {
 		
 		for(int i = 0; i < args.length; i++) {
 			Argument arg = args[i];
-			script += "var rule_" + index + "_arg_" + arg.getComID() + "_" + arg.getPropSSID() + " = new Component('" + arg.getComID() + "', "
-					+ "[{id:'" + arg.getPropSSID() + "', value:'" + arg.getPropValue() 
+			script += "var rule_" + index + "_arg_" + arg.getDeviceID() + "_" + arg.getPropertyID() + " = new Component('" + arg.getDeviceID() + "', "
+					+ "[{id:'" + arg.getPropertyID() + "', value:'" + arg.getPropertyValue()
 					+ "', operator:'" + arg.getOperator().getSymbol() + "'}]); \n";
-			argsArray += "rule_" + index + "_arg_" + arg.getComID() + "_" + arg.getPropSSID() +  ",";
+			argsArray += "rule_" + index + "_arg_" + arg.getDeviceID() + "_" + arg.getPropertyID() +  ",";
 		}
 		
 		for(int i = 0; i < execs.length; i++) {
 			ExecutionBlock exec = execs[i];
-			script += "var rule_" + index + "_exec_" + exec.getComID() + "_" + exec.getPropSSID() + " = new Component('" + exec.getComID() + "', "
-					+ "[{id:'" + exec.getPropSSID() + "', value:'" + exec.getPropValue() 
+			script += "var rule_" + index + "_exec_" + exec.getDeviceID() + "_" + exec.getPropertyID() + " = new Component('" + exec.getDeviceID() + "', "
+					+ "[{id:'" + exec.getPropertyID() + "', value:'" + exec.getPropertyValue()
 					+ "', operator:'='}]); \n";
-			execsArray += "rule_" + index + "_exec_" + exec.getComID() + "_" + exec.getPropSSID() +  ",";
+			execsArray += "rule_" + index + "_exec_" + exec.getDeviceID() + "_" + exec.getPropertyID() +  ",";
 		}
 		
 		argsArray = argsArray.substring(0, argsArray.length() - 1) + "];";

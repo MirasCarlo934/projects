@@ -1,5 +1,0 @@
-2018-03-24 21:11:27,642 INFO  [main] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
-2018-03-24 21:11:27,842 INFO  [main] (CIR.CIRRepository) CIRRepository started!
-2018-03-24 21:11:28,399 DEBUG [main] (CIR.CIRRepository) Updating CIRRepository...
-2018-03-24 21:11:28,451 DEBUG [main] (CIR.CIRRepository) Adding rule "Lights On 1" to repository
-2018-03-24 21:11:28,452 DEBUG [main] (CIR.CIRRepository) Adding rule "Lights Off 1" to repository

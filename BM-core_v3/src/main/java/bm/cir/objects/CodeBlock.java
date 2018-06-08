@@ -6,8 +6,8 @@ public abstract class CodeBlock {
 	private Object propValue;
 	
 	public CodeBlock(String comID, String comProperty, Object comValue) {
-		setComID(comID);
-		setComProperty(comProperty);
+		setDeviceID(comID);
+		setDeviceProperty(comProperty);
 		setPropValue(comValue);
 	}
 	
@@ -19,35 +19,35 @@ public abstract class CodeBlock {
 	/**
 	 * @return the comID
 	 */
-	public String getComID() {
+	public String getDeviceID() {
 		return comID;
 	}
 
 	/**
 	 * @param comID the comID to set
 	 */
-	public void setComID(String comID) {
+	public void setDeviceID(String comID) {
 		this.comID = comID;
 	}
 
 	/**
 	 * @return the comProperty
 	 */
-	public String getPropSSID() {
+	public String getPropertyID() {
 		return propSSID;
 	}
 
 	/**
 	 * @param comProperty the comProperty to set
 	 */
-	public void setComProperty(String comProperty) {
+	public void setDeviceProperty(String comProperty) {
 		this.propSSID = comProperty;
 	}
 
 	/**
 	 * @return the value of the property
 	 */
-	public Object getPropValue() {
+	public Object getPropertyValue() {
 		return propValue;
 	}
 

@@ -80,7 +80,7 @@ public class PropertyType implements OHItemmable, HTMLTransformable {
 	/**
 	 * Links a valid property value to an OpenHAB item command.
 	 * <br><br>
-	 * During property value update, the <i>OHAdaptor</i> will transform the updated value into an OpenHAB item command 
+	 * During property value updateRules, the <i>OHAdaptor</i> will transform the updated value into an OpenHAB item command
 	 * to control the item in OpenHAB. (eg. 1 will be transformed to "ON" to control a Switch item)
 	 * 
 	 * @param propValue the property value that can be transformed

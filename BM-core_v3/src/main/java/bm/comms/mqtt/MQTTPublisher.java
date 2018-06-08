@@ -77,7 +77,7 @@ public class MQTTPublisher extends Sender {
 	 * @param destination The topic/cid to publish to
 	 * @param message The message
 	 */
-	public void publish(String destination, String message) {
+	private void publish(String destination, String message) {
 		String topic = destination;
 		if(dr.getDevice(destination) != null) { //get Component if destination is a CID
 			topic = dr.getDevice(destination).getTopic();
@@ -91,7 +91,7 @@ public class MQTTPublisher extends Sender {
 	 * @param destination The topic to publish to
 	 * @param response The JEEPResponse to be published
 	 */
-	public void publish(String destination, JEEPResponse response) {
+	private void publish(String destination, JEEPResponse response) {
 		publish(destination, response.toString());
 	}
 	
@@ -100,24 +100,16 @@ public class MQTTPublisher extends Sender {
 	 *
 	 * @param message The JEEPMessage
 	 */
-	public void publish(JEEPMessage message) {
+	private void publish(JEEPMessage message) {
 		String topic = message.getCID();
 		publish(topic, message.toString());
 	}
-	
-	public void publishToDefaultTopic(String message) {
-		publish(default_topic, message);
-	}
-	
+
 	public void publishToDefaultTopic(JEEPResponse response) {
 		publish(default_topic, response.toString());
 	}
-	
-	public void publishToErrorTopic(String message) {
-		publish(error_topic, message);
-	}
-	
-	public void publishToErrorTopic(JEEPResponse response) {
+
+	private void publishToErrorTopic(JEEPResponse response) {
 		publish(error_topic, response.toString());
 	}
 }

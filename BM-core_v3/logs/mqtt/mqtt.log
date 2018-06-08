@@ -1,4 +1,15 @@
-2018-06-08 18:30:42,405 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
-2018-06-08 18:30:42,407 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
-2018-06-08 18:30:42,407 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
-2018-06-08 18:30:42,407 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
+2018-06-09 00:06:01,008 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
+2018-06-09 00:06:01,015 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-06-09 00:06:01,015 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
+2018-06-09 00:06:01,016 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
+2018-06-09 00:06:03,838 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-09 00:06:27,824 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
+2018-06-09 00:06:27,825 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
+{RID:'OH-POOP', CID:'J6L0',RTY:'poop',property:'0001',value:'0'}
+2018-06-09 00:06:27,989 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-09 00:06:28,002 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-09 00:06:40,933 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
+2018-06-09 00:06:40,933 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
+{RID:'OH-POOP', CID:'J6L0',RTY:'poop',property:'0001',value:'1'}
+2018-06-09 00:06:40,993 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-09 00:06:41,026 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!

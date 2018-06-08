@@ -1,4 +1,0 @@
-2017-11-26 22:46:58,951 INFO  [main] (MQTT.MQTTClient) Connected to MQTT!
-2017-11-26 22:46:58,953 DEBUG [main] (MQTT.MQTTClient) Subscribed to BM topic!
-2017-11-26 22:46:58,953 DEBUG [main] (MQTT.MQTTClient) Listener set!
-2017-11-26 22:46:58,953 DEBUG [main] (MQTT.MQTTClient) Publisher set!

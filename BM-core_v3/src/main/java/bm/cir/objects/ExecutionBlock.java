@@ -3,7 +3,6 @@ package bm.cir.objects;
 import org.apache.log4j.Logger;
 
 import bm.tools.StringTools;
-import bm.tools.StringTools.StringInjectionException;
 
 public class ExecutionBlock extends CodeBlock {
 	private static final Logger logger = Logger.getLogger(ExecutionBlock.class);
@@ -14,7 +13,7 @@ public class ExecutionBlock extends CodeBlock {
 
 	@Override
 	public String toString() {
-		return StringTools.injectStrings("%s:%s = %s", new String[]{getComID(), getPropSSID(), getPropValue().toString()}, 
+		return StringTools.injectStrings("%s:%s = %s", new String[]{getDeviceID(), getPropertyID(), getPropertyValue().toString()},
 				"%s");
 	}
 

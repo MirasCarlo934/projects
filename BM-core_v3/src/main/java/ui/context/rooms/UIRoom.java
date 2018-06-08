@@ -36,7 +36,7 @@
 //	}
 //
 //	@Override
-//	protected void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
+//	protected void updateRules(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
 //			throws AdaptorException {
 //        Logger LOG = getLogger(parentLogDomain);
 //        LOG.debug("Updating room " + SSID + " (" + room.getName() + ") in " + adaptor.getName() + "...");

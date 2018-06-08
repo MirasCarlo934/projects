@@ -54,7 +54,7 @@
 //			}
 //			mainLOG.debug("Device state change success!");
 //		} catch(HTTPException e) {
-//			mainLOG.error("Cannot update state of device " + dev.getSSID() + "!", e);
+//			mainLOG.error("Cannot updateRules state of device " + dev.getSSID() + "!", e);
 //		}
 //	}
 //

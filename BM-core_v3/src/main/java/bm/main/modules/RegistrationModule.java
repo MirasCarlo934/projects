@@ -153,13 +153,13 @@ public class RegistrationModule extends SimpleModule {
 			c.setActive(true, true);
 			mainLOG.info("Device updated!");
 		} catch (AdaptorException e) {
-			error("Cannot update device " + c.getSSID() + " credentials!", e, request.getSender());
+			error("Cannot updateRules device " + c.getSSID() + " credentials!", e, request.getSender());
 		}
 	}
 	
 	/**
 	 * After confirming that the registering component already exists, another check is made to see if the registration 
-	 * request contains different credentials from persisted data. Changes signify component credential update. No 
+	 * request contains different credentials from persisted data. Changes signify component credential updateRules. No
 	 * changes signify component activation. <br><br>
 	 * 
 	 * <b><i>NOTE:</b></i> The request parameter <i>properties</i> will not be checked here.

@@ -48,7 +48,7 @@ public class OH_POOPExtension extends AbstModuleExtension {
 		try {
 			hs.sendHTTPRequest(req, false);
 		} catch (HTTPException e) {
-			mainLOG.error("Cannot update property!", e);
+			mainLOG.error("Cannot updateRules property!", e);
 		}
 		mainLOG.debug("Property " + p.getDevice().getSSID() + "_" + p.getSSID() + " updated!");
 	}

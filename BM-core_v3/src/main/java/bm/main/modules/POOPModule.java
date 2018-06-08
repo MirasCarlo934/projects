@@ -14,7 +14,7 @@ import bm.jeep.device.JEEPErrorResponse;
 import bm.jeep.device.ReqPOOP;
 import bm.jeep.device.ResPOOP;
 import bm.main.engines.exceptions.EngineException;
-import bm.cir.CIRRepository;
+import bm.cir.CIRManager;
 import bm.main.repositories.DeviceRepository;
 import bm.tools.IDGenerator;
 import bm.tools.SystemTimer;
@@ -38,34 +38,28 @@ import bm.tools.SystemTimer;
 //TASK Handle JEEPResponses accordingly
 public class POOPModule extends MultiModule {
     private String poopRTY;
-	private CIRRepository cirr;
+//	private CIRManager cirr;
 	private String propIDParam;
 	private String propValParam;
-	private String propsTable = ""; //PROPERTIES table
-	private String oh_topic;
 	private IDGenerator idg = new IDGenerator();
 	private Vector<String> affectedIDs = new Vector<String>(1, 1); //SSID of all properties affected by this POOP
 
-	public POOPModule(String logDomain, String errorLogDomain, String RTY, String propIDParam, 
-			String propValParam, String oh_topic, DeviceRepository dr, CIRRepository cirr, SystemTimer sysTimer) {
+	public POOPModule(String logDomain, String errorLogDomain, String RTY, String propIDParam,
+					  String propValParam, DeviceRepository dr, SystemTimer sysTimer) {
 		super(logDomain, errorLogDomain, "POOPModule", RTY, new String[]{propIDParam, propValParam}, 
 				new String[]{propIDParam, propValParam}, /*mp, */dr, sysTimer);
 		this.poopRTY = RTY;
-		this.cirr = cirr;
 		this.propIDParam = propIDParam;
 		this.propValParam = propValParam;
-		this.oh_topic = oh_topic;
 	}
 	
-	public POOPModule(String logDomain, String errorLogDomain, String RTY, String propIDParam, 
-			String propValParam, String oh_topic, /*MQTTPublisher mp, */DeviceRepository dr, 
-			CIRRepository cirr, AbstModuleExtension[] extensions, SystemTimer sysTimer) {
+	public POOPModule(String logDomain, String errorLogDomain, String RTY, String propIDParam,
+					  String propValParam, DeviceRepository dr, AbstModuleExtension[] extensions,
+					  SystemTimer sysTimer) {
 		super(logDomain, errorLogDomain, "POOPModule", RTY, new String[]{propIDParam, propValParam}, 
 				new String[]{propIDParam, propValParam}, /*mp, */dr, extensions, sysTimer);
-		this.cirr = cirr;
 		this.propIDParam = propIDParam;
 		this.propValParam = propValParam;
-		this.oh_topic = oh_topic;
 	}
 
 	/**
@@ -79,11 +73,11 @@ public class POOPModule extends MultiModule {
 		ReqPOOP poop = new ReqPOOP(request, propIDParam, propValParam);
 		Device d = dr.getDevice(poop.getCID());
 		Vector<Property> propsToUpdate = new Vector<Property>(1, 1);
-		try {
-			cirr.update();
-		} catch (EngineException e1) {
-			error("CIRRepository cannot update! Old rules may apply!", e1, request.getSender());
-		}
+//		try {
+//			cirr.updateRules();
+//		} catch (EngineException e1) {
+//			error("CIRManager cannot updateRules! Old rules may apply!", e1, request.getSender());
+//		}
 		
 		mainLOG.info("Changing property " + poop.propSSID + " of device " + d.getSSID() + " to "
                 + poop.propValue + "...");
@@ -106,42 +100,42 @@ public class POOPModule extends MultiModule {
 				return false;
 			}
 			
-			mainLOG.info("Updating affected devices in environment...");
-			boolean updatedOthers = false;
-			Rule[] rules = cirr.getSpecificRules(d, d.getProperty(poop.propSSID));
-			HashMap<Property, Boolean> alreadyChanged = new HashMap<Property, Boolean>(1);
-			
-			for(int k = 0; k < rules.length; k++) {
-				Rule rule = rules[k];
-				if(rule.isSatisfiedWith(dr.getAllDevices())) {
-					for(int l = 0; l < rule.getExecBlocks().length; l++) {
-						ExecutionBlock exec = rule.getExecBlocks()[l];
-						Device dev = dr.getDevice(exec.getComID());
-						Property prop2 = dev.getProperty(exec.getPropSSID());
-						if(alreadyChanged.containsKey(prop2)) {
-							continue;
-						}
-						mainLOG.info("Changing device " + dev.getSSID() + " property " + 
-								exec.getPropSSID() + " to " + exec.getPropValue() + "...");
-						try {
-							affectedIDs.add(dev.getSSID() + "-" + prop2.getSSID());
-							prop2.setValue(exec.getPropValue(), poop.getCID(), logDomain, false);
-                            ReqPOOP reqPoop = new ReqPOOP(idg.generateRID(), prop2.getDevice().getSSID(), poopRTY,
-                                    poop.getSender(), propIDParam, propValParam, prop2.getSSID(), prop2.getValue());
-                            poop.getSender().send(reqPoop, null);
-							propsToUpdate.add(prop2);
-							alreadyChanged.put(prop2, true);
-							updatedOthers = true;
-						} catch (AdaptorException e) {
-							error("Cannot change property " + exec.getPropSSID() + 
-									" of component " + dev.getSSID(), 
-									e, request.getSender());
-							return false;
-						}
-					} 
-				}
-			}
-			if(!updatedOthers) mainLOG.info("No other components updated!");
+//			mainLOG.info("Updating affected devices in environment...");
+//			boolean updatedOthers = false;
+//			Rule[] rules = cirr.getSpecificRules(d.getProperty(poop.propSSID));
+//			HashMap<Property, Boolean> alreadyChanged = new HashMap<Property, Boolean>(1);
+//
+//			for(int k = 0; k < rules.length; k++) {
+//				Rule rule = rules[k];
+//				if(rule.isSatisfiedWith(dr.getAllDevices())) {
+//					for(int l = 0; l < rule.getExecBlocks().length; l++) {
+//						ExecutionBlock exec = rule.getExecBlocks()[l];
+//						Device dev = dr.getDevice(exec.getDeviceID());
+//						Property prop2 = dev.getProperty(exec.getPropertyID());
+//						if(alreadyChanged.containsKey(prop2)) {
+//							continue;
+//						}
+//						mainLOG.info("Changing device " + dev.getSSID() + " property " +
+//								exec.getPropertyID() + " to " + exec.getPropertyValue() + "...");
+//						try {
+//							affectedIDs.add(dev.getSSID() + "-" + prop2.getSSID());
+//							prop2.setValue(exec.getPropertyValue(), poop.getCID(), logDomain, false);
+//                            ReqPOOP reqPoop = new ReqPOOP(idg.generateRID(), prop2.getDevice().getSSID(), poopRTY,
+//                                    poop.getSender(), propIDParam, propValParam, prop2.getSSID(), prop2.getValue());
+//                            poop.getSender().send(reqPoop, null);
+//							propsToUpdate.add(prop2);
+//							alreadyChanged.put(prop2, true);
+//							updatedOthers = true;
+//						} catch (AdaptorException e) {
+//							error("Cannot change property " + exec.getPropertyID() +
+//									" of component " + dev.getSSID(),
+//									e, request.getSender());
+//							return false;
+//						}
+//					}
+//				}
+//			}
+//			if(!updatedOthers) mainLOG.info("No other components updated!");
 		}
 		mainLOG.info("POOP processing complete!");
 		return true;
@@ -191,9 +185,5 @@ public class POOPModule extends MultiModule {
 		}
 		
 		return b;
-	}
-
-	public void setPropsTable(String s) {
-		this.propsTable = s;
 	}
 }

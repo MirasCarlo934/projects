@@ -153,7 +153,7 @@ public abstract class SymphonyElement {
 	
 	/**
 	 * Persists this object to all plugged adaptors <b>EXCEPT</b> the DBAdaptor. This method is invoked mainly by 
-	 * repositories that wish to update the records of the persisted objects in all the peripheral systems.
+	 * repositories that wish to updateRules the records of the persisted objects in all the peripheral systems.
 	 * 
 	 * @param parentLogDomain the log domain of the object that called this method
 	 * @throws AdaptorException if an adaptor fails to persist this object
@@ -230,15 +230,15 @@ public abstract class SymphonyElement {
 	
 //	/**
 //	 * Updates this object. The common objective of this method is to use all the injected adaptors 
-//	 * to update this object to various external systems and services. <br><br>
+//	 * to updateRules this object to various external systems and services. <br><br>
 //	 * 
 //	 * <i><b>Note:</b> This method does NOT guarantee that this object will be updated from the BusinessMachine
 //	 * repositories. That is mainly done in Modules.
 //	 * 
 //	 * @param parentLogDomain the log domain of the object that called this method
-//	 * @throws AdaptorException if an adaptor fails to update this object
+//	 * @throws AdaptorException if an adaptor fails to updateRules this object
 //	 */
-	//FIXME this method should update one by one based on the supplied adaptors by the other update methods
+	//FIXME this method should updateRules one by one based on the supplied adaptors by the other updateRules methods
 	/**
 	 * Updates this object to a single adaptor.
 	 * 
@@ -255,7 +255,7 @@ public abstract class SymphonyElement {
 	 * 
 	 * @param parentLogDomain the log domain of the object that called this method
 	 * @param waitUntilUpdated
-	 * @throws AdaptorException if an adaptor fails to update this object
+	 * @throws AdaptorException if an adaptor fails to updateRules this object
 	 */
 	public void update(String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
@@ -269,7 +269,7 @@ public abstract class SymphonyElement {
 	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be updated to
 	 * @param parentLogDomain the log domain of the object that called this method
 	 * @param waitUntilUpdated
-	 * @throws AdaptorException if an adaptor fails to update this object
+	 * @throws AdaptorException if an adaptor fails to updateRules this object
 	 */
 	public void updateExcept(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
 			throws AdaptorException {
@@ -288,7 +288,7 @@ public abstract class SymphonyElement {
 	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be updated to
 	 * @param parentLogDomain the log domain of the object that called this method
 	 * @param waitUntilUpdated
-	 * @throws AdaptorException if an adaptor fails to update this object
+	 * @throws AdaptorException if an adaptor fails to updateRules this object
 	 */
 	public void updateExcept(String[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
 			throws AdaptorException {

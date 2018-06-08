@@ -50,7 +50,7 @@
 //    }
 //
 //    @Override
-//    protected void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+//    protected void updateRules(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 //        Logger LOG = getLogger(parentLogDomain);
 //        LOG.debug("Updating device " + SSID + " (" + device.getName() + ") in " + adaptor.getName() + "...");
 //        adaptor.deviceCredentialsUpdated(device, waitUntilUpdated);

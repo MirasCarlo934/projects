@@ -28,7 +28,7 @@ public abstract class SymphonyObject extends SymphonyElement {
 	}
 
 	/**
-	 * Sets the parent room of this SmarthomeObject. <i><b>NOTE:</b> This method will not update the SmarthomeObject in 
+	 * Sets the parent room of this SmarthomeObject. <i><b>NOTE:</b> This method will not updateRules the SmarthomeObject in
 	 * peripheral systems. </i>
 	 * @param room The new parent room of this device
 	 * @throws AdaptorException 
@@ -46,7 +46,7 @@ public abstract class SymphonyObject extends SymphonyElement {
 	}
 	
 	/**
-	 * Sets the parent room of this SmarthomeObject. <i><b>NOTE:</b> This method will not update the SmarthomeObject in 
+	 * Sets the parent room of this SmarthomeObject. <i><b>NOTE:</b> This method will not updateRules the SmarthomeObject in
 	 * peripheral systems. </i>
 	 * @param room The new parent room of this device
 	 * @param index	The index of this SmarthomeObject in the room. <i>Index dictates the order in which SmarthomeObjects

@@ -16,19 +16,12 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<constructor-arg name="pr" ref="Products"/>
 		<constructor-arg name="rr" ref="Rooms"/>
-		<!-- <constructor-arg name="deviceFactories">
-			<map>
-				key => product SSID
-          		<entry key="0010" value-ref="TimerFactory"/>
-       		</map>
-		</constructor-arg> -->
 	</bean>
 	<bean id="Rooms" class="bm.main.repositories.RoomRepository">
 		<constructor-arg name="dbe" ref="DBManager"/>
 		<constructor-arg name="idg" ref="IDGenerator"/>
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<constructor-arg name="getRoomsQuery" value="${rooms.queryString}"/>
-		<!-- <property name="mqttPublisher" ref="MQTTPublisher"/> -->
 	</bean>
 	<bean id="Products" class="bm.main.repositories.ProductRepository">
 		<constructor-arg name="dbe" ref="DBManager"/>
@@ -43,40 +36,4 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 			</map>
 		</constructor-arg>
 	</bean>
-	<bean id="CIRs" class="bm.cir.CIRRepository">
-		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
-		<constructor-arg name="componentRepository" ref="Devices"/>
-		<constructor-arg name="fe" ref="CIR.FileEngine"/>
-		<constructor-arg name="idg" ref="IDGenerator"/>
-	</bean>
-	
-	<!-- UI REPOSITORIES -->
-	<!--<bean id="UIRooms" class="ui.main.repositories.UIRoomRepository">-->
-		<!--<constructor-arg name="uiDBE" ref="UI.DBEngine"/>-->
-		<!--<constructor-arg name="idg" ref="IDGenerator"/>-->
-		<!--<constructor-arg name="logDomain" value="${log.domain.ui}"/>-->
-		<!--<constructor-arg name="adaptors" ref="UIAdaptors"/>-->
-        <!--<constructor-arg name="uia" ref="UIAdaptor"/>-->
-		<!--<constructor-arg name="roomRepository" ref="Rooms"/>-->
-		<!--<constructor-arg name="uiRoomsTable" value="${ui.table.rooms}"/>-->
-		<!--<constructor-arg name="ssidColname" value="${ui.table.rooms.ssid}"/>-->
-		<!--<constructor-arg name="colorColname" value="${ui.table.rooms.color}"/>-->
-	<!--</bean>-->
-    <!--<bean id="UIProducts" class="ui.main.repositories.UIProductRepository">-->
-		<!--<constructor-arg name="adaptors" ref="UIAdaptors"/>-->
-        <!--<constructor-arg name="logDomain" value="${log.domain.ui}"/>-->
-        <!--<constructor-arg name="uiDBE" ref="UI.DBEngine"/>-->
-        <!--<constructor-arg name="idg" ref="IDGenerator"/>-->
-        <!--<constructor-arg name="productRepository" ref="Products"/>-->
-        <!--<constructor-arg name="uiProdsTable" value="${ui.table.products}"/>-->
-        <!--<constructor-arg name="ssidColname" value="${ui.table.products.ssid}"/>-->
-        <!--<constructor-arg name="iconColname" value="${ui.table.products.icon}"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="UIDevices" class="ui.main.repositories.UIDeviceRepository">-->
-        <!--<constructor-arg name="logDomain" value="${log.domain.ui}"/>-->
-        <!--<constructor-arg name="uia" ref="UIAdaptor"/>-->
-        <!--<constructor-arg name="uiProductRepository" ref="UIProducts"/>-->
-        <!--<constructor-arg name="deviceRepository" ref="Devices"/>-->
-    <!--</bean>-->
 </beans>

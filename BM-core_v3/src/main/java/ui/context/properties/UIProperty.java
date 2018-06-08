@@ -38,7 +38,7 @@
 //    }
 //
 //    @Override
-//    protected void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+//    protected void updateRules(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 //        Logger LOG = getLogger(parentLogDomain);
 //        LOG.debug("Updating property " + SSID + " (" + property.getDisplayName() + ") in device "
 //                + uiDevice.getSymphonyObject().getSSID() + " in " + adaptor.getName() + "...");

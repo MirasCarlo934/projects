@@ -3,7 +3,6 @@ package bm.cir.objects;
 import org.apache.log4j.Logger;
 
 import bm.tools.StringTools;
-import bm.tools.StringTools.StringInjectionException;
 
 public class Argument extends CodeBlock {
 	private static final Logger logger = Logger.getLogger(Argument.class);
@@ -51,7 +50,7 @@ public class Argument extends CodeBlock {
 		if(rel.equals("NONE")) {
 			rel = "";
 		}
-		return StringTools.injectStrings("%s:%s %s %s %s", new String[]{getComID(), getPropSSID(), 
-				getOperator().getSymbol(), getPropValue().toString(), rel}, "%s");
+		return StringTools.injectStrings("%s:%s %s %s %s", new String[]{getDeviceID(), getPropertyID(),
+				getOperator().getSymbol(), getPropertyValue().toString(), rel}, "%s");
 	}
 }

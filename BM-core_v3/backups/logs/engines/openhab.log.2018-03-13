@@ -1,3 +1,0 @@
-2018-03-13 23:58:39,590 INFO  [main] (OH.OH_DBEngine) OH_DBEngine started @ URL: jdbc:derby://localhost:1527/OH
-2018-03-13 23:58:39,633 INFO  [main] (OH.OH-SitemapFileEngine) FileEngine for file 'home.sitemap' started!
-2018-03-13 23:58:39,722 INFO  [main] (OH.OH-RulesFileEngine) FileEngine for file 'home.rules' started!

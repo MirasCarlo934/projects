@@ -7,29 +7,9 @@
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:annotation-config/>
-	<!-- NON-CORE ADAPTORS -->
-	<!-- <bean id="PlexAdaptor" class="plex.PlexAdaptor" scope="prototype">
-		<constructor-arg name="serviceName" value="${plex.serviceName}"/>
-		<constructor-arg name="idg" ref="IDGenerator"/>
-		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
-		<constructor-arg name="plexHE" ref="PLEX.Updater.HTTPEngine"/>
-		<constructor-arg name="sysTimer" ref="SystemTimer"/>
-		<constructor-arg name="refreshPeriod" value="${plex.refreshPeriod}"/>
-	</bean>
-	<bean id="PlexListener" class="plex.PlexListener" scope="singleton">
-		<constructor-arg name="serviceName" value="${plex.serviceName}"/>
-		<constructor-arg name="idg" ref="IDGenerator"/>
-		<constructor-arg name="cr" ref="Components"/>
-		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
-		<constructor-arg name="plexHE" ref="PLEX.Listener.HTTPEngine"/>
-		<constructor-arg name="devicesXML_URL" value="${plex.devicesXML_URL}"/>
-		<constructor-arg name="sessionXML_URL" value="${plex.sessionXML_URL}"/>
-		<constructor-arg name="plexToken" value="${plex.token}"/>
-		<constructor-arg name="sysTimer" ref="SystemTimer"/>
-		<constructor-arg name="refreshPeriod" value="${plex.refreshPeriod}"/>
-	</bean> -->
 	<util:list id="CoreAdaptors">
 		<ref bean="DBAdaptor"/>
+        <ref bean="CIRAdaptor"/>
         <ref bean="OHAdaptor"/>
 	</util:list>
 
@@ -44,14 +24,25 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	</bean>
 	
 	<!-- CORE ADAPTORS -->
-	<bean id="DBAdaptor" class="bm.context.adaptors.DBAdaptor" scope="singleton">
+	<bean id="DBAdaptor" class="bm.context.adaptors.DBAdaptor">
+        <constructor-arg name="logDomain" value="${log.domain.db}"/>
+        <constructor-arg name="adaptorID" value="0000000000"/>
+        <constructor-arg name="adaptorName" value="DBAdaptor"/>
 		<constructor-arg name="dbe" ref="DBManager"/>
 		<constructor-arg name="comsTable" value="${table.comstable}"/>
 		<constructor-arg name="propsTable" value="${table.propstable}"/>
 		<constructor-arg name="roomsTable" value="${table.roomstable}"/>
 	</bean>
-	<bean id="OHAdaptor" class="oh.context.adaptors.OHAdaptor" scope="singleton">
+    <bean id="CIRAdaptor" class="bm.cir.CIRAdaptor">
+        <constructor-arg name="logDomain" value="${log.domain.main}"/>
+        <constructor-arg name="adaptorID" value="0000000001"/>
+        <constructor-arg name="adaptorName" value="CIRAdaptor"/>
+        <constructor-arg name="cir" ref="CIRs"/>
+    </bean>
+    <bean id="OHAdaptor" class="oh.context.adaptors.OHAdaptor">
 		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
+        <constructor-arg name="adaptorID" value="0000000002"/>
+        <constructor-arg name="adaptorName" value="OHAdaptor"/>
 		<constructor-arg name="ohIP" value="${oh.ip}"/>
 		<constructor-arg name="ohSitemapName" value="${oh.sitemap_name}"/>
 		<constructor-arg name="he" ref="HTTPSender"/>
@@ -59,7 +50,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="deviceRepository" ref="Devices"/>
 		<constructor-arg name="roomRepository" ref="Rooms"/>
 	</bean>
-	
+
 	<!-- UI ADAPTORS -->
 	<!--<bean id="UIAdaptor" class="ui.context.adaptors.UIAdaptor" scope="singleton">-->
 		<!--<constructor-arg name="logDomain" value="${log.domain.ui}"/>-->

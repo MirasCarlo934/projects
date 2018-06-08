@@ -156,7 +156,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	}
 	
 //	@Override
-//	public void update(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
+//	public void updateRules(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated)
 //			throws AdaptorException {
 //		Logger LOG = getLogger(parentLogDomain);
 //		if(!propType.getOHIcon().equals("none")) {
@@ -239,7 +239,6 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	 * Sets the value of this property in this object and calls the external application adaptors to
 	 * handle this property value change. This method must only be called when the value change did 
 	 * not come from a JEEP request (ie. CIR)
-	 * 
 	 * @param value The value of the property to be set
 	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
 	 * @param waitUntilUpdated <b><i>true</i></b> if thread must be set to wait until the adaptor/s have
@@ -255,7 +254,6 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	/**
 	 * Sets the value of this property in this object and calls the external application adaptors to
 	 * handle this property value change. 
-	 * 
 	 * @param value The value of the property to be set
 	 * @param cid The CID of the component that sent the request to change the property value
 	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
@@ -321,6 +319,10 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	public String getSystemName() {
 		return systemName;
 	}
+
+	public String getCommonName() {
+	    return parentDevice.getSSID() + "-" + SSID;
+    }
 
 	/**
 	 * @param systemName the systemName to set

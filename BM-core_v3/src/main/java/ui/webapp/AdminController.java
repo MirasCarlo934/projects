@@ -137,13 +137,13 @@ public class AdminController extends AbstController {
 			oh_icon = prod.getIconImg();
 		} else LOG.info("Changing product OpenHAB icon to " + oh_icon);
 		
-		//update product object
+		//updateRules product object
 		prod.setSSID(newSSID);
 		prod.setName(name);
 		prod.setDescription(description);
 		prod.setIconImg(oh_icon);
 		
-		//update DB
+		//updateRules DB
 		HashMap<String, Object> vals = new HashMap<String, Object>(4);
 		HashMap<String, Object> args = new HashMap<String, Object>(1);
 		vals.put("SSID", newSSID);
@@ -155,8 +155,8 @@ public class AdminController extends AbstController {
 		try {
 			dbe.putRequest(dber1, Thread.currentThread(), true);
 		} catch (EngineException e) {
-			LOG.error("Cannot update product!", e);
-			return notify(null, "Cannot update product! Check BM logs for more info.", model);
+			LOG.error("Cannot updateRules product!", e);
+			return notify(null, "Cannot updateRules product! Check BM logs for more info.", model);
 		}
 		LOG.info("Product modified!");
 		return notify(null, "Product modified!", model);
@@ -313,7 +313,7 @@ public class AdminController extends AbstController {
 			max = String.valueOf(ptype.getMax());
 		} else LOG.info("Changing property type max value to " + max);
 		
-		//update product object
+		//updateRules product object
 		ptype.setSSID(newSSID);
 		ptype.setName(name);
 		ptype.setDescription(description);
@@ -321,7 +321,7 @@ public class AdminController extends AbstController {
 		ptype.setMin(Integer.parseInt(min));
 		ptype.setMax(Integer.parseInt(max));
 		
-		//update DB
+		//updateRules DB
 		HashMap<String, Object> vals = new HashMap<String, Object>(4);
 		HashMap<String, Object> args = new HashMap<String, Object>(1);
 		vals.put("SSID", newSSID);
@@ -335,8 +335,8 @@ public class AdminController extends AbstController {
 		try {
 			dbe.putRequest(dber1, Thread.currentThread(), true);
 		} catch (EngineException e) {
-			LOG.error("Cannot update property type!", e);
-			return notify(null, "Cannot update property type! Check BM logs for more info.", model);
+			LOG.error("Cannot updateRules property type!", e);
+			return notify(null, "Cannot updateRules property type! Check BM logs for more info.", model);
 		}
 		LOG.info("Property type modified!");
 		return notify(null, "Property type modified!", model);

@@ -56,18 +56,18 @@ public class SettingsController extends AbstController {
 			@RequestParam(value="oldPWD", required=true) String oldPWD,
 			@RequestParam(value="checkNewPWD", required=true) String checkNewPWD, Model model) {
 		String userPwd = userPropManager.getUserPwd();
-		LOG.debug("User settings update requested... Updating user.properties file!");
+		LOG.debug("User settings updateRules requested... Updating user.properties file!");
 		if(newPWD == null || newPWD.isEmpty()) {
-			LOG.error("Cannot update password!");
+			LOG.error("Cannot updateRules password!");
 			return notify("error", "New password is empty!", model);
 		} else if(!oldPWD.equals(userPwd)) {
-			LOG.error("Cannot update password!");
+			LOG.error("Cannot updateRules password!");
 			return notify("error", "Old password is invalid!", model);
 		} else if(newPWD.equals(oldPWD)) {
-			LOG.error("Cannot update password!");
+			LOG.error("Cannot updateRules password!");
 			return notify("error", "New password is same as old password!", model);
 		} else if(!newPWD.equals(checkNewPWD)) {
-			LOG.error("New password and confirm new password do not match! Cannot update password!");
+			LOG.error("New password and confirm new password do not match! Cannot updateRules password!");
 			return notify("error.", "New password and confirm new password do not match!", model);
 		} else {
 //			model.addAttribute(userPropManager.getUserPwdPropKey(), newPWD);

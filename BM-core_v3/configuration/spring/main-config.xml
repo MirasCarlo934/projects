@@ -27,6 +27,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="initializables">
 			<list>
 				<ref bean="AdaptorManager"/>
+                <ref bean="CIRs"/>
 			</list>
 		</constructor-arg>
 	</bean>
@@ -44,6 +45,16 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<constructor-arg name="moduleQueue" ref="ModuleQueue"/>
 		<constructor-arg name="threadPool" ref="ThreadPool"/>
+	</bean>
+	<bean id="CIRs" class="bm.cir.CIRManager">
+		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
+		<constructor-arg name="deviceRepository" ref="Devices"/>
+		<constructor-arg name="fe" ref="CIR.FileEngine"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+        <constructor-arg name="mqttPublisher" ref="MQTTPublisher"/>
+        <constructor-arg name="poopPropIDParam" value="${poop.param.propertyID}"/>
+        <constructor-arg name="poopPropValParam" value="${poop.param.propertyValue}"/>
+        <constructor-arg name="poopRTY" value="${rty.poop}"/>
 	</bean>
 	
 	<!-- For thread management -->

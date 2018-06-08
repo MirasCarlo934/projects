@@ -1,8 +1,0 @@
-2017-06-09 23:34:29,404 DEBUG [3:Process7] (BYE.ByeModule) ByeModule request processing started!
-2017-06-09 23:34:29,404 INFO  [3:Process7] (BYE.ByeModule) Deactivating component KIX3 (MAC:18fe34cf4fc1)
-2017-06-09 23:34:29,405 DEBUG [3:Process7] (BYE.KIX3) Setting active state to false
-2017-06-09 23:34:29,486 INFO  [3:Process7] (BYE.ByeModule) Component deactivated!
-2017-06-09 23:46:07,361 DEBUG [2:Process36] (BYE.ByeModule) ByeModule request processing started!
-2017-06-09 23:46:07,361 INFO  [2:Process36] (BYE.ByeModule) Deactivating component KIX3 (MAC:18fe34cf4fc1)
-2017-06-09 23:46:07,361 DEBUG [2:Process36] (BYE.KIX3) Setting active state to false
-2017-06-09 23:46:07,465 INFO  [2:Process36] (BYE.ByeModule) Component deactivated!

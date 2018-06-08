@@ -32,9 +32,10 @@ public class OHAdaptor extends AbstAdaptor {
 	private DeviceRepository dr;
 	private RoomRepository rr;
 
-	public OHAdaptor(String logDomain, String ohIP, String ohSitemapName, HTTPSender he, FileEngine sitemapFE,
-                     DeviceRepository deviceRepository, RoomRepository roomRepository) {
-		super(logDomain, "0000000001", OHAdaptor.class.getSimpleName()/*, "openhab"*/);
+	public OHAdaptor(String logDomain, String adaptorID, String adaptorName, String ohIP, String ohSitemapName,
+					 HTTPSender he, FileEngine sitemapFE, DeviceRepository deviceRepository,
+					 RoomRepository roomRepository) {
+		super(logDomain, adaptorID, adaptorName/*, "openhab"*/);
 		this.sitemapFE = sitemapFE;
 		this.httpSender = he;
 		this.ohIP = ohIP;
@@ -96,13 +97,13 @@ public class OHAdaptor extends AbstAdaptor {
 		try {
 			httpSender.sendHTTPRequest(request, false);
 		} catch (bm.comms.http.HTTPException e) {
-			AdaptorException a = new AdaptorException("Cannot update value of property " + p.getOH_ID(), e);
+			AdaptorException a = new AdaptorException("Cannot updateRules value of property " + p.getOH_ID(), e);
 			throw a;
 		}
 //		try {
 //			he.putRequest(request, Thread.currentThread(), waitUntilUpdated);
 //		} catch (EngineException e) {
-//			AdaptorException a = new AdaptorException("Cannot update value of property " + p.getStandardID(), e);
+//			AdaptorException a = new AdaptorException("Cannot updateRules value of property " + p.getStandardID(), e);
 //			throw a;
 //		}
 		LOG.trace("Update complete!");
@@ -149,7 +150,7 @@ public class OHAdaptor extends AbstAdaptor {
 				addItems(new JSONObject[]{json}, waitUntilUpdated);
 			}
 		} catch(AdaptorException e) {
-			throw new AdaptorException("Cannot update state of component " + d.getSSID(), e);
+			throw new AdaptorException("Cannot updateRules state of component " + d.getSSID(), e);
 		}
 	}
 
@@ -202,7 +203,7 @@ public class OHAdaptor extends AbstAdaptor {
 	
 	@Override
 	public void roomCredentialsUpdated(Room r, boolean waitUntilUpdated) throws AdaptorException {
-		//room update same as room persistence
+		//room updateRules same as room persistence
 		LOG.trace("Updating room credentials in OpenHAB thru OpenHAB room persistence...");
 		LOG.trace("Deleting room from sitemap (if it exists in the sitemap)...");
         Room room = rr.getRoom(r.getSSID());

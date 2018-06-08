@@ -20,8 +20,9 @@ public class DBAdaptor extends AbstAdaptor {
 	private String propsTable;
 	private String roomsTable;
 
-	public DBAdaptor(DBEngine dbe, String comsTable, String propsTable, String roomsTable) {
-		super(dbe.getLogDomain(), "0000000000", DBAdaptor.class.getSimpleName()/*, "database"*/);
+	public DBAdaptor(String logDomain, String adaptorID, String adaptorName, DBEngine dbe, String comsTable,
+					 String propsTable, String roomsTable) {
+		super(logDomain, adaptorID, adaptorName/*, "database"*/);
 		this.dbe = dbe;
 		this.devsTable = comsTable;
 		this.propsTable = propsTable;
@@ -89,7 +90,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot update device state!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules device state!", e);
 			throw a;
 		}
 	}
@@ -107,7 +108,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot update device room!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules device room!", e);
 			throw a;
 		}
 	}
@@ -171,7 +172,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot update property value!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules property value!", e);
 			throw a;
 		}
 	}
@@ -247,12 +248,12 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot update property value!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules property value!", e);
 			throw a;
 		}
 	}
 	
 	public void roomParentUpdated(Room r, boolean waitUntilUpdated) throws AdaptorException {
-		//room update is done in updateRoom() function
+		//room updateRules is done in updateRoom() function
 	}
 }

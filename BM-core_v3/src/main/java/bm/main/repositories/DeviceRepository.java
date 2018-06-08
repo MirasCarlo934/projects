@@ -106,7 +106,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 					prop.update(logDomain, false);
 				}
             } catch (AdaptorException e) {
-                LOG.error("Cannot update device " + device.getSSID() + " in environment!", e);
+                LOG.error("Cannot updateRules device " + device.getSSID() + " in environment!", e);
             }
         }
         LOG.debug("Devices updated in Symphony Environment!");

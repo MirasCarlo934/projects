@@ -59,9 +59,9 @@
 //        while(devices.hasNext()) {
 //            UIDevice device = devices.next();
 //            try {
-//                device.update(logDomain, false);
+//                device.updateRules(logDomain, false);
 //            } catch (AdaptorException e) {
-//                LOG.error("Cannot update device " + device.getSSID() + " in environment UI!", e);
+//                LOG.error("Cannot updateRules device " + device.getSSID() + " in environment UI!", e);
 //            }
 //        }
 //        LOG.debug("Devices updated in Symphony Environment UI!");

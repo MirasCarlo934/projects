@@ -23,7 +23,7 @@ import bm.context.properties.PropertyMode;
 import bm.context.rooms.Room;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.modules.admin.CreateRoomModule;
-import bm.cir.CIRRepository;
+import bm.cir.CIRManager;
 
 @Controller
 @RequestMapping("/devices")
@@ -33,7 +33,7 @@ public class DevicesController extends AbstController {
 	@Autowired
 	protected RoomRepository rr;
 	@Autowired
-	protected CIRRepository cirr;
+	protected CIRManager cirm;
 	@Autowired
 	protected CreateRoomModule createRoomModule;
 
@@ -41,7 +41,7 @@ public class DevicesController extends AbstController {
 		super(logDomain, DevicesController.class.getSimpleName());
 //		dr = (DeviceRepository) config.getApplicationContext().getBean(drStr);
 //		rr = (UIRoomRepository) config.getApplicationContext().getBean(rrStr);
-//		cirr = (CIRRepository) config.getApplicationContext().getBean(cirStr);
+//		cirm = (CIRManager) config.getApplicationContext().getBean(cirStr);
 //		createRoomModule = (CreateRoomModule) config.getApplicationContext().getBean(crmStr);
 	}
 
@@ -139,7 +139,7 @@ public class DevicesController extends AbstController {
 				try {
 					child.update(logDomain, false);
 				} catch (AdaptorException e) {
-					LOG.error("Could not update index of " + child.getClass().getSimpleName() + " " + child.getSSID());
+					LOG.error("Could not updateRules index of " + child.getClass().getSimpleName() + " " + child.getSSID());
 				}
 			}
 		}
@@ -149,7 +149,7 @@ public class DevicesController extends AbstController {
 	public String rearrangeSmarthome(@RequestParam(value="string", required=true) String string,
 //			@RequestParam(value="rooms", required=false) String[] rooms, 
 			Model model) {
-		LOG.debug("Smarthome elements arrangement update requested!");
+		LOG.debug("Smarthome elements arrangement updateRules requested!");
 		String[] rooms = string.split(";;;");
 		
 		for(int i = 0; i < rooms.length; i++) {
@@ -169,8 +169,8 @@ public class DevicesController extends AbstController {
 					try {
 						d.update(logDomain, false);
 					} catch (AdaptorException e) {
-						LOG.error("Cannot update device!");
-						notifyError("Cannot update device! Please refresh.", model);
+						LOG.error("Cannot updateRules device!");
+						notifyError("Cannot updateRules device! Please refresh.", model);
 					}
 				} else { //the content is a room!
 					Room r = (Room) rr.getRoom(roomContents[j]);
@@ -180,8 +180,8 @@ public class DevicesController extends AbstController {
 						try {
 							r.update(logDomain, false);
 						} catch (AdaptorException e) {
-							LOG.error("Cannot update room!");
-							notifyError("Cannot update room! Please refresh.", model);
+							LOG.error("Cannot updateRules room!");
+							notifyError("Cannot updateRules room! Please refresh.", model);
 						}
 					}
 				}
@@ -210,8 +210,8 @@ public class DevicesController extends AbstController {
 			try {
 				d.update(logDomain, false);
 			} catch (AdaptorException e) {
-				LOG.error("Cannot update device!");
-				notifyError("Cannot update device! Please refresh.", model);
+				LOG.error("Cannot updateRules device!");
+				notifyError("Cannot updateRules device! Please refresh.", model);
 			}
 		} else {
 			LOG.debug("Relocating room " + elementID + " to room " + roomID);
@@ -220,8 +220,8 @@ public class DevicesController extends AbstController {
 			try {
 				r.update(logDomain, false);
 			} catch (AdaptorException e) {
-				LOG.error("Cannot update room!");
-				notifyError("Cannot update room! Please refresh.", model);
+				LOG.error("Cannot updateRules room!");
+				notifyError("Cannot updateRules room! Please refresh.", model);
 			}
 		}
 		
@@ -237,13 +237,13 @@ public class DevicesController extends AbstController {
 	 * @param devID The ID of the device to be updated
 	 * @param newName The new name of the device to be updated, can be null
 	 * @param newRoom The new room ID of the device to be updated, can be null
-	 * @return A notification on whether the update is successful or has failed
+	 * @return A notification on whether the updateRules is successful or has failed
 	 */
 	@RequestMapping("/editDevice")
 	public String editDevice(@RequestParam(value="devID", required=true) String devID, 
 			@RequestParam(value="name", required=false) String newName, 
 			@RequestParam(value="room", required=false) String newRoom, Model model) {
-		LOG.debug("Device " + devID + " credential update requested!");
+		LOG.debug("Device " + devID + " credential updateRules requested!");
 		Device d = (Device) dr.getDevice(devID);
 		Room r = (Room) rr.getRoom(newRoom);
 		boolean updated = false;
@@ -273,15 +273,15 @@ public class DevicesController extends AbstController {
 					model.addAttribute("status", true);
 					return notify(null, "Device updated", model);
 				} catch (AdaptorException e) {
-					String error = "Cannot update device " + devID + "! Contact helpdesk to fix!";
+					String error = "Cannot updateRules device " + devID + "! Contact helpdesk to fix!";
 					LOG.error(error, e);
 					model.addAttribute("status", false);
 					return notifyError(error, model);
 				}
 			} else {
-				LOG.debug("There is nothing to update!");
+				LOG.debug("There is nothing to updateRules!");
 				model.addAttribute("status", false);
-				return notify(null, "There is nothing to update.", model);
+				return notify(null, "There is nothing to updateRules.", model);
 			}
 		} else {
 			LOG.error("Device doesn't exist!");
@@ -314,12 +314,12 @@ public class DevicesController extends AbstController {
 				LOG.info("Room " + roomID + " name changed to " + name + "!");
 				return notify(null, "Room updated", model);
 			} catch (AdaptorException e) {
-				LOG.error("Cannot update room " + roomID + "!", e);
-				return notify(null, "Cannot update room! Contact helpdesk to fix.", model);
+				LOG.error("Cannot updateRules room " + roomID + "!", e);
+				return notify(null, "Cannot updateRules room! Contact helpdesk to fix.", model);
 			}
 		}
 		else {
-			return notify(null, "There is nothing to update.", model);
+			return notify(null, "There is nothing to updateRules.", model);
 		}
 	}
 	
@@ -401,7 +401,7 @@ public class DevicesController extends AbstController {
 		String rulesStr = "";
 		String rulesArray = "var rules = [ ";
 		Iterator<Device> devs = Arrays.asList(dr.getAllDevices()).iterator();
-		Iterator<Rule> rules = Arrays.asList(cirr.getAllRules()).iterator();
+		Iterator<Rule> rules = Arrays.asList(cirm.getAllRules()).iterator();
 		
 		while(devs.hasNext()) {
 			//get component in javascript object string
@@ -451,13 +451,13 @@ public class DevicesController extends AbstController {
 	 */
 	@RequestMapping("/composeCIR")
 	public String composeCIR(@RequestParam(value="cir", required=false, defaultValue="<rules></rules>") String cir, Model model) {
-		LOG.debug("CIR update requested!");
-		cirr.overwriteRules(cir);
+		LOG.debug("CIR updateRules requested!");
+		cirm.overwriteRules(cir);
 		try {
-			cirr.update();
+			cirm.updateRules();
 		} catch (EngineException e) {
-			LOG.error("Cannot update CIRRepository!", e);
-			return notifyError("Cannot update rules! Restart BM!", model);
+			LOG.error("Cannot updateRules CIRManager!", e);
+			return notifyError("Cannot updateRules rules! Restart BM!", model);
 		}
 		LOG.info("CIR updated!");
 		return notify(null, "Home rules composed!", model);

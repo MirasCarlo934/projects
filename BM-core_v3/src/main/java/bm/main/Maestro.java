@@ -1,11 +1,11 @@
 package bm.main;
 
+import bm.cir.CIRManager;
 import bm.comms.Sender;
 import bm.context.adaptors.AdaptorManager;
 import bm.main.controller.Controller;
 import bm.main.controller.ModuleDispatcher;
 import bm.main.engines.AbstEngine;
-import bm.cir.CIRRepository;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.ProductRepository;
 import bm.main.repositories.RoomRepository;
@@ -55,8 +55,9 @@ public class Maestro {
 	private DeviceRepository dr;
 	private RoomRepository rr;
 	private ProductRepository pr;
-	private CIRRepository cirr;
+	private CIRManager cirr;
 	private AdaptorManager am;
+	private CIRManager cirm;
 	private List<AbstEngine> engines;
 	private List<Sender> senders;
 	
@@ -100,8 +101,9 @@ public class Maestro {
                 dr = (DeviceRepository) context.getBean("Devices");
                 rr = (RoomRepository) context.getBean("Rooms");
                 pr = (ProductRepository) context.getBean("Products");
-                cirr = (CIRRepository) context.getBean("CIRs");
+                cirr = (CIRManager) context.getBean("CIRs");
                 am = (AdaptorManager) context.getBean("AdaptorManager");
+                cirm = (CIRManager) context.getBean("CIRs");
 
                 //engine layer
                 engines = (List<AbstEngine>) context.getBean("Engines");
@@ -144,12 +146,14 @@ public class Maestro {
 			Thread t = new Thread(sender, sender.getName());
 			t.start();
 		}
-		
+
 		//run runnables on separate threads
 		Thread t1 = new Thread(controller, controller.getClass().getSimpleName());
 		Thread t2 = new Thread(moduleDispatcher, moduleDispatcher.getClass().getSimpleName());
+		Thread t3 = new Thread(cirm, cirm.getClass().getSimpleName());
 		t1.start();
 		t2.start();
+		t3.start();
 
 		//sets repositories for adaptor manager
 		am.setRepositories(pr, dr, rr);

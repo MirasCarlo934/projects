@@ -25,7 +25,7 @@ public class BaseController extends AbstController {
 //	@Autowired
 //	private UserPropertyManager userPropManager;
 //	@Autowired
-//	private CIRRepository cirr;
+//	private CIRManager cirm;
 	
 	public BaseController(@Value("${log.domain.ui}") String logDomain) {
 		super(logDomain, BaseController.class.getSimpleName());
@@ -67,14 +67,14 @@ public class BaseController extends AbstController {
 		}
 		LOG.debug("Registration request accepted!");
 		if(pwd.equals(confirm_pwd)) {
-			LOG.debug("VM password update requested. Updating user.properties file!");
+			LOG.debug("VM password updateRules requested. Updating user.properties file!");
 			userPropManager.setUserPwd(pwd);
 			setUserPwdInModel(model, pwd);
 			try {
 				userPropManager.store();
 				LOG.info("VM password updated!");
 			} catch (IOException e) {
-				LOG.error("Cannot update user.properties file!", e);
+				LOG.error("Cannot updateRules user.properties file!", e);
 				model.addAttribute("error", "Cannot save new VM password! Please contact Symphony Customer "
 						+ "Care.");
 				return "register";

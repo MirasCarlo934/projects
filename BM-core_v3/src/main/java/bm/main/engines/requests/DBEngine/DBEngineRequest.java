@@ -17,7 +17,7 @@ public abstract class DBEngineRequest extends EngineRequest {
 
 	/**
 	 * Returns the QueryType of this DBEngineRequest. Used to determine the kind of query to be used by 
-	 * the DBEngine (select, delete, update, insert, raw query string)
+	 * the DBEngine (select, delete, updateRules, insert, raw query string)
 	 * @return the QueryType enum
 	 */
 	public QueryType getQueryType() {

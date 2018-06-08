@@ -77,9 +77,9 @@
 //		while(rooms.hasNext()) {
 //			UIRoom room = rooms.next();
 //			try {
-//				room.update(logDomain, false);
+//				room.updateRules(logDomain, false);
 //			} catch (AdaptorException e) {
-//				LOG.error("Cannot update room " + room.getSSID() + " in environment UI!", e);
+//				LOG.error("Cannot updateRules room " + room.getSSID() + " in environment UI!", e);
 //			}
 //		}
 //		LOG.debug("Rooms updated in Symphony Environment UI!");

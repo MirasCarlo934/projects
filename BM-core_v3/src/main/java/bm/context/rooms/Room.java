@@ -82,7 +82,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	}
 
 //	@Override
-//	public void update(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
+//	public void updateRules(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated)
 //			throws AdaptorException {
 //		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
 //		for(int i = 0; i < adaptors.length; i++) {

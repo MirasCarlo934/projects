@@ -31,9 +31,9 @@
 //    }
 //
 //    @Override
-//    public void update(String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
-//        obj.update(parentLogDomain, waitUntilUpdated);
-//        super.update(parentLogDomain, waitUntilUpdated);
+//    public void updateRules(String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+//        obj.updateRules(parentLogDomain, waitUntilUpdated);
+//        super.updateRules(parentLogDomain, waitUntilUpdated);
 //    }
 //
 //    @Override

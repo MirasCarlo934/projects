@@ -121,7 +121,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //	 * <b><i>NOTE:</i></b> Set the credentials in this component object <b>FIRST</b> before calling this method.
 //	 */
 //	@Override
-//	public void update(String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+//	public void updateRules(String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 //		Logger LOG = getLogger(parentLogDomain);
 //		LOG.debug("Updating component " + SSID + "...");
 //		for(int i = 0; i < adaptors.length; i++) {
@@ -132,9 +132,9 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //	}
 	
 //	@Override
-//	public void update(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
+//	public void updateRules(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated)
 //			throws AdaptorException {
-//		//LATER Component: Create update function
+//		//LATER Component: Create updateRules function
 //		Logger LOG = getLogger(parentLogDomain);
 //		LOG.debug("Updating component " + SSID + "...");
 //		for(int i = 0; i < adaptors.length; i++) {
