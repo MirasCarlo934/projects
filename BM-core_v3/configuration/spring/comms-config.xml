@@ -25,6 +25,7 @@
    		<constructor-arg name="logDomain" value="${log.domain.main}"/>
    		<constructor-arg name="secondsToWaitBeforeResend" value="${comms.resendTime}"/>
    		<constructor-arg name="resendTimeout" value="${comms.resendTimout}"/>
+		<constructor-arg name="isResending" value="true"/>
    		<!-- <constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
    		<constructor-arg name="url" value="${oh.ip}"/> -->
    	</bean>
@@ -54,8 +55,9 @@
 		<constructor-arg name="logDomain" value="${log.domain.mqtt}"/>
 		<constructor-arg name="default_topic" value="${mqtt.topic.default}"/>
 		<constructor-arg name="error_topic" value="${mqtt.topic.error}"/>
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="deviceRepository" ref="Devices"/>
 		<constructor-arg name="secondsToWaitBeforeResend" value="${comms.resendTime}"/>
    		<constructor-arg name="resendTimeout" value="${comms.resendTimout}"/>
+		<constructor-arg name="isResending" value="false"/>
 	</bean>
 </beans>

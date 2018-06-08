@@ -33,7 +33,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="PlexEngine" class="main.engines.PlexEngine" scope="singleton">
 		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="cr" ref="Devices"/>
 		<constructor-arg name="plexURL" value="${plex.serverURL}"/>
 		<constructor-arg name="URLPropSSID" value="${plex.URLproperty.propSSID}"/>
 		<constructor-arg name="playerProdSSID" value="${plex.playerProdSSID}"/>
@@ -49,13 +49,13 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="cir_filepath" value="${cir.filepath}"/>
-		<constructor-arg name="componentRepository" ref="Components"/>
+		<constructor-arg name="componentRepository" ref="Devices"/>
 	</bean>
 	<bean id="OHEngine" class="main.engines.OHEngine" scope="singleton">
 		<constructor-arg name="ohIP" value="${oh.ip}"/>
 		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="cr" ref="Devices"/>
 		<constructor-arg name="itemsList">
 			<map>
 				<entry key="digital" value="${oh.items.digital}"/>

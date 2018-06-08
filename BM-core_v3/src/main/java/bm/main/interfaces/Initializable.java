@@ -8,5 +8,5 @@ package bm.main.interfaces;
  */
 public interface Initializable {
 	
-	public void initialize() throws Exception;
+	void initialize() throws Exception;
 }

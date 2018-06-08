@@ -1,4 +1,4 @@
-2018-05-31 16:43:56,593 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
-2018-05-31 16:43:56,595 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
-2018-05-31 16:43:56,595 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
-2018-05-31 16:43:56,596 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
+2018-06-08 18:30:42,405 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
+2018-06-08 18:30:42,407 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-06-08 18:30:42,407 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
+2018-06-08 18:30:42,407 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!

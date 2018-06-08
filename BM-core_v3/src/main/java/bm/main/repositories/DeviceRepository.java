@@ -1,47 +1,25 @@
 package bm.main.repositories;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
 
+import bm.context.properties.Property;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
-import bm.comms.mqtt.MQTTListener;
-import bm.context.adaptors.AbstAdaptor;
-import bm.context.adaptors.OHAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
-import bm.context.devices.factories.AbstDeviceFactory;
-import bm.context.devices.products.Product;
-import bm.context.properties.AbstProperty;
-import bm.context.properties.Property;
-import bm.jeep.device.ResError;
-import bm.main.Maestro;
-import bm.main.engines.AbstEngine;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.engines.requests.DBEngine.RawDBEReq;
-import bm.main.engines.requests.DBEngine.SelectDBEReq;
-import bm.main.engines.requests.DBEngine.UpdateDBEReq;
 import bm.main.interfaces.Initializable;
 import bm.tools.IDGenerator;
 
 public class DeviceRepository /*extends AbstRepository*/ implements Initializable {
 	private Logger LOG;
+	private String logDomain;
 	private HashMap<String, String> rooms = new HashMap<String, String>(1,1);
 	private HashMap<String, Device> devices = new HashMap<String, Device>(1);
 	private HashMap<String, String> registeredMACs = new HashMap<String, String>(1,1); //registered MAC and corresponding SSID
@@ -54,6 +32,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	public DeviceRepository(String logDomain, DBEngine dbm, String deviceQuery, 
 			ProductRepository pr, RoomRepository rr) {
 		this.LOG = Logger.getLogger(logDomain + "." + DeviceRepository.class.getSimpleName());
+		this.logDomain = logDomain;
 		this.deviceQuery = deviceQuery;
 		this.mainDBE = dbm;
 		this.pr = pr;
@@ -63,6 +42,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	@Override
 	public void initialize() throws Exception {
 		retrieveDevices();
+//		updateRoomsInEnvironment();
 	}
 	
 	/**
@@ -114,6 +94,23 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 			LOG.error("Cannot populate DeviceRepository!", e);
 		}
 	}
+
+    public void updateDevicesInEnvironment() {
+        LOG.debug("Updating devices in Symphony Environment...");
+        Iterator<Device> devices = this.devices.values().iterator();
+        while(devices.hasNext()) {
+            Device device = devices.next();
+            try {
+                device.update(logDomain, false);
+				for (Property prop : device.getProperties()) {
+					prop.update(logDomain, false);
+				}
+            } catch (AdaptorException e) {
+                LOG.error("Cannot update device " + device.getSSID() + " in environment!", e);
+            }
+        }
+        LOG.debug("Devices updated in Symphony Environment!");
+    }
 	
 	public void addDevice(Device device) {
 		devices.put(device.getSSID(), device);
@@ -191,7 +188,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	 * @param str The SSID or MAC to be tested
 	 * @return
 	 */
-	public boolean containsComponent(String str) {
+	public boolean containsDevice(String str) {
 		if(devices.containsKey(str) || registeredMACs.containsKey(str)) {
 			return true;
 		} else {
@@ -206,10 +203,10 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	 * @return
 	 */
 	public boolean containsComponentWithName(String name) {
-		Iterator<Device> coms = devices.values().iterator();
-		while(coms.hasNext()) {
-			Device c = coms.next();
-			if(c.getName().equals(name)) {
+		Iterator<Device> devs = devices.values().iterator();
+		while(devs.hasNext()) {
+			Device d = devs.next();
+			if(d.getName().equals(name)) {
 				return true;
 			}
 		}

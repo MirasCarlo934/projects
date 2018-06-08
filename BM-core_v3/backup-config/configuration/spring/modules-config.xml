@@ -8,7 +8,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 	<context:annotation-config/>
 	<bean id="register" class="bm.main.modules.RegistrationModule" scope="prototype">
-		<constructor-arg name="components" ref="Components"/>
+		<constructor-arg name="components" ref="Devices"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="idg" ref="IDGenerator"/>
 		<constructor-arg name="logDomain" value="${log.domain.registration}"/>
@@ -26,7 +26,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.poop}"/>
 		<constructor-arg name="mp" ref="MQTTPublisher"/>
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="cr" ref="Devices"/>
 		<constructor-arg name="cirr" ref="CIRs"/>
 		<constructor-arg name="dbe" ref="DBManager"/>
 		<constructor-arg name="propIDParam" value="${poop.param.propertyID}"/>
@@ -50,13 +50,13 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.detachment}"/>
 		<constructor-arg name="mp" ref="MQTTPublisher"/>
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="cr" ref="Devices"/>
 	</bean>
 	<bean id="bye" class="bm.main.modules.DeactivationModule">
 		<constructor-arg name="logDomain" value="${log.domain.deactivation}"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.deactivation}"/>
 		<constructor-arg name="mp" ref="MQTTPublisher"/>
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="cr" ref="Devices"/>
 	</bean>
 </beans>

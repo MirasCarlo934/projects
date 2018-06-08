@@ -8,23 +8,22 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.TimerTask;
 
+import bm.tools.Cipher;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 
 import bm.tools.SystemTimer;
-import bm.tools.BMCipher;
 
 //@PropertySource({"file:configuration/bm.properties", "file:configuration/user.properties"})
 public class UserPropertyManager extends Properties {
 	private Logger LOG;
 	private String userPwdPropKey; //injectable
 	private File userPropsFile = new File("configuration/user.properties");
-	private BMCipher cipher;
+	private Cipher cipher;
 	private boolean updated;
 
 	public UserPropertyManager(@Value("${log.domain.main}") String logDomain, @Value("${user.pwd.key}") 
-			String userPwdPropKey, BMCipher cipher, SystemTimer sysTimer) {
+			String userPwdPropKey, Cipher cipher, SystemTimer sysTimer) {
 		super();
 		LOG = Logger.getLogger(logDomain + "." + UserPropertyManager.class.getSimpleName());
 		this.userPwdPropKey = userPwdPropKey;

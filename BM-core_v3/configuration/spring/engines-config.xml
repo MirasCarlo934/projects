@@ -16,12 +16,12 @@
 	<!-- PUT ALL ENGINES HERE -->
 	<util:list id="Engines" value-type="bm.main.engines.AbstEngine">
 		<!-- <ref bean="OH.HTTPEngine"/> -->
-		<ref bean="OH.DBEngine"/>
 		<ref bean="OH.RulesFileEngine"/>
 		<ref bean="OH.SitemapFileEngine"/>
 		<ref bean="CIR.FileEngine"/>
 		<ref bean="Properties.FileEngine"/>
 		<ref bean="DBManager"/>
+        <ref bean="Products.DBEngine"/>
 	</util:list>
 		
 	<!-- NON-CORE ENGINES -->
@@ -37,36 +37,6 @@
 	</bean> -->
    	
    	<!-- CORE ENGINES -->
-   	<bean id="OH.DBEngine" class="bm.main.engines.DBEngine" scope="singleton">
-   		<constructor-arg name="name" value="OH_DBEngine"/>
-		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-		<constructor-arg name="dbURL" value="${oh.db.host}"/>
-		<constructor-arg name="dbusr" value="${oh.db.usr}"/>
-		<constructor-arg name="dbpwd" value="${oh.db.pwd}"/>
-		<constructor-arg name="sysTimer" ref="SystemTimer"/>
-		<constructor-arg name="reconnectPeriod" value="${db.reconnectPeriod}"/>
-   	</bean>
-   	<!-- <bean id="OH.HTTPEngine" class="bm.comms.http.HTTPEngine" scope="singleton">
-		<constructor-arg name="name" value="OH-HTTPEngine"/>
-   		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-   		<constructor-arg name="url" value="${oh.ip}"/>
-   	</bean> -->
-   	<bean id="OH.RulesFileEngine" class="bm.main.engines.FileEngine" scope="singleton">
-   		<constructor-arg name="name" value="OH-RulesFileEngine"/>
-   		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-   		<constructor-arg name="filepath" value="${oh.rules_filename}"/>
-   		<constructor-arg name="maxVersions" value="${oh.file.versions}"/>
-   	</bean>
-   	<bean id="OH.SitemapFileEngine" class="bm.main.engines.FileEngine" scope="singleton">
-   		<constructor-arg name="name" value="OH-SitemapFileEngine"/>
-   		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-   		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-   		<constructor-arg name="filepath" value="${oh.sitemap_filename}"/>
-   		<constructor-arg name="maxVersions" value="${oh.file.versions}"/>
-   	</bean>
    	<bean id="CIR.FileEngine" class="bm.main.engines.FileEngine" scope="singleton">
    		<constructor-arg name="name" value="CIR-FileEngine"/>
    		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
@@ -81,6 +51,17 @@
    		<constructor-arg name="filepath" value="${bm.properties.filepath}"/>
    		<constructor-arg name="maxVersions" value="1"/>
    	</bean>
+    <bean id="Products.DBEngine" class="bm.main.engines.DBEngine" scope="singleton">
+        <constructor-arg name="name" value="AdaptorsDBEngine"/>
+        <constructor-arg name="logDomain" value="${log.domain.main}"/>
+        <constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+        <constructor-arg name="dbURL" value="${products.db.host}"/>
+        <constructor-arg name="dbusr" value="${products.db.dbusr}"/>
+        <constructor-arg name="dbpwd" value="${products.db.dbpwd}"/>
+        <constructor-arg name="sysTimer" ref="SystemTimer"/>
+        <constructor-arg name="reconnectPeriod" value="${db.reconnectPeriod}"/>
+		<constructor-arg name="timeout" value="${db.timeout}"/>
+    </bean>
 	<bean id="DBManager" class="bm.main.engines.DBEngine" scope="singleton">
 		<constructor-arg name="name" value="MainDBEngine"/>
 		<constructor-arg name="logDomain" value="${log.domain.db}"/>
@@ -90,6 +71,7 @@
 		<constructor-arg name="dbpwd" value="${db.dbpwd}"/>
 		<constructor-arg name="sysTimer" ref="SystemTimer"/>
 		<constructor-arg name="reconnectPeriod" value="${db.reconnectPeriod}"/>
+        <constructor-arg name="timeout" value="${db.timeout}"/>
 	</bean>
 	<!-- <bean id="PlexEngine" class="bm.main.engines.PlexEngine" scope="singleton">
 		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
@@ -114,14 +96,29 @@
 	</bean> -->
 	
 	<!-- UI ENGINES -->
-	<bean id="UI.DBEngine" class="bm.main.engines.DBEngine" scope="singleton">
-		<constructor-arg name="name" value="UIDBEngine"/>
-		<constructor-arg name="logDomain" value="${log.domain.ui}"/>
+	<bean id="OH.RulesFileEngine" class="bm.main.engines.FileEngine" scope="singleton">
+		<constructor-arg name="name" value="OH-RulesFileEngine"/>
+		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-		<constructor-arg name="dbURL" value="${ui.db.host}"/>
-		<constructor-arg name="dbusr" value="${ui.db.dbusr}"/>
-		<constructor-arg name="dbpwd" value="${ui.db.dbpwd}"/>
-		<constructor-arg name="sysTimer" ref="SystemTimer"/>
-		<constructor-arg name="reconnectPeriod" value="${db.reconnectPeriod}"/>
+		<constructor-arg name="filepath" value="${oh.rules_filename}"/>
+		<constructor-arg name="maxVersions" value="${oh.file.versions}"/>
 	</bean>
+	<bean id="OH.SitemapFileEngine" class="bm.main.engines.FileEngine" scope="singleton">
+		<constructor-arg name="name" value="OH-SitemapFileEngine"/>
+		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="filepath" value="${oh.sitemap_filename}"/>
+		<constructor-arg name="maxVersions" value="${oh.file.versions}"/>
+	</bean>
+	<!--<bean id="UI.DBEngine" class="bm.main.engines.DBEngine" scope="singleton">-->
+		<!--<constructor-arg name="name" value="UIDBEngine"/>-->
+		<!--<constructor-arg name="logDomain" value="${log.domain.ui}"/>-->
+		<!--<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>-->
+		<!--<constructor-arg name="dbURL" value="${ui.db.host}"/>-->
+		<!--<constructor-arg name="dbusr" value="${ui.db.usr}"/>-->
+		<!--<constructor-arg name="dbpwd" value="${ui.db.pwd}"/>-->
+		<!--<constructor-arg name="sysTimer" ref="SystemTimer"/>-->
+		<!--<constructor-arg name="reconnectPeriod" value="${db.reconnectPeriod}"/>-->
+        <!--<constructor-arg name="timeout" value="${db.timeout}"/>-->
+	<!--</bean>-->
 </beans>

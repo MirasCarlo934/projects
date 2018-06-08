@@ -2,16 +2,10 @@ package bm.context.adaptors;
 
 import java.util.HashMap;
 
-import org.apache.log4j.Logger;
-
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
-import bm.context.properties.AbstProperty;
 import bm.context.properties.Property;
-import bm.context.properties.bindings.Binding;
 import bm.context.rooms.Room;
-import bm.jeep.device.ResError;
-import bm.main.engines.AbstEngine;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.engines.requests.DBEngine.DeleteDBEReq;
@@ -43,7 +37,7 @@ public class DBAdaptor extends AbstAdaptor {
 		valuesCom.put("topic", d.getTopic());
 		valuesCom.put("mac", d.getMAC());
 		valuesCom.put("name", d.getName());
-		valuesCom.put("room", d.getRoom().getSSID());
+		valuesCom.put("room", d.getParentRoom().getSSID());
 		valuesCom.put("functn", d.getProduct().getSSID());
 		valuesCom.put("active", d.isActive());
 		valuesCom.put("index", d.getIndex());
@@ -67,8 +61,8 @@ public class DBAdaptor extends AbstAdaptor {
 		values.put("name", d.getName());
 		values.put("active", d.isActive());
 		values.put("index", d.getIndex());
-		if(d.getRoom() != null)
-			values.put("room", d.getRoom().getSSID());
+		if(d.getParentRoom() != null)
+			values.put("room", d.getParentRoom().getSSID());
 		else 
 			values.put("room", null);
 		
@@ -106,7 +100,7 @@ public class DBAdaptor extends AbstAdaptor {
 		IDGenerator idg = new IDGenerator();
 		HashMap<String, Object> vals = new HashMap<String, Object>(1, 1);
 		HashMap<String, Object> args = new HashMap<String, Object>(1, 1);
-		vals.put("room", d.getRoom().getSSID());
+		vals.put("room", d.getParentRoom().getSSID());
 		args.put("SSID", d.getSSID());
 		
 		UpdateDBEReq udber = new UpdateDBEReq(idg.generateMixedCharID(10), dbe, devsTable, vals, args);
@@ -144,7 +138,7 @@ public class DBAdaptor extends AbstAdaptor {
 		}
 	}
 	
-	public void propertyCreated(AbstProperty p, boolean waitUntilPersisted) throws AdaptorException {
+	public void propertyCreated(Property p, boolean waitUntilPersisted) throws AdaptorException {
 		//LOG.trace("Persisting property to DB...");
 		Thread t = Thread.currentThread();
 		HashMap<String, Object> values = new HashMap<String, Object>(4,1);
@@ -164,7 +158,7 @@ public class DBAdaptor extends AbstAdaptor {
 	}
 	
 	@Override
-	public void propertyValueUpdated(AbstProperty p, boolean waitUntilUpdated) throws AdaptorException {
+	public void propertyValueUpdated(Property p, boolean waitUntilUpdated) throws AdaptorException {
 		LOG.trace("Updating property value of " + p.getOH_ID() + " to " + p.getValue() + " in " + propsTable 
 				+ " in DB...");
 		Thread t = Thread.currentThread();
@@ -190,8 +184,8 @@ public class DBAdaptor extends AbstAdaptor {
 	 * Deletes a single property from DB.
 	 */
 	@Override
-	public void propertyDeleted(AbstProperty p, boolean waitUntilDeleted) throws AdaptorException {
-		
+	public void propertyDeleted(Property p, boolean waitUntilDeleted) throws AdaptorException {
+		LOG.warn("'propertyDeleted()' method is not supported in DBAdaptor.");
 	}
 
 	@Override
@@ -201,9 +195,11 @@ public class DBAdaptor extends AbstAdaptor {
 		HashMap<String, Object> vals = new HashMap<String, Object>(1,1);
 		vals.put("SSID", r.getSSID());
 		vals.put("name", r.getName());
-		vals.put("parent_room", r.getRoom().getSSID());
+		if (r.getParentRoom() != null) {
+			vals.put("parent_room", r.getParentRoom().getSSID());
+		}
 		vals.put("index", r.getIndex());
-//		vals.put("color", r.getColor());
+		vals.put("color", r.getColor());
 		
 		InsertDBEReq insert1 = new InsertDBEReq(idg.generateERQSRequestID(), dbe, roomsTable, vals);
 		try {
@@ -241,10 +237,10 @@ public class DBAdaptor extends AbstAdaptor {
 		vals.put("name", r.getName());
 		vals.put("index", r.getIndex());
 //		vals.put("color", r.getColor());
-		if(r.getRoom() == null) {
+		if(r.getParentRoom() == null) {
 			vals.put("parent_room", null);
 		} else {
-			vals.put("parent_room", r.getRoom().getSSID());
+			vals.put("parent_room", r.getParentRoom().getSSID());
 		}
 		args.put("ssid", r.getSSID());
 		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, roomsTable, vals, args);

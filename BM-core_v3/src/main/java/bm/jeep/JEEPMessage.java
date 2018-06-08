@@ -8,6 +8,7 @@ public class JEEPMessage {
 	protected String rid;
 	protected String cid;
 	protected String rty;
+//	protected String topic;
 	protected Sender sender;
 	protected JSONObject json = new JSONObject();
 

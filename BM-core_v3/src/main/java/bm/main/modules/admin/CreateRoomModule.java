@@ -1,42 +1,37 @@
 package bm.main.modules.admin;
 
+import bm.context.adaptors.AdaptorManager;
+import bm.jeep.device.ResBasic;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import bm.comms.mqtt.MQTTPublisher;
-import bm.context.adaptors.DBAdaptor;
-import bm.context.adaptors.OHAdaptor;
+import bm.context.adaptors.AbstAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.rooms.Room;
 import bm.jeep.JEEPRequest;
-import bm.jeep.admin.JEEPAdminRequest;
-import bm.jeep.device.ReqRequest;
-import bm.main.modules.SimpleModule;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.RoomRepository;
-import bm.tools.BMCipher;
+import bm.tools.Cipher;
 import bm.tools.IDGenerator;
 
 public class CreateRoomModule extends AbstAdminModule {
 	private RoomRepository rr;
 	private IDGenerator idg;
-	private DBAdaptor dba;
-	private OHAdaptor oha;
+	private AdaptorManager am;
 	private String nameParam;
 	private String parentParam;
 	private String indexParam;
 
-	public CreateRoomModule(String logDomain, String errorLogDomain, String RTY, 
-			/*MQTTPublisher mp, */DeviceRepository dr, BMCipher cipher, String pwdParam, String encryptedPwd, 
-			RoomRepository rr, DBAdaptor dba, OHAdaptor oha, IDGenerator idg, 
-			String nameParam, String parentParam, String indexParam) {
+	public CreateRoomModule(String logDomain, String errorLogDomain, String RTY, AdaptorManager adaptorManager,
+							DeviceRepository dr, Cipher cipher, String pwdParam, String encryptedPwd,
+                            RoomRepository rr, IDGenerator idg, String nameParam,
+                            String parentParam, String indexParam) {
 		super(logDomain, errorLogDomain, CreateRoomModule.class.getSimpleName(), RTY, 
 				new String[] {pwdParam, nameParam, parentParam, indexParam}, /*mp, */dr, cipher, 
 				pwdParam, encryptedPwd);
 		this.rr = rr;
 		this.idg = idg;
-		this.dba = dba;
-		this.oha = oha;
+		this.am = adaptorManager;
 		this.nameParam = nameParam;
 		this.parentParam = parentParam;
 		this.indexParam = indexParam;
@@ -52,10 +47,12 @@ public class CreateRoomModule extends AbstAdminModule {
 		mainLOG.debug("Room creation requested!");
 		Room r;
 		try {
-			r = createRoom(name, parentID, index);
+			r = createBasicRoom(name, parentID, "black", index);
 			mainLOG.info("Room " + r.getSSID() + " (" + r.getName() + ") created!");
+			request.getSender().send(new ResBasic(request, true), this);
 		} catch (AdaptorException e) {
 			mainLOG.error("Cannot create room!", e);
+            request.getSender().send(new ResBasic(request, false), this);
 			return false;
 		}
 		return true;
@@ -63,7 +60,7 @@ public class CreateRoomModule extends AbstAdminModule {
 	
 	/**
 	 * Creates a new <i>Room</i> in the Symphony environment. Initializes the new <i>Room</i> object then 
-	 * adds it to the <i>RoomRepository</i>
+	 * adds it to the <i>RoomRepository.</i>
 	 * 
 	 * @param name The name of the new room
 	 * @param parentID The ID of the parent room of this room. Can be null to put in root room
@@ -71,30 +68,55 @@ public class CreateRoomModule extends AbstAdminModule {
 	 * @return The new <i>Room</i> object
 	 * @throws AdaptorException if new Room cannot be created in one of the plugged adaptors
 	 */
-	public Room createRoom(String name, String parentID, int index) throws AdaptorException {
+	public Room createBasicRoom(String name, String parentID, String color, int index)
+			throws AdaptorException {
 		Room r;
 		if(parentID != null) {
-			r = new Room(idg.generateCID(rr.getAllRoomIDs()), rr.getRoom(parentID), name, dba, oha, null, 
-					index);
+			r = new Room(idg.generateCID(rr.getAllRoomIDs()), rr.getRoom(parentID), name, color, index);
+			r.setAdaptors(am.getUniversalAdaptors());
 		} else {
-			r = new Room(idg.generateCID(rr.getAllRoomIDs()), name, dba, oha, null, index);
+			r = new Room(idg.generateCID(rr.getAllRoomIDs()), name, color, index);
+			r.setAdaptors(am.getAllAdaptors());
 		}
 		rr.addRoom(r);
 		r.create(logDomain, true);
 		
 		return r;
 	}
-	
+
 	/**
-	 * Creates a new Room Smarthome Object in the root room of the Symphony Home System.
-	 *  
+	 * Creates a Room Smarthome Object in the root room of the Symphony Environment.
+	 *
 	 * @param name The name of the room
 	 * @return The new Room Smarthome Object
-	 * @throws AdaptorException if room cannot be persisted to DB
+	 * @throws AdaptorException if room cannot be created in one of the plugged adaptors
 	 */
-	public Room createRoom(String name) throws AdaptorException {
-		return createRoom(name, null, rr.getLastIndexInRoom(null));
+	public Room createBasicRoom(String name, String color)
+            throws AdaptorException {
+		return createBasicRoom(name, null, color, rr.getLastIndexInRoom(null));
 	}
+
+//    public UIRoom createCompleteRoom(String name, String parentID, int index, AbstAdaptor[] adaptors) throws AdaptorException {
+//        UIRoom uir;
+//        if(parentID != null) {
+//            r = new Room(idg.generateCID(rr.getAllRoomIDs()), rr.getRoom(parentID), name, adaptors,
+//                    index);
+//        } else {
+//            r = new Room(idg.generateCID(rr.getAllRoomIDs()), name, adaptors, index);
+//        }
+//    }
+//
+//    /**
+//     * Creates a complete Room Smarthome Object in the root room of the Symphony Environment. This Room
+//     * includes UI-related elements and will be shown in the UI.
+//     * @param name The name of the room
+//     * @param adaptors The adaptors plugged to this room
+//     * @return The new UIRoom object
+//     * @throws AdaptorException if room cannot be created in one of the plugged adaptors
+//     */
+//	public UIRoom createCompleteRoom(String name, AbstAdaptor[] adaptors) throws AdaptorException {
+//
+//    }
 
 	@Override
 	protected boolean additionalRequestChecking(JEEPRequest request) {

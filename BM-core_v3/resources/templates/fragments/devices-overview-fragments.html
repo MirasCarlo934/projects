@@ -33,13 +33,13 @@
 		
 			<!-- For each child room/device -->
 			<li th:each="child : ${room.getChildren()}" th:id="${child.getSSID()}" th:class="${child.getClass().getSimpleName().toLowerCase() + '_sortItem'}">
-				<div th:if="${child instanceof T(bm.smarthome.rooms.Room)}">
+				<div th:if="${child instanceof T(bm.context.rooms.Room)}">
 					<div class="invisible roomContainerContainer">
-						<div th:replace="::roomBox(${child})">ROOM</div>
+						<div th:replace="::roomBox(${roomRepo.getRoom(child.getSSID())})">ROOM</div>
 					</div>
 				</div>
-				<div th:if="${child instanceof T(bm.smarthome.devices.Device)}">
-					<span th:replace="::deviceBox(${child})">DEVICE</span>
+				<div th:if="${child instanceof T(bm.context.devices.Device)}">
+					<span th:replace="::deviceBox(${devRepo.getDevice(child.getSSID())})">DEVICE</span>
 				</div>
 			</li>
 			
@@ -50,9 +50,9 @@
 		<form>
 			<input type="hidden" name="devID" th:value="${device.getSSID()}"/>
 			<div class="icon">
-				<img class="icon" src="../resources/static/pics/iconset/switch.png" th:src="${'/pics/iconset/' + device.getProduct().getOHIcon() + '.png'}"/>
+				<img class="icon" src="../resources/static/pics/iconset/switch.png" th:src="${'/pics/iconset/' + device.getProduct().getIconImg() + '.png'}"/>
 				<img class="move" src="../resources/static/pics/move.png" th:src="@{/pics/move.png}"/>
-				<img th:id="${'d_' + device.getSSID() + '_editBtn'}" class="edit" th:onclick="${'editDevice(''' + device.getSSID() + ''')'}" src="../resources/static/pics/info2.png" th:src="@{/pics/info.png}"/>
+				<img th:id="${'d_' + device.getSSID() + '_editBtn'}" class="edit" th:onclick="${'editDevice(''' + device.getProduct().getSSID() + ''')'}" src="../resources/static/pics/info2.png" th:src="@{/pics/info.png}"/>
 			</div>
 			<h1 th:id="${'d_' + device.getSSID() + '_nameContainer'}">
 				<span th:id="${'d_' + device.getSSID() + '_name'}" th:text="${device.getName()}">Device1</span>

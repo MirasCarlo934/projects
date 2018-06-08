@@ -8,7 +8,7 @@ import bm.context.HTMLTransformable;
 import bm.context.OHItemmable;
 
 /**
- * The PropertyType of a Property is described in the PVALCAT table in the DB
+ * The PropertyType of a B_Property is described in the PVALCAT table in the DB
  * @author carlomiras
  */
 public class PropertyType implements OHItemmable, HTMLTransformable {

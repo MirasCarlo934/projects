@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.apache.log4j.Logger;
+import org.apache.log4j.*;
 
 import bm.jeep.device.ResError;
 import bm.main.engines.exceptions.EngineException;
@@ -27,7 +27,6 @@ public class DBEngine extends AbstEngine {
     private Connection conn;
     private String dbusr;
     private String dbpwd;
-    private DBEngineConnectionReconnector reconnector = new DBEngineConnectionReconnector();
     private boolean connected = false;
     
     /**
@@ -38,14 +37,15 @@ public class DBEngine extends AbstEngine {
      * @param dbpwd
      */
     public DBEngine(String name, String logDomain, String errorLogDomain, String dbURL, String dbusr, String dbpwd, 
-    		SystemTimer sysTimer, int reconnectPeriod) {
+    		SystemTimer sysTimer, int reconnectPeriod, int timeout) {
     	super(logDomain, errorLogDomain, name, DBEngine.class.toString());
     	this.dbURL = dbURL;
     	this.dbusr = dbusr;
     	this.dbpwd = dbpwd;
-	createConnection(dbURL, dbusr, dbpwd);
-	sysTimer.schedule(reconnector, 0, reconnectPeriod);
-	LOG.info(name + " started @ URL: " + dbURL);
+		createConnection(dbURL, dbusr, dbpwd);
+		DBEngineConnectionReconnector reconnector = new DBEngineConnectionReconnector(timeout, reconnectPeriod);
+		sysTimer.schedule(reconnector, 0, reconnectPeriod);
+		LOG.info(name + " started @ URL: " + dbURL);
     }
     
     public void createConnection(String dbURL, String dbusr, String dbpwd) {
@@ -88,17 +88,17 @@ public class DBEngine extends AbstEngine {
 	}
     
     private Object executeQuery(String query) throws SQLException, NullPointerException {
-	    	Statement stmt = null;
-	    	stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, 
-					ResultSet.CONCUR_READ_ONLY);
-	    	LOG.trace("Executing " + query + " ...");
-	    	stmt.execute(query);
-	    	LOG.trace("Query executed successfully!");
-	    	if(stmt.getResultSet() == null) { //usually the case for non-select queries
-	    		return true;
-	    	} else {
-	    		return stmt.getResultSet();
-	    	}
+        Statement stmt = null;
+        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                ResultSet.CONCUR_READ_ONLY);
+        LOG.trace("Executing " + query + " ...");
+        stmt.execute(query);
+        LOG.trace("Query executed successfully!");
+        if(stmt.getResultSet() == null) { //usually the case for non-select queries
+            return true;
+        } else {
+            return stmt.getResultSet();
+        }
     }
 
 	public String getDbURL() {
@@ -106,11 +106,25 @@ public class DBEngine extends AbstEngine {
 	}
 	
 	private class DBEngineConnectionReconnector extends TimerTask {
+    	private int timeout;
+    	private int reconnectPeriod;
+    	private int attempts = 0;
+
+		public DBEngineConnectionReconnector(int timeout, int reconnectPeriod) {
+			this.timeout = timeout;
+			this.reconnectPeriod = reconnectPeriod;
+		}
+
 		@Override
 		public void run() {
 			if(!connected) {
+				attempts++;
 				LOG.info("Reconnecting to DB...");
 				createConnection(dbURL, dbusr, dbpwd);
+				if(attempts * reconnectPeriod >= timeout) {
+					LOG.error(getName() + " Engine couldn't connect to " + dbURL + "! Some processes " +
+							"may not work!");
+				}
 			}
 		}
 	}

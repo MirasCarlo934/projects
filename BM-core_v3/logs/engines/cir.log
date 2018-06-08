@@ -1,8 +1,5 @@
-2018-05-31 16:43:56,442 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
-2018-05-31 16:43:56,470 INFO  [restartedMain] (CIR.CIRRepository) CIRRepository started!
-2018-05-31 16:43:58,535 DEBUG [restartedMain] (CIR.CIRRepository) Updating CIRRepository...
-2018-05-31 16:43:58,579 DEBUG [restartedMain] (CIR.CIRRepository) Adding rule "Lights On 1" to repository
-2018-05-31 16:43:58,580 DEBUG [restartedMain] (CIR.CIRRepository) Adding rule "Lights Off 1" to repository
-2018-05-31 16:43:59,538 DEBUG [restartedMain] (CIR.CIRRepository) Updating CIRRepository...
-2018-05-31 16:43:59,572 DEBUG [restartedMain] (CIR.CIRRepository) Adding rule "Lights On 1" to repository
-2018-05-31 16:43:59,572 DEBUG [restartedMain] (CIR.CIRRepository) Adding rule "Lights Off 1" to repository
+2018-06-08 18:30:42,197 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
+2018-06-08 18:30:42,209 INFO  [restartedMain] (CIR.CIRRepository) CIRRepository started!
+2018-06-08 18:30:43,375 DEBUG [restartedMain] (CIR.CIRRepository) Updating CIRRepository...
+2018-06-08 18:30:43,395 DEBUG [restartedMain] (CIR.CIRRepository) Adding rule "Lights On 1" to repository
+2018-06-08 18:30:43,396 DEBUG [restartedMain] (CIR.CIRRepository) Adding rule "Lights Off 1" to repository

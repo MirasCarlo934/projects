@@ -16,8 +16,8 @@ public class Initializables {
 	private Logger LOG;
 	private List<Initializable> initializables;
 
-	public Initializables(String logDomain, List<Initializable> initializables, 
-			List<Initializable> multiModules) {
+	public Initializables(String logDomain, List<Initializable> initializables/*,
+			List<Initializable> multiModules*/) {
 		LOG = Logger.getLogger(logDomain + "." + Initializables.class.getSimpleName());
 		this.initializables = initializables;
 	}

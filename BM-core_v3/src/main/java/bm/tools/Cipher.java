@@ -1,20 +1,9 @@
 package bm.tools;
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.Base64;
-import java.util.Iterator;
-import java.util.List;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.ShortBufferException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -22,21 +11,21 @@ import org.apache.log4j.Logger;
 //import org.apache.tomcat.util.codec.binary.Base64;
 
 /**
- * A cipher for encrypting/decrypting sensitive user data. Uses AES encryption (16-byte key & IV)
+ * A cipher for encrypting/decrypting sensitive data. Uses AES encryption (16-byte key & IV)
  * @author carlomiras
  *
  */
-public class BMCipher {
+public class Cipher {
 	private Logger LOG;
 //	private byte[] mac;
 //	private byte[] iv;
 	
 	private SecretKeySpec key;
 //	private IvParameterSpec ivSpec;
-	private Cipher cipher;
+	private javax.crypto.Cipher cipher;
 
-	public BMCipher(String logDomain, String VM_ID) {
-		LOG = Logger.getLogger(logDomain + "." + BMCipher.class.getSimpleName());
+	public Cipher(String logDomain, String VM_ID) {
+		LOG = Logger.getLogger(logDomain + "." + Cipher.class.getSimpleName());
 //		this.iv = (VM_ID + VM_ID + "ab").getBytes();
 //		try {
 //			InetAddress address = InetAddress.getLocalHost();
@@ -65,7 +54,7 @@ public class BMCipher {
 //			LOG.fatal(keyStr);
 		key = new SecretKeySpec(keyStr.getBytes(), "AES");
 		try {
-			cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+			cipher = javax.crypto.Cipher.getInstance("AES/CBC/PKCS5PADDING");
 		} catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
 			LOG.fatal("Cannot create cipher!", e);
 		}
@@ -74,9 +63,9 @@ public class BMCipher {
 	public String encrypt(String value) {
 		LOG.trace("Encrypting...");
         try {
-	        	String iv = StringTools.generateRandomString(16);
-	    		IvParameterSpec ivSpec = new IvParameterSpec(iv.getBytes());
-            cipher.init(Cipher.ENCRYPT_MODE, key, ivSpec);
+            String iv = StringTools.generateRandomString(16);
+	    	IvParameterSpec ivSpec = new IvParameterSpec(iv.getBytes());
+            cipher.init(javax.crypto.Cipher.ENCRYPT_MODE, key, ivSpec);
 
             byte[] encrypted = cipher.doFinal(value.getBytes());
 
@@ -87,7 +76,12 @@ public class BMCipher {
             return null;
         }
     }
-	
+
+	/**
+	 * Decrypts the given string.
+	 * @param value
+	 * @return
+	 */
 	public String decrypt(String value) {
 		LOG.trace("Decrypting...");
 		if(value == null || value.isEmpty()) {
@@ -98,8 +92,8 @@ public class BMCipher {
 //			LOG.fatal("TEST2-   " + value);
 			String iv = value.substring(0, 16);
 			IvParameterSpec ivSpec = new IvParameterSpec(iv.getBytes());
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            cipher.init(Cipher.DECRYPT_MODE, key, ivSpec);
+            javax.crypto.Cipher cipher = javax.crypto.Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            cipher.init(javax.crypto.Cipher.DECRYPT_MODE, key, ivSpec);
 
             value = value.substring(16);
 //            byte[] original = cipher.doFinal(Base64.decodeBase64(value));

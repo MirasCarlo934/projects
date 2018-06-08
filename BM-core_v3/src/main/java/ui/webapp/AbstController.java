@@ -11,19 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import bm.main.ConfigLoader;
 import bm.main.UserPropertyManager;
-import bm.main.repositories.CIRRepository;
-import bm.main.repositories.DeviceRepository;
-import bm.tools.BMCipher;
+import bm.tools.Cipher;
 
 //@Controller
 @SessionAttributes("user.pwd")
@@ -35,7 +29,7 @@ public class AbstController {
 //	@Autowired
 //	protected ConfigLoader config;
 	@Autowired
-	protected BMCipher cipher; //injectable
+	protected Cipher cipher; //injectable
 	@Autowired
 	protected UserPropertyManager userPropManager;
 
@@ -51,7 +45,7 @@ public class AbstController {
 //		LOG.fatal(config.getClass());
 		LOG.info(name + " started!");
 		this.logDomain = logDomain;
-//		cipher = (BMCipher)config.getApplicationContext().getBean(cipherStr);
+//		cipher = (Cipher)config.getApplicationContext().getBean(cipherStr);
 //		userPropManager = (UserPropertyManager)config.getApplicationContext().getBean(upmStr);
 	}
 	

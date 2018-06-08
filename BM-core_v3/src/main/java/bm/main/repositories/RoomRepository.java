@@ -4,20 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Vector;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import bm.comms.mqtt.MQTTListener;
-import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.AbstAdaptor;
 import bm.context.adaptors.DBAdaptor;
-import bm.context.adaptors.OHAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.rooms.Room;
-import bm.jeep.device.ResError;
-import bm.main.engines.AbstEngine;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.engines.requests.DBEngine.RawDBEReq;
@@ -31,27 +24,23 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 	protected HashMap<String, Room> rooms = new HashMap<String, Room>(1);
 	private String getRoomsQuery;
 	protected IDGenerator idg;
-	private DBAdaptor dba;
-	private OHAdaptor oha;
-	private AbstAdaptor[] additionalAdaptors;
+//	private DBAdaptor dba;
 	private Room recentlyAddedRoom;
 
-	public RoomRepository(DBEngine dbe, String getRoomsQuery, String logDomain, IDGenerator idg, DBAdaptor dba,
-			OHAdaptor oha, AbstAdaptor[] additionalAdaptors) {
+	public RoomRepository(DBEngine dbe, String getRoomsQuery, String logDomain, IDGenerator idg
+			/*DBAdaptor dba, */) {
 		this.LOG = Logger.getLogger(logDomain + "." + RoomRepository.class.getSimpleName());
 		this.logDomain = logDomain;
 		this.dbe = dbe;
 		this.getRoomsQuery = getRoomsQuery;
 		this.idg = idg;
-		this.dba = dba;
-		this.oha = oha;
-		this.additionalAdaptors = additionalAdaptors;
+//		this.dba = dba;
 	}
 	
 	@Override
 	public void initialize() throws Exception {
 		retrieveRoomsFromDB();
-		updateOH();
+//		updateRoomsInEnvironment();
 	}
 	
 	public void retrieveRoomsFromDB() {
@@ -71,21 +60,17 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 				String id = rooms_rs.getString("ssid");
 				String name = rooms_rs.getString("name");
 				String parentID = rooms_rs.getString("parent_room");
-//				String color = rooms_rs.getString("color");
-				int index = rooms_rs.getInt("INDEX");
+				String color = rooms_rs.getString("color");
+				int index = rooms_rs.getInt("index");
 				Room room;
 				LOG.debug("Adding room " + id + " (" + name + ") to repository!");
-				try {
-					if(parentID == null) {
-						room = new Room(id, name, dba, oha, additionalAdaptors, index);
-					} else {
-						Room parent = new Room(parentID, null, dba, oha, new AbstAdaptor[0], 0); //placeholder, signifies that the retrieved room has a parent
-						room = new Room(id, parent, name, dba, oha, additionalAdaptors, index);
-					}
-					rooms.put(room.getSSID(), room);
-				} catch(AdaptorException e) {
-					LOG.error("Room " + id + " (" + name + ") cannot be added to repository!", e);
+				if(parentID == null) {
+					room = new Room(id, name, color, index);
+				} else {
+					Room parent = new Room(parentID, null, null, index); //placeholder, signifies that the retrieved room has a parent
+					room = new Room(id, parent, name, color, index);
 				}
+				rooms.put(room.getSSID(), room);
 			}
 			rooms_rs.close();
 		} catch (SQLException e) {
@@ -100,8 +85,8 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 //		while(v_rooms.isEmpty()) {
 //			for(int i = 0; i < v_rooms.size(); i++) { 
 //				Room room = v_rooms.get(i);
-//				if(room.getRoom() != null) {
-//					Room parent = room.getRoom();
+//				if(room.getParentRoom() != null) {
+//					Room parent = room.getParentRoom();
 //					if(room.getIndex() <= parent.getRooms().length) {
 //						room.setRoom(rooms.get(parent.getSSID()));
 //						v_rooms.remove(i);
@@ -114,8 +99,8 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 		Iterator<Room> roomObjs = rooms.values().iterator();
 		while(roomObjs.hasNext()) { 
 			Room room = roomObjs.next();
-			if(room.getRoom() != null) {
-				Room parent = room.getRoom();
+			if(room.getParentRoom() != null) {
+				Room parent = room.getParentRoom();
 				room.setRoom(rooms.get(parent.getSSID()));
 //				try {
 //					room.setRoom(rooms.get(parent.getSSID()));
@@ -128,6 +113,20 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 		}
 		LOG.debug("Room retrieval complete!");
 	}
+
+	public void updateRoomsInEnvironment() {
+	    LOG.debug("Updating rooms in Symphony Environment...");
+        Iterator<Room> rooms = this.rooms.values().iterator();
+        while(rooms.hasNext()) {
+            Room room = rooms.next();
+            try {
+                room.update(logDomain, false);
+            } catch (AdaptorException e) {
+                LOG.error("Cannot update room " + room.getSSID() + " in environment!", e);
+            }
+        }
+        LOG.debug("Rooms updated in Symphony Environment!");
+    }
 	
 	/**
 	 * Updates the OpenHAB instance. Adds an item representation for each room in OpenHAB and removes 
@@ -136,19 +135,20 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 	 * <b>NOTE:</b> Rooms must be retrieved from DB first! Otherwise, OpenHAB will be wiped of group
 	 * items! 
 	 */
-	public void updateOH() {
-		LOG.debug("Updating OpenHAB item registry!");
-		Iterator<Room> rooms = this.rooms.values().iterator();
-		while(rooms.hasNext()) {
-			try {
-				rooms.next().createExcept(new AbstAdaptor[]{dba}, logDomain, false);
-			} catch (AdaptorException e) {
-				LOG.fatal("Cannot update rooms in OpenHAB sitemap! OpenHAB will show erroneous sitemap contents!", 
-						e);
-//				mp.publishToErrorTopic("Cannot update rooms in OpenHAB sitemap! See log details!");
-			}
-		}
-	}
+	//TASK Remove this. This function must exist outside of core Maestro functionality.
+//	public void updateOH() {
+//		LOG.debug("Updating OpenHAB item registry!");
+//		Iterator<Room> rooms = this.rooms.values().iterator();
+//		while(rooms.hasNext()) {
+//			try {
+//				rooms.next().createExcept(new AbstAdaptor[]{dba}, logDomain, false);
+//			} catch (AdaptorException e) {
+//				LOG.fatal("Cannot update rooms in OpenHAB sitemap! OpenHAB will show erroneous sitemap contents!",
+//						e);
+////				mp.publishToErrorTopic("Cannot update rooms in OpenHAB sitemap! See log details!");
+//			}
+//		}
+//	}
 	
 	/**
 	 * Checks if the room with the specified room ID exists.
@@ -237,14 +237,14 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 		
 		if(roomID == null ) {
 			for(int i = 0; i < rs.length; i++) {
-				if(rs[i].getRoom() == null && rs[i].getIndex() > highest) {
+				if(rs[i].getParentRoom() == null && rs[i].getIndex() > highest) {
 					highest = rs[i].getIndex();
 				}
 			}
 		} else if(containsRoom(roomID)) {
 			Room parent = rooms.get(roomID);
 			for(int i = 0; i < rs.length; i++) {
-				if(rs[i].getRoom().equals(parent) && rs[i].getIndex() > highest) {
+				if(rs[i].getParentRoom().equals(parent) && rs[i].getIndex() > highest) {
 					highest = rs[i].getIndex();
 				}
 			}

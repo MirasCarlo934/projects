@@ -5,9 +5,8 @@ import java.util.HashMap;
 import bm.comms.http.HTTPException;
 import bm.comms.http.HTTPSender;
 import bm.comms.http.messages.PutHTTPReq;
-import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
-import bm.context.properties.AbstProperty;
+import bm.context.properties.Property;
 import bm.jeep.JEEPRequest;
 import bm.jeep.device.ReqPOOP;
 import bm.main.modules.AbstModuleExtension;
@@ -35,7 +34,7 @@ public class OH_POOPExtension extends AbstModuleExtension {
 	protected void process(JEEPRequest request) {
 		ReqPOOP poop = new ReqPOOP(request, propIDParam, propValParam);
 		Device dev = dr.getDevice(poop.getCID());
-		AbstProperty p = dev.getProperty(poop.propSSID);
+		Property p = dev.getProperty(poop.propSSID);
 		
 		mainLOG.debug("Updating property " + p.getDevice().getSSID() + "_" + p.getSSID() + " state in OpenHAB...");
 		HashMap<String, String> parameters = new HashMap<String, String>(1,1);

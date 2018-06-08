@@ -1,36 +1,25 @@
 package bm.main.controller;
 
 import java.util.LinkedList;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
 
 import bm.comms.Sender;
-import bm.comms.mqtt.MQTTListener;
-import bm.comms.mqtt.MQTTPublisher;
 import bm.jeep.JEEPMessageType;
 import bm.jeep.JEEPResponse;
 import bm.jeep.RawMessage;
 import bm.jeep.device.JEEPErrorResponse;
 import bm.jeep.device.ReqRequest;
 import bm.main.Maestro;
-import bm.main.ConfigLoader;
-import bm.main.interfaces.Initializable;
 import bm.main.modules.MultiModule;
 import bm.main.modules.SimpleModule;
 import bm.main.repositories.DeviceRepository;
 
 public class Controller implements Runnable {
 	private Logger LOG;
-	private ApplicationContext appContext;
 	private LinkedList<RawMessage> rawMsgQueue;
 	private LinkedList<SimpleModule> moduleQueue;
 	private DeviceRepository dr;
@@ -39,7 +28,6 @@ public class Controller implements Runnable {
 	public Controller(String logDomain, LinkedList<RawMessage> rawReqQueue, LinkedList<SimpleModule> moduleQueue, 
 			/*ConfigLoader configLoader, */DeviceRepository deviceRepository/*, MQTTPublisher mqttPublisher*/) {
 		LOG = Logger.getLogger(logDomain + ".Controller");
-		this.appContext = Maestro.getApplicationContext();
 		this.rawMsgQueue = rawReqQueue;
 		this.moduleQueue = moduleQueue;
 		this.dr = deviceRepository;
@@ -56,9 +44,6 @@ public class Controller implements Runnable {
 	
 	/**
 	 * Processes the request intercepted by a <i>Listener</i> object.
-	 * 
-	 * @param request The request in string format
-	 * @param sender The <i>Sender</i> object paired with the <i>Listener</i>
 	 */
 	@Override
 	public void run() {
@@ -66,6 +51,7 @@ public class Controller implements Runnable {
 			RawMessage rawMsg = rawMsgQueue.poll();
 			if(rawMsg != null) {
 				LOG.trace("New request found! Checking primary validity...");
+				ApplicationContext appContext = Maestro.getApplicationContext();
 				if(checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.REQUEST) {
 					ReqRequest r = new ReqRequest(new JSONObject(rawMsg.getMessageStr()), rawMsg.getSender());
 					String rty = r.getString("RTY");	
@@ -107,6 +93,7 @@ public class Controller implements Runnable {
 		LOG.trace("Checking primary request parameters...");
 		JSONObject json;
 		String request = rawMsg.getMessageStr();
+        ApplicationContext appContext = Maestro.getApplicationContext();
 		
 		//#1: Checks if the intercepted request is in proper JSON format
 		try {
@@ -137,7 +124,7 @@ public class Controller implements Runnable {
 		//#4: Checks if CID exists
 		if(json.getString("RTY").equals("register") || 
 				(json.getString("RTY").equals("getRooms") && json.getString("CID").equals("default_topic")));
-		else if(!dr.containsComponent(json.getString("CID"))) {
+		else if(!dr.containsDevice(json.getString("CID"))) {
 			sendError("CID does not exist!", rawMsg.getSender());
 			return null;
 		}

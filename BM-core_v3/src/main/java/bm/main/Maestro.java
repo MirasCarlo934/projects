@@ -1,34 +1,25 @@
 package bm.main;
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-//import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
 import bm.comms.Sender;
-import bm.comms.mqtt.MQTTPublisher;
-import bm.context.adaptors.OHAdaptor;
+import bm.context.adaptors.AdaptorManager;
 import bm.main.controller.Controller;
 import bm.main.controller.ModuleDispatcher;
 import bm.main.engines.AbstEngine;
-import bm.main.engines.FileEngine;
-import bm.main.repositories.CIRRepository;
+import bm.cir.CIRRepository;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.ProductRepository;
 import bm.main.repositories.RoomRepository;
-import bm.tools.IDGenerator;
+import org.apache.log4j.Logger;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
+
+import java.util.List;
+
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@SpringBootApplication
 //@ComponentScan({"bm.ui"})
@@ -61,10 +52,11 @@ public class Maestro {
 	private static final int build = 1;
 	private static final Logger LOG = Logger.getLogger("MAIN.BusinessMachine");
 	private Initializables inits;
-	private DeviceRepository cr;
+	private DeviceRepository dr;
 	private RoomRepository rr;
 	private ProductRepository pr;
 	private CIRRepository cirr;
+	private AdaptorManager am;
 	private List<AbstEngine> engines;
 	private List<Sender> senders;
 	
@@ -72,11 +64,9 @@ public class Maestro {
 	private ModuleDispatcher moduleDispatcher;
 
 	public static void main(String[] args) {
-		System.out.println();
 		Maestro maestro = new Maestro();
 		maestro.setup(args);
 		maestro.start();
-		
 	}
 	
 	/**
@@ -98,30 +88,30 @@ public class Maestro {
     public void setup(String[] args) {
     		LOG.info("Starting Maestro... ");
     		ApplicationContext context = SpringApplication.run(Maestro.class, args);
-    		applicationContext = context;
-    		
+    		Maestro.applicationContext = context;
+
     		try {
         		//comm layer
-			senders = (List<Sender>) context.getBean("Senders");
-        		
-			//controller layer
-        		controller = (Controller) context.getBean("Controller");
-			moduleDispatcher = (ModuleDispatcher) context.getBean("ModuleDispatcher");
-			cr = (DeviceRepository) context.getBean("Components");
-			rr = (RoomRepository) context.getBean("Rooms");
-			pr = (ProductRepository) context.getBean("Products");
-			cirr = (CIRRepository) context.getBean("CIRs");
-			
-			//engine layer
-			engines = (List<AbstEngine>) context.getBean("Engines");
-			
-			//misc initializables (3rd-party adaptors)
-			inits = (Initializables) context.getBean("Initializables");
-			start();
-		} catch (Exception e) {
-			Exception ex = new Exception("VM failed to initialize!", e);
-			errorStartup(ex, 000);
-		}
+                senders = (List<Sender>) context.getBean("Senders");
+
+                //controller layer
+                controller = (Controller) context.getBean("Controller");
+                moduleDispatcher = (ModuleDispatcher) context.getBean("ModuleDispatcher");
+                dr = (DeviceRepository) context.getBean("Devices");
+                rr = (RoomRepository) context.getBean("Rooms");
+                pr = (ProductRepository) context.getBean("Products");
+                cirr = (CIRRepository) context.getBean("CIRs");
+                am = (AdaptorManager) context.getBean("AdaptorManager");
+
+                //engine layer
+                engines = (List<AbstEngine>) context.getBean("Engines");
+
+                //misc initializables
+                inits = (Initializables) context.getBean("Initializables");
+            } catch (Exception e) {
+                Exception ex = new Exception("VM failed to initialize!", e);
+                errorStartup(ex, 000);
+            }
     }
     
     /**
@@ -141,7 +131,7 @@ public class Maestro {
 			//repositories must be initialized in THIS order
 	    		rr.initialize();
 	    		pr.initialize();
-	    		cr.initialize();
+	    		dr.initialize();
 	    		cirr.initialize();
 		} catch(Exception e) {
 			LOG.fatal("A repository has not initialized! BusinessMachine cannot start!", e);
@@ -160,12 +150,20 @@ public class Maestro {
 		Thread t2 = new Thread(moduleDispatcher, moduleDispatcher.getClass().getSimpleName());
 		t1.start();
 		t2.start();
-		
+
+		//sets repositories for adaptor manager
+		am.setRepositories(pr, dr, rr);
+
+		//initializes other Initializable objects
 		try {
 			inits.initializeAll();
 		} catch (Exception e) {
 			LOG.fatal("A third-party initializable cannot be initialized!", e);
 		}
+
+		//updates Environment
+        rr.updateRoomsInEnvironment();
+		dr.updateDevicesInEnvironment();
 		
 		/*
 		 * TESTING GROUNDS FOR REPOSITORY TESTING

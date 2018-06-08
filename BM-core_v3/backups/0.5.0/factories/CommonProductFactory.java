@@ -29,15 +29,15 @@ public class CommonProductFactory extends AbstProductFactory {
 
 	@Override
 	protected CommonProduct createProductObject(String SSID, String name, String description, String OH_icon,
-			HashMap<String, AbstProperty> properties) {
+			HashMap<String, Property> properties) {
 		CommonProduct product = new CommonProduct(SSID, name, description, OH_icon, properties);
 		return product;
 	}
 
 	@Override
-	protected HashMap<String, AbstProperty> retrieveProductProperties(ResultSet rs) throws 
+	protected HashMap<String, Property> retrieveProductProperties(ResultSet rs) throws
 			SQLException, IllegalArgumentException {
-		HashMap<String, AbstProperty> properties = new HashMap<String, AbstProperty>(10);
+		HashMap<String, Property> properties = new HashMap<String, Property>(10);
 		while(rs.next()) {
 			String prop_type = rs.getString("prop_type");
 			String prop_dispname = rs.getString("prop_dispname");
@@ -48,7 +48,7 @@ public class CommonProductFactory extends AbstProductFactory {
 			//int prop_max = rs.getInt("prop_max");
 			String prop_ssid = rs.getString("prop_index");
 			//DBComponentAdaptor dba = new DBComponentAdaptor(comID + "_" + prop_index, dbe);
-			AbstProperty prop;
+			Property prop;
 			PropertyValueType pvt = PropertyValueType.parsePropValTypeFromString(pval_type);
 			if(prop_type.equals("0000")) { //this is an innate property
 				prop = new InnateProperty(prop_type, prop_ssid, prop_sysname, prop_dispname, 

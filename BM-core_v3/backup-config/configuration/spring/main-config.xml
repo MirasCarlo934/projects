@@ -16,7 +16,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<!-- <import resource="modules-config.xml"/> -->
 	
 	<!-- repositories -->
-	<bean id="Components" class="bm.main.repositories.ComponentRepository">
+	<bean id="Devices" class="bm.main.repositories.ComponentRepository">
 		<constructor-arg name="deviceQuery" value="${devices.queryString}"/>
 		<constructor-arg name="roomsTable" value="${table.roomstable}"/>
 		<constructor-arg name="dbm" ref="DBManager"/>
@@ -43,9 +43,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<constructor-arg name="getProductsQuery" value="${product.queryString}"/>
 	</bean>
-	<bean id="CIRs" class="bm.main.repositories.CIRRepository">
+	<bean id="CIRs" class="bm.cir.CIRRepository">
 		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
-		<constructor-arg name="componentRepository" ref="Components"/>
+		<constructor-arg name="componentRepository" ref="Devices"/>
 		<constructor-arg name="fe" ref="CIR.FileEngine"/>
 		<constructor-arg name="idg" ref="IDGenerator"/>
 		<constructor-arg name="errorLogDomain" value="{log.domain.error}"/>
@@ -57,7 +57,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="threadPool" ref="ThreadPool"/>
 	</bean>
 	<bean id="ControllerModule" class="bm.main.controller.ControllerModule" scope="prototype">
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="cr" ref="Devices"/>
 		<constructor-arg name="mp" ref="MQTTPublisher"/>
 	</bean>
 	

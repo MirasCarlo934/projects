@@ -15,7 +15,7 @@
 
 #define MAX_LEN 1024
 
-#define DEBUG 1
+#define DEBUG 0
 /*
  * Notes when debug mode is on level 1:
  * 	-no username checking
@@ -88,7 +88,8 @@ void freePublicTweet(PublicTweet tweet);
 char* get_input(char *input);
 void chop_newline(char *str);
 void flush_stdin();
-
+char* copystr(char *dest, const char *src);
+int cmpstr(char *str1, char *str2);
 
 int main(int argc, char const *argv[])
 {
@@ -104,7 +105,7 @@ int main(int argc, char const *argv[])
 		return 0;
 	} else {
 		user = (char *) malloc((char)(strlen(argv[1]) + 1));
-		strcpy(user, argv[1]);
+		copystr(user, argv[1]);
 		printf("You entered: %s\n", user);
 	}
 
@@ -172,7 +173,7 @@ char** getUsers() {
 	int i = 0;
 	while(fscanf(fusers, "%s", u) != EOF) {
 		*(users + i) = (char *)malloc(sizeof(char) * (int)strlen(u));
-		strcpy(*(users + i), u);
+		copystr(*(users + i), u);
 		i++;
 	}
 
@@ -190,7 +191,7 @@ char** getUsers() {
  */
 bool checkUsername(char *user, char **users) {
 	for(int i = 0; **(users + i) != '\0'; i++) {
-		if(strcmp(user, *(users + i)) == 0) {
+		if(cmpstr(user, *(users + i)) == 0) {
 			return false;
 		}
 	}
@@ -203,8 +204,8 @@ bool checkUsername(char *user, char **users) {
  */
 void createUsername(char *user) {
 	char *filename = (char *) malloc((int)strlen(user) + 4);
-	strcpy(filename, user);
-	strcat(filename, ".txt");
+//	copystr(filename, user);
+	sprintf(filename, "%s.txt", user);
 	FILE *registry = fopen("users.txt", "a");
 	FILE *user_f = fopen(filename, "w");
 	fprintf(registry, "%s\n", user);
@@ -224,8 +225,8 @@ int showMenu() {
 	printf("(4) Log Out\n");
 	printf("Enter here: ");
 	scanf("%i", &a);
-	if(a < '1' || a > '4') {
-		printf("Invalid option!\n");
+	if(a < 1 || a > 4) {
+		printf("Invalid option! (%c)\n", a);
 		a = showMenu();
 	}
 	flush_stdin();
@@ -310,11 +311,11 @@ bool verifyTweet(Tweet tweet, char *user, char **users) {
 	for(int i = 0; i < tweet.tag_i; i++) {
 		char *u = *(tweet.tagged_people + i);
 		bool b = false;
-		if(strcmp(u, user) == 0) {
+		if(cmpstr(u + 1, user) == 0) {
 			return false;
 		}
 		for(int j = 0; **(users + j) != '\0'; j++) {
-			if(strcmp(u + 1, *(users + j)) == 0) {
+			if(cmpstr(u + 1, *(users + j)) == 0) {
 				b = true;
 				break;
 			}
@@ -360,8 +361,8 @@ void publishTweet(Tweet tweet, char *user) {
 	for(int i = 0; i < tweet.tag_i; i++) { //publishes to specific user textfile/s
 		char *tagged = *(tweet.tagged_people + i) + 1;
 		char *filename = (char *)malloc(sizeof(char) * ((int)strlen(tagged) + 4));
-		strcpy(filename, tagged);
-		strcat(filename, ".txt");
+//		copystr(filename, tagged);
+		sprintf(filename, "%s.txt", tagged);
 		FILE *file = fopen(filename, "a");
 		fprintf(file, "%s", user);
 
@@ -380,7 +381,7 @@ void publishTweet(Tweet tweet, char *user) {
 		if(tweet.tag_i > 0) {
 			for(int j = 0; j < tweet.tag_i; j++) {
 				char *content = *(tweet.tagged_people + j);
-				if(strcmp(tagged - 1, content) == 0) {
+				if(cmpstr(tagged - 1, content) == 0) {
 					continue;
 				} else {
 					fprintf(file, ",%s", content);
@@ -409,8 +410,8 @@ void viewNotifications(char *user) {
 	char *filename = (char *)malloc(sizeof(char) * (int)strlen(user) + 4);
 	FILE *file;
 
-	strcpy(filename, user);
-	strcat(filename, ".txt");
+//	copystr(filename, user);
+	sprintf(filename, "%s.txt", user);
 	file = fopen(filename, "r");
 	char *str = (char *)malloc(sizeof(char) * MAX_LEN);
 
@@ -483,7 +484,7 @@ void viewWall(char *user) {
 			tweet.sender = (char *)realloc(tweet.sender, sizeof(char) * (i + 2));
 			*(tweet.sender + i) = *(str + i);
 		}
-		if(strcmp(tweet.sender, user) == 0) {
+		if(cmpstr(tweet.sender, user) == 0) {
 			continue;
 		}
 		*(tweet.sender + i) = '\0';
@@ -528,10 +529,10 @@ void logout(char *user, char **users) {
 	users = getUsers();
 	FILE *registry = fopen("users.txt", "w");
 	char *filename = (char *)malloc(sizeof(char) * strlen(user) + 4);
-	strcpy(filename, user);
-	strcat(filename, ".txt");
+//	copystr(filename, user);
+	sprintf(filename, "%s.txt", user);
 	for(int i = 0; **(users + i) != '\0'; i++) {
-		if(strcmp(user, *(users + i)) != 0) {
+		if(cmpstr(user, *(users + i)) != 0) {
 			fprintf(registry, "%s\n", *(users + i));
 		}
 	}
@@ -752,4 +753,33 @@ void chop_newline(char *str) {
 void flush_stdin() {
 	int c = 0;
 	while ((c = getchar()) != '\n' && c != EOF);
+}
+
+char* copystr(char *dest, const char *src) {
+	int i = 0;
+	for(; src[i] != '\0'; i++) {
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+
+	return dest;
+}
+
+int cmpstr(char *str1, char *str2) {
+//	printf("%s[%i] -- %s[%i]\n",str1, (int)strlen(str1), str2, (int)strlen(str2));
+	for(int i = 0; str1[i] != '\0' && str2[i] != '\0'; i++) {
+		if(str1[i] > str2[i]) {
+			return -1;
+		} else if(str1[i] < str2[i]) {
+			return 1;
+		}
+	}
+
+	if(strlen(str1) < strlen(str2)) {
+		return -1;
+	} else if(strlen(str1) > strlen(str2)) {
+		return 1;
+	} else {
+		return 0;
+	}
 }

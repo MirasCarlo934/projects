@@ -4,19 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Vector;
 
 import org.apache.log4j.Logger;
-import org.springframework.context.ApplicationContext;
 
-import bm.context.devices.products.*;
-import bm.context.properties.Property;
-import bm.context.properties.PropertyMode;
+import bm.context.products.*;
 import bm.context.properties.PropertyType;
-import bm.context.properties.PropertyValueType;
-import bm.context.properties.bindings.Binding;
-import bm.main.Maestro;
-import bm.main.engines.AbstEngine;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.engines.requests.DBEngine.RawDBEReq;
@@ -30,7 +22,7 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 	private String getPropertyTypesQuery;
 	private IDGenerator idg;
 	private DBEngine dbe;
-	private HashMap<String, AbstProduct> products = new HashMap<String, AbstProduct>(5);
+	private HashMap<String, Product> products = new HashMap<String, Product>(5);
 	private HashMap<String, PropertyType> propertyTypes = new HashMap<String, PropertyType>(6);
 	private HashMap<String, ProductFactory> specialProducts;
 
@@ -60,12 +52,13 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 //		}
 		retrieveProducts();
 	}
-	
+
+	//TASK recode this to be simpler, use individual SelectDBEReq for each table instead
 	public void retrieveProducts() {
 		LOG.info("Populating products from DB...");
 		
 		RawDBEReq request = new RawDBEReq(idg.generateERQSRequestID(), dbe, getProductsQuery);
-		
+
 		Object o;
 		try {
 			o = dbe.putRequest(request, Thread.currentThread(), true);
@@ -83,46 +76,25 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 		
 		ResultSet rs = (ResultSet) o; //for product retrieval
 		ResultSet productRS = (ResultSet) o2; //for property retrieval in each product
-		
-//		try {
-//			while(rs.next()) {
-//				PropertyType prop_type = propertyTypes.get(rs.getString("prop_type"));
-//				String prop_dispname = rs.getString("prop_dispname");
-//				String prop_sysname = rs.getString("prop_sysname");
-//				String prop_mode = rs.getString("prop_mode");
-//				String pval_type = rs.getString("prop_val_type");
-//				String prop_ssid = rs.getString("prop_index");
-//				String prop_binding = rs.getString("prop_binding");
-//				PropertyValueType pvt = PropertyValueType.parsePropValTypeFromString(pval_type);
-//				Binding binding = Binding.parseBinding(prop_binding);
-//				Property property = new Property(prop_type, prop_ssid, prop_sysname, prop_dispname, 
-//						PropertyMode.parseModeFromString(prop_mode), 
-//						PropertyValueType.parsePropValTypeFromString(pval_type), dba, oha, 
-//						additionalAdaptors, binding);;
-//			}
-//		} catch(SQLException e) {
-//			LOG.fatal("Cannot retrieve product properties from DB!", e);
-//			return;
-//		}
-		
+
 		try {
-			String SSID = null;
-			String name = null;
-			String description = null;
-			String OH_icon = null;
+			String SSID;
+			String name;
+			String description;
+			String icon;
 			while(rs.next()) {
 				SSID = rs.getString("prod_ssid");
 				name = rs.getString("prod_name");
 				description = rs.getString("prod_desc");
-				OH_icon = rs.getString("oh_icon");
+				icon = rs.getString("icon");
 				if(!products.containsKey(SSID)) {
 					LOG.debug("Adding product " + SSID + " (" + name + ") to repository!");
-					AbstProduct prod;
+					Product prod;
 					if(specialProducts.containsKey(SSID)) {
 						prod = specialProducts.get(SSID).createProductObject(SSID, name, description,
-								OH_icon, productRS);
+								icon, productRS);
 					} else {
-						prod = mainProdFactory.createProductObject(SSID, name, description, OH_icon, productRS);
+						prod = mainProdFactory.createProductObject(SSID, name, description, icon, productRS);
 					}
 					products.put(SSID, prod);
 				}
@@ -132,55 +104,6 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 			LOG.fatal("Cannot retrieve products from DB!", e);
 		}
 	}
-	
-//	public void retrieveProducts() {
-//		LOG.info("Retrieving products from DB...");
-//		HashMap<String, Property> prodProps = new HashMap<String, Property>(10); //product_id - property
-//		RawDBEReq request = new RawDBEReq(idg.generateERQSRequestID(), getProductsQuery);
-//		Object o;
-//		try {
-//			o = dbe.forwardRequest(request, Thread.currentThread(), true);
-//		} catch (EngineException e1) {
-//			LOG.fatal("Cannot retrieve products from DB!", e1);
-//			return;
-//		}
-//		ResultSet rs = (ResultSet) o;
-//		
-//		try {
-//			String SSID = null;
-//			String name = null;
-//			String description = null;
-//			String OH_icon = null;
-//			while(rs.next()) {
-//				SSID = rs.getString("prod_ssid");
-//				name = rs.getString("prod_name");
-//				description = rs.getString("prod_desc");
-//				OH_icon = rs.getString("oh_icon");
-//				if(!products.containsKey(SSID)) {
-//					LOG.debug("Adding product " + SSID + " (" + name + ") to repository!");
-//					Product prod;
-//					prod = pf.createProductObject(SSID, name, description, OH_icon);
-//					products.put(SSID, prod);
-//				}
-//				
-//				String prod_ssid =  rs.getString("prod_ssid");
-//				PropertyType prop_type = propertyTypes.get(rs.getString("prop_type"));
-//				String prop_dispname = rs.getString("prop_dispname");
-//				String prop_sysname = rs.getString("prop_sysname");
-//				String prop_mode = rs.getString("prop_mode");
-////				String pval_type = rs.getString("prop_val_type");
-//				String prop_ssid = rs.getString("prop_index");
-//				String prop_binding = rs.getString("prop_binding");
-////				PropertyValueType pvt = PropertyValueType.parsePropValTypeFromString(pval_type);
-//				Binding binding = Binding.parseBinding(prop_binding);
-//				Property prop = new Property(prop_type, prop_ssid, prop_sysname, prop_dispname, 
-//						PropertyMode.parseModeFromString(prop_mode), dba, oha, additionalAdaptors, binding);
-//			}
-//			rs.close();
-//		} catch (SQLException e) {
-//			LOG.fatal("Cannot retrieve products from DB!", e);
-//		}
-//	}
 	
 	public void retrievePropertyTypes() {
 		LOG.info("Retrieving property types from DB...");
@@ -283,7 +206,7 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 //	}
 	
 //	public void addProduct(String SSID, String name, String description, String OH_icon, 
-//			Property[] props) {
+//			B_Property[] props) {
 //		LOG.debug("Adding new product " + SSID + " (" + name + ")");
 ////		ApplicationContext appContext = BusinessMachine.getApplicationContext();
 //		Product product = pf.createProductObject(SSID, name, description, OH_icon, props);
@@ -296,20 +219,24 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 		return products.containsKey(prodID);
 	}
 	
-	public AbstProduct[] getAllProducts() {
-		return products.values().toArray(new AbstProduct[products.size()]);
+	public Product[] getAllProducts() {
+		return products.values().toArray(new Product[products.size()]);
 	}
 	
 	public PropertyType[] getAllPropertyTypes() {
 		return propertyTypes.values().toArray(new PropertyType[propertyTypes.size()]);
 	}
+
+	public void addProduct(Product product) {
+	    products.put(product.getSSID(), product);
+    }
 	
 	/**
 	 * Returns the product associated with the specified prodID
 	 * @param prodID The product SSID
 	 * @return The product object, <b><i>null</i></b> if product with specified prodID does not exist.
 	 */
-	public AbstProduct getProduct(String prodID) {
+	public Product getProduct(String prodID) {
 		return products.get(prodID);
 	}
 	

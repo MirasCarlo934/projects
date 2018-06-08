@@ -30,12 +30,20 @@ public abstract class Sender implements Runnable {
 	 * @param logDomain
 	 * @param secondsToWaitBeforeResend
 	 */
-	public Sender(String name, String logDomain, int secondsToWaitBeforeResend, int resendTimeout) {
+	public Sender(String name, String logDomain, int secondsToWaitBeforeResend, int resendTimeout,
+				  boolean isResending) {
 		LOG = Logger.getLogger(logDomain + "." + name);
+		LOG.info("Starting " + name + " Sender...");
 		this.name = name;
-		this.timer = new Timer(name + "Timer");
-		timer.schedule(new SenderResender(secondsToWaitBeforeResend * 1000, resendTimeout * 1000), 0, 
-				secondsToWaitBeforeResend * 1000);
+		if(isResending) {
+            this.timer = new Timer(name + "Timer");
+            timer.schedule(new SenderResender(secondsToWaitBeforeResend * 1000,
+                            resendTimeout * 1000), 0,
+                    secondsToWaitBeforeResend * 1000);
+        } else {
+		    LOG.warn(name + " Sender is not set to resend outbound requests when a device is nonresponsive!");
+        }
+        LOG.info(name + " Sender started!");
 	}
 	
 	/**

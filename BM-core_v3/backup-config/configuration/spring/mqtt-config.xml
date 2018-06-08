@@ -32,6 +32,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="default_topic" value="${mqtt.topic.default}"/>
 		<constructor-arg name="error_topic" value="${mqtt.topic.error}"/>
 		<constructor-arg name="mqttClient" ref="MQTTClient"/>
-		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="cr" ref="Devices"/>
 	</bean>
 </beans>

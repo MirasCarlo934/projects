@@ -10,7 +10,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	
 	<!-- Device Modules -->
 	<bean id="register" class="bm.main.modules.RegistrationModule" scope="prototype">
-		<constructor-arg name="components" ref="Components"/>
+        <constructor-arg name="adaptorManager" ref="AdaptorManager"/>
+		<constructor-arg name="deviceRepository" ref="Devices"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="idg" ref="IDGenerator"/>
 		<constructor-arg name="logDomain" value="${log.domain.registration}"/>
@@ -18,9 +19,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="nameParam" value="${registration.param.name}"/>
 		<constructor-arg name="propsParam" value="${registration.param.props}"/>
 		<constructor-arg name="poopRTY" value="${rty.poop}"/>
-		<constructor-arg name="pr" ref="Products"/>
+		<constructor-arg name="productRepository" ref="Products"/>
 		<constructor-arg name="roomIDParam" value="${registration.param.roomID}"/>
-		<constructor-arg name="rr" ref="Rooms"/>
+		<constructor-arg name="roomRepository" ref="Rooms"/>
 		<constructor-arg name="RTY" value="${rty.registration}"/>
 		<!-- <constructor-arg name="extensions">
 			<array>
@@ -34,9 +35,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.poop}"/>
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
-		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="dr" ref="Devices"/>
 		<constructor-arg name="cirr" ref="CIRs"/>
-		<constructor-arg name="dbe" ref="DBManager"/>
 		<constructor-arg name="propIDParam" value="${poop.param.propertyID}"/>
 		<constructor-arg name="propValParam" value="${poop.param.propertyValue}"/>
 		<constructor-arg name="oh_topic" value="{oh.mqtt_topic}"/>
@@ -64,7 +64,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.detachment}"/>
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
-		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="dr" ref="Devices"/>
 		<!-- <constructor-arg name="extensions">
 			<array>
 				<ref bean="OH.DetachmentExtension"/>
@@ -76,7 +76,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.deactivation}"/>
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
-		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="dr" ref="Devices"/>
 		<!-- <constructor-arg name="extensions">
 			<array>
 				<ref bean="OH.DeviceStateChangeExtension"/>
@@ -90,10 +90,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.detachment}"/>
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
-		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="dr" ref="Devices"/>
 		<constructor-arg name="rr" ref="Rooms"/>
-		<constructor-arg name="dba" ref="DBAdaptor"/>
-		<constructor-arg name="oha" ref="OHAdaptor"/>
+		<constructor-arg name="adaptorManager" ref="AdaptorManager"/>
 		<constructor-arg name="idg" ref="IDGenerator"/>
 		<constructor-arg name="pwdParam" value="${req.params.pwd}"/>
 		<constructor-arg name="encryptedPwd" value="${bm.pwd}"/>
@@ -106,7 +105,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.room_deletion}"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.deleteRoom}"/>
-		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="dr" ref="Devices"/>
 		<constructor-arg name="rr" ref="Rooms"/>
 		<constructor-arg name="dbe" ref="DBManager"/>
 		<constructor-arg name="roomIDParam" value="${deleteRoom.param.roomID}"/>
@@ -119,52 +118,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.getRooms}"/>
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
-		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="dr" ref="Devices"/>
 		<constructor-arg name="rr" ref="Rooms"/>
-	</bean>
-	
-	<!-- Module Extensions -->
-	<bean id="OH.POOPExtension" class="oh.modules.extensions.OH_POOPExtension">
-		<constructor-arg name="name" value="OH-POOPExtension"/>
-		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error)"/>
-		<constructor-arg name="params"><array></array></constructor-arg>
-		<constructor-arg name="propIDParam" value="${poop.param.propertyID}"/>
-		<constructor-arg name="propValParam" value="${poop.param.propertyValue}"/>
-		<constructor-arg name="dr" ref="Components"/>
-		<constructor-arg name="httpSender" ref="HTTPSender"/>
-		<constructor-arg name="ohIP" value="${oh.ip}"/>
-	</bean>
-	<bean id="OH.RegistrationExtension" class="oh.modules.extensions.OH_RegistrationExtension">
-		<constructor-arg name="name" value="OH-RegistrationExtension"/>
-		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error)"/>
-		<constructor-arg name="params"><array></array></constructor-arg>
-		<constructor-arg name="deviceRepository" ref="Components"/>
-		<constructor-arg name="httpSender" ref="HTTPSender"/>
-		<constructor-arg name="nameParam" value="${registration.param.name}"/>
-		<constructor-arg name="propsParam" value="${registration.param.props}"/>
-		<constructor-arg name="roomIDParam" value="${registration.param.roomID}"/>
-		<constructor-arg name="ohIP" value="${oh.ip}"/>
-	</bean>
-	<bean id="OH.DetachmentExtension" class="oh.modules.extensions.OH_DetachmentExtension">
-		<constructor-arg name="name" value="OH-DetachmentExtension"/>
-		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error)"/>
-		<constructor-arg name="params"><array></array></constructor-arg>
-		<constructor-arg name="deviceRepository" ref="Components"/>
-		<constructor-arg name="httpSender" ref="HTTPSender"/>
-		<constructor-arg name="ohIP" value="${oh.ip}"/>
-		<constructor-arg name="idg" ref="IDGenerator"/>
-		<constructor-arg name="sitemapFE" ref="OH.SitemapFileEngine"/>
-	</bean>
-	<bean id="OH.DeviceStateChangeExtension" class="oh.modules.extensions.OH_DeviceChangeStateExtension">
-		<constructor-arg name="name" value="OH-DeviceStateChangeExtension"/>
-		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error)"/>
-		<constructor-arg name="params"><array></array></constructor-arg>
-		<constructor-arg name="deviceRepository" ref="Components"/>
-		<constructor-arg name="httpSender" ref="HTTPSender"/>
-		<constructor-arg name="ohIP" value="${oh.ip}"/>
 	</bean>
 </beans>

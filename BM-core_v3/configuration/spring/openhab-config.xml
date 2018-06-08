@@ -8,13 +8,16 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 	<context:annotation-config/>
 	
-	<bean id="OH.Initializer" class="oh.main.initializables.OH_Initializer">
-		<constructor-arg name="logDomain" value="${log.domain.oh}"/>
-		<constructor-arg name="ohIP" value="${oh.ip}"/>
-		<constructor-arg name="sitemapName" value="${oh.sitemap_name}"/>
-		<constructor-arg name="sitemapFE" ref="OH.SitemapFileEngine"/>
-		<constructor-arg name="deviceRepository" ref="Components"/>
-		<constructor-arg name="httpSender" ref="HTTPSender"/>
-		<constructor-arg name="idg" ref="IDGenerator"/>
-	</bean>
+	<!--<bean id="OH.Initializer" class="oh.main.initializables.OH_Initializer">-->
+		<!--<constructor-arg name="logDomain" value="${log.domain.oh}"/>-->
+		<!--&lt;!&ndash;<constructor-arg name="ohIP" value="${oh.ip}"/>&ndash;&gt;-->
+		<!--&lt;!&ndash;<constructor-arg name="sitemapName" value="${oh.sitemap_name}"/>&ndash;&gt;-->
+		<!--&lt;!&ndash;<constructor-arg name="sitemapFE" ref="OH.SitemapFileEngine"/>&ndash;&gt;-->
+		<!--&lt;!&ndash;<constructor-arg name="deviceRepository" ref="Components"/>&ndash;&gt;-->
+		<!--<constructor-arg name="uiDeviceRepository" ref="UIDevices"/>-->
+        <!--<constructor-arg name="uiRoomRepository" ref="UIRooms"/>-->
+		<!--<constructor-arg name="oha" ref="OHAdaptor"/>-->
+		<!--&lt;!&ndash;<constructor-arg name="httpSender" ref="HTTPSender"/>&ndash;&gt;-->
+		<!--&lt;!&ndash;<constructor-arg name="idg" ref="IDGenerator"/>&ndash;&gt;-->
+	<!--</bean>-->
 </beans>

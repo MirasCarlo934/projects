@@ -1,43 +1,23 @@
 package bm.context.devices;
 
-import java.io.Serializable;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
 
-import javax.xml.ws.http.HTTPException;
-
+import bm.context.properties.Property;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import bm.comms.Sender;
-import bm.comms.mqtt.MQTTListener;
-import bm.comms.mqtt.MQTTPublisher;
 import bm.context.HTMLTransformable;
 import bm.context.OHItemmable;
-import bm.context.SymphonyElement;
 import bm.context.SymphonyObject;
 import bm.context.adaptors.AbstAdaptor;
-import bm.context.adaptors.DBAdaptor;
-import bm.context.adaptors.OHAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
-import bm.context.devices.products.AbstProduct;
-import bm.context.devices.products.Product;
-import bm.context.properties.AbstProperty;
-import bm.context.properties.Property;
-import bm.context.properties.bindings.Binding;
+import bm.context.products.Product;
 import bm.context.rooms.Room;
-import bm.jeep.device.ResError;
 import bm.jeep.device.ResPOOP;
 import bm.jeep.device.ResRegister;
-import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.DBEngine.UpdateDBEReq;
 import bm.tools.IDGenerator;
 
 /**
@@ -48,35 +28,36 @@ import bm.tools.IDGenerator;
  */
 public class Device extends SymphonyObject implements OHItemmable, HTMLTransformable {
 	protected String loggerName;
-	protected HashMap<String, AbstProperty> properties = new HashMap<String, AbstProperty>(1);
-	protected AbstProduct product;
+	protected HashMap<String, Property> properties = new HashMap<String, Property>(1);
+	protected Product product;
 	protected String MAC;
 	protected String name;
 	protected String topic;
 	protected boolean active;
 	protected IDGenerator idg = new IDGenerator();
 	
-	public Device(String SSID, String MAC, String name, String topic, Room room, 
-			boolean active, AbstProduct product, DBAdaptor dba, OHAdaptor oha, AbstAdaptor[] adaptors, 
-			int index) throws AdaptorException {
-		super(SSID, dba, oha, adaptors, room, index);
+	public Device(String SSID, String MAC, String name, String topic, Room room, boolean active,
+				  Product product, int index) {
+		super(SSID, room, index);
 		this.loggerName = "DEV:" + SSID;
 		this.setMAC((MAC));
 		this.setName((name));
 		this.setTopic((topic));
-		this.setProperties(product.getProperties());
+//		this.setProperties(product.getProperties());
 		this.setProduct((product));
 		setActive(active);
 		
 		//sets this device as the owner of the properties given to it
-		Iterator<AbstProperty> props = properties.values().iterator();
+		Iterator<Property> props = product.getProperties().values().iterator();
 		while(props.hasNext()) {
-			AbstProperty prop = props.next();
-			prop.setDevice(this);
+            Property prop = props.next().clone();
+            prop.setDevice(this);
+            properties.put(prop.getSSID(), prop);
+//            System.out.println("Device" + getSSID() + ": " + prop.getSSID() + "-" + prop.getDevice().getSSID());
 		}
 		
 		//adds this device to its room
-//		room.addSmarthomeObject(this);
+//		room.addSymphonyObject(this);
 	}
 	
 	/**
@@ -91,9 +72,9 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		adaptor.deviceCreated(this, waitUntilCreated);
 		
 		LOG.debug("Creating properties of device " + SSID + " in " + adaptor.getName() + "...");
-		Iterator<AbstProperty> props = properties.values().iterator();
+		Iterator<Property> props = properties.values().iterator();
 		while(props.hasNext()) {
-			AbstProperty prop = props.next();
+			Property prop = props.next();
 			adaptor.propertyCreated(prop, waitUntilCreated);
 			LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " created!");
 		}
@@ -111,10 +92,10 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		LOG.debug("Deleting device " + SSID + " from " + adaptor.getName() + "...");
 		adaptor.deviceDeleted(this, waitUntilDeleted);
 		
-		Iterator<AbstProperty> props = properties.values().iterator();
+		Iterator<Property> props = properties.values().iterator();
 		LOG.debug("Deleting properties of device " + SSID + " from " + adaptor.getName() + "...");
 		while(props.hasNext()) {
-			AbstProperty prop = props.next();
+			Property prop = props.next();
 			adaptor.propertyDeleted(prop, waitUntilDeleted);
 			LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " deleted!");
 		}
@@ -181,8 +162,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	/**
 	 * Publishes the credentials of this Component object to the default topic. Creates a new
 	 * ResRegister object that contains the credentials of this Component.
-	 * 
-	 * @param mh The MQTTHandler that handles the publishing
+	 *
 	 * @param registerRTY The RTY designation for registration requests
 	 * @param parentLogDomain The log domain of the object that called this method
 	 */
@@ -202,17 +182,16 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	/**
 	 * Publishes the values of this component's properties to the MQTT server. The values are returned in the form 
 	 * of a POOP response JSON.
-	 * 
-	 * @param mh The MQTTHandler that handles the publishing
+	 *
 	 * @param poopRTY The RTY string for the POOP request
 	 * @param parentLogDomain The log domain of the object that called this method
 	 */
 	public void publishPropertyValues(Sender sender, String poopRTY, String parentLogDomain) {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Sending property states of " + SSID + " to " + topic + "...");
-		Iterator<AbstProperty> props = properties.values().iterator();
+		Iterator<Property> props = properties.values().iterator();
 		while(props.hasNext()) {
-			AbstProperty prop = props.next();
+			Property prop = props.next();
 			LOG.trace(prop.getOH_ID() + " = " + prop.getValue());
 			ResPOOP poop = new ResPOOP("POOP", SSID, poopRTY, sender, prop.getSSID(), prop.getValue());
 //			sender.send(poop);
@@ -226,52 +205,47 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * @return An array of <i>JSONObjects</i> containing the <i>AbstComponent's</i> JSON 
 	 * 		representation
 	 */
-	@Override
-	public JSONObject[] convertToItemsJSON() {
-		if(getProperties().length > 1) { //creates a group item if component has >1 properties
-			JSONObject json = new JSONObject();
-			json.put("type", "Group");
-			json.put("name", getSSID());
-			json.put("label", getName());
-			json.put("category", product.getOHIcon());
-			if(parentRoom != null)
-				json.put("groupNames", new String[]{getRoom().getSSID()});
-			return new JSONObject[]{json};
-		} else { //lets the single property define the component in registry
-			return new JSONObject[0];
-		}
-	}
-	
-	@Override
-	public String convertToSitemapString() {
-		String itemType;
-		if(getProperties().length > 1) {
-			itemType = "Group";
-		} else {
-			AbstProperty p = getProperties()[0];
-			itemType = p.getOHItemType();
-		}
-		return itemType + " item=" + SSID + " [label=\"" + name + "\"] [icon=\"" + product.getOHIcon() + "\"]";
-	}
-	
-	/**
-	 * Converts this component and its properties into a Javascript variable.
-	 * 
-	 * @return the component in Javascript variable form.
-	 */
-	/*
-	 * Ex. var d_SMVX = new Device("SMVX","Motion","CRL0",[{id:"0006",label:"Detected",io:"I"}]);
-	 */
+//	@Override
+//	public JSONObject[] convertToItemsJSON() {
+//		if(getProperties().length > 1) { //creates a group item if component has >1 properties
+//			JSONObject json = new JSONObject();
+//			json.put("type", "Group");
+//			json.put("name", getSSID());
+//			json.put("label", getName());
+//			json.put("category", product.getOHIcon());
+//			if(parentRoom != null)
+//				json.put("groupNames", new String[]{getParentRoom().getSSID()});
+//			return new JSONObject[]{json};
+//		} else { //lets the single property define the component in registry
+//			return new JSONObject[0];
+//		}
+//	}
+//
+//	@Override
+//	public String convertToSitemapString() {
+//		String itemType;
+//		if(getProperties().length > 1) {
+//			itemType = "Group";
+//		} else {
+//			Property p = getProperties()[0];
+//			itemType = p.getOHItemType();
+//		}
+//		return itemType + " item=" + SSID + " [label=\"" + name + "\"] [icon=\"" + product.getOHIcon() + "\"]";
+//	}
+
+
 	@Override
 	public String convertToJavascript() {
-		String s = "var d_" + SSID + " = new Device(\"" + SSID + "\", \"" + product.getName() + "\", \"" + name + "\", ";
-		if(parentRoom != null)
-			s += "\"" + parentRoom.getSSID() + "\", ";
+		String s = "var d_" + SSID + " = new Device(\"" + SSID + "\", \"" + name + "\", \""
+				+ name + "\", ";
+		if(parentRoom != null) {
+			s += "\"" + parentRoom + "\", ";
+		}
 		s += "[";
-		Iterator<AbstProperty> props = properties.values().iterator();
-		
+		Iterator<Property> props = properties.values().iterator();
+
 		while(props.hasNext()) { //convert each property to format ex. {id:"0006",label:"Detected",io:"I"}
-			AbstProperty prop = props.next();
+			Property prop = props.next();
 			if(!(prop.getPropType().getSSID().equals("INN"))) {
 				s += "{id:\"" + prop.getSSID() + "\","
 						+ "label:\"" + prop.getDisplayName() + "\","
@@ -285,6 +259,36 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		}
 		s = s.substring(0, s.length() - 1) + "]);"; //to chomp the last comma and add closing var characters
 		return s;
+	}
+
+
+	@Override
+	public JSONObject[] convertToItemsJSON() {
+		if(getProperties().length > 1) { //creates a group item if component has >1 properties
+			JSONObject json = new JSONObject();
+			json.put("type", "Group");
+			json.put("name", getSSID());
+			json.put("label", getName());
+			json.put("category", product.getIconImg());
+			if(getParentRoom() != null)
+				json.put("groupNames", new String[]{getParentRoom().getSSID()});
+			return new JSONObject[]{json};
+		} else { //lets the single property define the component in registry
+			return new JSONObject[0];
+		}
+	}
+
+	@Override
+	public String convertToSitemapString() {
+		String itemType;
+		if(getProperties().length > 1) {
+			itemType = "Group";
+		} else {
+			Property p = getProperties()[0];
+			itemType = p.getOHItemType();
+		}
+		return itemType + " item=" + SSID + " [label=\"" + getName() + "\"] [icon=\"" +
+				product.getIconImg() + "\"]";
 	}
 	
 	/**
@@ -303,28 +307,8 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * @param ssid The SSID of the property
 	 * @return The property, <b><i>null</i></b> if the property does not exist
 	 */
-	public AbstProperty getProperty(String ssid) {
+	public Property getProperty(String ssid) {
 		return properties.get(ssid);
-	}
-	
-	/**
-	 * Returns the properties that have the specified binding
-	 * 
-	 * @param binding The binding to be checked
-	 * @return An array of properties with the specified binding
-	 */
-	public AbstProperty[] getPropertiesWithBinding(Binding binding) {
-		Vector<AbstProperty> props = new Vector<AbstProperty>(1,1);
-		Iterator<AbstProperty> allProps = properties.values().iterator();
-		while(allProps.hasNext()) {
-			AbstProperty prop = allProps.next();
-			Binding b = prop.getBinding();
-			if(b.getService().equals(binding.getService()) && b.getFunction().equals(
-					binding.getFunction())) {
-				props.add(prop);
-			}
-		}
-		return props.toArray(new AbstProperty[props.size()]);
 	}
 
 	/**
@@ -347,7 +331,6 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * Sets the active state of this Component and persists it to the DB.
 	 * 
 	 * @param active <b>true</b> if the Component is active, <b>false</b> if not
-	 * @param parentLogDomain
 	 * @param waitUntilActivated
 	 * @throws EngineException thrown when persistence fails
 	 * @throws InterruptedException thrown when Thread.wait() fails
@@ -356,8 +339,8 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //		Logger LOG = getLogger(parentLogDomain);
 //		LOG.debug("Setting active state to " + active);
 		this.active = active;
-		for(int i = 0; i < adaptors.length; i++) {
-			adaptors[i].deviceStateUpdated(this, waitUntilActivated);
+		for(int i = 0; i < adaptors.size(); i++) {
+			adaptors.get(i).deviceStateUpdated(this, waitUntilActivated);
 		}
 	}
 	
@@ -368,11 +351,11 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //		}
 //	}
 
-	public AbstProduct getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
-	public void setProduct(AbstProduct product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 
@@ -400,12 +383,20 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		this.topic = topic;
 	}
 
-	public AbstProperty[] getProperties() {
-		return properties.values().toArray(new AbstProperty[properties.size()]);
+	public Property[] getProperties() {
+		return properties.values().toArray(new Property[properties.size()]);
 	}
 
-	public void setProperties(HashMap<String, AbstProperty> properties) {
+	public void setProperties(HashMap<String, Property> properties) {
 		this.properties = properties;
+	}
+
+	@Override
+	public void addAdaptor(AbstAdaptor adaptor) {
+		super.addAdaptor(adaptor);
+		for (Property property: properties.values()) {
+            property.addAdaptor(adaptor);
+		}
 	}
 	
 	private Logger getLogger(String parentLogDomain) {

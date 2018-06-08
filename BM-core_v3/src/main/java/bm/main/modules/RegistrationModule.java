@@ -1,46 +1,20 @@
 package bm.main.modules;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Vector;
 
-import javax.xml.ws.http.HTTPException;
-
+import bm.context.adaptors.AdaptorManager;
+import bm.context.products.Product;
+import bm.context.properties.Property;
 import org.json.JSONObject;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import bm.comms.mqtt.MQTTListener;
 import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
-import bm.context.devices.factories.AbstDeviceFactory;
-import bm.context.devices.products.AbstProduct;
-import bm.context.devices.products.Product;
-import bm.context.properties.AbstProperty;
-import bm.context.properties.Property;
 import bm.context.rooms.Room;
 import bm.jeep.JEEPRequest;
 import bm.jeep.device.ReqRegister;
-import bm.jeep.device.ReqRequest;
 import bm.jeep.device.ResError;
-import bm.jeep.device.ResPOOP;
 import bm.jeep.device.ResRegister;
-import bm.main.Maestro;
-import bm.main.ConfigLoader;
-import bm.main.engines.DBEngine;
-import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.DBEngine.InsertDBEReq;
-import bm.main.engines.requests.DBEngine.RawDBEReq;
-import bm.main.engines.requests.DBEngine.SelectDBEReq;
-import bm.main.engines.requests.DBEngine.UpdateDBEReq;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.ProductRepository;
 import bm.main.repositories.RoomRepository;
@@ -55,19 +29,22 @@ public class RegistrationModule extends SimpleModule {
 	private RoomRepository rr;
 	private IDGenerator idg;
 	private MQTTPublisher mp;
+	private AdaptorManager am;
 	
-	public RegistrationModule(String logDomain, String errorLogDomain, String RTY, String poopRTY, 
-			String nameParam, String roomIDParam, String propsParam, MQTTPublisher mqttPublisher, 
-			DeviceRepository components, ProductRepository pr, RoomRepository rr, IDGenerator idg) {
-		super(logDomain, errorLogDomain, "RegistrationModule", RTY, new String[]{nameParam, roomIDParam}, /*mp, */components);
-		this.pr = pr;
-		this.rr = rr;
+	public RegistrationModule(String logDomain, String errorLogDomain, String RTY, String poopRTY, String nameParam,
+							  String roomIDParam, String propsParam, MQTTPublisher mqttPublisher,
+							  DeviceRepository deviceRepository, ProductRepository productRepository,
+							  RoomRepository roomRepository, AdaptorManager adaptorManager, IDGenerator idg) {
+		super(logDomain, errorLogDomain, "RegistrationModule", RTY, new String[]{nameParam, roomIDParam}, /*mp, */deviceRepository);
+		this.pr = productRepository;
+		this.rr = roomRepository;
 		this.nameParam = nameParam;
 		this.roomIDParam = roomIDParam;
 		this.propsParam = propsParam;
 		this.poopRTY = poopRTY;
 		this.idg = idg;
 		this.mp = mqttPublisher;
+		this.am = adaptorManager;
 	}
 	
 	public RegistrationModule(String logDomain, String errorLogDomain, String RTY, 
@@ -110,16 +87,17 @@ public class RegistrationModule extends SimpleModule {
 		String ssid = idg.generateCID(existingIDs);
 		mainLOG.debug("Creating Device object...");
 		String topic = ssid + "_topic";
-		AbstProduct product = pr.getProduct(reg.getCID());
+		Product product = pr.getProduct(reg.getCID());
 		Room parentRoom = rr.getRoom(reg.room);
 		Device d = product.createDevice(ssid, reg.mac, reg.name, topic, parentRoom, true, 
 				parentRoom.getHighestIndex() + 1);
+		d.setAdaptors(am.getAdaptorsLinkedToProduct(product.getSSID()));
 		if(reg.properties != null) {
 			JSONObject props = reg.properties;
 			Iterator<String> propIDs = props.keys();
 			while(propIDs.hasNext()) {
 				String propID = propIDs.next();
-				AbstProperty prop = d.getProperty(propID);
+				Property prop = d.getProperty(propID);
 				mainLOG.debug("Setting property " + propID + " (" + prop.getDisplayName() + ")");
 				prop.setValue(props.get(propID));
 			}
@@ -192,7 +170,7 @@ public class RegistrationModule extends SimpleModule {
 	private boolean checkCredentialChanges(ReqRegister request) {
 		Device c = dr.getDevice(request.mac);
 		String[] reqCreds = new String[]{request.name, request.room};
-		String[] comCreds = new String[] {c.getName(), c.getRoom().getSSID()};
+		String[] comCreds = new String[] {c.getName(), c.getParentRoom().getSSID()};
 		
 		for(int i = 0; i < reqCreds.length; i++) {
 			if(!reqCreds[i].equals(comCreds[i])) {
@@ -212,7 +190,7 @@ public class RegistrationModule extends SimpleModule {
 	 * 	<li>Invalid set properties block <i>(<b>Optional:</b> a register request does not have to include a set
 	 * 		properties block)</i>
 	 * 		<ul>
-	 * 			<li>Property does not exist in the requested component product</li>
+	 * 			<li>B_Property does not exist in the requested component product</li>
 	 * 			<li>Invalid property value</li>
 	 * 		</ul>
 	 * 	</li>
@@ -238,14 +216,14 @@ public class RegistrationModule extends SimpleModule {
 		}
 		
 		mainLOG.trace("Checking set property block validity...");
-		AbstProduct prod = pr.getProduct(reg.getCID());
+		Product prod = pr.getProduct(reg.getCID());
 		if(reg.properties != null) { //it's okay if the request does not have a set properties block
 			JSONObject props = reg.properties;
 			Iterator<String> propIDs = props.keys();
 			while(propIDs.hasNext()) {
 				String propID = propIDs.next();
 				if(prod.containsProperty(propID)) {
-					if(!prod.getProperty(propID).checkValueTypeValidity(props.get(propID))) {
+					if(!prod.getProperty(propID).checkValueValidity(props.get(propID))) {
 						ResError error = new ResError(request, "Invalid property value for PID " + 
 								propID);
 						error(error);
@@ -260,7 +238,7 @@ public class RegistrationModule extends SimpleModule {
 		}
 		
 		mainLOG.trace("Checking MAC validity...");
-		if(dr.containsComponent(reg.mac)) {
+		if(dr.containsDevice(reg.mac)) {
 			mainLOG.warn("Request contains a preexisting MAC address!");
 			request.getJSON().put("exists", true);
 			return true;

@@ -1,20 +1,19 @@
 package bm.main.modules.admin;
 
+import bm.tools.Cipher;
 import org.json.JSONException;
 
 import bm.jeep.JEEPRequest;
-import bm.jeep.admin.JEEPAdminRequest;
 import bm.main.modules.*;
 import bm.main.repositories.DeviceRepository;
-import bm.tools.BMCipher;
 
 public abstract class AbstAdminModule extends SimpleModule {
-	private BMCipher cipher;
+	private Cipher cipher;
 	private String encryptedPwd;
 	private String pwdParam;
 
 	public AbstAdminModule(String logDomain, String errorLogDomain, String name, String RTY, String[] params,
-			DeviceRepository dr, BMCipher cipher, String pwdParam, String encryptedPwd) {
+                           DeviceRepository dr, Cipher cipher, String pwdParam, String encryptedPwd) {
 		super(logDomain, errorLogDomain, name, RTY, params, dr);
 		this.cipher = cipher;
 		this.encryptedPwd = encryptedPwd;
@@ -22,8 +21,8 @@ public abstract class AbstAdminModule extends SimpleModule {
 	}
 
 	public AbstAdminModule(String logDomain, String errorLogDomain, String name, String RTY, String[] params,
-			DeviceRepository dr, BMCipher cipher, String pwdParam, String encryptedPwd, 
-			AbstModuleExtension[] extensions) {
+                           DeviceRepository dr, Cipher cipher, String pwdParam, String encryptedPwd,
+                           AbstModuleExtension[] extensions) {
 		super(logDomain, errorLogDomain, name, RTY, params, dr, extensions);
 		this.cipher = cipher;
 		this.encryptedPwd = encryptedPwd;

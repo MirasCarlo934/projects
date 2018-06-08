@@ -1,8 +1,6 @@
 package bm.context;
 
 import bm.context.adaptors.AbstAdaptor;
-import bm.context.adaptors.DBAdaptor;
-import bm.context.adaptors.OHAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.rooms.Room;
 
@@ -12,24 +10,20 @@ import bm.context.rooms.Room;
  * @author carlomiras
  *
  */
+//LATER check if roomIndex has to be distinct from index in SymphonyElement
 public abstract class SymphonyObject extends SymphonyElement {
 	protected Room parentRoom;
-	protected int roomIndex = -1;
+//	protected int roomIndex = -1;
 
-	public SymphonyObject(String SSID, DBAdaptor dba, OHAdaptor oha, AbstAdaptor[] additionalAdaptors, Room room, 
-			int index) 
-			throws AdaptorException {
-		super(SSID, dba, oha, additionalAdaptors);
-		this.roomIndex = index;
+	//TASK Remove throws AdaptorException
+	public SymphonyObject(String SSID, Room room, int index) {
+		super(SSID, index);
+//		this.roomIndex = index;
+//		super.setIndex(index);
 		setRoom(room, index);
 	}
-	
-	public SymphonyObject(String SSID, DBAdaptor dba, OHAdaptor oha, AbstAdaptor[] additionalAdaptors) 
-			throws AdaptorException {
-		super(SSID, dba, oha, additionalAdaptors);
-	}
 
-	public Room getRoom() {
+	public Room getParentRoom() {
 		return parentRoom;
 	}
 
@@ -45,7 +39,7 @@ public abstract class SymphonyObject extends SymphonyElement {
 		}
 		if(room != null) {
 			this.parentRoom = room;
-			room.addSmarthomeObject(this);
+			room.addSymphonyObject(this);
 		} else {
 			this.parentRoom = room;
 		}
@@ -59,23 +53,24 @@ public abstract class SymphonyObject extends SymphonyElement {
 	 * 		are ordered in a room.</i>
 	 * @throws AdaptorException 
 	 */
-	public void setRoom(Room room, int index) throws AdaptorException {
+	public void setRoom(Room room, int index) {
 		if(this.parentRoom != null) {
 			this.parentRoom.removeSmarthomeObject(this);
 		}
 		if(room != null) {
 			this.parentRoom = room;
-			room.addSmarthomeObject(this, index);
+			room.addSymphonyObject(this, index);
 		} else {
 			this.parentRoom = room;
 		}
 	}
 
-	public int getRoomIndex() {
-		return roomIndex;
-	}
-
-	public void setRoomIndex(int roomIndex) {
-		this.roomIndex = roomIndex;
-	}
+//	public int getRoomIndex() {
+//		return roomIndex;
+//	}
+//
+//	public void setRoomIndex(int roomIndex) {
+//		this.roomIndex = roomIndex;
+//		super.setIndex(roomIndex);
+//	}
 }

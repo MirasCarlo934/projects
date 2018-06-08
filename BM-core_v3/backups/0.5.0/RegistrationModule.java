@@ -115,9 +115,9 @@ public class RegistrationModule extends AbstModule {
 					prod_ssid = rs2.getString("prod_ssid");
 				}
 				try {
-					product = (AbstProduct) appContext.getBean(prod_ssid);
+					product = (Product) appContext.getBean(prod_ssid);
 				} catch(NoSuchBeanDefinitionException e) {
-					product = (AbstProduct) appContext.getBean("CommonProductFactory");
+					product = (Product) appContext.getBean("CommonProductFactory");
 				}
 				product.initialize(prod_ssid, name, description, OH_icon, properties, rs);
 				mainLOG.debug("Component product properties retrieved!");

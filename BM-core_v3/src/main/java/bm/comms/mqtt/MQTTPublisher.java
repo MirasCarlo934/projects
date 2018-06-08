@@ -25,12 +25,12 @@ public class MQTTPublisher extends Sender {
 	protected LinkedList<MQTTMessage> queue = new LinkedList<MQTTMessage>();
 	
 	public MQTTPublisher(String name, String logDomain, String default_topic, String error_topic, 
-			DeviceRepository dr, int secondsToWaitBeforeResend, int resendTimeout) {
-		super(logDomain, name, secondsToWaitBeforeResend, resendTimeout);
+                         DeviceRepository deviceRepository, int secondsToWaitBeforeResend, int resendTimeout,
+						 boolean isResending) {
+		super(logDomain, name, secondsToWaitBeforeResend, resendTimeout, isResending);
 		this.default_topic = default_topic;
 		this.error_topic = error_topic;
-		this.dr = dr;
-		LOG.info(name + " started!");
+		this.dr = deviceRepository;
 	}
 	
 	public void setClient(MQTTClient client) {
@@ -57,7 +57,7 @@ public class MQTTPublisher extends Sender {
 			}
 		}
 	}
-	
+
 	@Override
 	public void sendJEEPMessage(JEEPMessage message) {
 		publish(message);
@@ -87,10 +87,9 @@ public class MQTTPublisher extends Sender {
 	}
 	
 	/**
-	 * Publish to MQTT with a specific destination
-	 * 
-	 * @param destination The topic/CID to publish to
-	 * @param message The message
+	 * Publish a JEEPResponse to a specific topic in MQTT.
+	 * @param destination The topic to publish to
+	 * @param response The JEEPResponse to be published
 	 */
 	public void publish(String destination, JEEPResponse response) {
 		publish(destination, response.toString());
@@ -98,7 +97,7 @@ public class MQTTPublisher extends Sender {
 	
 	/**
 	 * Publish a JEEPMessage to MQTT
-	 * 
+	 *
 	 * @param message The JEEPMessage
 	 */
 	public void publish(JEEPMessage message) {

@@ -1,30 +1,22 @@
 package bm.context.rooms;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Vector;
 
+import bm.context.HTMLTransformable;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
-import bm.context.HTMLTransformable;
 import bm.context.OHItemmable;
-import bm.context.SymphonyElement;
 import bm.context.SymphonyObject;
 import bm.context.adaptors.AbstAdaptor;
-import bm.context.adaptors.DBAdaptor;
-import bm.context.adaptors.OHAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 
+//FIXME indexing children
 public class Room extends SymphonyObject implements OHItemmable, HTMLTransformable {
 	private String name;
 	private Vector<SymphonyObject> children = new Vector<SymphonyObject>(1,1); //arranged by order added (index)
-
-	//for UI
-//	private String color;
+    private String color;
 	
 	/**
 	 * Instantiates a new Room value-object.
@@ -34,31 +26,27 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	 * @param name the name of this room
 	 * @throws AdaptorException 
 	 */
-	public Room(String SSID, Room parentRoom, String name, DBAdaptor dba, OHAdaptor oha, 
-			AbstAdaptor[] additionalAdaptors, int index/*, String color*/) throws AdaptorException {
-		super(SSID, dba, oha, additionalAdaptors, parentRoom, index);
+	public Room(String SSID, Room parentRoom, String name, String color, int index) {
+		super(SSID, parentRoom, index);
 		this.name = name;
+		this.color = color;
 	}
 	
 	/**
 	 * Instantiates a new Room object without a parent room
 	 * @param SSID
-	 * @param parentRoom
 	 * @param name
-	 * @param dba
-	 * @param oha
-	 * @param additionalAdaptors
+	 * @param index
 	 * @throws AdaptorException 
 	 */
-	public Room(String SSID, String name, DBAdaptor dba, OHAdaptor oha, AbstAdaptor[] additionalAdaptors, 
-			int index/*, String color*/) throws AdaptorException {
-		super(SSID, dba, oha, additionalAdaptors);
+	public Room(String SSID, String name, String color, int index) {
+		super(SSID, null, index);
 		this.name = name;
-		this.roomIndex = index;
+		this.color = color;
 	}
 
 	@Override
-	public void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
+	protected void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Creating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");
 		adaptor.roomCreated(this, waitUntilCreated);
@@ -77,7 +65,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //	}
 
 	@Override
-	public void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
+	protected void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Deleting room " + SSID + " (" + name + ") from " + adaptor.getName() + "...");
 		adaptor.roomDeleted(this, waitUntilDeleted);
@@ -85,7 +73,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	}
 
 	@Override
-	public void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) 
+	protected void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Updating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");
@@ -127,33 +115,26 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //		}
 //	}
 	
-	@Override
-	public JSONObject[] convertToItemsJSON() {
-		JSONObject json = new JSONObject();
-		json.put("name", SSID);
-		json.put("type", "Group");
-		json.put("label", name);
-		if(parentRoom != null)
-			json.put("groupNames", new String[]{parentRoom.getSSID()});
-		return new JSONObject[]{json};
-	}
-	
-	/**
-	 * Converts this Room to a simple sitemap string where it is included ONLY in the main frame of the sitemap
-	 */
-	@Override
-	public String convertToSitemapString() {
-		//Group item=J444 label="Kitchen"
-		String s = "Group item=" + SSID + " label=\"" + name + "\"";
-		return s;
-	}
-	
-	//Ex. var r_CRL0 = new Room("CRL0", "Kuya's Bedroom");
-	@Override
-	public String convertToJavascript() {
-		String s = "var r_" + SSID + " = new Room(\"" + SSID + "\", \"" + name + "\");";
-		return s;
-	}
+//	@Override
+//	public JSONObject[] convertToItemsJSON() {
+//		JSONObject json = new JSONObject();
+//		json.put("name", SSID);
+//		json.put("type", "Group");
+//		json.put("label", name);
+//		if(parentRoom != null)
+//			json.put("groupNames", new String[]{parentRoom.getSSID()});
+//		return new JSONObject[]{json};
+//	}
+//
+//	/**
+//	 * Converts this Room to a simple sitemap string where it is included ONLY in the main frame of the sitemap
+//	 */
+//	@Override
+//	public String convertToSitemapString() {
+//		//Group item=J444 label="Kitchen"
+//		String s = "Group item=" + SSID + " label=\"" + name + "\"";
+//		return s;
+//	}
 	
 	//FIXME Do something if indices of 2 SmarthomeObjects are the same
 //	/**
@@ -181,8 +162,8 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	 * @param obj The SmarthomeObject to be added
 	 * @throws AdaptorException 
 	 */
-	public void addSmarthomeObject(SymphonyObject obj) {
-		addSmarthomeObject(obj, children.size() + 1);
+	public void addSymphonyObject(SymphonyObject obj) {
+		addSymphonyObject(obj, children.size());
 //		children.add(obj);
 //		obj.setRoomIndex(children.size() + 1);
 //		sortChildren();
@@ -195,27 +176,30 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	 * @param index The index of the SmarthomeObject
 	 * @throws AdaptorException 
 	 */
-	public void addSmarthomeObject(SymphonyObject obj, int index) {
+	public void addSymphonyObject(SymphonyObject obj, int index) {
+//		System.out.println("Room: Adding " + obj.getSSID());
 		if(index <= children.size()) {
 			children.add(index, obj);
 		} else {
 			if(children.isEmpty()) {
 				children.add(obj);
-			}
-			for(int i = 0; i < children.size(); i++) {
-				if(children.get(i).getIndex() > index) {
-					children.add(obj);
-				} else if(children.get(i).getIndex() == index) {
-					children.add(obj);
-					obj = children.get(i);
-					obj.setIndex(obj.getIndex() + 1);
-					i++;
+			} else {
+				for (int i = 0; i < children.size(); i++) {
+					if (children.get(i).getIndex() > index) {
+						children.add(obj);
+					} else if (children.get(i).getIndex() == index) {
+						children.add(obj);
+						obj = children.get(i);
+						obj.setIndex(obj.getIndex() + 1);
+						i++;
+					}
 				}
 			}
 		}
 //		children.add(index, obj);
 		for(int i = 0; i < children.size(); i++) {
-			children.get(i).setRoomIndex(i);
+			children.get(i).setIndex(i);
+//			System.out.println("Room: Child - " + children.get(i).getSSID());
 		}
 //		sortChildren();
 	}
@@ -251,7 +235,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //	 * Adds a device to this room
 //	 * @param device The device object
 //	 */
-//	public void addDevice(Device device) {
+//	public void addUIDevice(Device device) {
 //		devices.add(device);
 //		if(device.getIndex() == -1) { //device initialized from registration, not from DB
 //			device.setIndex(children.size() + 1);
@@ -269,7 +253,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //	 * Adds a room to this room
 //	 * @param parentDevice The device object
 //	 */
-//	public void addRoom(Room room) {
+//	public void addUIRoom(Room room) {
 //		rooms.add(room);
 //		if(room.getIndex() == -1) { //room initialized from registration, not from DB
 //			room.setIndex(children.size());
@@ -280,7 +264,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //		sortChildren();
 //	}
 //	
-//	public void removeRoom(Room room) {
+//	public void removeUIRoom(Room room) {
 //		rooms.remove(room);
 //		children.remove(room);
 //	}
@@ -326,6 +310,34 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //		sortChildren();
 		return children.toArray(new SymphonyObject[children.size()]);
 	}
+
+	//Ex. var r_CRL0 = new Room("CRL0", "Kuya's Bedroom");
+	@Override
+	public String convertToJavascript() {
+		String s = "var r_" + SSID + " = new Room(\"" + SSID + "\", \"" + name + "\");";
+		return s;
+	}
+
+	@Override
+	public JSONObject[] convertToItemsJSON() {
+		JSONObject json = new JSONObject();
+		json.put("name", SSID);
+		json.put("type", "Group");
+		json.put("label", name);
+		if(parentRoom != null)
+			json.put("groupNames", new String[]{parentRoom.getSSID()});
+		return new JSONObject[]{json};
+	}
+
+	/**
+	 * Converts this Room to a simple sitemap string where it is included ONLY in the main frame of the sitemap
+	 */
+	@Override
+	public String convertToSitemapString() {
+		//Group item=J444 label="Kitchen"
+		String s = "Group item=" + SSID + " label=\"" + name + "\"";
+		return s;
+	}
 	
 	public int getHighestIndex() {
 		if(children.isEmpty())
@@ -342,13 +354,13 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 		return name;
 	}
 	
-//	public void setColor(String color) {
-//		this.color = color;
-//	}
-//	
-//	public String getColor() {
-//		return color;
-//	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getColor() {
+		return color;
+	}
 
 	private Logger getLogger(String parentLogDomain) {
 		return Logger.getLogger(parentLogDomain + ".Room:" + SSID);

@@ -29,7 +29,7 @@
 		
 		[(${devArray})]
 		[(${roomArray})]
-		[(${roomIDArray})]
+		//[(${roomIDArray})]
 		
 		var r = new HashMap(); //Value-Objects from BM
 		var d = new HashMap(); //Value-Objects from BM
@@ -39,35 +39,16 @@
 		var nameInputHTML = "<input type='text' class='smallTextBox' style='width:80%; margin:auto;' placeholder='new name' name='name'/>";
 		var saveIconSrc = "/pics/save.png";
 		var origHTMLs = new HashMap();
-		
-		function DeviceHTML(devID) {
-			this.name = $("#d_" + devID + "_name").html();
-			this.icon = $("#d_" + devID + "_editBtn").attr("src");
-		}
-		
-		function Room(id, name) {
-			this.id = id;
-			this.name = name;
-		}
-		function RoomJSObj(id, width, height, minimized) {
+
+		function RoomJSObj(id, width, height) {
 			this.id = id;
 			this.width = width;
 			this.height = height;
-			this.minimized = minimized;
 		}
-		
-		function Device(id, type, name, room, props) {
-			this.id = id;
-			this.type = type;
-			this.name = name;
-			this.room = room;
-			this.props = props;
-			this.state = true;
-		}
+
 		function DeviceJSObj(id, clicked, isEditing) {
 			this.id = id;
 			this.clicked = clicked;
-			this.isEditing = isEditing;
 		}
 		
 		function updateDevices() {
@@ -90,7 +71,7 @@
 					var room = rooms.get($room.attr("id"));
 					room.width = $room.width();
 				} else {
-					var room = new RoomJSObj($room.attr("id"), $room.width(), $room.height(), false);
+					var room = new RoomJSObj($room.attr("id"), $room.width(), $room.height());
 					rooms.add($room.attr("id"), room);
 				}
 			});
@@ -235,7 +216,7 @@
 						if(state == false) {devcolor = "red";}
 						$("#" + devID).find("div.icon").css({"background-color": devcolor});
 						$("#d_" + devID + "_name").text(name);
-						if(room != deviceArray[i].room) {window.location.reload(true)};
+						// if(room != deviceArray[i].room) {window.location.reload(true)};
 						deviceArray[i].state = state;
 						deviceArray[i].name = name;
 					}
@@ -371,7 +352,7 @@
 			$("#roomEditor").find("#roomSSID").html(roomID);
 			$("#roomEditor").find("#name").attr("placeholder", r.get(roomID).name);
 			$("#roomEditor").find("#color").text(rgb2hex($("#r_" + roomID).css('background-color')));
-			openRibbon("roomEditorPanel", "bottom", ($(window).height() / 2) /* + ($("div#roomEditor").height() * 1.5 */));
+			openRibbon("roomEditorPanel", "bottom", ($(window).height() / 2) /* + ($("div#roomEditor").height() * 1.5 )*/);
 		}
 		function closeRoomEditor() {
 			console.log("Closing room editor...");
@@ -465,7 +446,7 @@
 				} */
 			});
 			//closeRoomCreator();
-			
+
 			/*<img class='move' src='../resources/static/pics/move.png' src='@{/pics/move.png}'/> \
 			<img class='edit' id='r_" + ssid + "_editBtn' onclick='openRoomEditor(" + ssid + ")' src='../resources/static/pics/info2.png' th:src='@{/pics/info.png}'/> \
 			*/
@@ -681,7 +662,7 @@
 				<br/><br/>
 				<table>
 					<tr>
-						<td><input type="button" class="regularBtn" value="Create Room" onclick="createRoom()"></td>
+						<td><input type="button" class="regularBtn" value="Create Room" onclick="createBasicRoom()"></td>
 					</tr>
 				</table>
 			</div>
@@ -720,10 +701,10 @@
 			</li> -->
 			<li th:each="rootObj : ${rootObjs}" th:id="${rootObj.getSSID()}" class="root_sortItem">
 				<div class="invisible"> <!-- DONT REMOVE: To match hierarchy levels from parent as in fragments -->
-					<div th:if="${rootObj instanceof T(bm.smarthome.rooms.Room)}" class="invisible roomContainerContainer">
-						<div th:replace="fragments/devices-overview-fragments :: roomBox(${rootObj})"> </div>	
+					<div th:if="${rootObj instanceof T(bm.context.rooms.Room)}" class="invisible roomContainerContainer">
+						<div th:replace="fragments/devices-overview-fragments :: roomBox(${rootObj})"> </div>
 					</div>
-					<div th:if="${rootObj instanceof T(bm.smarthome.devices.Device)}" class="invisible roomContainerContainer">
+					<div th:if="${rootObj instanceof T(bm.context.devices.Device)}" class="invisible roomContainerContainer">
 						<div th:replace="fragments/devices-overview-fragments :: deviceBox(${rootObj})"> </div>	
 					</div>
 				</div>
@@ -732,5 +713,6 @@
 	</div>
 	
 	<span id="responses"></span>
+<p>hello</p>
 </body>
 </html>

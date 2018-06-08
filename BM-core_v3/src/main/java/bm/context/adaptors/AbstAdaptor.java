@@ -1,20 +1,11 @@
 package bm.context.adaptors;
 
+import bm.context.properties.Property;
 import org.apache.log4j.Logger;
 
-import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
-import bm.context.properties.AbstProperty;
-import bm.context.properties.Property;
-import bm.context.properties.bindings.Binding;
 import bm.context.rooms.Room;
-import bm.main.engines.AbstEngine;
-import bm.main.engines.DBEngine;
-import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.EngineRequest;
-import bm.main.engines.requests.DBEngine.DBEngineRequest;
-import bm.main.interfaces.Initializable;
 
 public abstract class AbstAdaptor {
 	private String id;
@@ -46,9 +37,9 @@ public abstract class AbstAdaptor {
 	/*
 	 * adaptor methods for property
 	 */
-	public abstract void propertyCreated(AbstProperty p, boolean waitUntilPersisted) throws AdaptorException;
-	public abstract void propertyDeleted(AbstProperty p, boolean waitUntilDeleted) throws AdaptorException;
-	public abstract void propertyValueUpdated(AbstProperty p, boolean waitUntilUpdated) throws AdaptorException;
+	public abstract void propertyCreated(Property p, boolean waitUntilPersisted) throws AdaptorException;
+	public abstract void propertyDeleted(Property p, boolean waitUntilDeleted) throws AdaptorException;
+	public abstract void propertyValueUpdated(Property p, boolean waitUntilUpdated) throws AdaptorException;
 	
 	/*
 	 * adaptor methods for room

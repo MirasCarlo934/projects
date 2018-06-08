@@ -1,73 +1,47 @@
-package bm.main.repositories;
+package bm.cir;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Vector;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
+import bm.context.properties.Property;
+import bm.main.repositories.DeviceRepository;
 import org.apache.log4j.Logger;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
-import bm.cir.exceptions.CIRSSyntaxException;
 import bm.cir.objects.ArgOperator;
 import bm.cir.objects.Argument;
-import bm.cir.objects.Conditional;
 import bm.cir.objects.ExecutionBlock;
 import bm.cir.objects.Relationship;
 import bm.cir.objects.Rule;
 import bm.context.devices.Device;
-import bm.context.properties.AbstProperty;
-import bm.context.properties.Property;
-import bm.jeep.device.ReqPOOP;
-import bm.main.engines.AbstEngine;
 import bm.main.engines.FileEngine;
 import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.EngineRequest;
-import bm.main.engines.requests.FileEngine.GetInputStreamFEReq;
 import bm.main.engines.requests.FileEngine.OverwriteFileFEReq;
-import bm.main.engines.requests.FileEngine.ReadAllLinesFEReq;
 import bm.main.engines.requests.FileEngine.UpdateFEReq;
 import bm.main.engines.requests.FileEngine.VersionizeFileFEReq;
 import bm.main.interfaces.Initializable;
 import bm.tools.IDGenerator;
 
-public class CIRRepository /*extends AbstRepository*/ implements Initializable {
+public class CIRRepository implements Initializable {
 	private Logger LOG;
 	private Rule[] rules = new Rule[0];
 	private DeviceRepository cr;
 	private FileEngine cirFE;
 	private IDGenerator idg;
-	
-//	private SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-//	private SAXParser saxParser;
+
 	private CIRFileParser fileParser;
 	
-	public CIRRepository(String logDomain, String errorLogDomain, DeviceRepository componentRepository, 
-			FileEngine fe, IDGenerator idg) {
-//		super(logDomain, CIRRepository.class.getSimpleName());
+	public CIRRepository(String logDomain, DeviceRepository componentRepository, FileEngine fe,
+						 IDGenerator idg) {
 		LOG = Logger.getLogger(logDomain + "." + CIRRepository.class.getSimpleName());
 		cr = componentRepository;
 		this.cirFE = fe;
 		this.idg = idg;
 		fileParser = new CIRFileParser();
-//		try {
-//			saxParser = saxParserFactory.newSAXParser();
-//		} catch (ParserConfigurationException | SAXException e) {
-//			LOG.fatal("SAXParser cannot be instantiated!", e);
-//		}
 		LOG.info("CIRRepository started!");
 	}
 	
@@ -125,7 +99,7 @@ public class CIRRepository /*extends AbstRepository*/ implements Initializable {
 	 * @return An array containing all the rules that specify the given component and its specified property in their 
 	 * 		arguments block
 	 */
-	public Rule[] getSpecificRules(Device d, AbstProperty p) {
+	public Rule[] getSpecificRules(Device d, Property p) {
 		LOG.debug("Retrieving rules for component " + d.getSSID() + "...");
 		Vector<Rule> specRules = new Vector<Rule>(1,1);
 		
@@ -197,7 +171,7 @@ public class CIRRepository /*extends AbstRepository*/ implements Initializable {
 					Element raw_args_com = raw_args_coms.get(j);
 					String cid = raw_args_com.getAttributeValue("id");
 					Device dev;
-					if(cr.containsComponent(cid)) { //checks if cid exists
+					if(cr.containsDevice(cid)) { //checks if cid exists
 						dev = cr.getDevice(cid);
 					} else {
 						LOG.warn("Rule \"" + rule_name + "\" contains invalid component \"" + cid + "\" in "
@@ -212,8 +186,8 @@ public class CIRRepository /*extends AbstRepository*/ implements Initializable {
 						if(!dev.containsProperty(pid)) {
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property \"" + pid + "\" in "
 								+ " for component " + cid + " in arguments block. Disregarding rule!");
-						} else if(!dev.getProperty(pid).checkValueTypeValidity(pval)) {
-							AbstProperty prop = dev.getProperty(pid);
+						} else if(!dev.getProperty(pid).checkValueValidity(pval)) {
+							Property prop = dev.getProperty(pid);
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property value \"" + pval + 
 									"\" for property " + prop.getOH_ID() + " in arguments block. Disregarding rule!");
 						}
@@ -236,7 +210,7 @@ public class CIRRepository /*extends AbstRepository*/ implements Initializable {
 					Element raw_execs_com = raw_execs_coms.get(j);
 					String cid = raw_execs_com.getAttributeValue("id");
 					Device dev;
-					if(cr.containsComponent(cid)) { //checks if cid exists
+					if(cr.containsDevice(cid)) { //checks if cid exists
 						dev = cr.getDevice(cid);
 					} else {
 						LOG.warn("Rule \"" + rule_name + "\" contains invalid component \"" + cid + "\" in "
@@ -252,8 +226,8 @@ public class CIRRepository /*extends AbstRepository*/ implements Initializable {
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property \"" + pid + "\" in "
 								+ " for component " + cid + " in execution block. Disregarding rule!");
 							continue rulesLoop;
-						} else if(!dev.getProperty(pid).checkValueTypeValidity(pval)) {
-							AbstProperty prop = dev.getProperty(pid);
+						} else if(!dev.getProperty(pid).checkValueValidity(pval)) {
+							Property prop = dev.getProperty(pid);
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property value \"" + pval + 
 									"\" for property " + prop.getOH_ID() + " in execution block. Disregarding rule!");
 							continue rulesLoop;

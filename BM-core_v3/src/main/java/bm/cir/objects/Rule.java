@@ -1,16 +1,11 @@
 package bm.cir.objects;
 
 import java.util.HashMap;
-import java.util.Vector;
-
-import org.apache.log4j.Logger;
 
 import bm.context.HTMLTransformable;
 import bm.context.devices.Device;
-import bm.context.properties.AbstProperty;
 import bm.context.properties.Property;
 import bm.tools.StringTools;
-import bm.tools.StringTools.StringInjectionException;
 
 public class Rule implements HTMLTransformable {
 	private int index;
@@ -51,7 +46,7 @@ public class Rule implements HTMLTransformable {
 	 * @return <b>True</b> if the specified Component exists in the arguments section, 
 	 * 		<b>false</b> otherwise
 	 */
-	public boolean containsArgument(Device d, AbstProperty p) {
+	public boolean containsArgument(Device d, Property p) {
 		boolean b = false;
 		for(int i = 0; i < arguments.length; i++) {
 			Argument arg = arguments[i];
@@ -85,7 +80,7 @@ public class Rule implements HTMLTransformable {
 			if(dev == null) {
 				return false;
 			}
-			AbstProperty prop = dev.getProperty(arg.getPropSSID());
+			Property prop = dev.getProperty(arg.getPropSSID());
 			//FIXME Rule: Compare raw data types, not just strings! To avoid having to specify decimal numbers in CIR!
 			if(!prop.getValue().toString().equals(arg.getPropValue().toString())) {
 				return false;

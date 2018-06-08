@@ -14,11 +14,11 @@ public class CIRStatementBuilder {
 	 * <b>Only creates a CIR statement with 1 Argument and 1 Execution Block<b>
 	 * 
 	 * @param com1 SSID of the component in the Argument
-	 * @param com1_pname Property name of the component in the Argument
-	 * @param com1_pval Property value of the component in the Argument
+	 * @param com1_pname B_Property name of the component in the Argument
+	 * @param com1_pval B_Property value of the component in the Argument
 	 * @param com2 SSID of the component in the Execution Block
-	 * @param com2_pname Property name of the component in the Execution Block
-	 * @param com2_pval Property value of the component in the Execution Block
+	 * @param com2_pname B_Property name of the component in the Execution Block
+	 * @param com2_pval B_Property value of the component in the Execution Block
 	 * @return
 	 */
 	public String buildStatement(String com1, String com1_pname, String com1_pval, 

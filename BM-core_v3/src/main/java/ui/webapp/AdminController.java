@@ -1,12 +1,11 @@
 package ui.webapp;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import bm.context.products.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,17 +14,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import bm.context.devices.products.AbstProduct;
-import bm.context.devices.products.Product;
-import bm.context.properties.AbstProperty;
 import bm.context.properties.PropertyMode;
 import bm.context.properties.PropertyType;
-import bm.main.ConfigLoader;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.engines.requests.DBEngine.DeleteDBEReq;
 import bm.main.engines.requests.DBEngine.InsertDBEReq;
-import bm.main.engines.requests.DBEngine.SelectDBEReq;
 import bm.main.engines.requests.DBEngine.UpdateDBEReq;
 import bm.main.repositories.ProductRepository;
 import bm.tools.IDGenerator;
@@ -44,10 +38,7 @@ public class AdminController extends AbstController {
 	private String productTable;
 	private String comproplistTable;
 
-	public AdminController(@Value("${log.domain.ui}") String logDomain, 
-			@Value("${ui.dbEngine") String dbeStr,
-			@Value("${ui.idGenerator") String idgStr,
-			@Value("${ui.productRepository") String prStr,
+	public AdminController(@Value("${log.domain.ui}") String logDomain,
 			@Value("${table.propertyvalues}") String pvalTable, 
 			@Value("${table.products}") String productTable, 
 			@Value("${table.productproperties}") String comproplistTable) {
@@ -68,14 +59,14 @@ public class AdminController extends AbstController {
 	 */
 	@RequestMapping("/products")
 	public String products(Model model) {
-		AbstProduct[] prods = pr.getAllProducts();
+		Product[] prods = pr.getAllProducts();
 		PropertyType[] ptypes = pr.getAllPropertyTypes();
 //		Vector<PropertyType> ptypes = new Vector<PropertyType>(10,1);
 		String prodsJSArray = "[";
 		String ptypesJSArray = "[";
 		
 		//sort products and ptypes by ascending order
-		Vector<AbstProduct> sortedProds = new Vector<AbstProduct>(prods.length);
+		Vector<Product> sortedProds = new Vector<Product>(prods.length);
 		int[] prodSSIDs = new int[prods.length];
 			for(int i = 0; i < prods.length; i++) {
 				prodSSIDs[i] = Integer.parseInt(prods[i].getSSID());
@@ -83,7 +74,7 @@ public class AdminController extends AbstController {
 			Arrays.sort(prodSSIDs);
 			for(int i = 0; i < prodSSIDs.length; i++) {
 				int ssid = prodSSIDs[i];
-				AbstProduct prod = null;
+				Product prod = null;
 				for(int j = 0; j < prods.length; j++) {
 					if(Integer.parseInt(prods[j].getSSID()) == ssid) prod = prods[j];
 				}
@@ -108,7 +99,7 @@ public class AdminController extends AbstController {
 		
 		prodsJSArray = prodsJSArray.substring(0, prodsJSArray.length() - 1) + "];";
 		ptypesJSArray = ptypesJSArray.substring(0, ptypesJSArray.length() - 1) + "];";
-		model.addAttribute("products", sortedProds.toArray(new AbstProduct[prods.length]));
+		model.addAttribute("products", sortedProds.toArray(new Product[prods.length]));
 		model.addAttribute("productsJS", prodsJSArray);
 		model.addAttribute("propertyTypes", sortedPtypes.toArray(new PropertyType[ptypes.length]));
 		model.addAttribute("propertyTypesJS", ptypesJSArray);
@@ -123,7 +114,7 @@ public class AdminController extends AbstController {
 			@RequestParam(value="oh_icon", required=true) String oh_icon, 
 			@RequestParam HashMap<String, String> params, Model model) {
 		LOG.debug("Product modification requested!");
-		AbstProduct prod = pr.getProduct(ssid);
+		Product prod = pr.getProduct(ssid);
 		if(prod == null) {
 			LOG.error("Product ID " + ssid + " does not exist");
 			return notify(null, "Product ID " + ssid + " does not exist", model);
@@ -143,14 +134,14 @@ public class AdminController extends AbstController {
 			description = prod.getDescription();
 		} else LOG.info("Changing product description to " + description);
 		if(oh_icon.length() == 0 || oh_icon == null) {
-			oh_icon = prod.getOHIcon();
+			oh_icon = prod.getIconImg();
 		} else LOG.info("Changing product OpenHAB icon to " + oh_icon);
 		
 		//update product object
 		prod.setSSID(newSSID);
 		prod.setName(name);
 		prod.setDescription(description);
-		prod.setOH_icon(oh_icon);
+		prod.setIconImg(oh_icon);
 		
 		//update DB
 		HashMap<String, Object> vals = new HashMap<String, Object>(4);

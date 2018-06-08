@@ -26,20 +26,19 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<constructor-arg name="initializables">
 			<list>
-				<ref bean="OH.Initializer"/>
-				<!-- <ref bean="UIRooms"/> -->
+				<ref bean="AdaptorManager"/>
 			</list>
 		</constructor-arg>
 	</bean>
 	
-	<bean id="RawMessageQueue" class="java.util.LinkedList"></bean>
-	<bean id="ModuleQueue" class="java.util.LinkedList"></bean>
+	<bean id="RawMessageQueue" class="java.util.LinkedList"/>
+	<bean id="ModuleQueue" class="java.util.LinkedList"/>
 	<bean id="Controller" class="bm.main.controller.Controller">
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<!-- <constructor-arg name="configLoader" ref="config"/> -->
 		<constructor-arg name="rawReqQueue" ref="RawMessageQueue"/>
 		<constructor-arg name="moduleQueue" ref="ModuleQueue"/>
-		<constructor-arg name="deviceRepository" ref="Components"/>
+		<constructor-arg name="deviceRepository" ref="Devices"/>
 	</bean>
 	<bean id="ModuleDispatcher" class="bm.main.controller.ModuleDispatcher">
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>

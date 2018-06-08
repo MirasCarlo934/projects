@@ -1,14 +1,10 @@
 package bm.main;
 
-import java.util.Iterator;
 import java.util.List;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import bm.tools.BMCipher;
 
 /**
  * The class that loads the filenames of the Spring Configuration files used by the BM.  

@@ -37,9 +37,10 @@ public class HTTPSender extends Sender {
 	private LinkedList<HTTPResponse> responses= new LinkedList<HTTPResponse>();
 	private int requestCounter = 0;
 
-	public HTTPSender(String name, String logDomain, int secondsToWaitBeforeResend, int resendTimeout) {
+	public HTTPSender(String name, String logDomain, int secondsToWaitBeforeResend, int resendTimeout,
+					  boolean isResending) {
 //		super(name, logDomain, controller, sender, rawRequestQueue);
-		super(logDomain, name, secondsToWaitBeforeResend, resendTimeout);
+		super(logDomain, name, secondsToWaitBeforeResend, resendTimeout, isResending);
 		LOG.info(name + " started!");
 	}
 

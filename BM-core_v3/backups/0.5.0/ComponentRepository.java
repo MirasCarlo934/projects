@@ -230,7 +230,7 @@ public class ComponentRepository extends AbstRepository {
 				/*=====================================================
 				
 				LOG.info("Persisting new device properties to DB...");
-				Property[] properties = device.getProperties().values().toArray(new Property[0]);
+				B_Property[] properties = device.getProperties().values().toArray(new B_Property[0]);
 				
 				//gets all existing property SSIDs from DB
 				ResultSet rs = dbm.selectQuery("SSID", "comp_properties");
@@ -240,7 +240,7 @@ public class ComponentRepository extends AbstRepository {
 				}
 				
 				for(int i = 0; i < properties.length; i++) {
-					Property property = properties[i];
+					B_Property property = properties[i];
 					String prop_ssid = idgen.generateMixedCharID(4, prop_SSIDs.toArray(new String[0]));
 					dbm.insertQuery(new String[]{prop_ssid, device.getSSID(), property.getName(), 
 							"0", property.getPropertyID()}, 
@@ -285,7 +285,7 @@ public class ComponentRepository extends AbstRepository {
 			//dbm.updateQuery("comp_properties", args, vals);
 			dbm.forwardRequest(new UpdateDBEReq(idg.generateMixedCharID(10), "comp_properties", 
 					args, vals));
-			LOG.info("Property updated!");
+			LOG.info("B_Property updated!");
 		} catch (SQLException e) {
 			LOG.error("Cannot update property in DB!", e);
 		}*/

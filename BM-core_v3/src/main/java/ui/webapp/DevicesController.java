@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import bm.context.SymphonyObject;
+import bm.context.properties.Property;
+import bm.main.repositories.DeviceRepository;
+import bm.main.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -16,24 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bm.cir.objects.Rule;
-import bm.context.SymphonyObject;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
-import bm.context.properties.AbstProperty;
-import bm.context.properties.Property;
 import bm.context.properties.PropertyMode;
 import bm.context.rooms.Room;
-import bm.main.ConfigLoader;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.modules.admin.CreateRoomModule;
-import bm.main.modules.DetachmentModule;
-import bm.main.repositories.CIRRepository;
-import bm.main.repositories.DeviceRepository;
-import bm.main.repositories.RoomRepository;
-import bm.tools.IDGenerator;
-import ui.context.adaptors.UIAdaptor;
-import ui.context.rooms.UIRoom;
-import ui.main.repositories.UIRoomRepository;
+import bm.cir.CIRRepository;
 
 @Controller
 @RequestMapping("/devices")
@@ -41,18 +31,16 @@ public class DevicesController extends AbstController {
 	@Autowired
 	protected DeviceRepository dr;
 	@Autowired
-	protected UIRoomRepository ui_rr;
+	protected RoomRepository rr;
 	@Autowired
 	protected CIRRepository cirr;
 	@Autowired
 	protected CreateRoomModule createRoomModule;
 
-	public DevicesController(@Value("${log.domain.ui}") String logDomain, 
-			@Value("${ui.deviceRepository") String drStr, @Value("${ui.roomRepository") String rrStr, 
-			@Value("${ui.cirRepository") String cirStr, @Value("${ui.createRoomModule") String crmStr) {
+	public DevicesController(@Value("${log.domain.ui}") String logDomain) {
 		super(logDomain, DevicesController.class.getSimpleName());
 //		dr = (DeviceRepository) config.getApplicationContext().getBean(drStr);
-//		ui_rr = (UIRoomRepository) config.getApplicationContext().getBean(rrStr);
+//		rr = (UIRoomRepository) config.getApplicationContext().getBean(rrStr);
 //		cirr = (CIRRepository) config.getApplicationContext().getBean(cirStr);
 //		createRoomModule = (CreateRoomModule) config.getApplicationContext().getBean(crmStr);
 	}
@@ -75,13 +63,13 @@ public class DevicesController extends AbstController {
 			String roomArray = "var roomArray = [";
 			String roomIDArray = "[";
 			Iterator<Device> d = Arrays.asList(dr.getAllDevices()).iterator();
-			Iterator<Room> r = Arrays.asList(ui_rr.getAllRooms()).iterator();
+			Iterator<Room> r = Arrays.asList(rr.getAllRooms()).iterator();
 			Vector<SymphonyObject> root = new Vector<SymphonyObject>(1,1);
 			while(d.hasNext()) {
 				Device dev = d.next();
 				devices += dev.convertToJavascript() + " \n";
 				devArray += "d_" + dev.getSSID() + ",";
-				if(dev.getRoom() == null) {
+				if(dev.getParentRoom() == null) {
 					root.add(dev);
 				}
 			}
@@ -90,7 +78,7 @@ public class DevicesController extends AbstController {
 				rooms += room.convertToJavascript() + " \n";
 				roomArray += "r_" + room.getSSID() + ",";
 				roomIDArray += "'r_" + room.getSSID() + "',";
-				if(room.getRoom() == null) {
+				if(room.getParentRoom() == null) {
 					root.add(room);
 				}
 			}
@@ -100,13 +88,15 @@ public class DevicesController extends AbstController {
 			} else {
 				devArray = "var deviceArray = [];";
 			}
-			if(ui_rr.getAllRooms().length != 0) {
+			if(rr.getAllRooms().length != 0) {
 				roomArray = roomArray.substring(0, roomArray.length() - 1) + "];";
 			} else {
 				roomArray = "var roomArray = [];";
 			}
-			if(ui_rr.getAllRoomIDs().length != 0) {
+			if(rr.getAllRoomIDs().length != 0) {
 				roomIDArray = roomIDArray.substring(0, roomIDArray.length() - 1) + "];";
+			} else {
+				roomIDArray = "[]";
 			}
 			
 			model.addAttribute("devices", devices);
@@ -115,8 +105,10 @@ public class DevicesController extends AbstController {
 			model.addAttribute("roomArray", roomArray);
 			model.addAttribute("roomIDArray", roomIDArray);
 			model.addAttribute("devObjs", dr.getAllDevices());
-			model.addAttribute("roomObjs", ui_rr.getAllRooms());
+			model.addAttribute("roomObjs", rr.getAllRooms());
 			model.addAttribute("rootObjs", sort(root));
+			model.addAttribute("devRepo", dr);
+			model.addAttribute("roomRepo", rr);
 			
 			return dispatchView("devices-overview");
 		} else {
@@ -131,7 +123,7 @@ public class DevicesController extends AbstController {
 	 * @param roomID The SSID of the room to be rearranged
 	 */
 	private void rearrangeRoom(String children, String roomID) {
-		UIRoom room = ui_rr.getRoom(roomID);
+		Room room = rr.getRoom(roomID);
 		String[] children_id = children.split(";;;");
 		if(room != null)
 			LOG.debug("Rearranging room " + roomID + "(" + room.getName() + ") contents...");
@@ -140,7 +132,7 @@ public class DevicesController extends AbstController {
 		for(int i = 0; i < children_id.length; i++) {
 			SymphonyObject child = dr.getDevice(children_id[i]);
 			if(child == null) { //child is not a device
-				child = ui_rr.getRoom(children_id[i]);
+				child = rr.getRoom(children_id[i]);
 			}
 			if(child != null) {
 				child.setIndex(i);
@@ -170,10 +162,10 @@ public class DevicesController extends AbstController {
 			}
 			
 			for(int j = 0; j < roomContents.length; j++) {
-				if(dr.containsComponent(roomContents[j])) {
-					Device d = dr.getDevice(roomContents[j]);
+				if(dr.containsDevice(roomContents[j])) {
+					Device d = (Device) dr.getDevice(roomContents[j]);
 					d.setIndex(j);
-					d.setRoom(ui_rr.getRoom(roomSSID));
+					d.setRoom((Room) rr.getRoom(roomSSID));
 					try {
 						d.update(logDomain, false);
 					} catch (AdaptorException e) {
@@ -181,10 +173,10 @@ public class DevicesController extends AbstController {
 						notifyError("Cannot update device! Please refresh.", model);
 					}
 				} else { //the content is a room!
-					Room r = ui_rr.getRoom(roomContents[j]);
+					Room r = (Room) rr.getRoom(roomContents[j]);
 					r.setIndex(j);
 					if(!roomSSID.equals("root_sort")) {
-						r.setRoom(ui_rr.getRoom(roomSSID));
+						r.setRoom((Room) rr.getRoom(roomSSID));
 						try {
 							r.update(logDomain, false);
 						} catch (AdaptorException e) {
@@ -203,16 +195,15 @@ public class DevicesController extends AbstController {
 	public String relocate(@RequestParam(value="element", required=true) String elementID,
 			@RequestParam(value="room", required=true) String roomID,
 			@RequestParam(value="siblings", required=true) String siblings, Model model) {
-//		LOG.fatal("HH--" + siblings);
 		Room room;
-		if(ui_rr.containsRoom(roomID)) {
-			room = ui_rr.getRoom(roomID);
+		if(rr.containsRoom(roomID)) {
+			room = (Room) rr.getRoom(roomID);
 		} else {
 			room = null;
 		}
 		
 		//updates SymphonyObject
-		if(dr.containsComponent(elementID)) {
+		if(dr.containsDevice(elementID)) {
 			LOG.debug("Relocating device " + elementID + " to room " + roomID);
 			Device d = dr.getDevice(elementID);
 			d.setRoom(room);
@@ -224,7 +215,7 @@ public class DevicesController extends AbstController {
 			}
 		} else {
 			LOG.debug("Relocating room " + elementID + " to room " + roomID);
-			Room r = ui_rr.getRoom(elementID);
+			Room r = rr.getRoom(elementID);
 			r.setRoom(room);
 			try {
 				r.update(logDomain, false);
@@ -253,22 +244,22 @@ public class DevicesController extends AbstController {
 			@RequestParam(value="name", required=false) String newName, 
 			@RequestParam(value="room", required=false) String newRoom, Model model) {
 		LOG.debug("Device " + devID + " credential update requested!");
-		Device c = dr.getDevice(devID);
-		Room r = ui_rr.getRoom(newRoom);
+		Device d = (Device) dr.getDevice(devID);
+		Room r = (Room) rr.getRoom(newRoom);
 		boolean updated = false;
-		if(c != null) {
+		if(d != null) {
 			LOG.debug("Changing device " + devID + " credentials...");
-			if(newName != null && !newName.isEmpty() && !newName.equals(c.getName())) {
-				LOG.info("Changing name of device " + devID + " " + c.getName() + " (" + 
-						c.getRoom().getName() + ") to " + newName);
-				c.setName(newName);
+			if(newName != null && !newName.isEmpty() && !newName.equals(d.getName())) {
+				LOG.info("Changing name of device " + devID + " " + d.getName() + " (" +
+						d.getParentRoom().getName() + ") to " + newName);
+				d.setName(newName);
 				updated = true;
 			}
 			
 			if(r != null) {
-				LOG.info("Changing room of device " + devID + " " + c.getName() + " (" + 
-						c.getRoom().getName() + ") to " + r.getSSID() + " (" + r.getName() + ")");
-				c.setRoom(r);
+				LOG.info("Changing room of device " + devID + " " + d.getName() + " (" +
+						d.getParentRoom().getName() + ") to " + r.getSSID() + " (" + r.getName() + ")");
+				d.setRoom(r);
 				updated = true;
 			} else if(newRoom != null) { //meaning a room ID was specified but is invalid
 				String warn = "Room ID " + newRoom + " does not exist!";
@@ -278,7 +269,7 @@ public class DevicesController extends AbstController {
 			
 			if(updated) {
 				try {
-					c.update(logDomain, true);
+					d.update(logDomain, true);
 					model.addAttribute("status", true);
 					return notify(null, "Device updated", model);
 				} catch (AdaptorException e) {
@@ -304,11 +295,11 @@ public class DevicesController extends AbstController {
 			@RequestParam(value="name", required=false) String name,
 			@RequestParam(value="color", required=false) String color, Model model) {
 		LOG.info("Room " + roomID + " credential change requested!");
-		UIRoom r = ui_rr.getRoom(roomID);
+		Room r = rr.getRoom(roomID);
 		boolean updated = false;
 		
 		if(name != null && !name.isEmpty())  {
-			r.setName(name);
+            r.setName(name);
 			updated = true;
 		}
 		
@@ -334,13 +325,13 @@ public class DevicesController extends AbstController {
 	
 	@RequestMapping("/deleteRoom")
 	public String deleteRoom(@RequestParam(value="roomID", required=true) String roomID, Model model) {
-		Room r = ui_rr.getRoom(roomID);
+		Room r = rr.getRoom(roomID);
 		LOG.debug("Room " + roomID + "(" + r.getName() + ") deletion requested!");
 		if(r.getChildren().length > 0) {
 			LOG.error("Cannot delete room! Still has children!");
 			return notifyError("There are still devices/rooms inside the room!", model);
 		}
-		ui_rr.removeRoom(roomID);
+		rr.removeRoom(roomID);
 		try {
 			r.delete(logDomain, true);
 			LOG.info("Room " + roomID + " deleted!");
@@ -363,10 +354,11 @@ public class DevicesController extends AbstController {
 		}
 		
 		LOG.debug("Creating room '" + name + "'");
-		UIRoom r;
+		//TODO uncomment
+		Room r;
 		try {
-			r = new UIRoom(createRoomModule.createRoom(name), color);
-//			r = createRoomModule.createRoom(name, color);
+            r = createRoomModule.createBasicRoom(name, color);
+			rr.addRoom(r);
 			HashMap<String, String> responses = new HashMap<String, String>();
 			responses.put("SSID", r.getSSID());
 			model.addAttribute("responses", responses);
@@ -389,7 +381,7 @@ public class DevicesController extends AbstController {
 			Device dev = devices[i];
 			responses.put(dev.getSSID() + "_state", String.valueOf(dev.isActive()));
 			responses.put(dev.getSSID() + "_name", dev.getName());
-			responses.put(dev.getSSID() + "_room", dev.getRoom().getSSID());
+			responses.put(dev.getSSID() + "_room", dev.getParentRoom().getSSID());
 		}
 		return sendResponse(responses, model);
 	}
@@ -408,20 +400,20 @@ public class DevicesController extends AbstController {
 //		String controllersArray = "var controllers = [";
 		String rulesStr = "";
 		String rulesArray = "var rules = [ ";
-		Iterator<Device> coms = Arrays.asList(dr.getAllDevices()).iterator();
+		Iterator<Device> devs = Arrays.asList(dr.getAllDevices()).iterator();
 		Iterator<Rule> rules = Arrays.asList(cirr.getAllRules()).iterator();
 		
-		while(coms.hasNext()) {
+		while(devs.hasNext()) {
 			//get component in javascript object string
-			Device d = coms.next();
+			Device d = devs.next();
 			devices += d.convertToJavascript() + " \n";
-			Iterator<AbstProperty> props = Arrays.asList(d.getProperties()).iterator();
+			Iterator<Property> props = Arrays.asList(d.getProperties()).iterator();
 			
 			//check if component is a sensor, controller, or both
 			boolean sensor = false;
 			boolean controller = false;
 			while(props.hasNext()) {
-				AbstProperty p = props.next();
+				Property p = props.next();
 				if(p.getMode().equals(PropertyMode.I)) {
 					sensor = true;
 				} else if(p.getMode().equals(PropertyMode.O)) {
@@ -436,7 +428,6 @@ public class DevicesController extends AbstController {
 		}
 		devList = devList.substring(0, devList.length() - 1) + "];"; //chomp last comma and add ending square bracket
 		
-//		LOG.fatal(cirr.getAllRules().length);
 		while(rules.hasNext()) {
 			Rule r = rules.next();
 			rulesStr += r.convertToJavascript();
@@ -461,7 +452,6 @@ public class DevicesController extends AbstController {
 	@RequestMapping("/composeCIR")
 	public String composeCIR(@RequestParam(value="cir", required=false, defaultValue="<rules></rules>") String cir, Model model) {
 		LOG.debug("CIR update requested!");
-		LOG.fatal(cir);
 		cirr.overwriteRules(cir);
 		try {
 			cirr.update();
@@ -485,9 +475,6 @@ public class DevicesController extends AbstController {
 			}
 			sorted.add(index, child);
 		}
-//		for(int i = 0; i < sorted.size(); i++) {
-//			LOG.fatal(sorted.get(i).getIndex() + "__" + rr.getRoom(sorted.get(i).getSSID()).getName());
-//		}
 		return sorted;
 	}
 }

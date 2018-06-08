@@ -1,5 +1,2 @@
-carlo,hello world,#hello
-carlo,hdskfjalke
-darvy,ako si darvy,#talino
-tim,timtimtim
-kenneth,kennth haha
+hehe,dededede
+hehe,haydihaydi ho,#yeahh
