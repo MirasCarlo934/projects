@@ -1,20 +1,9 @@
 package bm.main.modules;
 
-import java.sql.SQLException;
-import java.util.HashMap;
-
-import bm.comms.mqtt.MQTTListener;
-import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.jeep.JEEPRequest;
-import bm.jeep.device.ReqRequest;
-import bm.jeep.device.ResError;
-import bm.main.engines.DBEngine;
-import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.DBEngine.DeleteDBEReq;
 import bm.main.repositories.DeviceRepository;
-import bm.tools.IDGenerator;
 
 /**
  * The DetachmentModule basically unregisters or "detaches" the requesting component from the Symphony system. The 
@@ -31,8 +20,6 @@ public class DetachmentModule extends SimpleModule {
 	 * @param logDomain the log4j domain that this module will use
 	 * @param errorLogDomain the log4j domain where errors will be logged to
 	 * @param RTY the JEEP request type that this module handles
-	 * @param mp the MQTTPublisher that will publish the JEEP responses
-	 * @param cr the ComponentRepository of this BM
 	 */
 	public DetachmentModule(String logDomain, String errorLogDomain, String RTY, /*MQTTPublisher mp, */DeviceRepository dr) {
 		super(logDomain, errorLogDomain, "DetachmentModule", RTY, new String[0], dr);
@@ -44,8 +31,6 @@ public class DetachmentModule extends SimpleModule {
 	 * @param logDomain the log4j domain that this module will use
 	 * @param errorLogDomain the log4j domain where errors will be logged to
 	 * @param RTY the JEEP request type that this module handles
-	 * @param mp the MQTTPublisher that will publish the JEEP responses
-	 * @param cr the ComponentRepository of this BM
 	 */
 	public DetachmentModule(String logDomain, String errorLogDomain, String RTY, /*MQTTPublisher mp, */
 			DeviceRepository dr, AbstModuleExtension[] extensions) {
@@ -61,7 +46,7 @@ public class DetachmentModule extends SimpleModule {
 		try {
 			c.delete(logDomain, true);
 		} catch (AdaptorException e) {
-			error(e, request.getSender());
+			error(e, request.getProtocol());
 			return false;
 		}
 		

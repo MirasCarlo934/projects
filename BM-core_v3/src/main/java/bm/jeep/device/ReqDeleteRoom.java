@@ -1,5 +1,6 @@
 package bm.jeep.device;
 
+import bm.comms.Protocol;
 import org.json.JSONObject;
 
 import bm.comms.Sender;
@@ -8,8 +9,8 @@ import bm.jeep.JEEPRequest;
 public class ReqDeleteRoom extends JEEPRequest {
 	public String roomID;
 
-	public ReqDeleteRoom(JSONObject json, Sender sender, String roomIDParam) {
-		super(json, sender);
+	public ReqDeleteRoom(JSONObject json, Protocol protocol, String roomIDParam) {
+		super(json, protocol);
 		this.roomID = json.getString(roomIDParam);
 	}
 
@@ -19,7 +20,7 @@ public class ReqDeleteRoom extends JEEPRequest {
 //	}
 	
 	public ReqDeleteRoom(JEEPRequest request, String roomIDParam) {
-		super(request.getJSON(), request.getSender());
+		super(request.getJSON(), request.getProtocol());
 		this.roomID = request.getString(roomIDParam);
 	}
 }

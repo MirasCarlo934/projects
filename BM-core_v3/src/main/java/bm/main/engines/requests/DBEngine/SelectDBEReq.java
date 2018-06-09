@@ -80,7 +80,7 @@ public class SelectDBEReq extends DBEngineRequest {
 	}
 	
 	/**
-	 * Creates a SelectDBEReq which the DBEngine uses to create a Select statement to the DB. This constructor specifies 
+	 * Creates a SelectDBEReq which the DBEngine uses to create a Select statement to the DB. This constructor specifies
 	 * which columns to retrieve but excludes the WHERE section.
 	 * 
 	 * @param id The ID of this EngineRequest

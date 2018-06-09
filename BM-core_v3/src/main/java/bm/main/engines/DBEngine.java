@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.apache.catalina.Engine;
 import org.apache.log4j.*;
 
 import bm.jeep.device.ResError;
@@ -70,7 +71,7 @@ public class DBEngine extends AbstEngine {
     
 
 	@Override
-	protected Object processRequest(EngineRequest er) {
+	protected Object processRequest(EngineRequest er) throws EngineException {
 		DBEngineRequest dber = (DBEngineRequest) er;
 		try {
 			Object o = executeQuery(dber.getQuery());

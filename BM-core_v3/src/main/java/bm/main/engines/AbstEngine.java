@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.apache.catalina.Engine;
 import org.apache.log4j.Logger;
 
 import bm.jeep.device.ResError;
@@ -44,8 +45,6 @@ public abstract class AbstEngine implements Runnable {
 	 * request.
 	 * 
 	 * @param request The ERQS request for the specified engine to process
-	 * @param engine The engine that will process the ERQS request
-	 * @param logger The log4j logger used by the object that calls this method
 	 * @param caller The thread of the object that calls this method
 	 * @param waitForResponse <b>True</b> if engine response <b><i>must</i></b> be returned. <b>False</b> if not. 
 	 * 			<b>WARNING:</b> If this is false, this method will return a null value.
@@ -101,12 +100,17 @@ public abstract class AbstEngine implements Runnable {
 				
 				Object res;
 				if(checkEngineRequest(er)) {
-					res = processRequest(er);
+					try {
+						res = processRequest(er);
+						LOG.trace("EngineRequest " + er.getSSID() + " processing complete!");
+					} catch (EngineException e) {
+					    res = e;
+						LOG.error("EngineRequest " + er.getSSID() + " processing failed!", e);
+					}
 				} else {
 					res = new EngineException(er.getEngine(), "Invalid EngineRequest for " + name);
 					LOG.error("Invalid EngineRequest for " + name);
 				}
-				LOG.trace("EngineRequest processing complete!");
 
 				synchronized (er.getRequestingThread()) {
 					if(er.waitForResponse() == true) {
@@ -114,11 +118,6 @@ public abstract class AbstEngine implements Runnable {
 						
 						er.getRequestingThread().notifyAll();
 						LOG.trace("Thread " + er.getRequestingThread().getName() + " notified!");
-					} else {
-						if(res.getClass().equals(EngineException.class)) {
-							EngineException e = (EngineException) res;
-							LOG.error(e.getMessage(), e);
-						}
 					}
 				}
 			}
@@ -140,7 +139,7 @@ public abstract class AbstEngine implements Runnable {
 		}
 	}
 	
-	protected abstract Object processRequest(EngineRequest er);
+	protected abstract Object processRequest(EngineRequest er) throws EngineException;
 	
 	public String getLogDomain() {
 		return logDomain;

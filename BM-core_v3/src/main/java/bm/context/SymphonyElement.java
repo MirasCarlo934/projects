@@ -94,12 +94,12 @@ public abstract class SymphonyElement {
 	 * @param waitUntilCreated
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	protected abstract void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
+	protected abstract void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
 			throws AdaptorException;
 	
 	public void create(String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
-			create(adaptors.get(i), parentLogDomain, waitUntilCreated);
+			createInAdaptor(adaptors.get(i), parentLogDomain, waitUntilCreated);
 		}
 	}
 	
@@ -122,7 +122,7 @@ public abstract class SymphonyElement {
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor)) {
-				create(adaptor, parentLogDomain, waitUntilCreated);
+				createInAdaptor(adaptor, parentLogDomain, waitUntilCreated);
 			}
 		}
 	}
@@ -146,7 +146,7 @@ public abstract class SymphonyElement {
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor.getName())) {
-				create(adaptor, parentLogDomain, waitUntilCreated);
+				createInAdaptor(adaptor, parentLogDomain, waitUntilCreated);
 			}
 		}
 	}
@@ -171,12 +171,12 @@ public abstract class SymphonyElement {
 	 * @param waitUntilDeleted
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	protected abstract void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
+	protected abstract void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException;
 	
 	public void delete(String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
-			delete(adaptors.get(i), parentLogDomain, waitUntilDeleted);
+			deleteInAdaptor(adaptors.get(i), parentLogDomain, waitUntilDeleted);
 		}
 	}
 	
@@ -199,7 +199,7 @@ public abstract class SymphonyElement {
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor)) {
-				delete(adaptor, parentLogDomain, waitUntilDeleted);
+				deleteInAdaptor(adaptor, parentLogDomain, waitUntilDeleted);
 			}
 		}
 	}
@@ -223,7 +223,7 @@ public abstract class SymphonyElement {
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor.getName())) {
-				delete(adaptor, parentLogDomain, waitUntilDeleted);
+				deleteInAdaptor(adaptor, parentLogDomain, waitUntilDeleted);
 			}
 		}
 	}
@@ -247,7 +247,7 @@ public abstract class SymphonyElement {
 	 * @param waitUntilUpdated
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	protected abstract void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
+	protected abstract void updateInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException;
 	
 	/**
@@ -259,7 +259,7 @@ public abstract class SymphonyElement {
 	 */
 	public void update(String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
-			update(adaptors.get(i), parentLogDomain, waitUntilUpdated);
+			updateInAdaptor(adaptors.get(i), parentLogDomain, waitUntilUpdated);
 		}
 	}
 	
@@ -277,7 +277,7 @@ public abstract class SymphonyElement {
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor)) {
-				update(adaptor, parentLogDomain, waitUntilUpdated);
+				updateInAdaptor(adaptor, parentLogDomain, waitUntilUpdated);
 			}
 		}
 	}
@@ -296,7 +296,7 @@ public abstract class SymphonyElement {
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor.getName())) {
-				update(adaptor, parentLogDomain, waitUntilUpdated);
+				updateInAdaptor(adaptor, parentLogDomain, waitUntilUpdated);
 			}
 		}
 	}

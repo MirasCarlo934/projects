@@ -30,19 +30,19 @@ public abstract class Sender implements Runnable {
 	 * @param logDomain
 	 * @param secondsToWaitBeforeResend
 	 */
-	public Sender(String name, String logDomain, int secondsToWaitBeforeResend, int resendTimeout,
-				  boolean isResending) {
+	public Sender(String name, String logDomain, int secondsToWaitBeforeResend,
+                  int resendTimeout, boolean isResending) {
 		LOG = Logger.getLogger(logDomain + "." + name);
 		LOG.info("Starting " + name + " Sender...");
 		this.name = name;
-		if(isResending) {
-            this.timer = new Timer(name + "Timer");
-            timer.schedule(new SenderResender(secondsToWaitBeforeResend * 1000,
-                            resendTimeout * 1000), 0,
-                    secondsToWaitBeforeResend * 1000);
-        } else {
-		    LOG.warn(name + " Sender is not set to resend outbound requests when a device is nonresponsive!");
-        }
+//		if(isResending) {
+//            this.timer = new Timer(name + "Timer");
+//            timer.schedule(new SenderResender(secondsToWaitBeforeResend * 1000,
+//                            resendTimeout * 1000), 0,
+//                    secondsToWaitBeforeResend * 1000);
+//        } else {
+//		    LOG.warn(name + " Sender is not set to resend outbound requests when a device is nonresponsive!");
+//        }
         LOG.info(name + " Sender started!");
 	}
 	
@@ -59,21 +59,21 @@ public abstract class Sender implements Runnable {
 	 * 
 	 * @param message The JEEPMessage to send
 	 */
-	public void send(JEEPMessage message, SimpleModule module) throws IllegalArgumentException {
-		if(message instanceof JEEPResponse) {
+	public void send(JEEPMessage message) throws IllegalArgumentException {
+//		if(message instanceof JEEPResponse) {
 			sendJEEPMessage(message);
-		} else { //assuming that message is a JEEPRequest
-			LOG.trace("JEEPRequest to send! Putting in responses waiting list...");
-			ModuleJEEPRequest req;
-			try {
-				req = new ModuleJEEPRequest((JEEPRequest) message, module); 
-				requests.put(req.request.getRID(), req);
-				sendJEEPMessage(req.request);
-			} catch(ClassCastException e) { //assuming that the specified module is NOT a multimodule
-				throw new IllegalArgumentException(module.getName() + " is not a MultiModule object. "
-						+ "Only MultiModule objects can send JEEPRequests!");
-			}
-		}
+//		} else { //assuming that message is a JEEPRequest
+//			LOG.trace("JEEPRequest to send! Putting in responses waiting list...");
+//			ModuleJEEPRequest req;
+//			try {
+//				req = new ModuleJEEPRequest((JEEPRequest) message, module);
+//				requests.put(req.request.getRID(), req);
+//				sendJEEPMessage(req.request);
+//			} catch(ClassCastException e) { //assuming that the specified module is NOT a multimodule
+//				throw new IllegalArgumentException(module.getName() + " is not a MultiModule object. "
+//						+ "Only MultiModule objects can send JEEPRequests!");
+//			}
+//		}
 	}
 	
 	
@@ -101,8 +101,8 @@ public abstract class Sender implements Runnable {
 	public void removeRequest(String rid) {
 		requests.remove(rid);
 	}
-	
-	private class SenderResender extends TimerTask {
+
+    private class SenderResender extends TimerTask {
 		private HashMap<ModuleJEEPRequest, Integer> timeLeft = new HashMap<ModuleJEEPRequest, Integer>(1);
 		private int secondsToWaitBeforeResending;
 		private int resendTimeout;

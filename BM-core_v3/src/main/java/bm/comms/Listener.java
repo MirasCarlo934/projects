@@ -9,12 +9,11 @@ import bm.main.controller.Controller;
 
 public abstract class Listener {
 	protected Logger LOG;
+	protected Protocol protocol;
 	private Controller controller;
-	protected Sender sender;
 	
-	public Listener(String name, String logDomain, Controller controller, Sender sender) {
+	public Listener(String name, String logDomain, Controller controller) {
 		this.controller = controller;
-		this.sender = sender;
 		LOG = Logger.getLogger(logDomain + "." + name);
 	}
 	
@@ -25,4 +24,8 @@ public abstract class Listener {
 	protected void sendRawMessageToContoller(RawMessage msg) {
 		controller.addRawMessage(msg);
 	}
+
+    public void setProtocol(Protocol protocol) {
+        this.protocol = protocol;
+    }
 }

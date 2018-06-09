@@ -1,5 +1,6 @@
 package bm.context.properties;
 
+import bm.jeep.device.ReqPOOP;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -17,25 +18,25 @@ import bm.tools.IDGenerator;
  *
  */
 public class Property extends SymphonyElement implements OHItemmable, HTMLTransformable {
-	protected Device parentDevice;
-	protected String loggerName;
-	protected String genericName;
-	protected String displayName;
-	protected String systemName; //[prop_type]-[prop_mode]-[cpl_SSID]
-	protected PropertyMode mode;
-	protected PropertyType propType;
-	protected Object value = "0";
-	
-	protected String poopRTY;
-	protected String propIDParam;
-	protected String propValParam;
-	protected IDGenerator idg;
+	private Device parentDevice;
+    private String loggerName;
+    private String genericName;
+    private String displayName;
+    private String systemName; //[prop_type]-[prop_mode]-[cpl_SSID]
+    private PropertyMode mode;
+    private PropertyType propType;
+    private Object value = "0";
+    private Object previousValue = "0";
+
+    private String poopRTY;
+    private String propIDParam;
+    private String propValParam;
+    private IDGenerator idg;
 
 	//TASK add index to constructor params
 	public Property(PropertyType propType, String SSID, /*String genericName, */String dispname,
 						/*String ohItemType,*/ PropertyMode mode, /*PropertyValueType propValType,*/
-						String poopRTY, String propIDParam, String propValParam,
-                    IDGenerator idGenerator) {
+						String poopRTY, String propIDParam, String propValParam, IDGenerator idGenerator) {
 		super(SSID, 0);
 		this.displayName = (dispname);
 		this.genericName = propType.getName() + "-" + mode.toString();
@@ -99,7 +100,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	 * property.
 	 */
 	@Override
-	protected void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
+	protected void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
 			throws AdaptorException {
 		final Logger LOG = getLogger(parentLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
@@ -110,7 +111,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	}
 	
 //	@Override
-//	protected void create(String parentLogDomain, boolean waitUntilCreated) 
+//	protected void create(String parentLogDomain, boolean waitUntilCreated)
 //			throws AdaptorException {
 //		final Logger LOG = getLogger(parentLogDomain);
 //		List<AbstAdaptor> except = Arrays.asList(exceptions);
@@ -124,13 +125,9 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 //			LOG.debug("B_Property " + getStandardID() + " persisted!");
 //		}
 //	}
-	
-	/**
-	 * Deletes this property from the DB, OH, and all the various peripheral systems plugged in to this specific
-	 * property.
-	 */
+
 	@Override
-	protected void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
+	protected void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
@@ -139,21 +136,33 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 			LOG.debug("Property " + getOH_ID() + " deleted!");
 		}
 	}
-	
-	/**
-	 * Updates the value of this property in the DB, OH, and all the various peripheral systems plugged in to this 
-	 * specific property.
-	 */
+
 	@Override
-	protected synchronized void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+	protected synchronized void updateInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilUpdated)
+            throws AdaptorException {
 		if(!propType.getOHIcon().equals("none")) {
-			Logger LOG = getLogger(parentLogDomain);
+			Logger LOG = getLogger(callerLogDomain);
 			LOG.debug("Updating value of property " + getOH_ID() + " in " + adaptor.getName() + 
 					"...");
 			adaptor.propertyValueUpdated(this, waitUntilUpdated);
 			LOG.debug("Property " + getOH_ID() + " updated!");
 		}
 	}
+
+	@Override
+    public void update(String callerLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+        super.update(callerLogDomain, waitUntilUpdated);
+        sendValue(callerLogDomain);
+    }
+
+	private void sendValue(String callerLogDomain) {
+	    Logger LOG = getLogger(callerLogDomain);
+	    LOG.debug("Sending property value to device...");
+        ReqPOOP poop = new ReqPOOP(idg.generateRID(), parentDevice.getSSID(), poopRTY,
+                parentDevice.getProtocol(), propIDParam, propValParam, SSID, value);
+        parentDevice.getProtocol().getSender().send(poop);
+        LOG.debug("Property value sent!");
+    }
 	
 //	@Override
 //	public void updateRules(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated)
@@ -227,11 +236,20 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 		return value;
 	}
 
+    /**
+     * Returns the previous value of this property
+     * @return The previous value
+     */
+	public Object getPreviousValue() {
+	    return previousValue;
+    }
+
 	/**
 	 * Sets the value of this property.
 	 * @param value The value of the Property to be set
 	 */
 	public void setValue(Object value) {
+	    this.previousValue = this.value;
 		this.value = value;
 	}
 	
@@ -371,7 +389,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	 * @return the standard ID of this property
 	 */
 	public String getOH_ID() {
-		return parentDevice.getSSID() + "_" + SSID;
+		return parentDevice.getSSID() + "-" + SSID;
 	}
 	
 	public String getOHItemType() {

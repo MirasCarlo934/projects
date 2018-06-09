@@ -8,7 +8,7 @@ public class InsertDBEReq extends DBEngineRequest {
 	private HashMap<String, Object> values = new HashMap<String, Object>(1,1);
 
 	/**
-	 * Creates a DBEngineRequest which the DBEngine uses to create an INSERT SQL statement to the DB. 
+	 * Creates a DBEngineRequest which the DBEngine uses to create an INSERT SQL statement to the DB.
 	 * 
 	 * @param id The ID of this EngineRequest
 	 * @param table The table name for this Insert statement

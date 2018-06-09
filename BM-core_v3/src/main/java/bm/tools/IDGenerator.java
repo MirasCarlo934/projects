@@ -199,7 +199,7 @@ public class IDGenerator {
 		//generates the ID
 		Random r = new Random();
 		for(int i = 0; i < length; i++) {
-			id = id + String.valueOf(r.nextInt(9));
+			id += String.valueOf(r.nextInt(9));
 		}
 		
 		return id;

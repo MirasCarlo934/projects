@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
+import bm.comms.Protocol;
 import bm.context.properties.Property;
 import org.apache.log4j.Logger;
 
@@ -28,6 +29,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	private String deviceQuery;
 	private ProductRepository pr;
 	private RoomRepository rr;
+	private HashMap<String, Protocol> protocols;
 
 	public DeviceRepository(String logDomain, DBEngine dbm, String deviceQuery, 
 			ProductRepository pr, RoomRepository rr) {
@@ -50,7 +52,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	 */
 	public void retrieveDevices() {
 		try {
-			LOG.info("Retrieving components from DB...");
+			LOG.info("Retrieving devices from DB...");
 			RawDBEReq dber1 = new RawDBEReq(idg.generateMixedCharID(10), mainDBE, deviceQuery);
 			Object o;
 			try {
@@ -68,8 +70,9 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 				String room = devs_rs.getString("room");
 				String prod_id = devs_rs.getString("functn");
 				String name = devs_rs.getString("name");
-				boolean active = devs_rs.getBoolean("ACTIVE");
-				int index = devs_rs.getInt("INDEX");
+				boolean active = devs_rs.getBoolean("active");
+				int index = devs_rs.getInt("index");
+				String protocol = devs_rs.getString("protocol");
 				
 				String prop_id = devs_rs.getString("prop_id");
 				Object prop_val = devs_rs.getString("prop_value");
@@ -78,18 +81,23 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 							" with value: " + prop_val);
 					getDevice(SSID).getProperty(prop_id).setValue(prop_val);
 				} else {
-					LOG.debug("Adding device " + SSID + " (" + name + ") to repository!");
-					Device d = pr.getProduct(prod_id).createDevice(SSID, MAC, name, topic, 
-							rr.getRoom(room), active, index);
-					LOG.debug("Setting property: " + prop_id + " of device: " + SSID + 
-							" with value: " + prop_val);
-					d.getProperty(prop_id).setValue(prop_val);
-					devices.put(SSID, d);
-					registeredMACs.put(MAC, SSID);
+				    if(protocols.containsKey(protocol)) {
+                        LOG.debug("Adding device " + SSID + " (" + name + ") to repository!");
+                        Device d = pr.getProduct(prod_id).createDevice(SSID, MAC, name, topic,
+                                protocols.get(protocol), rr.getRoom(room), active, index);
+                        LOG.debug("Setting property: " + prop_id + " of device: " + SSID +
+                                " with value: " + prop_val);
+                        d.getProperty(prop_id).setValue(prop_val);
+                        devices.put(SSID, d);
+                        registeredMACs.put(MAC, SSID);
+                    } else {
+				        LOG.warn("Device " + SSID + " specifies a non-supported protocol! Device " +
+                                "will not be recognized by Maestro.");
+                    }
 				}
 			}
 			devs_rs.close();
-			LOG.info("DeviceRepository population done!");
+			LOG.info("Devices retrieved!");
 		} catch (SQLException e) {
 			LOG.error("Cannot populate DeviceRepository!", e);
 		}
@@ -212,4 +220,11 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 		}
 		return false;
 	}
+
+    public void setProtocols(Protocol[] protocols) {
+        this.protocols = new HashMap<String, Protocol>(protocols.length, 1);
+        for(Protocol protocol : protocols) {
+            this.protocols.put(protocol.getProtocolName(), protocol);
+        }
+    }
 }

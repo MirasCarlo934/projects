@@ -13,7 +13,7 @@ import bm.comms.http.HTTPSender;
 public class DeleteHTTPReq extends HTTPRequest {
 	
 	/**
-	 * Creates an HTTPEngine request that the HTTPEngine uses to create an HTTP DELETE request that will be sent to the 
+	 * Creates an HTTPEngine request that the HTTPEngine uses to create an HTTP DELETE request that will be sent to the
 	 * specified URL.
 	 * 
 	 * @param id the ID of this engine request

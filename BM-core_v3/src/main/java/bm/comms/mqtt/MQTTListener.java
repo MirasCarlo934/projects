@@ -35,8 +35,8 @@ public class MQTTListener extends Listener implements MqttCallback {
 	private String error_topic;
 
 	public MQTTListener(String name, String logDomain, String default_topic, String error_topic, 
-			Controller controller, Sender sender) {
-		super(name, logDomain, controller, sender);
+			Controller controller) {
+		super(name, logDomain, controller);
 //		logger = Logger.getLogger(logDomain + "." + MQTTListener.class.getSimpleName());
 		setDefault_topic(default_topic);
 		setError_topic(error_topic);
@@ -64,7 +64,7 @@ public class MQTTListener extends Listener implements MqttCallback {
 		System.out.println("\n\n");
 		LOG.debug("Message arrived at topic " + topic);
 		LOG.debug("Message is: \n" + msg.toString());
-		sendRawMessageToContoller(new RawMessage(msg.toString(), sender));
+		sendRawMessageToContoller(new RawMessage(msg.toString(), protocol));
 	}
 
 	/**

@@ -1,5 +1,6 @@
 package bm.jeep.device;
 
+import bm.comms.Protocol;
 import org.json.JSONObject;
 
 import bm.comms.Sender;
@@ -31,16 +32,14 @@ public class JEEPErrorResponse extends JEEPResponse {
 	 * @param rid
 	 * @param cid
 	 */
-	public JEEPErrorResponse(String rid, String cid, String rty, Sender sender, String message) {
-		super(rid, cid, rty, sender, false);
+	public JEEPErrorResponse(String rid, String cid, String rty, Protocol protocol, String message) {
+		super(rid, cid, rty, protocol, false);
 		this.message = message;
 		addParameter("errormsg", message);
 	}
 	
 	/**
 	 * The default, most intuitive, and most logical constructor
-	 * @param rid
-	 * @param cid
 	 */
 	public JEEPErrorResponse(JEEPRequest request, String message) {
 		super(request, false);
@@ -48,8 +47,8 @@ public class JEEPErrorResponse extends JEEPResponse {
 		addParameter("errormsg", message);
 	}
 	
-	public JEEPErrorResponse(String message, Sender sender) {
-		super(null, null, null, sender, false);
+	public JEEPErrorResponse(String message, Protocol protocol) {
+		super(null, null, null, protocol, false);
 		this.message = message;
 		addParameter("errormsg", message);
 		complete = false;

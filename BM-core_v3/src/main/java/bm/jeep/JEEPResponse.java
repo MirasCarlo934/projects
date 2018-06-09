@@ -1,5 +1,6 @@
 package bm.jeep;
 
+import bm.comms.Protocol;
 import org.json.JSONObject;
 
 import bm.comms.Sender;
@@ -26,12 +27,11 @@ public class JEEPResponse extends JEEPMessage {
 	/**
 	 * Not the default, most intuitive, and most logical constructor
 	 * @param rid
-	 * @param cid
 	 */
-	public JEEPResponse(String rid, String did, String rty, Sender sender, boolean success) {
-		super(rid, did, rty, sender);
+	public JEEPResponse(String rid, String cid, String rty, Protocol protocol, boolean success) {
+		super(rid, cid, rty, protocol);
 		json.put("RID", rid);
-		json.put("CID", did);
+		json.put("CID", cid);
 		json.put("RTY", rty);
 		json.put("success", success);
 		this.success = success;
@@ -41,26 +41,24 @@ public class JEEPResponse extends JEEPMessage {
 	 * Constructor for inbound JEEPResponse.
 	 * 
 	 * @param json
-	 * @param sender
+	 * @param protocol
 	 */
-	public JEEPResponse(JSONObject json, Sender sender) {
-		super(json, sender);
+	public JEEPResponse(JSONObject json, Protocol protocol) {
+		super(json, protocol);
 		this.success = json.getBoolean("success");
 	}
 	
-	public JEEPResponse(JSONObject json, Sender sender, boolean success) {
-		super(json, sender);
+	public JEEPResponse(JSONObject json, Protocol protocol, boolean success) {
+		super(json, protocol);
 		json.put("success", success);
 		this.success = success;
 	}
 	
 	/**
 	 * The default, most intuitive, and most logical constructor
-	 * @param rid
-	 * @param cid
 	 */
 	public JEEPResponse(JEEPMessage message, boolean success) {
-		super(message.getJSON(), message.getSender());
+		super(message.getJSON(), message.getProtocol());
 		this.success = success;
 	}
 	

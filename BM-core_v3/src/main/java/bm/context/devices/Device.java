@@ -3,6 +3,7 @@ package bm.context.devices;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import bm.comms.Protocol;
 import bm.context.properties.Property;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -33,11 +34,12 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	protected String MAC;
 	protected String name;
 	protected String topic;
+	private Protocol protocol;
 	protected boolean active;
 	protected IDGenerator idg = new IDGenerator();
 	
-	public Device(String SSID, String MAC, String name, String topic, Room room, boolean active,
-				  Product product, int index) {
+	public Device(String SSID, String MAC, String name, String topic, Protocol protocol, Room room,
+                  boolean active, Product product, int index) {
 		super(SSID, room, index);
 		this.loggerName = "DEV:" + SSID;
 		this.setMAC((MAC));
@@ -45,6 +47,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		this.setTopic((topic));
 //		this.setProperties(product.getProperties());
 		this.setProduct((product));
+		this.protocol = protocol;
 		setActive(active);
 		
 		//sets this device as the owner of the properties given to it
@@ -65,7 +68,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * to this specific component. 
 	 */
 	@Override
-	protected void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) 
+	protected void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
 			throws AdaptorException {
 		final Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Creating device " + SSID + " in " + adaptor.getName() + "...");
@@ -86,7 +89,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * to this specific component. 
 	 */
 	@Override
-	protected void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) 
+	protected void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Deleting device " + SSID + " from " + adaptor.getName() + "...");
@@ -107,7 +110,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * Updates the device in all of the plugged adaptors.
 	 */
 	@Override
-	protected void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated) 
+	protected void updateInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Updating device " + SSID + "...");
@@ -169,7 +172,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	public void publishCredentials(Sender sender, String registerRTY, String parentLogDomain) {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Sending credentials to default_topic...");
-		ResRegister response = new ResRegister(getMAC(), getSSID(), registerRTY, sender, getSSID(), getTopic());
+		ResRegister response = new ResRegister(getMAC(), getSSID(), registerRTY, protocol, getSSID(), getTopic());
 //		sender.send(response);
 //		if(sender.getClass().equals(MQTTPublisher.class)) {
 //			MQTTPublisher mp = (MQTTPublisher) sender;
@@ -193,7 +196,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		while(props.hasNext()) {
 			Property prop = props.next();
 			LOG.trace(prop.getOH_ID() + " = " + prop.getValue());
-			ResPOOP poop = new ResPOOP("POOP", SSID, poopRTY, sender, prop.getSSID(), prop.getValue());
+			ResPOOP poop = new ResPOOP("POOP", SSID, poopRTY, protocol, prop.getSSID(), prop.getValue());
 //			sender.send(poop);
 		}
 	}
@@ -378,6 +381,14 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	public String getTopic() {
 		return topic;
 	}
+
+    /**
+     * Returns the sender for the protocol in which this device communicates in.
+     * @return The Sender object.
+     */
+    public Protocol getProtocol() {
+        return protocol;
+    }
 
 	public void setTopic(String topic) {
 		this.topic = topic;

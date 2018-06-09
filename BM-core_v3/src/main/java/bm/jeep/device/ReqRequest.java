@@ -1,5 +1,6 @@
 package bm.jeep.device;
 
+import bm.comms.Protocol;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -9,8 +10,8 @@ import bm.jeep.JEEPRequest;
 public class ReqRequest extends JEEPRequest {
 	private JSONObject json;
 
-	public ReqRequest(JSONObject json, Sender sender) {
-		super(json, sender);
+	public ReqRequest(JSONObject json, Protocol protocol) {
+		super(json, protocol);
 		this.json = json;
 	}
 	

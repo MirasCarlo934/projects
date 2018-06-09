@@ -5,7 +5,6 @@ import bm.jeep.device.ResBasic;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import bm.context.adaptors.AbstAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.rooms.Room;
 import bm.jeep.JEEPRequest;
@@ -49,10 +48,10 @@ public class CreateRoomModule extends AbstAdminModule {
 		try {
 			r = createBasicRoom(name, parentID, "black", index);
 			mainLOG.info("Room " + r.getSSID() + " (" + r.getName() + ") created!");
-			request.getSender().send(new ResBasic(request, true), this);
+			request.getProtocol().getSender().send(new ResBasic(request, true));
 		} catch (AdaptorException e) {
 			mainLOG.error("Cannot create room!", e);
-            request.getSender().send(new ResBasic(request, false), this);
+            request.getProtocol().getSender().send(new ResBasic(request, false));
 			return false;
 		}
 		return true;

@@ -1,5 +1,6 @@
 package bm.jeep.device;
 
+import bm.comms.Protocol;
 import org.json.JSONObject;
 
 import bm.comms.Sender;
@@ -9,19 +10,19 @@ public class ReqPOOP extends JEEPRequest {
 	public String propSSID;
 	public Object propValue;
 
-	public ReqPOOP(JSONObject json, Sender sender, String propIDParam, String propValParam) {
-		super(json, sender);
+	public ReqPOOP(JSONObject json, Protocol protocol, String propIDParam, String propValParam) {
+		super(json, protocol);
 		assignVariablesFromJSON(json, propIDParam, propValParam);
 	}
 	
 	public ReqPOOP(JEEPRequest request, String propIDParam, String propValParam) {
-		super(request.getJSON(), request.getSender());
+		super(request.getJSON(), request.getProtocol());
 		assignVariablesFromJSON(request.getJSON(), propIDParam, propValParam);
 	}
 	
-	public ReqPOOP(String rid, String cid, String rty, Sender sender, String propIDParam, String propValParam, 
+	public ReqPOOP(String rid, String cid, String rty, Protocol protocol, String propIDParam, String propValParam,
 			String propID, Object propVal) {
-		super(rid, cid, rty, sender);
+		super(rid, cid, rty, protocol);
 		json.put(propIDParam, propID);
 		json.put(propValParam, propVal);
 		assignVariablesFromJSON(json, propIDParam, propValParam);

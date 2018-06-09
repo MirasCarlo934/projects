@@ -1,5 +1,6 @@
 package bm.main.modules;
 
+import bm.comms.Protocol;
 import org.apache.log4j.Logger;
 
 import bm.comms.Sender;
@@ -66,7 +67,7 @@ public abstract class AbstModuleExtension {
 					b = true;
 				else {
 					error("Parameter '" + param + "' is either empty or nonexistent!", 
-							request.getSender());
+							request.getProtocol());
 					b = false;
 					break;
 				}
@@ -91,38 +92,39 @@ public abstract class AbstModuleExtension {
 	 */
 	protected abstract boolean additionalRequestChecking(JEEPRequest request);
 	
-	protected void error(String msg, Exception e, Sender sender) {
+	protected void error(String msg, Exception e, Protocol protocol) {
 		mainLOG.error(msg);
 		errorLOG.error(msg, e);
 //		mp.publishToErrorTopic(msg + " (" + e.getMessage() + ")");
-		sender.sendErrorResponse(new JEEPErrorResponse(msg + " (" + e.getMessage() + ")", sender));
+		protocol.getSender().sendErrorResponse(new JEEPErrorResponse(msg + " ("
+				+ e.getMessage() + ")", protocol));
 	}
 	
-	protected void error(Exception e, Sender sender) {
+	protected void error(Exception e, Protocol protocol) {
 		mainLOG.error(e.getMessage());
 		errorLOG.error(e.getMessage(), e);
 //		mp.publishToErrorTopic(e.getMessage());
-		sender.sendErrorResponse(new JEEPErrorResponse(e.getMessage(), sender));
+		protocol.getSender().sendErrorResponse(new JEEPErrorResponse(e.getMessage(), protocol));
 	}
 	
-	protected void error(String msg, Sender sender) {
+	protected void error(String msg, Protocol protocol) {
 		mainLOG.error(msg);
 		errorLOG.error(msg);
 //		mp.publishToErrorTopic(msg);
-		sender.sendErrorResponse(new JEEPErrorResponse(msg, sender));
+		protocol.getSender().sendErrorResponse(new JEEPErrorResponse(msg, protocol));
 	}
 	
-	protected void error(ResError error, Exception e, Sender sender) {
+	protected void error(ResError error, Exception e, Protocol protocol) {
 		mainLOG.error(error.getMessage());
 		errorLOG.error(error.getMessage(), e);
 //		mp.publishToErrorTopic(error + " (" + e.getMessage() + ")");
-		sender.sendErrorResponse(new JEEPErrorResponse(error + " (" + e.getMessage() + ")", sender));
+		protocol.getSender().sendErrorResponse(new JEEPErrorResponse(error + " (" + e.getMessage() + ")", protocol));
 	}
 	
 	protected void error(JEEPErrorResponse error) {
 		mainLOG.error(error.getMessage());
 		errorLOG.error(error.getMessage());
 //		mp.publishToErrorTopic(error);
-		error.getSender().sendErrorResponse(error);
+		error.getProtocol().getSender().sendErrorResponse(error);
 	}
 }

@@ -23,6 +23,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="roomIDParam" value="${registration.param.roomID}"/>
 		<constructor-arg name="roomRepository" ref="Rooms"/>
 		<constructor-arg name="RTY" value="${rty.registration}"/>
+		<constructor-arg name="protocols" ref="Protocols"/>
 		<!-- <constructor-arg name="extensions">
 			<array>
 				<ref bean="OH.RegistrationExtension"/>

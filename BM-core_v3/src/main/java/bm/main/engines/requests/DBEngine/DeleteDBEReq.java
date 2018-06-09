@@ -11,7 +11,7 @@ public class DeleteDBEReq extends DBEngineRequest {
 	private HashMap<String, Object> where = new HashMap<String, Object>(1,1);
 
 	/**
-	 * Creates a DBEngineRequest which the DBEngine uses to create a DELETE SQL statement to the DB. 
+	 * Creates a DBEngineRequest which the DBEngine uses to create a DELETE SQL statement to the DB.
 	 * 
 	 * @param id The ID of this engine request
 	 * @param table The table name for this DELETE statement

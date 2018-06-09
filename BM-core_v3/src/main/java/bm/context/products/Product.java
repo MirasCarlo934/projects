@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import bm.comms.Protocol;
+import bm.comms.Sender;
 import bm.context.HTMLTransformable;
 import bm.context.properties.Property;
 import org.apache.log4j.Logger;
@@ -132,12 +134,12 @@ public class Product implements HTMLTransformable {
 //		}
 //	}
 	
-	public Device createDevice(String comID, String MAC, String name, String topic,
+	public Device createDevice(String comID, String MAC, String name, String topic, Protocol protocol,
 			Room room, boolean active, int index) throws IllegalArgumentException {
 		if(properties.isEmpty())
 			throw new IllegalArgumentException("Properties not yet retrieved from DB!");
 		else {
-			Device d = new Device(comID, MAC, name, topic, room, active, this, index);
+			Device d = new Device(comID, MAC, name, topic, protocol, room, active, this, index);
 			return d;
 		}
 	}

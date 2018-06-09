@@ -1,7 +1,9 @@
 package bm.main.modules;
 
+import java.util.HashMap;
 import java.util.Iterator;
 
+import bm.comms.Protocol;
 import bm.context.adaptors.AdaptorManager;
 import bm.context.products.Product;
 import bm.context.properties.Property;
@@ -30,11 +32,13 @@ public class RegistrationModule extends SimpleModule {
 	private IDGenerator idg;
 	private MQTTPublisher mp;
 	private AdaptorManager am;
+	private HashMap<String, Protocol> protocols;
 	
 	public RegistrationModule(String logDomain, String errorLogDomain, String RTY, String poopRTY, String nameParam,
 							  String roomIDParam, String propsParam, MQTTPublisher mqttPublisher,
 							  DeviceRepository deviceRepository, ProductRepository productRepository,
-							  RoomRepository roomRepository, AdaptorManager adaptorManager, IDGenerator idg) {
+							  RoomRepository roomRepository, AdaptorManager adaptorManager, Protocol[] protocols,
+							  IDGenerator idg) {
 		super(logDomain, errorLogDomain, "RegistrationModule", RTY, new String[]{nameParam, roomIDParam}, /*mp, */deviceRepository);
 		this.pr = productRepository;
 		this.rr = roomRepository;
@@ -45,22 +49,10 @@ public class RegistrationModule extends SimpleModule {
 		this.idg = idg;
 		this.mp = mqttPublisher;
 		this.am = adaptorManager;
-	}
-	
-	public RegistrationModule(String logDomain, String errorLogDomain, String RTY, 
-			AbstModuleExtension[] extensions,String poopRTY, String nameParam, String roomIDParam, 
-			String propsParam, MQTTPublisher mqttPublisher, DeviceRepository components, 
-			ProductRepository pr, RoomRepository rr, IDGenerator idg) {
-		super(logDomain, errorLogDomain, "RegistrationModule", RTY, new String[]{nameParam, roomIDParam}, 
-				/*mp, */components, extensions);
-		this.pr = pr;
-		this.rr = rr;
-		this.nameParam = nameParam;
-		this.roomIDParam = roomIDParam;
-		this.propsParam = propsParam;
-		this.poopRTY = poopRTY;
-		this.idg = idg;
-		this.mp = mqttPublisher;
+		this.protocols = new HashMap<String, Protocol>(protocols.length);
+		for(Protocol protocol : protocols) {
+		    this.protocols.put(protocol.getProtocolName(), protocol);
+        }
 	}
 
 	/**
@@ -89,7 +81,8 @@ public class RegistrationModule extends SimpleModule {
 		String topic = ssid + "_topic";
 		Product product = pr.getProduct(reg.getCID());
 		Room parentRoom = rr.getRoom(reg.room);
-		Device d = product.createDevice(ssid, reg.mac, reg.name, topic, parentRoom, true, 
+		Protocol protocol = reg.getProtocol();
+		Device d = product.createDevice(ssid, reg.mac, reg.name, topic, protocol, parentRoom, true,
 				parentRoom.getHighestIndex() + 1);
 		d.setAdaptors(am.getAdaptorsLinkedToProduct(product.getSSID()));
 		if(reg.properties != null) {
@@ -110,7 +103,7 @@ public class RegistrationModule extends SimpleModule {
 			d.create(logDomain, true);
 		} catch (AdaptorException e) {
 			error("Error in persisting device to DB! This device may not exist after "
-					+ "the BM restarts!", e, request.getSender());
+					+ "the BM restarts!", e, request.getProtocol());
 			return false;
 		}
 		
@@ -118,7 +111,7 @@ public class RegistrationModule extends SimpleModule {
 		mainLOG.debug("Publishing Component credentials to default topic...");
 		ResRegister response = new ResRegister(request, d.getSSID(), d.getTopic());
 		mp.publishToDefaultTopic(response);
-		d.publishCredentials(request.getSender(), requestType, logDomain);
+		d.publishCredentials(request.getProtocol().getSender(), requestType, logDomain);
 		mainLOG.info("Registration complete!");
 		return true;
 	}
@@ -130,15 +123,15 @@ public class RegistrationModule extends SimpleModule {
 				+ "Returning existing credentials and property states.");
 		ResRegister response = new ResRegister(request, c.getSSID(), c.getTopic());
 		mp.publishToDefaultTopic(response);
-		c.publishCredentials(request.getSender(), requestType, logDomain);
-		c.publishPropertyValues(request.getSender(), poopRTY, logDomain);
+		c.publishCredentials(request.getProtocol().getSender(), requestType, logDomain);
+		c.publishPropertyValues(request.getProtocol().getSender(), poopRTY, logDomain);
 		
 		mainLOG.info("Activating component " + c.getSSID() + "...");
 		try {
 			c.setActive(true, true);
 			mainLOG.info("Component activated!");
 		} catch (AdaptorException e) {
-			error("Cannot activate component" + c.getSSID() + "!", e, request.getSender());
+			error("Cannot activate component" + c.getSSID() + "!", e, request.getProtocol());
 		}
 	}
 	
@@ -153,7 +146,7 @@ public class RegistrationModule extends SimpleModule {
 			c.setActive(true, true);
 			mainLOG.info("Device updated!");
 		} catch (AdaptorException e) {
-			error("Cannot updateRules device " + c.getSSID() + " credentials!", e, request.getSender());
+			error("Cannot updateRules device " + c.getSSID() + " credentials!", e, request.getProtocol());
 		}
 	}
 	

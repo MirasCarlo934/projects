@@ -50,7 +50,7 @@ import java.util.List;
 public class Maestro {
 	private static ApplicationContext applicationContext;
 	private static final int build = 1;
-	private static final Logger LOG = Logger.getLogger("MAIN.BusinessMachine");
+	private static final Logger LOG = Logger.getLogger("MAIN.Maestro");
 	private Initializables inits;
 	private DeviceRepository dr;
 	private RoomRepository rr;

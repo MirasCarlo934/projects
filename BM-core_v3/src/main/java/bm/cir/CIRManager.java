@@ -89,10 +89,6 @@ public class CIRManager implements Initializable, Runnable {
                             prop.update(logDomain, false);
                             LOG.info("Property " + prop.getCommonName() + " updated from rule \""
                                     + rule.getName() + "\"");
-                            //LATER sender must not be limited to only MQTTPublisher
-                            ReqPOOP poop = new ReqPOOP(idg.generateRID(), dev.getSSID(), poopRTY, mp, poopPropIDParam,
-                                    poopPropValParam, prop.getSSID(), prop.getValue());
-                            mp.sendJEEPMessage(poop);
                         } catch (AdaptorException e) {
                             LOG.error("Could not updateRules " + prop.getCommonName() + "!");
                         }

@@ -3,7 +3,7 @@ package bm.main.engines.requests.FileEngine;
 import bm.main.engines.FileEngine;
 
 /**
- * A FileEngine request that instructs the FileEngine to delete a specified string from the file handled by the 
+ * A FileEngine request that instructs the FileEngine to delete a specified string from the file handled by the
  * FileEngine.
  * @author carlomiras
  *
@@ -12,7 +12,7 @@ public class DeleteStringFEReq extends FileEngineRequest {
 	private String string;
 
 	/**
-	 * Creates a FileEngine request that is used to delete a specified string from the file handled by the 
+	 * Creates a FileEngine request that is used to delete a specified string from the file handled by the
 	 * FileEngine. <i><b>NOTE:</b> Recurring specified strings will all be deleted from the file!</i>
 	 * 
 	 * @param id The ID for this ERQS request

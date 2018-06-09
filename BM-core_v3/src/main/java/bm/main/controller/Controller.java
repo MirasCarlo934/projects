@@ -2,6 +2,7 @@ package bm.main.controller;
 
 import java.util.LinkedList;
 
+import bm.comms.Protocol;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +54,8 @@ public class Controller implements Runnable {
 				LOG.trace("New request found! Checking primary validity...");
 				ApplicationContext appContext = Maestro.getApplicationContext();
 				if(checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.REQUEST) {
-					ReqRequest r = new ReqRequest(new JSONObject(rawMsg.getMessageStr()), rawMsg.getSender());
+					ReqRequest r = new ReqRequest(new JSONObject(rawMsg.getMessageStr()),
+							rawMsg.getProtocol());
 					String rty = r.getString("RTY");	
 					LOG.trace("Retrieving module for RTY '" + rty + "'");
 					SimpleModule m = (SimpleModule) appContext.getBean(rty);
@@ -63,7 +65,7 @@ public class Controller implements Runnable {
 					rrn++;
 				} else if(checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.RESPONSE) {
 					JEEPResponse r = new JEEPResponse(new JSONObject(rawMsg.getMessageStr()), 
-							rawMsg.getSender());
+							rawMsg.getProtocol());
 					String rty = r.getJSON().getString("RTY");	
 					LOG.trace("Retrieving module for RTY '" + rty + "'");
 					MultiModule m = (MultiModule) appContext.getBean(rty);
@@ -78,7 +80,7 @@ public class Controller implements Runnable {
 	/**
 	 * Checks if the raw JEEP message string contains all the required primary parameters
 	 * 
-	 * @param request The Request object
+	 * @param rawMsg The RawMessage object
 	 * @return The JEEP message type of the request if valid (either <b><i>JEEPMessageType.REQUEST</b></i>
 	 * 		or <b><i>JEEPMessageType.RESPONSE</i></b>, <b><i>null</i></b> if: <br>
 	 * 		<ul>
@@ -99,25 +101,26 @@ public class Controller implements Runnable {
 		try {
 			json = new JSONObject(request);
 		} catch(JSONException e) {
-			sendError("Improper JSON construction!", rawMsg.getSender());
+			sendError("Improper JSON construction!", rawMsg.getProtocol());
 			return null;
 		}
 		
 		//#2: Checks if there are missing primary request parameters
 		if(!json.keySet().contains("RID") || !json.keySet().contains("CID") || !json.keySet().contains("RTY")) {
-			sendError("Request does not contain all primary request parameters!", rawMsg.getSender());
+			sendError("Request does not contain all primary request parameters!",
+                    rawMsg.getProtocol());
 			return null;
 		}
 		
 		//#3: Checks if the primary request parameters are null/empty
 		if(json.getString("RID").equals("") || json.getString("RID") == null) {
-			sendError("Null RID!", rawMsg.getSender());
+			sendError("Null RID!", rawMsg.getProtocol());
 			return null;
 		} else if(json.getString("CID").equals("") || json.getString("CID") == null) {
-			sendError("Null DID!", rawMsg.getSender());
+			sendError("Null DID!", rawMsg.getProtocol());
 			return null;
 		} else if(json.getString("RTY").equals("") || json.getString("RTY") == null) {
-			sendError("Null RTY!", rawMsg.getSender());
+			sendError("Null RTY!", rawMsg.getProtocol());
 			return null;
 		}
 		
@@ -125,7 +128,7 @@ public class Controller implements Runnable {
 		if(json.getString("RTY").equals("register") || 
 				(json.getString("RTY").equals("getRooms") && json.getString("CID").equals("default_topic")));
 		else if(!dr.containsDevice(json.getString("CID"))) {
-			sendError("CID does not exist!", rawMsg.getSender());
+			sendError("CID does not exist!", rawMsg.getProtocol());
 			return null;
 		}
 		
@@ -146,13 +149,13 @@ public class Controller implements Runnable {
 			}
 		}
 		else {
-			sendError("Invalid RTY!", rawMsg.getSender());
+			sendError("Invalid RTY!", rawMsg.getProtocol());
 			return null;
 		}
 	}
 	
-	private void sendError(String message, Sender sender) {
+	private void sendError(String message, Protocol protocol) {
 		LOG.error(message);
-		sender.sendErrorResponse(new JEEPErrorResponse(message, sender));
+		protocol.getSender().sendErrorResponse(new JEEPErrorResponse(message, protocol));
 	}
 }

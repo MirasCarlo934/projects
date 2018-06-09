@@ -46,14 +46,14 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	}
 
 	@Override
-	protected void create(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
+	protected void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Creating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");
 		adaptor.roomCreated(this, waitUntilCreated);
 		LOG.debug("Room " + SSID + " (" + name + ") created!");
 	}
 	
-//	public void create(String parentLogDomain, AbstAdaptor[] exceptions, boolean waitUntilPersisted) 
+//	public void create(String parentLogDomain, AbstAdaptor[] exceptions, boolean waitUntilPersisted)
 //			throws AdaptorException {
 //		Logger LOG = Logger.getLogger(parentLogDomain + "." + "Room:" + SSID);
 //		LOG.debug("Persisting room " + SSID + " (" + name + ")");
@@ -65,7 +65,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //	}
 
 	@Override
-	protected void delete(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
+	protected void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Deleting room " + SSID + " (" + name + ") from " + adaptor.getName() + "...");
 		adaptor.roomDeleted(this, waitUntilDeleted);
@@ -73,7 +73,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	}
 
 	@Override
-	protected void update(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
+	protected void updateInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException {
 		Logger LOG = getLogger(parentLogDomain);
 		LOG.debug("Updating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");

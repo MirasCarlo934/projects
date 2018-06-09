@@ -23,7 +23,7 @@ public class GetRoomsModule extends SimpleModule {
 		Room[] rooms = rr.getAllRooms();
 		for(int i = 0; i < rooms.length; i++) {
 			ResGetRooms response = new ResGetRooms(request, true, rooms[i].getSSID(), rooms[i].getName());
-			request.getSender().send(response, this);
+			request.getProtocol().getSender().send(response);
 		}
 		return true;
 	}

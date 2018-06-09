@@ -18,6 +18,10 @@
 		<ref bean="MQTTPublisher"/>
 		<ref bean="HTTPSender"/>
 	</util:list>
+
+	<util:list id="Protocols">
+		<ref bean="mqtt"/>
+	</util:list>
 	
 	<!-- HTTP -->
 	<bean id="HTTPSender" class="bm.comms.http.HTTPSender" scope="singleton">
@@ -31,6 +35,11 @@
    	</bean>
    	
    	<!-- MQTT -->
+    <bean id="mqtt" class="bm.comms.Protocol">
+        <constructor-arg name="protocolName" value="mqtt"/>
+        <constructor-arg name="listener" ref="MQTTHandler"/>
+        <constructor-arg name="sender" ref="MQTTPublisher"/>
+    </bean>
    	<bean id="MQTTClient" class="bm.comms.mqtt.MQTTClient">
 		<constructor-arg name="logDomain" value="${log.domain.mqtt}"/>
 		<constructor-arg name="serverURI" value="${mqtt.URL}"/>
@@ -48,7 +57,6 @@
 		<constructor-arg name="default_topic" value="${mqtt.topic.default}"/>
 		<constructor-arg name="error_topic" value="${mqtt.topic.error}"/>
 		<constructor-arg name="controller" ref="Controller"/>
-		<constructor-arg name="sender" ref="MQTTPublisher"/>
 	</bean>
 	<bean id="MQTTPublisher" class="bm.comms.mqtt.MQTTPublisher">
 		<constructor-arg name="name" value="MainMQTTPublisher"/>

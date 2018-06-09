@@ -2,6 +2,7 @@ package bm.main.modules;
 
 import java.util.Vector;
 
+import bm.comms.Protocol;
 import org.apache.log4j.Logger;
 
 import bm.cir.objects.Rule;
@@ -49,7 +50,6 @@ public abstract class SimpleModule implements Runnable {
 	 * @param name the name of this module
 	 * @param RTY the JEEP request type that this module handles
 	 * @param params the secondary request parameters for the JEEP requests this module will handle
-	 * @param mp the MQTTPublisher that will publish the JEEP responses
 	 * @param dr the DeviceRepository of this BM
 	 */
 	public SimpleModule(String logDomain, String errorLogDomain, String name, String RTY, String[] 
@@ -76,7 +76,6 @@ public abstract class SimpleModule implements Runnable {
 	 * @param name the name of this module
 	 * @param RTY the JEEP request type that this module handles
 	 * @param params the secondary request parameters for the JEEP requests this module will handle
-	 * @param mp the MQTTPublisher that will publish the JEEP responses
 	 * @param dr the DeviceRepository of this BM
 	 * @param extensions the ModuleExtensions attached to this Module
 	 */
@@ -169,7 +168,8 @@ public abstract class SimpleModule implements Runnable {
 				if(request.getParameter(param) != null && !request.getParameter(param).equals("")) 
 					b = true;
 				else {
-					error("Parameter '" + param + "' is either empty or nonexistent!", request.getSender());
+					error("Parameter '" + param + "' is either empty or nonexistent!",
+							request.getProtocol());
 					b = false;
 					break;
 				}
@@ -194,39 +194,41 @@ public abstract class SimpleModule implements Runnable {
 	 */
 	protected abstract boolean additionalRequestChecking(JEEPRequest request);
 	
-	protected void error(String msg, Exception e, Sender sender) {
+	protected void error(String msg, Exception e, Protocol protocol) {
 		mainLOG.error(msg);
 		errorLOG.error(msg, e);
 //		mp.publishToErrorTopic(msg + " (" + e.getMessage() + ")");
-		sender.sendErrorResponse(new JEEPErrorResponse(msg + " (" + e.getMessage() + ")", sender));
+		protocol.getSender().sendErrorResponse(new JEEPErrorResponse(msg
+                + " (" + e.getMessage() + ")", protocol));
 	}
 	
-	protected void error(Exception e, Sender sender) {
+	protected void error(Exception e, Protocol protocol) {
 		mainLOG.error(e.getMessage());
 		errorLOG.error(e.getMessage(), e);
 //		mp.publishToErrorTopic(e.getMessage());
-		sender.sendErrorResponse(new JEEPErrorResponse(e.getMessage(), sender));
+        protocol.getSender().sendErrorResponse(new JEEPErrorResponse(e.getMessage(), protocol));
 	}
 	
-	protected void error(String msg, Sender sender) {
+	protected void error(String msg, Protocol protocol) {
 		mainLOG.error(msg);
 		errorLOG.error(msg);
 //		mp.publishToErrorTopic(msg);
-		sender.sendErrorResponse(new JEEPErrorResponse(msg, sender));
+        protocol.getSender().sendErrorResponse(new JEEPErrorResponse(msg, protocol));
 	}
 	
-	protected void error(ResError error, Exception e, Sender sender) {
+	protected void error(ResError error, Exception e, Protocol protocol) {
 		mainLOG.error(error.getMessage());
 		errorLOG.error(error.getMessage(), e);
 //		mp.publishToErrorTopic(error + " (" + e.getMessage() + ")");
-		sender.sendErrorResponse(new JEEPErrorResponse(error + " (" + e.getMessage() + ")", sender));
+        protocol.getSender().sendErrorResponse(new JEEPErrorResponse(error + " ("
+                + e.getMessage() + ")", protocol));
 	}
 	
 	protected void error(JEEPErrorResponse error) {
 		mainLOG.error(error.getMessage());
 		errorLOG.error(error.getMessage());
 //		mp.publishToErrorTopic(error);
-		error.getSender().sendErrorResponse(error);
+		error.getProtocol().getSender().sendErrorResponse(error);
 	}
 
 	/**

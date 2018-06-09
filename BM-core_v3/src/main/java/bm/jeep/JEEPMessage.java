@@ -1,5 +1,6 @@
 package bm.jeep;
 
+import bm.comms.Protocol;
 import org.json.JSONObject;
 
 import bm.comms.Sender;
@@ -9,25 +10,25 @@ public class JEEPMessage {
 	protected String cid;
 	protected String rty;
 //	protected String topic;
-	protected Sender sender;
+	protected Protocol protocol;
 	protected JSONObject json = new JSONObject();
 
-	public JEEPMessage(JSONObject json, Sender sender) {
+	public JEEPMessage(JSONObject json, Protocol protocol) {
 		this.rid = json.getString("RID");
 		this.rty = json.getString("RTY");
 		this.cid = json.getString("CID");
 		this.json = json;
-		this.sender = sender;
+		this.protocol = protocol;
 	}
 	
-	public JEEPMessage(String rid, String cid, String rty, Sender sender) {
+	public JEEPMessage(String rid, String cid, String rty, Protocol protocol) {
 		this.rid = rid;
 		this.cid = cid;
 		this.rty = rty;
 		this.json.put("RID", rid);
 		this.json.put("CID", cid);
 		this.json.put("RTY", rty);
-		this.sender = sender;
+		this.protocol = protocol;
 	}
 	
 	/**
@@ -66,8 +67,8 @@ public class JEEPMessage {
 	 * 
 	 * @return The Sender object
 	 */
-	public Sender getSender() {
-		return sender;
+	public Protocol getProtocol() {
+		return protocol;
 	}
 	
 	@Override

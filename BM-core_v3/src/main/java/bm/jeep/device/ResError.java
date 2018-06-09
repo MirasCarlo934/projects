@@ -1,12 +1,13 @@
 package bm.jeep.device;
 
+import bm.comms.Protocol;
 import bm.comms.Sender;
 import bm.jeep.JEEPRequest;
 
 public class ResError extends JEEPErrorResponse {
 
-	public ResError(String rid, String cid, String rty, Sender sender, String message) {
-		super(rid, cid, rty, sender, message);
+	public ResError(String rid, String cid, String rty, Protocol protocol, String message) {
+		super(rid, cid, rty, protocol, message);
 	}
 	
 	public ResError(JEEPRequest request, String message) {

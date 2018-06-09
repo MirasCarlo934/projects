@@ -1,5 +1,6 @@
 package bm.jeep.device;
 
+import bm.comms.Protocol;
 import bm.comms.Sender;
 import bm.jeep.JEEPMessage;
 import bm.jeep.JEEPRequest;
@@ -9,8 +10,8 @@ public class ResPOOP extends JEEPResponse {
 	private String propSSID;
 	private Object propVal;
 
-	public ResPOOP(String rid, String cid, String rty, Sender sender, String propSSID, Object propVal) {
-		super(rid, cid, rty, sender, true);
+	public ResPOOP(String rid, String cid, String rty, Protocol protocol, String propSSID, Object propVal) {
+		super(rid, cid, rty, protocol, true);
 		setPropSSID(propSSID);
 		setPropVal(propVal);
 	}

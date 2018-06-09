@@ -1,18 +1,12 @@
 package bm.main.modules.admin;
 
-import java.util.HashMap;
-
 import org.json.JSONException;
 
-import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.rooms.Room;
 import bm.jeep.JEEPRequest;
-import bm.jeep.device.ReqDeleteRoom;
-import bm.jeep.device.ReqRequest;
 import bm.main.engines.DBEngine;
 import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.DBEngine.DeleteDBEReq;
 import bm.main.modules.SimpleModule;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.RoomRepository;

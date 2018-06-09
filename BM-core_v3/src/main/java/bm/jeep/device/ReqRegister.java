@@ -1,5 +1,6 @@
 package bm.jeep.device;
 
+import bm.comms.Protocol;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,8 +19,8 @@ public class ReqRegister extends JEEPRequest{
 	public String mac;
 	public JSONObject properties;
 
-	public ReqRegister(JSONObject json, Sender sender, String nameParam, String roomIDParam, String propsParam) {
-		super(json, sender);
+	public ReqRegister(JSONObject json, Protocol protocol, String nameParam, String roomIDParam, String propsParam) {
+		super(json, protocol);
 		this.name = json.getString(nameParam);
 		this.room = json.getString(roomIDParam);
 		try {

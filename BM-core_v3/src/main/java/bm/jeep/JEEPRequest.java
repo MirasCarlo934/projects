@@ -1,5 +1,6 @@
 package bm.jeep;
 
+import bm.comms.Protocol;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -7,16 +8,16 @@ import bm.comms.Sender;
 
 public abstract class JEEPRequest extends JEEPMessage{
 	
-	public JEEPRequest(String rid, String cid, String rty, Sender sender) {
-		super(rid, cid, rty, sender);
+	public JEEPRequest(String rid, String cid, String rty, Protocol protocol) {
+		super(rid, cid, rty, protocol);
 	}
 
-	public JEEPRequest(JSONObject json, Sender sender) {
-		super(json, sender);
+	public JEEPRequest(JSONObject json, Protocol protocol) {
+		super(json, protocol);
 	}
 	
 	public JEEPRequest(JEEPRequest request) {
-		super(request.json, request.sender);
+		super(request.json, request.protocol);
 	}
 	
 	/**

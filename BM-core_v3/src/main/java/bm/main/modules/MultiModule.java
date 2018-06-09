@@ -74,7 +74,8 @@ public abstract class MultiModule extends SimpleModule implements Initializable 
 				if(request.getParameter(param) != null && !request.getParameter(param).equals("")) 
 					b = true;
 				else {
-					error("Parameter '" + param + "' is either empty or nonexistent!", request.getSender());
+					error("Parameter '" + param + "' is either empty or nonexistent!",
+							request.getProtocol());
 					b = false;
 					break;
 				}

@@ -223,7 +223,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(delete1, t, waitUntilDeleted);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot delete room from DB! Query : " + 
+			AdaptorException a = new AdaptorException("Cannot delete room from DB! Query : " +
 					delete1.getQuery(), e);
 			throw a;
 		}

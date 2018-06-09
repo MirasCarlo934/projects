@@ -7,8 +7,6 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
-import bm.context.adaptors.AbstAdaptor;
-import bm.context.adaptors.DBAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.rooms.Room;
 import bm.main.engines.DBEngine;
