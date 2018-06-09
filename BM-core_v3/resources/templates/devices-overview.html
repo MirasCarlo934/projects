@@ -270,6 +270,9 @@
 			console.log("Relocating item " + item.attr("id") + " to room " + item.parent().attr("id"));
 			var element = item.attr("id");
 			var room = item.parent().attr("id");
+			if(room == "root_sort") {
+			    room = "root";
+			}
 			var room_children_arr = item.parent().children().toArray();
 			var room_children = "";
 			for(var i = 0; i < room_children_arr.length; i++) {

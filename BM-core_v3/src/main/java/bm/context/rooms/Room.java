@@ -46,8 +46,8 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 	}
 
 	@Override
-	protected void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
-		Logger LOG = getLogger(parentLogDomain);
+	protected void createInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilCreated) throws AdaptorException {
+		Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Creating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");
 		adaptor.roomCreated(this, waitUntilCreated);
 		LOG.debug("Room " + SSID + " (" + name + ") created!");
@@ -65,17 +65,17 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //	}
 
 	@Override
-	protected void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
-		Logger LOG = getLogger(parentLogDomain);
+	protected void deleteInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilDeleted) throws AdaptorException {
+		Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Deleting room " + SSID + " (" + name + ") from " + adaptor.getName() + "...");
 		adaptor.roomDeleted(this, waitUntilDeleted);
 		LOG.debug("Room " + SSID + " (" + name + ") deleted!");
 	}
 
 	@Override
-	protected void updateInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
+	protected void updateInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException {
-		Logger LOG = getLogger(parentLogDomain);
+		Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Updating room " + SSID + " (" + name + ") in " + adaptor.getName() + "...");
 		adaptor.roomCredentialsUpdated(this, waitUntilUpdated);
 		LOG.debug("Room " + SSID + " (" + name + ") updated!");

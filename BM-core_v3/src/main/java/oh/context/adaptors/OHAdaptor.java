@@ -29,25 +29,18 @@ public class OHAdaptor extends AbstAdaptor {
 	private HTTPSender httpSender;
 	private FileEngine sitemapFE;
 
-	private DeviceRepository dr;
-	private RoomRepository rr;
-
 	public OHAdaptor(String logDomain, String adaptorID, String adaptorName, String ohIP, String ohSitemapName,
-					 HTTPSender he, FileEngine sitemapFE, DeviceRepository deviceRepository,
-					 RoomRepository roomRepository) {
+					 HTTPSender he, FileEngine sitemapFE) {
 		super(logDomain, adaptorID, adaptorName/*, "openhab"*/);
 		this.sitemapFE = sitemapFE;
 		this.httpSender = he;
 		this.ohIP = ohIP;
 		this.ohSitemapName = ohSitemapName;
-		this.dr = deviceRepository;
-		this.rr = roomRepository;
 	}
 	
 	@Override
 	public void deviceDeleted(Device d, boolean waitUntilDeleted) throws AdaptorException {
 		LOG.trace("Deleting component " + d.getSSID() + " from OpenHAB item registry...");
-        Device dev = dr.getDevice(d.getSSID());
 		if(d.getProperties().length > 1) { //1-property components have no OH items specific to themselves
 			try {
 				deleteItem(d.getSSID(), waitUntilDeleted);
@@ -59,7 +52,7 @@ public class OHAdaptor extends AbstAdaptor {
 		}
 		
 		LOG.trace("Deleting device from sitemap...");
-		deleteItemFromSitemap(dev.convertToSitemapString(), waitUntilDeleted);
+		deleteItemFromSitemap(d.convertToSitemapString(), waitUntilDeleted);
 	}
 	
 	@Override
@@ -67,8 +60,7 @@ public class OHAdaptor extends AbstAdaptor {
 		LOG.trace("Updating component " + d.getSSID() + " in OpenHAB item registry through standard OHAdaptor "
 				+ "persistence process...");
 		LOG.trace("Deleting device from sitemap (if it exists in the sitemap...");
-		Device dev = dr.getDevice(d.getSSID());
-		deleteItemFromSitemap(dev.convertToSitemapString(), false);
+		deleteItemFromSitemap(d.convertToSitemapString(), false);
 		
 		Iterator<Property> props = Arrays.asList(d.getProperties()).iterator();
 		deviceCreated(d, waitUntilUpdated);
@@ -79,7 +71,7 @@ public class OHAdaptor extends AbstAdaptor {
 		
 		if(d.getParentRoom() == null) {
 			LOG.trace("Adding device to sitemap since it has no parent room...");
-			addItemToSitemap(dev.convertToSitemapString(), waitUntilUpdated);
+			addItemToSitemap(d.convertToSitemapString(), waitUntilUpdated);
 		}
 		LOG.trace("Update successful!");
 	}
@@ -112,9 +104,8 @@ public class OHAdaptor extends AbstAdaptor {
 	@Override
 	public void deviceCreated(Device d, boolean waitUntilPersisted) throws AdaptorException {
 		LOG.trace("Persisting component " + d.getSSID() + " to OpenHAB item registry...");
-		Device dev = dr.getDevice(d.getSSID());
 		if(d.getProperties().length > 1) { //1-property components are persisted thru their sole property!!!
-			JSONObject[] items = dev.convertToItemsJSON();
+			JSONObject[] items = d.convertToItemsJSON();
 			try {
 				addItems(items, waitUntilPersisted);
 			} catch(AdaptorException e) { 
@@ -127,7 +118,6 @@ public class OHAdaptor extends AbstAdaptor {
 	@Override
 	public void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
 		LOG.trace("Updating state of component " + d.getSSID() + "to " + d.isActive() + "...");
-		Device dev = dr.getDevice(d.getSSID());
 		String itemName;
 		if(d.getProperties().length > 1) {
 			itemName = d.getSSID();
@@ -136,9 +126,9 @@ public class OHAdaptor extends AbstAdaptor {
 		}
 		try {
 			if(d.isActive()) {
-				addItems(dev.convertToItemsJSON(), waitUntilUpdated);
+				addItems(d.convertToItemsJSON(), waitUntilUpdated);
 				if(d.getProperties().length == 1) {
-					addItems(dev.getProperties()[0].convertToItemsJSON(), waitUntilUpdated);
+					addItems(d.getProperties()[0].convertToItemsJSON(), waitUntilUpdated);
 				}
 			} else {
 				JSONObject json = new JSONObject();
@@ -146,7 +136,7 @@ public class OHAdaptor extends AbstAdaptor {
 				json.put("name", itemName);
 				json.put("label", d.getName() + " [inactive]");
 				json.put("groupNames", new String[]{d.getParentRoom().getSSID()});
-				json.put("category", dev.getProduct().getIconImg());
+				json.put("category", d.getProduct().getIconImg());
 				addItems(new JSONObject[]{json}, waitUntilUpdated);
 			}
 		} catch(AdaptorException e) {
@@ -157,9 +147,7 @@ public class OHAdaptor extends AbstAdaptor {
 	@Override
 	public void propertyCreated(Property p, boolean waitUntilPersisted) throws AdaptorException {
 		LOG.trace("Adding property " + p.getOH_ID() + " to OpenHAB item registry!");
-		Device dev = dr.getDevice(p.getDevice().getSSID());
-        Property uip = dev.getProperty(p.getSSID());
-		JSONObject[] items = uip.convertToItemsJSON();
+		JSONObject[] items = p.convertToItemsJSON();
 		addItems(items, waitUntilPersisted);
 		LOG.trace("Property added successfully!");
 	}
@@ -178,18 +166,17 @@ public class OHAdaptor extends AbstAdaptor {
 	public void roomCreated(Room r, boolean waitUntilPersisted) throws AdaptorException {
 		//persists the room to the item registry
 		LOG.trace("Persisting room " + r.getSSID() + " (" + r.getName() + ") to OpenHAB item registry...");
-        Room room = rr.getRoom(r.getSSID());
 		try {
-			addItems(room.convertToItemsJSON(), waitUntilPersisted);
+			addItems(r.convertToItemsJSON(), waitUntilPersisted);
 		} catch(AdaptorException e) {
 			throw new AdaptorException("Cannot persist room " + r.getSSID() + "(" + r.getName() + ") to "
 					+ "registry", e);
 		}
 		
 		//persists the room to the sitemap file IF it has NO parent room
-		LOG.trace("Persisting room " + r.getSSID() + " (" + r.getName() + ") to OpenHAB sitemap file...");
 		if(r.getParentRoom() == null) {
-			addItemToSitemap(room.convertToSitemapString(), waitUntilPersisted);
+            LOG.trace("Persisting room " + r.getSSID() + " (" + r.getName() + ") to OpenHAB sitemap file...");
+			addItemToSitemap(r.convertToSitemapString(), waitUntilPersisted);
 		}
 	}
 
@@ -206,8 +193,7 @@ public class OHAdaptor extends AbstAdaptor {
 		//room updateRules same as room persistence
 		LOG.trace("Updating room credentials in OpenHAB thru OpenHAB room persistence...");
 		LOG.trace("Deleting room from sitemap (if it exists in the sitemap)...");
-        Room room = rr.getRoom(r.getSSID());
-		deleteItemFromSitemap(room.convertToSitemapString(), waitUntilUpdated);
+		deleteItemFromSitemap(r.convertToSitemapString(), waitUntilUpdated);
 		roomCreated(r, waitUntilUpdated);
 	}
 	
@@ -326,30 +312,28 @@ public class OHAdaptor extends AbstAdaptor {
 	@Override
 	public void deviceRoomUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
 		LOG.trace("Updating device parent room thru regular device persistence...");
-		Device dev = dr.getDevice(d.getSSID());
 		deviceCreated(d, waitUntilUpdated);
 		
 		LOG.trace("Deleting device from sitemap...");
-		deleteItemFromSitemap(dev.convertToSitemapString(), false);
+		deleteItemFromSitemap(d.convertToSitemapString(), false);
 		
 		if(d.getParentRoom() == null) {
 			LOG.trace("Adding device to sitemap since it has no parent room...");
-			addItemToSitemap(dev.convertToSitemapString(), waitUntilUpdated);
+			addItemToSitemap(d.convertToSitemapString(), waitUntilUpdated);
 		}
 	}
 
 	@Override
 	public void roomParentUpdated(Room r, boolean waitUntilUpdated) throws AdaptorException {
 		LOG.trace("Updating room parent thru regular room persistence...");
-		Room uir = rr.getRoom(r.getSSID());
 		roomCreated(r, waitUntilUpdated);
 		
 		LOG.trace("Deleting room from sitemap...");
-		deleteItemFromSitemap(uir.convertToSitemapString(), false);
+		deleteItemFromSitemap(r.convertToSitemapString(), false);
 		
 		if(r.getParentRoom() == null) {
 			LOG.trace("Adding room to sitemap since it has no parent room...");
-			addItemToSitemap(uir.convertToSitemapString(), waitUntilUpdated);
+			addItemToSitemap(r.convertToSitemapString(), waitUntilUpdated);
 		}
 	}
 }

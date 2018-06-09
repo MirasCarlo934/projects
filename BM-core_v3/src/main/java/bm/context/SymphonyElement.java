@@ -90,16 +90,16 @@ public abstract class SymphonyElement {
 	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
 	 * repositories. That is mainly done in Modules.
 	 * 
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilCreated
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	protected abstract void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
+	protected abstract void createInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilCreated)
 			throws AdaptorException;
 	
-	public void create(String parentLogDomain, boolean waitUntilCreated) throws AdaptorException {
+	public void create(String callerLogDomain, boolean waitUntilCreated) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
-			createInAdaptor(adaptors.get(i), parentLogDomain, waitUntilCreated);
+			createInAdaptor(adaptors.get(i), callerLogDomain, waitUntilCreated);
 		}
 	}
 	
@@ -112,17 +112,17 @@ public abstract class SymphonyElement {
 	 * repositories. That is mainly done in Modules.
 	 * 
 	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be created in
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilCreated 
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	public void createExcept(AbstAdaptor[] exceptions, String parentLogDomain, 
+	public void createExcept(AbstAdaptor[] exceptions, String callerLogDomain,
 			boolean waitUntilCreated) throws AdaptorException {
 		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor)) {
-				createInAdaptor(adaptor, parentLogDomain, waitUntilCreated);
+				createInAdaptor(adaptor, callerLogDomain, waitUntilCreated);
 			}
 		}
 	}
@@ -136,17 +136,17 @@ public abstract class SymphonyElement {
 	 * repositories. That is mainly done in Modules.
 	 * 
 	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be created in
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilCreated 
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	public void createExcept(String[] exceptions, String parentLogDomain, 
+	public void createExcept(String[] exceptions, String callerLogDomain,
 			boolean waitUntilCreated) throws AdaptorException {
 		List<String> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor.getName())) {
-				createInAdaptor(adaptor, parentLogDomain, waitUntilCreated);
+				createInAdaptor(adaptor, callerLogDomain, waitUntilCreated);
 			}
 		}
 	}
@@ -167,16 +167,16 @@ public abstract class SymphonyElement {
 	 * <i><b>Note:</b> This method does NOT guarantee that this object will be deleted from the BusinessMachine
 	 * repositories. That is mainly done in Modules.
 	 * 
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilDeleted
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	protected abstract void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
+	protected abstract void deleteInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException;
 	
-	public void delete(String parentLogDomain, boolean waitUntilDeleted) throws AdaptorException {
+	public void delete(String callerLogDomain, boolean waitUntilDeleted) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
-			deleteInAdaptor(adaptors.get(i), parentLogDomain, waitUntilDeleted);
+			deleteInAdaptor(adaptors.get(i), callerLogDomain, waitUntilDeleted);
 		}
 	}
 	
@@ -189,17 +189,17 @@ public abstract class SymphonyElement {
 	 * repositories. That is mainly done in Modules.
 	 * 
 	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be created in
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilDeleted
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	public void deleteExcept(AbstAdaptor[] exceptions, String parentLogDomain, 
+	public void deleteExcept(AbstAdaptor[] exceptions, String callerLogDomain,
 			boolean waitUntilDeleted) throws AdaptorException {
 		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor)) {
-				deleteInAdaptor(adaptor, parentLogDomain, waitUntilDeleted);
+				deleteInAdaptor(adaptor, callerLogDomain, waitUntilDeleted);
 			}
 		}
 	}
@@ -213,17 +213,17 @@ public abstract class SymphonyElement {
 	 * repositories. That is mainly done in Modules.
 	 * 
 	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be created in
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilDeleted
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	public void deleteExcept(String[] exceptions, String parentLogDomain, 
+	public void deleteExcept(String[] exceptions, String callerLogDomain,
 			boolean waitUntilDeleted) throws AdaptorException {
 		List<String> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor.getName())) {
-				deleteInAdaptor(adaptor, parentLogDomain, waitUntilDeleted);
+				deleteInAdaptor(adaptor, callerLogDomain, waitUntilDeleted);
 			}
 		}
 	}
@@ -243,23 +243,23 @@ public abstract class SymphonyElement {
 	 * Updates this object to a single adaptor.
 	 * 
 	 * @param adaptor the adaptor where this component will be updated in
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilUpdated
 	 * @throws AdaptorException if an adaptor fails to persist this object
 	 */
-	protected abstract void updateInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
+	protected abstract void updateInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException;
 	
 	/**
 	 * Updates this object to all adaptors plugged to this SymphonyElement.
 	 * 
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilUpdated
 	 * @throws AdaptorException if an adaptor fails to updateRules this object
 	 */
-	public void update(String parentLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+	public void update(String callerLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
-			updateInAdaptor(adaptors.get(i), parentLogDomain, waitUntilUpdated);
+			updateInAdaptor(adaptors.get(i), callerLogDomain, waitUntilUpdated);
 		}
 	}
 	
@@ -286,17 +286,17 @@ public abstract class SymphonyElement {
 	 * Updates this object to all plugged adaptors with the exception of some specified adaptors.
 	 * 
 	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be updated to
-	 * @param parentLogDomain the log domain of the object that called this method
+	 * @param callerLogDomain the log domain of the object that called this method
 	 * @param waitUntilUpdated
 	 * @throws AdaptorException if an adaptor fails to updateRules this object
 	 */
-	public void updateExcept(String[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
+	public void updateExcept(String[] exceptions, String callerLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException {
 		List<String> excepts = Arrays.asList(exceptions);
 		for(int i = 0; i < adaptors.size(); i++) {
 			AbstAdaptor adaptor = adaptors.get(i);
 			if(!excepts.contains(adaptor.getName())) {
-				updateInAdaptor(adaptor, parentLogDomain, waitUntilUpdated);
+				updateInAdaptor(adaptor, callerLogDomain, waitUntilUpdated);
 			}
 		}
 	}

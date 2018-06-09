@@ -100,9 +100,9 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	 * property.
 	 */
 	@Override
-	protected void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
+	protected void createInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilCreated)
 			throws AdaptorException {
-		final Logger LOG = getLogger(parentLogDomain);
+		final Logger LOG = getLogger(callerLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
 			LOG.debug("Creating property " + getOH_ID() + " in " + adaptor.getName() + "...");
 			adaptor.propertyCreated(this, waitUntilCreated);
@@ -127,9 +127,9 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 //	}
 
 	@Override
-	protected void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
+	protected void deleteInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException {
-		Logger LOG = getLogger(parentLogDomain);
+		Logger LOG = getLogger(callerLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
 			LOG.debug("Deleting property " + getOH_ID() + " from " + adaptor.getName() + "...");
 			adaptor.propertyDeleted(this, waitUntilDeleted);
@@ -389,7 +389,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	 * @return the standard ID of this property
 	 */
 	public String getOH_ID() {
-		return parentDevice.getSSID() + "-" + SSID;
+		return parentDevice.getSSID() + "_" + SSID;
 	}
 	
 	public String getOHItemType() {

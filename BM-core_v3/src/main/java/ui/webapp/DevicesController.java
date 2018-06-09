@@ -197,7 +197,7 @@ public class DevicesController extends AbstController {
 			@RequestParam(value="siblings", required=true) String siblings, Model model) {
 		Room room;
 		if(rr.containsRoom(roomID)) {
-			room = (Room) rr.getRoom(roomID);
+			room = rr.getRoom(roomID);
 		} else {
 			room = null;
 		}

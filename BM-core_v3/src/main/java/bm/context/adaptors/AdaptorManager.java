@@ -133,7 +133,9 @@ public class AdaptorManager implements Initializable {
      */
     public AbstAdaptor[] getAdaptorsLinkedToProduct(String prodID) {
         Vector<AbstAdaptor> adaptors = universalAdaptors;
-        adaptors.addAll(links.get(prodID));
+        if(links.get(prodID) != null) {
+            adaptors.addAll(links.get(prodID));
+        }
         return adaptors.toArray(new AbstAdaptor[adaptors.size()]);
     }
 

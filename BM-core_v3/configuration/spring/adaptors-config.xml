@@ -47,8 +47,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="ohSitemapName" value="${oh.sitemap_name}"/>
 		<constructor-arg name="he" ref="HTTPSender"/>
 		<constructor-arg name="sitemapFE" ref="OH.SitemapFileEngine"/>
-		<constructor-arg name="deviceRepository" ref="Devices"/>
-		<constructor-arg name="roomRepository" ref="Rooms"/>
 	</bean>
 
 	<!-- UI ADAPTORS -->

@@ -58,9 +58,6 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
             properties.put(prop.getSSID(), prop);
 //            System.out.println("Device" + getSSID() + ": " + prop.getSSID() + "-" + prop.getDevice().getSSID());
 		}
-		
-		//adds this device to its room
-//		room.addSymphonyObject(this);
 	}
 	
 	/**
@@ -68,30 +65,35 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * to this specific component. 
 	 */
 	@Override
-	protected void createInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilCreated)
+	protected void createInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilCreated)
 			throws AdaptorException {
-		final Logger LOG = getLogger(parentLogDomain);
+		final Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Creating device " + SSID + " in " + adaptor.getName() + "...");
 		adaptor.deviceCreated(this, waitUntilCreated);
-		
-		LOG.debug("Creating properties of device " + SSID + " in " + adaptor.getName() + "...");
-		Iterator<Property> props = properties.values().iterator();
-		while(props.hasNext()) {
-			Property prop = props.next();
-			adaptor.propertyCreated(prop, waitUntilCreated);
-			LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " created!");
-		}
-		LOG.debug("Device " + SSID + " created!");
 	}
+
+	@Override
+    public void create(String callerLogDomain, boolean waitUntilCreated) throws AdaptorException {
+        final Logger LOG = getLogger(callerLogDomain);
+	    super.create(callerLogDomain, waitUntilCreated);
+        LOG.debug("Creating properties of device " + SSID + " in Environment...");
+        Iterator<Property> props = properties.values().iterator();
+        while(props.hasNext()) {
+            Property prop = props.next();
+            prop.create(callerLogDomain, waitUntilCreated);
+            LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " created!");
+        }
+        LOG.debug("Device " + SSID + " created!");
+    }
 	
 	/**
 	 * Deletes this component and its properties from the DB, OH, and all the various peripheral systems plugged in
 	 * to this specific component. 
 	 */
 	@Override
-	protected void deleteInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilDeleted)
+	protected void deleteInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException {
-		Logger LOG = getLogger(parentLogDomain);
+		Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Deleting device " + SSID + " from " + adaptor.getName() + "...");
 		adaptor.deviceDeleted(this, waitUntilDeleted);
 		
@@ -110,9 +112,9 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 * Updates the device in all of the plugged adaptors.
 	 */
 	@Override
-	protected void updateInAdaptor(AbstAdaptor adaptor, String parentLogDomain, boolean waitUntilUpdated)
+	protected void updateInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException {
-		Logger LOG = getLogger(parentLogDomain);
+		Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Updating device " + SSID + "...");
 		adaptor.deviceCredentialsUpdated(this, waitUntilUpdated);
 		LOG.debug("Device " + SSID + " updated!");
@@ -405,10 +407,18 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	@Override
 	public void addAdaptor(AbstAdaptor adaptor) {
 		super.addAdaptor(adaptor);
-		for (Property property: properties.values()) {
+		for (Property property : properties.values()) {
             property.addAdaptor(adaptor);
 		}
 	}
+
+	@Override
+    public void setAdaptors(AbstAdaptor[] adaptors) {
+        super.setAdaptors(adaptors);
+        for(Property property : properties.values()) {
+            property.setAdaptors(adaptors);
+        }
+    }
 	
 	private Logger getLogger(String parentLogDomain) {
 		return Logger.getLogger(parentLogDomain + "." + SSID);

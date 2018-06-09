@@ -118,8 +118,6 @@ public class HTTPSender extends Sender {
 			} else if(conn.getClass().getSimpleName().equals(HttpsURLConnection.class.getSimpleName() + "Impl")) {
 				((HttpsURLConnection) conn).setRequestMethod(method.toString());
 			} else {
-				LOG.fatal(conn.getClass().getSimpleName());
-				LOG.fatal(HttpsURLConnection.class.getSimpleName());
 				throw new IOException("Invalid protocol!");
 			}
 		} catch (MalformedURLException e) {
