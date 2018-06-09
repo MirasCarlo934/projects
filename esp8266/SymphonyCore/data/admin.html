@@ -1,0 +1,82 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="symphony.css">
+</head>
+<script type="text/javascript" src="symphony.js"></script>
+<body onload="initialize()">
+<h2>Device Setup</h2>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'device')" id="defaultOpen">Manage Device</button>
+  <button class="tablinks" onclick="openTab(event, 'mqtt')">Configure MQTT</button>
+  <button class="tablinks" onclick="openTab(event, 'upload')">Upload File</button>
+  <button class="tablinks" onclick="openTab(event, 'firmware')">Firmware</button>
+</div>
+<p id='msg'></p><p id='notif'></p>
+
+<div id="mqtt" class="tabcontent">
+<h3>Configure Mqtt Settings</h3>
+<form action='/handleMqttConfig' method='get' id='form'>
+<fieldset style="width:300px"><legend><b>Mqtt Details</b></legend>
+IP:<br><input type='text' name='ip'><br>
+Port:<br><input type='text' name='port' value="1883"><br>
+<input type='submit' value='Submit'>
+</fieldset>
+</form>
+</div>
+<div id="firmware" class="tabcontent">
+<h3>Firmware Management</h3>
+<fieldset style="width:300px"><legend><b>Firmware Update</b></legend>
+<div id="main" data-role="header" align="center">
+    <div id="note">Device will reboot after file is uploaded.</div>
+	<form action='/handleUpdate' method='get' id='update'><br>
+	<table><tr><td>	URL:</td><td><input type='text' name='fwurl' id='fwurl' value='http://192.168.0.105:8080/static/esp-versions/'></td></tr><br>
+    <button type="button" id="btn" onclick="updateFirmware()">Update</button>
+    </table>
+	</form>
+    <!--div id="debug">debug</div-->
+</div>
+</fieldset>
+</div>
+<div id="device" class="tabcontent">
+<h3>Manage Device</h3>
+<form action='/handleRegister' method='get' id='form'>
+<fieldset style="width:300px"><legend><b>Manual Registration</b></legend>
+Name:<br><input type='text' name='pName'><br>
+Room:<br><input type='text' name='room'><br>
+Product ID:<br>
+<select name="pID">
+<option value="0000">system</option>
+<option value="0001">WallSocket</option>
+<option value="0002">SoloSocket</option>
+<option value="0003">Aircon</option>
+<option value="0004">ZenTemp2</option>
+<option value="0005">MediaPlayer</option>
+<option value="0006">TFTSwitch</option>
+<option value="0007">Test1</option>
+<option value="0008">PirSensor</option>
+</select>
+<br>
+<input type='submit' value='Register'>
+</fieldset>
+</form>
+<form action='/doUnRegister' method='get' id='form2'>
+<fieldset style="width:300px"><legend><b>Manually UnRegister</b></legend>
+<input type='submit' value='UnRegister'>
+</fieldset>
+</form>
+</div>
+
+<div id="upload" class="tabcontent">
+<h3>File Management</h3>
+<fieldset><legend>Upload Data File</legend>
+<p id='files'></p><br>
+<form id='fileUpload' method='POST' action='/uploadFile' enctype='multipart/form-data'>
+<input type='file' name='file'>
+<input type='button' value='Upload' onclick='uploadFile()'>
+</form>
+</fieldset>
+</div>
+
+</body>
+</html>
