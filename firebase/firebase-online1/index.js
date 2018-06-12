@@ -57,13 +57,6 @@ function processV1Request (request, response) {
     'default': () => {
       // Use the Actions on Google lib to respond to Google requests; for other requests use JSON
       if (requestSource === googleAssistantRequest) {
-        let responseToUser = {
-          //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
-          //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
-          speech: 'Turning ' + device +' ' + status +' in '+ room +'.' , // spoken response
-          text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nTurning ' + device +' ' + status+'.' // displayed response
-            
-        };
         //query the tree of the room to find the device
         console.log('test lang ito getting /symphony/bahay/'+room+'/'+device+'/properties/'+property);
         admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties').once('value')
@@ -122,7 +115,25 @@ function processV1Request (request, response) {
         		//device exists, update the tree for the device
         	}        	
         });
-        sendGoogleResponse(responseToUser);
+        if (property == null) {
+        	console.log('test lang ulit ito, device has no '+property+' property.');
+        	let responseToUser = {
+                    //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
+                    //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
+                    speech: 'Turning ' + device +' ' + status +' in '+ room +'.' , // spoken response
+                    text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nTurning ' + device +' ' + status+'.' // displayed response
+            }; 	
+        	sendGoogleResponse(responseToUser);
+        } else {
+        	console.log('test lang ulit property is ' + property);
+        	let responseToUser = {
+                    //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
+                    //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
+        			speech: 'Turning ' + device +' ' + property + ' ' + status +' in '+ room +'.' , // spoken response
+                    text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nTurning ' + device +' ' + status+'.' // displayed response
+            };
+        	sendGoogleResponse(responseToUser);
+        }               
       } else {
         let responseToUser = {
           //data: richResponsesV1, // Optional, uncomment to enable
