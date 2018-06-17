@@ -1,6 +1,7 @@
 package bm.context.properties;
 
-import bm.jeep.device.ReqPOOP;
+import bm.jeep.JEEPManager;
+import bm.jeep.vo.device.ReqPOOP;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -32,11 +33,13 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
     private String propIDParam;
     private String propValParam;
     private IDGenerator idg;
+	private JEEPManager jm;
 
 	//TASK add index to constructor params
 	public Property(PropertyType propType, String SSID, /*String genericName, */String dispname,
-						/*String ohItemType,*/ PropertyMode mode, /*PropertyValueType propValType,*/
-						String poopRTY, String propIDParam, String propValParam, IDGenerator idGenerator) {
+					/*String ohItemType,*/ PropertyMode mode, /*PropertyValueType propValType,*/
+					String poopRTY, String propIDParam, String propValParam, JEEPManager jeepManager,
+					IDGenerator idGenerator) {
 		super(SSID, 0);
 		this.displayName = (dispname);
 		this.genericName = propType.getName() + "-" + mode.toString();
@@ -48,11 +51,12 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 		this.propIDParam = propIDParam;
 		this.propValParam = propValParam;
 		this.idg = idGenerator;
+		this.jm = jeepManager;
 	}
 
 	@Override
 	public Property clone() {
-		Property p = new Property(propType, SSID, displayName, mode, poopRTY, propIDParam, propValParam,
+		Property p = new Property(propType, SSID, displayName, mode, poopRTY, propIDParam, propValParam, jm,
 				idg);
 		p.setAdaptors(p.getAdaptors());
 		return p;
@@ -79,21 +83,6 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 //		System.out.println("COMMAND: " + propType.transformPropValueToOHCommand(value.toString()));
 		return propType.transformPropValueToOHCommand(value.toString());
 	}
-	
-//	/**
-//	 * Transforms the value of this property into a String which OpenHAB can recognize as a command 
-//	 * for the item that represents this property. 
-//	 * 
-//	 * @param value the property value in string format
-//	 * @return the transformed value or the property value if value is not transformable
-//	 */
-//	public Object transformValueToOHCommand(Object value) {
-//		if(valueOHCommandTransform.get(value.toString()) != null) {
-//			return valueOHCommandTransform.get(value);
-//		} else {
-//			return value;
-//		}
-//	}
 	
 	/**
 	 * Persists this property to the DB, OH, and all the various peripheral systems plugged in to this specific
@@ -149,53 +138,28 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 		}
 	}
 
-	@Override
-    public void update(String callerLogDomain, boolean waitUntilUpdated) throws AdaptorException {
-        super.update(callerLogDomain, waitUntilUpdated);
-        sendValue(callerLogDomain);
-    }
+//	/**
+//	 * Updates this property in the Environment.
+//	 * @param callerLogDomain the log domain of the object that called this method
+//	 * @param waitUntilUpdated
+//	 * @throws AdaptorException
+//	 */
+//	@Override
+//    public void update(String callerLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+//        super.update(callerLogDomain, waitUntilUpdated);
+//    }
 
-	private void sendValue(String callerLogDomain) {
+	/**
+	 * Sends a POOP request declaring the value of this property to its device.
+	 * @param callerLogDomain The log domain of the object that called this method
+	 */
+	public void sendValueToDevice(String callerLogDomain) {
 	    Logger LOG = getLogger(callerLogDomain);
 	    LOG.debug("Sending property value to device...");
-        ReqPOOP poop = new ReqPOOP(idg.generateRID(), parentDevice.getSSID(), poopRTY,
-                parentDevice.getProtocol(), propIDParam, propValParam, SSID, value);
-        parentDevice.getProtocol().getSender().send(poop);
+		jm.sendPOOPRequest(this);
         LOG.debug("Property value sent!");
     }
-	
-//	@Override
-//	public void updateRules(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated)
-//			throws AdaptorException {
-//		Logger LOG = getLogger(parentLogDomain);
-//		if(!propType.getOHIcon().equals("none")) {
-//			LOG.debug("Updating property value...");
-//			List<AbstAdaptor> excepts = Arrays.asList(exceptions);
-//			for(int i = 0; i < adaptors.length; i++) {
-//				if(!excepts.contains(adaptors[i])) {
-//					adaptors[i].propertyValueUpdated(this, waitUntilUpdated);
-//				}
-//			}
-//			LOG.debug("B_Property " + getStandardID() + " updated!");
-//		}
-//	}
-	
-//	@Override
-//	public void updateExcept(Class[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
-//			throws AdaptorException {
-//		Logger LOG = getLogger(parentLogDomain);
-//		if(!propType.getOHIcon().equals("none")) {
-//			LOG.debug("Updating property value...");
-//			List<Class> excepts = Arrays.asList(exceptions);
-//			for(int i = 0; i < adaptors.length; i++) {
-//				if(!excepts.contains(adaptors[i].getClass())) {
-//					adaptors[i].propertyValueUpdated(this, waitUntilUpdated);
-//				}
-//			}
-//			LOG.debug("B_Property " + getStandardID() + " updated!");
-//		}
-//	}
-	
+
 	@Override
 	public JSONObject[] convertToItemsJSON() {
 		JSONObject json = new JSONObject();
@@ -253,42 +217,42 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 		this.value = value;
 	}
 	
-	/**
-	 * Sets the value of this property in this object and calls the external application adaptors to
-	 * handle this property value change. This method must only be called when the value change did 
-	 * not come from a JEEP request (ie. CIR)
-	 * @param value The value of the property to be set
-	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
-	 * @param waitUntilUpdated <b><i>true</i></b> if thread must be set to wait until the adaptor/s have
-	 * 			completed processing, <b><i>false</i></b> if thread will not be set to wait.
-	 * @throws AdaptorException 
-	 */
-	public void setValue(Object value, String parentLogDomain, boolean waitUntilUpdated) 
-			throws AdaptorException {
-		setValue(value, null, parentLogDomain, waitUntilUpdated);
-		this.value = value;
-	}
-	
-	/**
-	 * Sets the value of this property in this object and calls the external application adaptors to
-	 * handle this property value change. 
-	 * @param value The value of the property to be set
-	 * @param cid The CID of the component that sent the request to change the property value
-	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
-	 * @param waitUntilUpdated <b><i>true</i></b> if thread must be set to wait until the adaptor/s have
-	 * 			completed processing, <b><i>false</i></b> if thread will not be set to wait.
-	 * @throws AdaptorException
-	 */
-	public void setValue(Object value, String cid, String parentLogDomain, boolean waitUntilUpdated) 
-			throws AdaptorException {
-		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Setting value of property " + getOH_ID() + " to " + value + "...");
-		setValue(value);
-		if(cid == null)
-			update(parentLogDomain, waitUntilUpdated);
-		else
-			updateExcept(new String[]{cid}, parentLogDomain, waitUntilUpdated);
-	}
+//	/**
+//	 * Sets the value of this property in this object and calls the external application adaptors to
+//	 * handle this property value change. This method must only be called when the value change did
+//	 * not come from a JEEP request (ie. CIR)
+//	 * @param value The value of the property to be set
+//	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
+//	 * @param waitUntilUpdated <b><i>true</i></b> if thread must be set to wait until the adaptor/s have
+//	 * 			completed processing, <b><i>false</i></b> if thread will not be set to wait.
+//	 * @throws AdaptorException
+//	 */
+//	public void setValue(Object value, String parentLogDomain, boolean waitUntilUpdated)
+//			throws AdaptorException {
+//		setValue(value, null, parentLogDomain, waitUntilUpdated);
+//		this.value = value;
+//	}
+//
+//	/**
+//	 * Sets the value of this property in this object and calls the external application adaptors to
+//	 * handle this property value change.
+//	 * @param value The value of the property to be set
+//	 * @param cid The CID of the component that sent the request to change the property value
+//	 * @param parentLogDomain The log4j logging domain used by the Object that invokes this method
+//	 * @param waitUntilUpdated <b><i>true</i></b> if thread must be set to wait until the adaptor/s have
+//	 * 			completed processing, <b><i>false</i></b> if thread will not be set to wait.
+//	 * @throws AdaptorException
+//	 */
+//	public void setValue(Object value, String cid, String parentLogDomain, boolean waitUntilUpdated)
+//			throws AdaptorException {
+//		Logger LOG = getLogger(parentLogDomain);
+//		LOG.debug("Setting value of property " + getOH_ID() + " to " + value + "...");
+//		setValue(value);
+//		if(cid == null)
+//			update(parentLogDomain, waitUntilUpdated);
+//		else
+//			updateExcept(new String[]{cid}, parentLogDomain, waitUntilUpdated);
+//	}
 
 //	/**
 //	 * Sets the value of this property. Persists this property's value to all adaptors with exceptions.

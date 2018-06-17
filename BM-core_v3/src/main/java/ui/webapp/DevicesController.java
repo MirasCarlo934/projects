@@ -6,9 +6,12 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import bm.context.SymphonyObject;
+import bm.context.adaptors.AdaptorManager;
 import bm.context.properties.Property;
+import bm.jeep.vo.device.ResBasic;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.RoomRepository;
+import bm.tools.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -22,7 +25,6 @@ import bm.context.devices.Device;
 import bm.context.properties.PropertyMode;
 import bm.context.rooms.Room;
 import bm.main.engines.exceptions.EngineException;
-import bm.main.modules.admin.CreateRoomModule;
 import bm.cir.CIRManager;
 
 @Controller
@@ -35,7 +37,9 @@ public class DevicesController extends AbstController {
 	@Autowired
 	protected CIRManager cirm;
 	@Autowired
-	protected CreateRoomModule createRoomModule;
+	private AdaptorManager am;
+	@Autowired
+	private IDGenerator idg;
 
 	public DevicesController(@Value("${log.domain.ui}") String logDomain) {
 		super(logDomain, DevicesController.class.getSimpleName());
@@ -357,8 +361,7 @@ public class DevicesController extends AbstController {
 		//TODO uncomment
 		Room r;
 		try {
-            r = createRoomModule.createBasicRoom(name, color);
-			rr.addRoom(r);
+            r = createRoom(name, null, color, rr.getLastIndexInRoom(null));
 			HashMap<String, String> responses = new HashMap<String, String>();
 			responses.put("SSID", r.getSSID());
 			model.addAttribute("responses", responses);
@@ -476,5 +479,30 @@ public class DevicesController extends AbstController {
 			sorted.add(index, child);
 		}
 		return sorted;
+	}
+
+	/**
+	 * Creates a new Room object and adds it to the RoomRepository.
+	 *
+	 * @param name The name of the new room
+	 * @param parentID The ID of the parent room of the new room
+	 * @param color The color of the new room
+	 * @param index The index of the new room
+	 * @return The created room
+	 * @throws AdaptorException when an error was encountered in creating the room
+	 */
+	private Room createRoom(String name, String parentID, String color, int index) throws AdaptorException {
+		Room r;
+		if(parentID != null) {
+			r = new Room(idg.generateCID(rr.getAllRoomIDs()), rr.getRoom(parentID), name, color, index);
+			r.setAdaptors(am.getUniversalAdaptors());
+		} else {
+			r = new Room(idg.generateCID(rr.getAllRoomIDs()), name, color, index);
+			r.setAdaptors(am.getAllAdaptors());
+		}
+		r.create(logDomain, true);
+		rr.addRoom(r);
+		LOG.info("Room " + r.getSSID() + " (" + r.getName() + ") created!");
+		return r;
 	}
 }

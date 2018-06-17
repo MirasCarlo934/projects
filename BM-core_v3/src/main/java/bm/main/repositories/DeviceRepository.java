@@ -7,7 +7,11 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import bm.comms.Protocol;
+import bm.context.products.Product;
 import bm.context.properties.Property;
+import bm.context.rooms.Room;
+import bm.jeep.JEEPManager;
+import bm.jeep.vo.JEEPRequest;
 import org.apache.log4j.Logger;
 
 import bm.context.adaptors.exceptions.AdaptorException;
@@ -29,9 +33,10 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	private String deviceQuery;
 	private ProductRepository pr;
 	private RoomRepository rr;
+	private JEEPManager jm;
 	private HashMap<String, Protocol> protocols;
 
-	public DeviceRepository(String logDomain, DBEngine dbm, String deviceQuery, 
+	public DeviceRepository(String logDomain, DBEngine dbm, String deviceQuery, JEEPManager jeepManager,
 			ProductRepository pr, RoomRepository rr) {
 		this.LOG = Logger.getLogger(logDomain + "." + DeviceRepository.class.getSimpleName());
 		this.logDomain = logDomain;
@@ -119,29 +124,130 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
         }
         LOG.debug("Devices updated in Symphony Environment!");
     }
-	
+
+	/**
+	 * Creates a new Device object in the Environment. This method sends a registration device request to the created
+	 * device.
+	 *
+	 * @param mac The MAC address of the new Device object
+	 * @param name The name of the new Device object
+	 * @param roomID The room ID of the parent room of the new Device object
+	 * @param prodID The product ID of the product of the new Device object
+	 * @param protocol The protocol of the new Device object
+	 * @param active <b><i>true</i></b> if the device is already active upon registration, <i><b>false</i></b>
+	 *               if not
+	 * @return The Device object created
+	 * @throws AdaptorException
+	 * @throws IllegalArgumentException
+	 */
+	public Device createDevice(String mac, String name, String roomID, String prodID, Protocol protocol,
+							   boolean active)
+			throws AdaptorException, IllegalArgumentException {
+		Room room = rr.getRoom(roomID);
+		Product product = pr.getProduct(prodID);
+		String id = idg.generateCID(new String[0]);
+		if(room == null) {
+			throw new IllegalArgumentException("Room with ID " + roomID + " doesn't exist!");
+		}
+		if(product == null) {
+			throw new IllegalArgumentException("Product with ID " + prodID + " doesn't exist!");
+		}
+		Device device = new Device(logDomain, id, mac, name, id + "_topic", protocol, room,
+				active, product, room.getHighestIndex() + 1, jm);
+		LOG.debug("Creating device in Maestro...");
+		device.create(logDomain, true);
+		device.sendCredentials();
+		devices.put(device.getSSID(), device);
+		registeredMACs.put(device.getMAC(), device.getSSID());
+		LOG.info("Device created!");
+		return device;
+	}
+
+//	/**
+//	 * Adds a new Device object in the Environment. <i>This method is called mainly by Module objects as a
+//	 * response to a JEEPRequest. For the non-Module version, see
+//	 * {@link #createDevice(String, String, String, String, Protocol, boolean)}</i>
+//	 *
+//	 * @param device The Device object to be added
+//	 * @param request The JEEPRequest that needs responding to
+//	 * @return
+//	 * @throws AdaptorException
+//	 */
+//	public Device addDevice(Device device, JEEPRequest request) throws AdaptorException {
+//		device.create(logDomain, true);
+//		jm.sendRegistrationResponse(device, request);
+//		devices.put(device.getSSID(), device);
+//		registeredMACs.put(device.getMAC(), device.getSSID());
+//		return device;
+//	}
+
 	public void addDevice(Device device) {
 		devices.put(device.getSSID(), device);
 		registeredMACs.put(device.getMAC(), device.getSSID());
 	}
 	
 	/**
-	 * Removes and returns the component from the repository
+	 * Detaches the device with the specified identifier from Maestro and the Environment. This method sends a
+	 * detachment request to the device for it to recognize that it is being detached from the Environment.
 	 * 
-	 * @param identifier The SSID or MAC address of the component to be removed
-	 * @return The component that was removed, <i>null</i> if the SSID specified does not pertain to an 
-	 * 		existing component
+	 * @param identifier The SSID or MAC address of the device to be removed
+	 * @param detachmentMessage A message detailing the reason why the specified device is being
+	 *                          removed from the Environment
+	 * @return The device that was removed, <i>null</i> if the SSID specified does not pertain to an
+	 * 		existing device
 	 */
-	public Device removeDevice(String identifier) {
+	public Device detachDevice(String identifier, String detachmentMessage) throws AdaptorException {
 		if(registeredMACs.containsKey(identifier))
 			identifier = registeredMACs.get(identifier);
-		Device c = devices.remove(identifier);
-		registeredMACs.remove(c.getMAC());
-		return c;
+		Device d = devices.get(identifier);
+		if(d != null) {
+			d.delete(logDomain, true);
+			d.detachDevice(detachmentMessage);
+			registeredMACs.remove(d.getMAC());
+			devices.remove(identifier);
+			LOG.info("Device " + d.getSSID() + " detached!");
+		}
+		return d;
+	}
+
+//	/**
+//	 * Detaches the device with the specified identifier from Maestro and the Environment. <i>This method is called
+//	 * mainly by Module objects as a response to a JEEPRequest. For the non-Module version, see
+//	 * {@link #detachDevice(String, String)}</i>
+//	 *
+//	 * @param identifier
+//	 * @param request
+//	 * @return
+//	 * @throws AdaptorException
+//	 */
+//	public Device detachDevice(String identifier, JEEPRequest request) throws AdaptorException {
+//		if(registeredMACs.containsKey(identifier))
+//			identifier = registeredMACs.get(identifier);
+//		Device d = devices.get(identifier);
+//		if(d != null) {
+//			d.delete(logDomain, true);
+//			jm.sendDetachmentResponse(d, true, request);
+//			registeredMACs.remove(d.getMAC());
+//			devices.remove(identifier);
+//			LOG.info("Device " + d.getSSID() + " detached!");
+//		}
+//		return d;
+//	}
+
+	public Device removeDevice(String s) {
+		if(devices.containsKey(s)) {
+			Device d = devices.remove(s);
+			registeredMACs.remove(d.getMAC());
+			return d;
+		} else if (registeredMACs.containsKey(s)) {
+			return devices.remove(registeredMACs.remove(s));
+		} else {
+			return null;
+		}
 	}
 	
 	/**
-	 * Returns the Component with the specified SSID or MAC
+	 * Returns the device with the specified SSID or MAC
 	 * @param s The SSID or MAC to specify
 	 * @return the Component with the specified SSID or MAC, <i>null</i> if nonexistent
 	 */

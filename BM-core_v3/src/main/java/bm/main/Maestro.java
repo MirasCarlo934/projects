@@ -3,8 +3,8 @@ package bm.main;
 import bm.cir.CIRManager;
 import bm.comms.Sender;
 import bm.context.adaptors.AdaptorManager;
+import bm.comms.InboundTrafficManager;
 import bm.main.controller.Controller;
-import bm.main.controller.ModuleDispatcher;
 import bm.main.engines.AbstEngine;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.ProductRepository;
@@ -55,14 +55,14 @@ public class Maestro {
 	private DeviceRepository dr;
 	private RoomRepository rr;
 	private ProductRepository pr;
-	private CIRManager cirr;
 	private AdaptorManager am;
 	private CIRManager cirm;
 	private List<AbstEngine> engines;
 	private List<Sender> senders;
+
+	private InboundTrafficManager itm;
 	
 	private Controller controller;
-	private ModuleDispatcher moduleDispatcher;
 
 	public static void main(String[] args) {
 		Maestro maestro = new Maestro();
@@ -94,14 +94,13 @@ public class Maestro {
     		try {
         		//comm layer
                 senders = (List<Sender>) context.getBean("Senders");
+				itm = (InboundTrafficManager) context.getBean("InboundTrafficManager");
 
                 //controller layer
                 controller = (Controller) context.getBean("Controller");
-                moduleDispatcher = (ModuleDispatcher) context.getBean("ModuleDispatcher");
                 dr = (DeviceRepository) context.getBean("Devices");
                 rr = (RoomRepository) context.getBean("Rooms");
                 pr = (ProductRepository) context.getBean("Products");
-                cirr = (CIRManager) context.getBean("CIRs");
                 am = (AdaptorManager) context.getBean("AdaptorManager");
                 cirm = (CIRManager) context.getBean("CIRs");
 
@@ -134,7 +133,6 @@ public class Maestro {
 	    		rr.initialize();
 	    		pr.initialize();
 	    		dr.initialize();
-	    		cirr.initialize();
 		} catch(Exception e) {
 			LOG.fatal("A repository has not initialized! BusinessMachine cannot start!", e);
 			errorStartup(e, 0);
@@ -148,12 +146,12 @@ public class Maestro {
 		}
 
 		//run runnables on separate threads
-		Thread t1 = new Thread(controller, controller.getClass().getSimpleName());
-		Thread t2 = new Thread(moduleDispatcher, moduleDispatcher.getClass().getSimpleName());
-		Thread t3 = new Thread(cirm, cirm.getClass().getSimpleName());
+        Thread t1 = new Thread(itm, itm.getClass().getSimpleName());
+		Thread t3 = new Thread(controller, controller.getClass().getSimpleName());
+		Thread t4 = new Thread(cirm, cirm.getClass().getSimpleName());
 		t1.start();
-		t2.start();
 		t3.start();
+		t4.start();
 
 		//sets repositories for adaptor manager
 		am.setRepositories(pr, dr, rr);
@@ -162,7 +160,7 @@ public class Maestro {
 		try {
 			inits.initializeAll();
 		} catch (Exception e) {
-			LOG.fatal("A third-party initializable cannot be initialized!", e);
+			LOG.fatal("An initializable cannot be initialized!", e);
 		}
 
 		//updates Environment

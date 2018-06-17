@@ -3,13 +3,9 @@ package bm.main.modules;
 import bm.comms.Protocol;
 import org.apache.log4j.Logger;
 
-import bm.comms.Sender;
-import bm.comms.mqtt.MQTTPublisher;
-import bm.jeep.JEEPRequest;
-import bm.jeep.device.JEEPErrorResponse;
-import bm.jeep.device.ReqRequest;
-import bm.jeep.device.ResError;
-import bm.main.repositories.DeviceRepository;
+import bm.jeep.vo.JEEPRequest;
+import bm.jeep.vo.device.JEEPErrorResponse;
+import bm.jeep.vo.device.ResError;
 
 public abstract class AbstModuleExtension {
 	protected String logDomain;

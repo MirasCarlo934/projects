@@ -74,7 +74,7 @@
 //    public void addUIDevice(UIDevice d) {
 //        devices.put(d.getSSID(), d);
 //        if(!dr.containsDevice(d.getSSID())) {
-//            dr.addDevice((Device)d.getSymphonyObject());
+//            dr.createDevice((Device)d.getSymphonyObject());
 //        }
 //    }
 //
@@ -83,7 +83,7 @@
 //    }
 //
 //    public UIDevice removeUIDevice(String roomID) {
-//        dr.removeDevice(roomID);
+//        dr.detachDevice(roomID);
 //        return devices.remove(roomID);
 //    }
 //

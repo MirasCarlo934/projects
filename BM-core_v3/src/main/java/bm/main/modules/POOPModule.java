@@ -5,11 +5,12 @@ import java.util.Vector;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.context.properties.Property;
-import bm.jeep.JEEPRequest;
-import bm.jeep.JEEPResponse;
-import bm.jeep.device.JEEPErrorResponse;
-import bm.jeep.device.ReqPOOP;
-import bm.jeep.device.ResPOOP;
+import bm.jeep.JEEPManager;
+import bm.jeep.vo.JEEPRequest;
+import bm.jeep.vo.JEEPResponse;
+import bm.jeep.vo.device.JEEPErrorResponse;
+import bm.jeep.vo.device.ReqPOOP;
+import bm.jeep.vo.device.ResPOOP;
 import bm.main.repositories.DeviceRepository;
 import bm.tools.IDGenerator;
 import bm.tools.SystemTimer;
@@ -31,29 +32,31 @@ import bm.tools.SystemTimer;
 
 //TASK Follow new JEEP request/response protocol
 //TASK Handle JEEPResponses accordingly
-public class POOPModule extends MultiModule {
+public class POOPModule extends Module {
 //	private CIRManager cirr;
 	private String propIDParam;
 	private String propValParam;
 	private IDGenerator idg = new IDGenerator();
-	private Vector<String> affectedIDs = new Vector<String>(1, 1); //SSID of all properties affected by this POOP
+	private JEEPManager jm;
+//	private Vector<String> affectedIDs = new Vector<String>(1, 1); //SSID of all properties affected by this POOP
 
 	public POOPModule(String logDomain, String errorLogDomain, String RTY, String propIDParam,
-					  String propValParam, DeviceRepository dr, SystemTimer sysTimer) {
+					  String propValParam, DeviceRepository dr, JEEPManager jeepManager, SystemTimer sysTimer) {
 		super(logDomain, errorLogDomain, "POOPModule", RTY, new String[]{propIDParam, propValParam}, 
-				new String[]{propIDParam, propValParam}, /*mp, */dr, sysTimer);
+				null, /*mp, */dr);
 		this.propIDParam = propIDParam;
 		this.propValParam = propValParam;
+		this.jm = jeepManager;
 	}
 	
-	public POOPModule(String logDomain, String errorLogDomain, String RTY, String propIDParam,
-					  String propValParam, DeviceRepository dr, AbstModuleExtension[] extensions,
-					  SystemTimer sysTimer) {
-		super(logDomain, errorLogDomain, "POOPModule", RTY, new String[]{propIDParam, propValParam}, 
-				new String[]{propIDParam, propValParam}, /*mp, */dr, extensions, sysTimer);
-		this.propIDParam = propIDParam;
-		this.propValParam = propValParam;
-	}
+//	public POOPModule(String logDomain, String errorLogDomain, String RTY, String propIDParam,
+//					  String propValParam, DeviceRepository dr, AbstModuleExtension[] extensions,
+//					  SystemTimer sysTimer) {
+//		super(logDomain, errorLogDomain, "POOPModule", RTY, new String[]{propIDParam, propValParam},
+//				null, /*mp, */dr);
+//		this.propIDParam = propIDParam;
+//		this.propValParam = propValParam;
+//	}
 
 	/**
 	 * Updates the system of the property change of the requesting component and also the property
@@ -62,7 +65,7 @@ public class POOPModule extends MultiModule {
 	 * @param request The Request to be processed. <b>Must be</b> a <i>ReqPOOP</i> object.
 	 */
 	@Override
-	protected boolean process(JEEPRequest request) {
+	protected boolean processRequest(JEEPRequest request) {
 		ReqPOOP poop = new ReqPOOP(request, propIDParam, propValParam);
 		Device d = dr.getDevice(poop.getCID());
 //		Vector<Property> propsToUpdate = new Vector<Property>(1, 1);
@@ -72,30 +75,27 @@ public class POOPModule extends MultiModule {
 //			error("CIRManager cannot updateRules! Old rules may apply!", e1, request.getProtocol());
 //		}
 		
-		mainLOG.info("Changing property " + poop.propSSID + " of device " + d.getSSID() + " to "
+		LOG.info("Changing property " + poop.propSSID + " of device " + d.getSSID() + " to "
                 + poop.propValue + "...");
 		if(d.getProperty(poop.propSSID).getValue().toString().equals(poop.propValue.toString())) {
-			mainLOG.info("Property is already set to " + poop.propValue + "!");
-			request.getProtocol().getSender().send(new ResPOOP(poop, poop.propSSID, poop.propValue));
+			LOG.info("Property is already set to " + poop.propValue + "!");
+			jm.sendPOOPResponse(d.getProperty(poop.propSSID), poop);
 		}
 		else {
-			mainLOG.debug("Updating property in system...");
+			LOG.debug("Updating property in system...");
 			try {
 				Property prop = d.getProperty(poop.propSSID);
 //				prop.setValue(poop.propValue, logDomain, false);
                 prop.setValue(poop.propValue);
 				prop.update(logDomain, false);
-//                ReqPOOP reqPoop = new ReqPOOP(idg.generateRID(), prop.getDevice().getSSID(), poopRTY,
-//                        poop.getProtocol(), propIDParam, propValParam, prop.getSSID(), prop.getValue());
-//                poop.getProtocol().send(reqPoop);
-//				propsToUpdate.add(prop);
+				jm.sendPOOPResponse(prop, poop);
 			} catch (AdaptorException e) {
-				error("Cannot change property " + poop.propSSID + " of component " + poop.getCID(), e, 
+				error("Cannot change property " + poop.propSSID + " of device " + poop.getCID(), e,
 						request.getProtocol());
 				return false;
 			}
 			
-//			mainLOG.info("Updating affected devices in environment...");
+//			LOG.info("Updating affected devices in environment...");
 //			boolean updatedOthers = false;
 //			Rule[] rules = cirr.getSpecificRules(d.getProperty(poop.propSSID));
 //			HashMap<Property, Boolean> alreadyChanged = new HashMap<Property, Boolean>(1);
@@ -110,7 +110,7 @@ public class POOPModule extends MultiModule {
 //						if(alreadyChanged.containsKey(prop2)) {
 //							continue;
 //						}
-//						mainLOG.info("Changing device " + dev.getSSID() + " property " +
+//						LOG.info("Changing device " + dev.getSSID() + " property " +
 //								exec.getPropertyID() + " to " + exec.getPropertyValue() + "...");
 //						try {
 //							affectedIDs.add(dev.getSSID() + "-" + prop2.getSSID());
@@ -130,16 +130,26 @@ public class POOPModule extends MultiModule {
 //					}
 //				}
 //			}
-//			if(!updatedOthers) mainLOG.info("No other components updated!");
+//			if(!updatedOthers) LOG.info("No other components updated!");
 		}
-		mainLOG.info("POOP processing complete!");
+		LOG.info("Property changed. POOP processing complete!");
 		return true;
 	}
 	
 	@Override
-	protected void processResponse(JEEPResponse response) {
-		ResPOOP res = new ResPOOP(response, propIDParam, propValParam);
-		affectedIDs.remove(res.getCID() + res.getPropSSID());
+	protected boolean processResponse(JEEPResponse response) {
+//		ResPOOP res = new ResPOOP(response, propIDParam, propValParam);
+//		affectedIDs.remove(res.getCID() + res.getPropSSID());
+		return true;
+	}
+
+	@Override
+	public void processNonResponse(JEEPRequest request) {
+		ReqPOOP poop = (ReqPOOP) request;
+		Device device = dr.getDevice(request.getCID());
+		LOG.warn("Device " + request.getCID() + " has not responded to a request to change its property "
+				+ device.getProperty(poop.propSSID) + " (" + device.getProperty(poop.propSSID).getDisplayName()
+				+ ") to " + poop.propValue);
 	}
 
 	@Override

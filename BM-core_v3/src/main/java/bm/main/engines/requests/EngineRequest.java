@@ -5,7 +5,7 @@ import bm.main.engines.AbstEngine;
 public abstract class EngineRequest {
 	private String id; //the ID of the EngineRequest
 	private AbstEngine engine;
-//	private String engineType; //the Engine class string that can process this EngineRequest
+//	private String engineType; //the Engine class string that can processRequest this EngineRequest
 	private Thread requestingThread;
 	private boolean waitForResponse;
 	protected Object response = null; // the response of the Engine
@@ -22,7 +22,7 @@ public abstract class EngineRequest {
 	}
 
 	/**
-	 * Returns the Engine class in String format that can process this EngineRequest.
+	 * Returns the Engine class in String format that can processRequest this EngineRequest.
 	 * @return the Engine class String
 	 */
 //	public String getEngineType() {

@@ -8,7 +8,6 @@ import java.util.Vector;
 import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.properties.Property;
-import bm.jeep.device.ReqPOOP;
 import bm.main.repositories.DeviceRepository;
 import org.apache.log4j.Logger;
 import org.jdom.Document;

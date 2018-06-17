@@ -1,4 +1,4 @@
-package bm.jeep;
+package bm.jeep.vo;
 
 import bm.comms.Protocol;
 import bm.comms.Sender;

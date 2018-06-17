@@ -1,7 +1,7 @@
-package bm.jeep.device;
+package bm.jeep.vo.device;
 
-import bm.jeep.JEEPRequest;
-import bm.jeep.JEEPResponse;
+import bm.jeep.vo.JEEPRequest;
+import bm.jeep.vo.JEEPResponse;
 
 public class ResGetRooms extends JEEPResponse {
 

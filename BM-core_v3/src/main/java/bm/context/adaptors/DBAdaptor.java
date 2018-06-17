@@ -48,7 +48,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(insertCom, Thread.currentThread(), waitUntilPersisted);
 		} catch (EngineException e1) {
-			AdaptorException e = new AdaptorException("Error inserting component to DB!", e1);
+			AdaptorException e = new AdaptorException("Error inserting component to DB!", e1, getName());
 			throw e;
 		}
 	}
@@ -72,7 +72,7 @@ public class DBAdaptor extends AbstAdaptor {
 			dbe.putRequest(update, Thread.currentThread(), waitUntilUpdated);
 			LOG.trace("Update successful!");
 		} catch (EngineException e) {
-			throw new AdaptorException("Error updating component in DB!", e);
+			throw new AdaptorException("Error updating component in DB!", e, getName());
 		}
 	}
 	
@@ -90,7 +90,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot updateRules device state!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules device state!", e, getName());
 			throw a;
 		}
 	}
@@ -108,7 +108,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot updateRules device room!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules device room!", e, getName());
 			throw a;
 		}
 	}
@@ -125,7 +125,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(delete1, t, waitUntilDeleted);
 		} catch(EngineException e1) {
-			AdaptorException a  = new AdaptorException("Error deleting records from DB!", e1);
+			AdaptorException a  = new AdaptorException("Error deleting records from DB!", e1, getName());
 			throw a;
 		}
 		
@@ -134,7 +134,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(delete2, t, waitUntilDeleted);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Error deleting properties from DB!", e);
+			AdaptorException a = new AdaptorException("Error deleting properties from DB!", e, getName());
 			throw a;
 		}
 	}
@@ -153,7 +153,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(insert, t, waitUntilPersisted);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Error inserting property to DB!", e);
+			AdaptorException a = new AdaptorException("Error inserting property to DB!", e, getName());
 			throw a;
 		}
 	}
@@ -172,7 +172,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot updateRules property value!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules property value!", e, getName());
 			throw a;
 		}
 	}
@@ -207,7 +207,7 @@ public class DBAdaptor extends AbstAdaptor {
 			dbe.putRequest(insert1, t, waitUntilPersisted);
 		} catch (EngineException e) {
 			AdaptorException a = new AdaptorException("Cannot insert room to DB! Query : " + 
-					insert1.getQuery(), e);
+					insert1.getQuery(), getName());
 			throw a;
 		}
 	}
@@ -224,7 +224,7 @@ public class DBAdaptor extends AbstAdaptor {
 			dbe.putRequest(delete1, t, waitUntilDeleted);
 		} catch (EngineException e) {
 			AdaptorException a = new AdaptorException("Cannot delete room from DB! Query : " +
-					delete1.getQuery(), e);
+					delete1.getQuery(), e, getName());
 			throw a;
 		}
 	}
@@ -248,7 +248,7 @@ public class DBAdaptor extends AbstAdaptor {
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot updateRules property value!", e);
+			AdaptorException a = new AdaptorException("Cannot updateRules property value!", e, getName());
 			throw a;
 		}
 	}

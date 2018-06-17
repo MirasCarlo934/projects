@@ -1,10 +1,9 @@
-package bm.jeep.device;
+package bm.jeep.vo.device;
 
 import bm.comms.Protocol;
 import org.json.JSONObject;
 
-import bm.comms.Sender;
-import bm.jeep.JEEPRequest;
+import bm.jeep.vo.JEEPRequest;
 
 public class ReqDeleteRoom extends JEEPRequest {
 	public String roomID;

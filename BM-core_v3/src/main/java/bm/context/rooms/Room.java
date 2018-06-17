@@ -244,7 +244,7 @@ public class Room extends SymphonyObject implements OHItemmable, HTMLTransformab
 //		sortChildren();
 //	}
 //	
-//	public void removeDevice(Device device) {
+//	public void detachDevice(Device device) {
 //		devices.remove(device);
 //		children.remove(device);
 //	}

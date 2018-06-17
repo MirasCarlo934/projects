@@ -1,16 +1,34 @@
-2018-06-09 11:55:58,587 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
-2018-06-09 11:55:58,589 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
-2018-06-09 11:55:58,590 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
-2018-06-09 11:55:58,590 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
-2018-06-09 11:56:00,494 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:00,646 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:00,650 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:00,824 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,079 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,102 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,109 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,112 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,113 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,117 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,166 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-09 11:56:01,168 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-17 20:20:19,145 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
+2018-06-17 20:20:19,149 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-06-17 20:20:19,149 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
+2018-06-17 20:20:19,149 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
+2018-06-17 20:20:41,709 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
+2018-06-17 20:20:41,710 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
+{
+RID:"test1",
+CID:"I2M4",
+RTY:"poop",
+property:"0001",
+value:1
+}
+2018-06-17 20:20:41,796 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-17 20:20:59,156 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
+2018-06-17 20:20:59,156 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
+{
+RID:"test1",
+CID:"I2M4",
+RTY:"poop",
+property:"0006",
+value:1
+}
+2018-06-17 20:20:59,187 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-17 20:21:08,679 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
+2018-06-17 20:21:08,680 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
+{
+RID:"test1",
+CID:"I2M4",
+RTY:"poop",
+property:"0006",
+value:0
+}
+2018-06-17 20:21:08,786 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!

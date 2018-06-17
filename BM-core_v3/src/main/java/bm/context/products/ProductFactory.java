@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import bm.context.properties.Property;
 import bm.context.properties.PropertyMode;
+import bm.jeep.JEEPManager;
 import org.apache.log4j.Logger;
 
 import bm.context.properties.PropertyType;
@@ -15,16 +16,18 @@ public class ProductFactory {
 	protected Logger LOG;
 	protected String logDomain;
 	protected static HashMap<String, PropertyType> propertyTypes = new HashMap<String, PropertyType>(6);
+	private JEEPManager jm;
 	
 	private String poopRTY;
 	protected String propIDParam;
 	protected String propValParam;
 	private IDGenerator idg;
 
-	public ProductFactory(String logDomain, String poopRTY, String propIDParam,
+	public ProductFactory(String logDomain, JEEPManager jeepManager, String poopRTY, String propIDParam,
 			String propValParam, IDGenerator idGenerator) {
 		this.LOG = Logger.getLogger(logDomain + "." + ProductFactory.class.getSimpleName());
 		this.logDomain = logDomain;
+		this.jm = jeepManager;
 		this.poopRTY = poopRTY;
 		this.propIDParam = propIDParam;
 		this.propValParam = propValParam;
@@ -44,7 +47,7 @@ public class ProductFactory {
 	public Product createProductObject(String SSID, String name, String description, String iconImg,
                                        ResultSet productsRS) {
 	    Product prod = new Product(logDomain, SSID, name, description, iconImg, propertyTypes,
-                poopRTY, propIDParam, propValParam, idg);
+                poopRTY, propIDParam, propValParam, jm, idg);
         try {
             productsRS.beforeFirst();
             while(productsRS.next()) {
@@ -56,7 +59,7 @@ public class ProductFactory {
                         PropertyMode prop_mode = PropertyMode.parseModeFromString(productsRS.getString("prop_mode"));
                         String prop_ssid = productsRS.getString("prop_index");
                         Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, poopRTY, propIDParam,
-                                propValParam, idg);
+                                propValParam, jm, idg);
                         LOG.debug("Adding property " + prop.getSystemName() + " to product " + prod_ssid + "!");
                         prod.addProperty(prop);
                     }

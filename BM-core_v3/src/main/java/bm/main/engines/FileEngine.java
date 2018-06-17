@@ -33,8 +33,8 @@ import bm.tools.VersionManager;
 /**
  * <b>FileEngine</b><br><br>
  * 
- * The FileEngine is an outsourced process which came from multiple objects that needed to handle files. This
- * object was created to outsource the process of accessing a file within the system. The FileEngine has three main
+ * The FileEngine is an outsourced processRequest which came from multiple objects that needed to handle files. This
+ * object was created to outsource the processRequest of accessing a file within the system. The FileEngine has three main
  * functions: <b>
  * <ul>
  * 	<li>Accessing a specified file.

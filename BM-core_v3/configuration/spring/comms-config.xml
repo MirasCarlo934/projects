@@ -27,9 +27,7 @@
 	<bean id="HTTPSender" class="bm.comms.http.HTTPSender" scope="singleton">
 		<constructor-arg name="name" value="MainHTTPSender"/>
    		<constructor-arg name="logDomain" value="${log.domain.main}"/>
-   		<constructor-arg name="secondsToWaitBeforeResend" value="${comms.resendTime}"/>
-   		<constructor-arg name="resendTimeout" value="${comms.resendTimout}"/>
-		<constructor-arg name="isResending" value="true"/>
+		<constructor-arg name="responseManager" ref="ResponseManager"/>
    		<!-- <constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
    		<constructor-arg name="url" value="${oh.ip}"/> -->
    	</bean>
@@ -56,7 +54,7 @@
 		<constructor-arg name="logDomain" value="${log.domain.mqtt}"/>
 		<constructor-arg name="default_topic" value="${mqtt.topic.default}"/>
 		<constructor-arg name="error_topic" value="${mqtt.topic.error}"/>
-		<constructor-arg name="controller" ref="Controller"/>
+        <constructor-arg name="inboundTrafficManager" ref="InboundTrafficManager"/>
 	</bean>
 	<bean id="MQTTPublisher" class="bm.comms.mqtt.MQTTPublisher">
 		<constructor-arg name="name" value="MainMQTTPublisher"/>
@@ -64,8 +62,22 @@
 		<constructor-arg name="default_topic" value="${mqtt.topic.default}"/>
 		<constructor-arg name="error_topic" value="${mqtt.topic.error}"/>
 		<constructor-arg name="deviceRepository" ref="Devices"/>
-		<constructor-arg name="secondsToWaitBeforeResend" value="${comms.resendTime}"/>
-   		<constructor-arg name="resendTimeout" value="${comms.resendTimout}"/>
-		<constructor-arg name="isResending" value="false"/>
+		<constructor-arg name="responseManager" ref="ResponseManager"/>
+	</bean>
+
+    <!--CORE OBJECTS-->
+    <bean id="InboundTrafficManager" class="bm.comms.InboundTrafficManager">
+        <constructor-arg name="controller" ref="Controller"/>
+        <constructor-arg name="deviceRepository" ref="Devices"/>
+        <constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="responseManager" ref="ResponseManager"/>
+    </bean>
+	<bean id="ResponseManager" class="bm.comms.ResponseManager">
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="deviceRepository" ref="Devices"/>
+        <constructor-arg name="controller" ref="Controller"/>
+		<constructor-arg name="resendPeriod" value="${comms.resendTime}"/>
+		<constructor-arg name="timeout" value="${comms.resendTimeout}"/>
+        <constructor-arg name="isResending" value="false"/>
 	</bean>
 </beans>

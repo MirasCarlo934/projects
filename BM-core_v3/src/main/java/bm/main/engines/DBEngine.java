@@ -5,21 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLNonTransientConnectionException;
-import java.sql.SQLTimeoutException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Timer;
 import java.util.TimerTask;
 
-import org.apache.catalina.Engine;
-import org.apache.log4j.*;
-
-import bm.jeep.device.ResError;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.engines.requests.EngineRequest;
 import bm.main.engines.requests.DBEngine.DBEngineRequest;
-import bm.main.engines.requests.DBEngine.QueryType;
-import bm.main.engines.requests.DBEngine.RawDBEReq;
 import bm.tools.SystemTimer;
 
 //FIXME Fix unlimited loop when DB is not on

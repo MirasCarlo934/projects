@@ -5,7 +5,7 @@
 //import bm.comms.http.HTTPException;
 //import bm.comms.http.HTTPSender;
 //import bm.context.devices.Device;
-//import bm.jeep.JEEPRequest;
+//import bm.jeep.vo.JEEPRequest;
 //import bm.main.modules.AbstModuleExtension;
 //import bm.main.repositories.DeviceRepository;
 //import oh.main.initializables.OH_Initializer;
@@ -24,13 +24,13 @@
 //	}
 //
 //	@Override
-//	protected void process(JEEPRequest request) {
+//	protected void processRequest(JEEPRequest request) {
 //		Device dev = dr.getDevice(request.getCID());
 //		if(dev == null) {
 //			dev = dr.getDevice(request.getRID()); //for registration requests
 //		}
 //
-//		mainLOG.debug("Updating state of device " + dev.getSSID() + "to " + dev.isActive() + "...");
+//		LOG.debug("Updating state of device " + dev.getSSID() + "to " + dev.isActive() + "...");
 //		String itemName;
 //		if(dev.getProperties().length > 1) {
 //			itemName = dev.getSSID();
@@ -39,9 +39,9 @@
 //		}
 //		try {
 //			if(dev.isActive()) {
-//				OH_Initializer.addItems(mainLOG, hs, ohIP, dev.convertToItemsJSON(), true);
+//				OH_Initializer.addItems(LOG, hs, ohIP, dev.convertToItemsJSON(), true);
 //				if(dev.getProperties().length == 1) {
-//					OH_Initializer.addItems(mainLOG, hs, ohIP, dev.getProperties()[0].convertToItemsJSON(), true);
+//					OH_Initializer.addItems(LOG, hs, ohIP, dev.getProperties()[0].convertToItemsJSON(), true);
 //				}
 //			} else {
 //				JSONObject json = new JSONObject();
@@ -50,11 +50,11 @@
 //				json.put("label", dev.getName() + " [inactive]");
 //				json.put("groupNames", new String[]{dev.getParentRoom().getSSID()});
 //				json.put("category", dev.getProduct().getOHIcon());
-//				OH_Initializer.addItems(mainLOG, hs, ohIP, new JSONObject[]{json}, true);
+//				OH_Initializer.addItems(LOG, hs, ohIP, new JSONObject[]{json}, true);
 //			}
-//			mainLOG.debug("Device state change success!");
+//			LOG.debug("Device state change success!");
 //		} catch(HTTPException e) {
-//			mainLOG.error("Cannot updateRules state of device " + dev.getSSID() + "!", e);
+//			LOG.error("Cannot updateRules state of device " + dev.getSSID() + "!", e);
 //		}
 //	}
 //

@@ -44,7 +44,7 @@ public class StringTools {
 	
 	/**
 	 * Injects additional Strings into a main String. This is extremely useful when building a String that includes a
-	 * mixture of constant Strings and multiple variables. <i>This method simplifies that process.</i><br><br>
+	 * mixture of constant Strings and multiple variables. <i>This method simplifies that processRequest.</i><br><br>
 	 * 
 	 * A classic example of a String built with mixed constant Strings and variables: <br>
 	 * <i>String s = "Hey there, " + name + ". Today is " + date + " and good day!";</i><br><br>
@@ -53,7 +53,7 @@ public class StringTools {
 	 * <i>Hey there, Carlo. Today is 6/15/2016 and good day!</i><br><br>
 	 * 
 	 * This example perfectly illustrates the difficulty of constructing a String that includes constant Strings and
-	 * variables. <b><i>This method simplifies this process by allowing the user to build the template String first and then
+	 * variables. <b><i>This method simplifies this processRequest by allowing the user to build the template String first and then
 	 * placing a constant field String all over the template String where the variables will be injected into.</b></i><br><br>
 	 * 
 	 * Example:<br>
@@ -101,7 +101,7 @@ public class StringTools {
 	
 	/**
 	 * Extends original injectStrings() by accommodating varying field strings. This is extremely useful when building a String that includes a
-	 * mixture of constant Strings and multiple variables. <i>This method simplifies that process.</i><br><br>
+	 * mixture of constant Strings and multiple variables. <i>This method simplifies that processRequest.</i><br><br>
 	 * 
 	 * A classic example of a String built with mixed constant Strings and variables: <br>
 	 * <i>String s = "Hey there, " + name + ". Today is " + date + " and good day!";</i><br><br>
@@ -110,7 +110,7 @@ public class StringTools {
 	 * <i>Hey there, Carlo. Today is 6/15/2016 and good day!</i><br><br>
 	 * 
 	 * This example perfectly illustrates the difficulty of constructing a String that includes constant Strings and
-	 * variables. <b><i>This method simplifies this process by allowing the user to build the template String first and then
+	 * variables. <b><i>This method simplifies this processRequest by allowing the user to build the template String first and then
 	 * placing variable field Strings all over the template String where the variables will be injected into.</b></i><br><br>
 	 * 
 	 * Example:<br>

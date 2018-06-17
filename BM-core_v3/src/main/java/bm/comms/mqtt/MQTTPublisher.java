@@ -1,42 +1,50 @@
 package bm.comms.mqtt;
 
 import java.util.LinkedList;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Vector;
 
-import org.apache.log4j.Logger;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import bm.comms.ResponseManager;
+import bm.context.devices.Device;
+import bm.main.interfaces.Initializable;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
 import bm.comms.Sender;
 import bm.comms.mqtt.objects.MQTTMessage;
-import bm.jeep.JEEPMessage;
-import bm.jeep.JEEPResponse;
-import bm.jeep.device.JEEPErrorResponse;
+import bm.jeep.vo.JEEPMessage;
+import bm.jeep.vo.JEEPResponse;
+import bm.jeep.vo.device.JEEPErrorResponse;
 import bm.main.repositories.DeviceRepository;
 
-public class MQTTPublisher extends Sender {
+public class MQTTPublisher extends Sender implements Initializable {
 	private MQTTClient client;
 	private String default_topic;
 	private String error_topic;
 	private DeviceRepository dr;
 	protected LinkedList<MQTTMessage> queue = new LinkedList<MQTTMessage>();
-	
-	public MQTTPublisher(String name, String logDomain, String default_topic, String error_topic, 
-                         DeviceRepository deviceRepository, int secondsToWaitBeforeResend, int resendTimeout,
-						 boolean isResending) {
-		super(logDomain, name, secondsToWaitBeforeResend, resendTimeout, isResending);
+	private Vector<String> deviceTopics;
+
+	public MQTTPublisher(String name, String logDomain, String default_topic, String error_topic,
+						 DeviceRepository deviceRepository, ResponseManager responseManager) {
+		super(logDomain, name, responseManager);
 		this.default_topic = default_topic;
 		this.error_topic = error_topic;
 		this.dr = deviceRepository;
+		this.deviceTopics = new Vector<String>(dr.getAllDevices().length, 1);
 	}
 	
 	public void setClient(MQTTClient client) {
 		this.client = client;
 	}
-	
+
+	@Override
+	public void initialize() {
+		LOG.debug("Getting device topics from DeviceRepository...");
+		getDevices();
+		LOG.debug("Device topics retrieved!");
+	}
+
 	@Override
 	public void run() {
 		while(!Thread.currentThread().isInterrupted()) {
@@ -58,6 +66,20 @@ public class MQTTPublisher extends Sender {
 		}
 	}
 
+	private void getDevices() {
+		for(Device device : dr.getAllDevices()) {
+			if(deviceTopics.isEmpty()) {
+				deviceTopics.add(device.getTopic());
+			} else {
+				if (device.isActive()) {
+					deviceTopics.add(device.getTopic());
+				} else {
+					deviceTopics.remove(device.getTopic());
+				}
+			}
+		}
+	}
+
 	@Override
 	public void sendJEEPMessage(JEEPMessage message) {
 		publish(message);
@@ -74,16 +96,12 @@ public class MQTTPublisher extends Sender {
 	
 	/**
 	 * Publish to MQTT with String message
-	 * @param destination The topic/cid to publish to
+	 * @param destination The topic to publish to
 	 * @param message The message
 	 */
 	private void publish(String destination, String message) {
-		String topic = destination;
-		if(dr.getDevice(destination) != null) { //get Component if destination is a CID
-			topic = dr.getDevice(destination).getTopic();
-		}
-		LOG.trace("Adding new MQTTMessage to topic '" + topic + "' to queue...");
-		queue.add(new MQTTMessage(topic, message, Thread.currentThread()));
+		LOG.trace("Adding new MQTTMessage to topic '" + destination + "' to queue...");
+		queue.add(new MQTTMessage(destination, message, Thread.currentThread()));
 	}
 	
 	/**
@@ -101,7 +119,16 @@ public class MQTTPublisher extends Sender {
 	 * @param message The JEEPMessage
 	 */
 	private void publish(JEEPMessage message) {
-		String topic = message.getCID();
+		String topic = default_topic;
+		Device d = dr.getDevice(message.getCID());
+		if(d != null) { //get device if destination is a CID
+			if(deviceTopics.contains(d.getTopic())) {
+				topic = d.getTopic();
+			} else {
+				LOG.warn("Device " + d.getSSID() + " is not yet active. Sending to default_topic instead...");
+				deviceTopics.add(d.getTopic());
+			}
+		}
 		publish(topic, message.toString());
 	}
 

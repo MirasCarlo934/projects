@@ -5,10 +5,11 @@ import java.util.Iterator;
 
 import bm.comms.Protocol;
 import bm.context.properties.Property;
+import bm.jeep.JEEPManager;
+import bm.jeep.vo.JEEPRequest;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
-import bm.comms.Sender;
 import bm.context.HTMLTransformable;
 import bm.context.OHItemmable;
 import bm.context.SymphonyObject;
@@ -16,10 +17,6 @@ import bm.context.adaptors.AbstAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.products.Product;
 import bm.context.rooms.Room;
-import bm.jeep.device.ResPOOP;
-import bm.jeep.device.ResRegister;
-import bm.main.engines.exceptions.EngineException;
-import bm.tools.IDGenerator;
 
 /**
  * The Device object 
@@ -28,27 +25,27 @@ import bm.tools.IDGenerator;
  *
  */
 public class Device extends SymphonyObject implements OHItemmable, HTMLTransformable {
-	protected String loggerName;
-	protected HashMap<String, Property> properties = new HashMap<String, Property>(1);
-	protected Product product;
-	protected String MAC;
-	protected String name;
-	protected String topic;
+	private final Logger LOG;
+    private HashMap<String, Property> properties = new HashMap<String, Property>(1);
+    private Product product;
+    private String MAC;
+    private String name;
+    private String topic;
 	private Protocol protocol;
-	protected boolean active;
-	protected IDGenerator idg = new IDGenerator();
+    private boolean active;
+	private JEEPManager jm;
 	
-	public Device(String SSID, String MAC, String name, String topic, Protocol protocol, Room room,
-                  boolean active, Product product, int index) {
+	public Device(String logDomain, String SSID, String MAC, String name, String topic, Protocol protocol, Room room,
+                  boolean active, Product product, int index, JEEPManager jeepManager) {
 		super(SSID, room, index);
-		this.loggerName = "DEV:" + SSID;
+		LOG = Logger.getLogger(logDomain + ".DEV:" + SSID);
 		this.setMAC((MAC));
 		this.setName((name));
 		this.setTopic((topic));
-//		this.setProperties(product.getProperties());
 		this.setProduct((product));
 		this.protocol = protocol;
-		setActive(active);
+		this.jm = jeepManager;
+		this.active = active;
 		
 		//sets this device as the owner of the properties given to it
 		Iterator<Property> props = product.getProperties().values().iterator();
@@ -67,14 +64,13 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	@Override
 	protected void createInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilCreated)
 			throws AdaptorException {
-		final Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Creating device " + SSID + " in " + adaptor.getName() + "...");
 		adaptor.deviceCreated(this, waitUntilCreated);
+        LOG.debug("Device " + SSID + " created!");
 	}
 
 	@Override
     public void create(String callerLogDomain, boolean waitUntilCreated) throws AdaptorException {
-        final Logger LOG = getLogger(callerLogDomain);
 	    super.create(callerLogDomain, waitUntilCreated);
         LOG.debug("Creating properties of device " + SSID + " in Environment...");
         Iterator<Property> props = properties.values().iterator();
@@ -93,7 +89,6 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	@Override
 	protected void deleteInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException {
-		Logger LOG = getLogger(callerLogDomain);
 		LOG.debug("Deleting device " + SSID + " from " + adaptor.getName() + "...");
 		adaptor.deviceDeleted(this, waitUntilDeleted);
 		
@@ -114,8 +109,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	@Override
 	protected void updateInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilUpdated)
 			throws AdaptorException {
-		Logger LOG = getLogger(callerLogDomain);
-		LOG.debug("Updating device " + SSID + "...");
+		LOG.debug("Updating device " + SSID + " in " + adaptor.getName() + "...");
 		adaptor.deviceCredentialsUpdated(this, waitUntilUpdated);
 		LOG.debug("Device " + SSID + " updated!");
 	}
@@ -139,7 +133,6 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //	@Override
 //	public void updateRules(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated)
 //			throws AdaptorException {
-//		//LATER Component: Create updateRules function
 //		Logger LOG = getLogger(parentLogDomain);
 //		LOG.debug("Updating component " + SSID + "...");
 //		for(int i = 0; i < adaptors.length; i++) {
@@ -164,44 +157,97 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //		LOG.debug("Component " + SSID + " updated!");
 //	}
 	
+//	/**
+//	 * Sends the credentials of this Device object to the actual device as a JEEPResponse. This is
+//	 * typically only used by a Module object currently processing a JEEPRequest.
+//     * @param request The JEEPRequest that needs responding to
+//	 */
+//	public void sendCredentials(JEEPRequest request) {
+//		LOG.debug("Sending credentials to actual device...");
+//		jm.sendRegistrationResponse(this, request);
+////		LOG.debug("Credentials sent!");
+//	}
+
 	/**
-	 * Publishes the credentials of this Component object to the default topic. Creates a new
-	 * ResRegister object that contains the credentials of this Component.
-	 *
-	 * @param registerRTY The RTY designation for registration requests
-	 * @param parentLogDomain The log domain of the object that called this method
+	 * Sends the credentials of this Device object to the actual device as a JEEPRequest.
 	 */
-	public void publishCredentials(Sender sender, String registerRTY, String parentLogDomain) {
-		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Sending credentials to default_topic...");
-		ResRegister response = new ResRegister(getMAC(), getSSID(), registerRTY, protocol, getSSID(), getTopic());
-//		sender.send(response);
-//		if(sender.getClass().equals(MQTTPublisher.class)) {
-//			MQTTPublisher mp = (MQTTPublisher) sender;
-//			mp.publishToDefaultTopic(response);
-//		} else {
-//			sender.sendJEEPMessage(response);
-//		}
+	public void sendCredentials() {
+		LOG.debug("Sending credentials to actual device...");
+		jm.sendRegistrationRequest(this);
+//		LOG.debug("Credentials sent!");
 	}
+
+//    /**
+//     * Sends a deactivation request to the actualdevice informing it that it is considered inactive in the
+//     * Environment. <i>This method is ONLY called by the <b>ResponseManager</b> after the device fails to
+//     * respond to a request sent to it.</i>
+//     *
+//     * @param message The deactivation message
+//     */
+//	public void sendDeactivationMessage(String message) {
+//	    LOG.debug("Sending deactivation message to actual device...");
+//	    jm.sendDeactivationRequest(this, message);
+//    }
+
+//	/**
+//	 * Sends a detachment response to the device that sent a detachment request. This is
+//	 *
+//	 * typically only used by a Module object currently processing a JEEPRequest.
+//	 * @param request The detachment request that needs responding to
+//	 * @param success <b><i>true</i></b> if the request was processed successfully,
+//	 *                <b><i>false</i></b> if not
+//	 */
+//	public void sendDetachmentResponse(JEEPRequest request, boolean success) {
+//		LOG.debug("Sending detachment response to actual device...");
+//		jm.sendDetachmentResponse(this, success, request);
+//	}
+
+	/**
+	 * Sends a detachment JEEP message to the actual device stating the grounds of detachment.
+	 * This method is called to inform the actual device that it will be detached from the Environment.
+	 * Normally, the device will have to return an acknowledgement response but failure to do so
+	 * will still detach it from the Environment. <i>Once detachment is undergone, Maestro will remove
+	 * the device from its records no matter the response (or lack thereof).</i>
+	 *
+	 * @param message The detachment message
+	 */
+	public void detachDevice(String message) {
+		LOG.debug("Sending detachment message to actual device...");
+		jm.sendDetachmentRequest(this, message);
+	}
+
+//	/**
+//	 * Sends a detachment message to the actual device.
+//	 * @param message The message/grounds for detachment. Set to <b><i>null</i></b> if <i>isRequest</i> is set
+//	 *                to false.
+//	 * @param isRequest <b><i>True</i></b> if the credentials will be sent to the device as a request,
+//	 *      			<b><i>false</i></b> if not. <i>NOTE: As a general rule of thumb, only Module objects set
+//	 *      			this to false.</i>
+//	 */
+//	public void detachDevice(boolean success, JEEPRequest request) {
+//		LOG.debug("Sending detachment message to actual device...");
+//		jm.detachDevice(this, message, isRequest);
+//		LOG.debug("Detachment message sent!");
+//	}
 	
-	/**
-	 * Publishes the values of this component's properties to the MQTT server. The values are returned in the form 
-	 * of a POOP response JSON.
-	 *
-	 * @param poopRTY The RTY string for the POOP request
-	 * @param parentLogDomain The log domain of the object that called this method
-	 */
-	public void publishPropertyValues(Sender sender, String poopRTY, String parentLogDomain) {
-		Logger LOG = getLogger(parentLogDomain);
-		LOG.debug("Sending property states of " + SSID + " to " + topic + "...");
-		Iterator<Property> props = properties.values().iterator();
-		while(props.hasNext()) {
-			Property prop = props.next();
-			LOG.trace(prop.getOH_ID() + " = " + prop.getValue());
-			ResPOOP poop = new ResPOOP("POOP", SSID, poopRTY, protocol, prop.getSSID(), prop.getValue());
-//			sender.send(poop);
-		}
-	}
+//	/**
+//	 * Publishes the values of this component's properties to the MQTT server. The values are returned in the form
+//	 * of a POOP response JSON.
+//	 *
+//	 * @param poopRTY The RTY string for the POOP request
+//	 * @param parentLogDomain The log domain of the object that called this method
+//	 */
+//	public void publishPropertyValues(Sender sender, String poopRTY, String parentLogDomain) {
+//		Logger LOG = getLogger(parentLogDomain);
+//		LOG.debug("Sending property states of " + SSID + " to " + topic + "...");
+//		Iterator<Property> props = properties.values().iterator();
+//		while(props.hasNext()) {
+//			Property prop = props.next();
+//			LOG.trace(prop.getOH_ID() + " = " + prop.getValue());
+//			ResPOOP poop = new ResPOOP("POOP", SSID, poopRTY, protocol, prop.getSSID(), prop.getValue());
+////			sender.send(poop);
+//		}
+//	}
 	
 	/**
 	 * Converts a component into JSON format. Also includes the component's properties in the 
@@ -323,31 +369,46 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		return active;
 	}
 
+//    /**
+//     * Sets this Device object active in the Environment. Also sends a deactivation request to the actual
+//     * device if parameter active is set to false.
+//     * @param active
+//     * @param callerLogDomain
+//     * @param waitUntilUpdated
+//     * @throws AdaptorException
+//     */
+//	public void setActive(boolean active, String callerLogDomain, boolean waitUntilUpdated)
+//            throws AdaptorException {
+//	    this.active = active;
+//	    update(callerLogDomain, waitUntilUpdated);
+//	    sendCredentials();
+//    }
+
 	/**
-	 * Sets the active property of this Component.
+	 * Sets the active property of this Device object.
 	 * 
-	 * @param active <b>true</b> if the Component is active, <b>false</b> if not
+	 * @param active <i><b>true</b></i> if the device is active, <i><b>false</b></i> if not
 	 */
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 	
-	/**
-	 * Sets the active state of this Component and persists it to the DB.
-	 * 
-	 * @param active <b>true</b> if the Component is active, <b>false</b> if not
-	 * @param waitUntilActivated
-	 * @throws EngineException thrown when persistence fails
-	 * @throws InterruptedException thrown when Thread.wait() fails
-	 */
-	public void setActive(boolean active, /*String parentLogDomain, */boolean waitUntilActivated) throws AdaptorException {
-//		Logger LOG = getLogger(parentLogDomain);
-//		LOG.debug("Setting active state to " + active);
-		this.active = active;
-		for(int i = 0; i < adaptors.size(); i++) {
-			adaptors.get(i).deviceStateUpdated(this, waitUntilActivated);
-		}
-	}
+//	/**
+//	 * Sets the active state of this Component and persists it to the DB.
+//	 *
+//	 * @param active <b>true</b> if the Component is active, <b>false</b> if not
+//	 * @param waitUntilActivated
+//	 * @throws EngineException thrown when persistence fails
+//	 * @throws InterruptedException thrown when Thread.wait() fails
+//	 */
+//	public void setActive(boolean active, /*String parentLogDomain, */boolean waitUntilActivated) throws AdaptorException {
+////		Logger LOG = getLogger(parentLogDomain);
+////		LOG.debug("Setting active state to " + active);
+//		this.active = active;
+//		for(int i = 0; i < adaptors.size(); i++) {
+//			adaptors.get(i).deviceStateUpdated(this, waitUntilActivated);
+//		}
+//	}
 	
 //	@Override
 //	public void setIndex(int index) throws AdaptorException {
@@ -419,8 +480,4 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
             property.setAdaptors(adaptors);
         }
     }
-	
-	private Logger getLogger(String parentLogDomain) {
-		return Logger.getLogger(parentLogDomain + "." + SSID);
-	}
 }

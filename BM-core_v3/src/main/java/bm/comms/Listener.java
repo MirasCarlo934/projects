@@ -1,19 +1,18 @@
 package bm.comms;
 
-import java.util.LinkedList;
-
 import org.apache.log4j.Logger;
 
-import bm.jeep.RawMessage;
+import bm.jeep.vo.RawMessage;
 import bm.main.controller.Controller;
 
 public abstract class Listener {
 	protected Logger LOG;
 	protected Protocol protocol;
 	private Controller controller;
+	private InboundTrafficManager itm;
 	
-	public Listener(String name, String logDomain, Controller controller) {
-		this.controller = controller;
+	public Listener(String name, String logDomain, InboundTrafficManager inboundTrafficManager) {
+		this.itm = inboundTrafficManager;
 		LOG = Logger.getLogger(logDomain + "." + name);
 	}
 	
@@ -22,7 +21,7 @@ public abstract class Listener {
 	 * @param msg The RawMessage to be sent
 	 */
 	protected void sendRawMessageToContoller(RawMessage msg) {
-		controller.addRawMessage(msg);
+		itm.addInboundRawMessage(msg);
 	}
 
     public void setProtocol(Protocol protocol) {

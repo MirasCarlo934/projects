@@ -1,24 +1,13 @@
 package bm.comms.mqtt;
 
-import java.util.LinkedList;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.apache.log4j.Logger;
+import bm.comms.InboundTrafficManager;
+import bm.jeep.vo.RawMessage;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
-import org.eclipse.paho.client.mqttv3.MqttSecurityException;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import bm.comms.Listener;
-import bm.comms.Sender;
-import bm.jeep.*;
-import bm.main.controller.Controller;
-import bm.main.repositories.DeviceRepository;
 
 /**
  * The MQTTHandler is the object that handles all interactions related to an MQTT server. 
@@ -34,9 +23,9 @@ public class MQTTListener extends Listener implements MqttCallback {
 	private String default_topic;
 	private String error_topic;
 
-	public MQTTListener(String name, String logDomain, String default_topic, String error_topic, 
-			Controller controller) {
-		super(name, logDomain, controller);
+	public MQTTListener(String name, String logDomain, String default_topic, String error_topic,
+						InboundTrafficManager inboundTrafficManager) {
+		super(name, logDomain, inboundTrafficManager);
 //		logger = Logger.getLogger(logDomain + "." + MQTTListener.class.getSimpleName());
 		setDefault_topic(default_topic);
 		setError_topic(error_topic);

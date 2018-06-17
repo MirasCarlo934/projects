@@ -7,8 +7,8 @@ import bm.comms.http.HTTPSender;
 import bm.comms.http.messages.PutHTTPReq;
 import bm.context.devices.Device;
 import bm.context.properties.Property;
-import bm.jeep.JEEPRequest;
-import bm.jeep.device.ReqPOOP;
+import bm.jeep.vo.JEEPRequest;
+import bm.jeep.vo.device.ReqPOOP;
 import bm.main.modules.AbstModuleExtension;
 import bm.main.repositories.DeviceRepository;
 

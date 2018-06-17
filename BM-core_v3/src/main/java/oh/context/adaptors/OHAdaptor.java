@@ -46,7 +46,7 @@ public class OHAdaptor extends AbstAdaptor {
 				deleteItem(d.getSSID(), waitUntilDeleted);
 			} catch (AdaptorException e) {
 				AdaptorException a = new AdaptorException("Cannot delete component " + d.getSSID() + " from "
-						+ "registry", e);
+						+ "registry", e, getName());
 				throw a;
 			}
 		}
@@ -58,7 +58,7 @@ public class OHAdaptor extends AbstAdaptor {
 	@Override
 	public void deviceCredentialsUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
 		LOG.trace("Updating component " + d.getSSID() + " in OpenHAB item registry through standard OHAdaptor "
-				+ "persistence process...");
+				+ "persistence processRequest...");
 		LOG.trace("Deleting device from sitemap (if it exists in the sitemap...");
 		deleteItemFromSitemap(d.convertToSitemapString(), false);
 		
@@ -89,7 +89,8 @@ public class OHAdaptor extends AbstAdaptor {
 		try {
 			httpSender.sendHTTPRequest(request, false);
 		} catch (bm.comms.http.HTTPException e) {
-			AdaptorException a = new AdaptorException("Cannot updateRules value of property " + p.getOH_ID(), e);
+			AdaptorException a = new AdaptorException("Cannot updateRules value of property " + p.getOH_ID(), e,
+					getName());
 			throw a;
 		}
 //		try {
@@ -109,7 +110,8 @@ public class OHAdaptor extends AbstAdaptor {
 			try {
 				addItems(items, waitUntilPersisted);
 			} catch(AdaptorException e) { 
-				throw new AdaptorException("Cannot add component " + d.getSSID() + " to OpenHAB item registry", e);
+				throw new AdaptorException("Cannot add component " + d.getSSID() + " to OpenHAB item registry", e,
+						getName());
 			}
 			LOG.trace("Component item representation added successfully!");
 		}
@@ -140,7 +142,7 @@ public class OHAdaptor extends AbstAdaptor {
 				addItems(new JSONObject[]{json}, waitUntilUpdated);
 			}
 		} catch(AdaptorException e) {
-			throw new AdaptorException("Cannot updateRules state of component " + d.getSSID(), e);
+			throw new AdaptorException("Cannot updateRules state of component " + d.getSSID(), e, getName());
 		}
 	}
 
@@ -158,7 +160,8 @@ public class OHAdaptor extends AbstAdaptor {
 		try {
 			deleteItem(p.getOH_ID(), waitUntilDeleted);
 		} catch (AdaptorException e) {
-			throw new AdaptorException("Cannot delete property " + p.getOH_ID() + " from registry", e);
+			throw new AdaptorException("Cannot delete property " + p.getOH_ID() + " from registry", e,
+					getName());
 		}
 	}
 
@@ -170,7 +173,7 @@ public class OHAdaptor extends AbstAdaptor {
 			addItems(r.convertToItemsJSON(), waitUntilPersisted);
 		} catch(AdaptorException e) {
 			throw new AdaptorException("Cannot persist room " + r.getSSID() + "(" + r.getName() + ") to "
-					+ "registry", e);
+					+ "registry", e, getName());
 		}
 		
 		//persists the room to the sitemap file IF it has NO parent room
@@ -212,7 +215,7 @@ public class OHAdaptor extends AbstAdaptor {
 				httpSender.sendHTTPRequest(put, false);
 			} catch (bm.comms.http.HTTPException e) {
 				AdaptorException a = new AdaptorException("Error in registering item. Item JSON: " + 
-						json.toString(), e);
+						json.toString(), e, getName());
 				throw a;
 			}
 		}
@@ -224,7 +227,7 @@ public class OHAdaptor extends AbstAdaptor {
 		try {
 			sitemapFE.putRequest(req1, Thread.currentThread(), waitUntilAdded);
 		} catch (EngineException e) {
-			throw new AdaptorException("Cannot insert item to OH sitemap file!", e);
+			throw new AdaptorException("Cannot insert item to OH sitemap file!", e, getName());
 		}
 	}
 	
@@ -233,7 +236,7 @@ public class OHAdaptor extends AbstAdaptor {
 		try {
 			sitemapFE.putRequest(req1, Thread.currentThread(), waitUntilDeleted);
 		} catch (EngineException e) {
-			throw new AdaptorException("Cannot delete item from OH sitemap file!", e);
+			throw new AdaptorException("Cannot delete item from OH sitemap file!", e, getName());
 		}
 	}
 	
@@ -275,7 +278,7 @@ public class OHAdaptor extends AbstAdaptor {
 			httpSender.sendHTTPRequest(delete, waitUntilDeleted);
 		} catch (bm.comms.http.HTTPException e) {
 			AdaptorException a = new AdaptorException("Cannot delete item " + itemName + " from item "
-					+ "registry!", e);
+					+ "registry!", e, getName());
 			throw a;
 		}
 //		try {

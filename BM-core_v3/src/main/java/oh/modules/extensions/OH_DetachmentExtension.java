@@ -5,7 +5,7 @@
 //import bm.context.adaptors.exceptions.AdaptorException;
 //import bm.context.devices.Device;
 //import bm.context.properties.Property;
-//import bm.jeep.JEEPRequest;
+//import bm.jeep.vo.JEEPRequest;
 //import bm.main.engines.FileEngine;
 //import bm.main.engines.exceptions.EngineException;
 //import bm.main.modules.AbstModuleExtension;
@@ -32,42 +32,42 @@
 //	}
 //
 //	@Override
-//	protected void process(JEEPRequest request) {
+//	protected void processRequest(JEEPRequest request) {
 //		Device d = dr.getDevice(request.getCID());
 //
-//		mainLOG.debug("Deleting device " + d.getSSID() + " from OpenHAB item registry...");
+//		LOG.debug("Deleting device " + d.getSSID() + " from OpenHAB item registry...");
 //		if(d.getProperties().length > 1) { //deletes device AND properties
 //			try {
-//				OH_Initializer.deleteItem(mainLOG, hs, ohIP, d.getSSID(), true);
+//				OH_Initializer.deleteItem(LOG, hs, ohIP, d.getSSID(), true);
 //				for(int i = 0; i < d.getProperties().length; i++) {
 //					Property p = d.getProperties()[i];
-//					mainLOG.trace("Deleting property " + p.getOH_ID() + " from OpenHAB item registry...");
+//					LOG.trace("Deleting property " + p.getOH_ID() + " from OpenHAB item registry...");
 //					try {
-//						OH_Initializer.deleteItem(mainLOG, hs, ohIP, p.getOH_ID(), true);
-//						mainLOG.trace("B_Property deleted!");
+//						OH_Initializer.deleteItem(LOG, hs, ohIP, p.getOH_ID(), true);
+//						LOG.trace("B_Property deleted!");
 //					} catch (HTTPException e) {
-//						mainLOG.error("Cannot delete property " + p.getOH_ID() + " from registry", e);
+//						LOG.error("Cannot delete property " + p.getOH_ID() + " from registry", e);
 //					}
 //				}
 //			} catch (HTTPException e) {
-//				mainLOG.error("Cannot delete device " + d.getSSID() + " from "
+//				LOG.error("Cannot delete device " + d.getSSID() + " from "
 //						+ "registry", e);
 //			}
 //		} else { //deletes sole property of device in OH
 //			Property p = d.getProperties()[0];
 //			try {
-//				OH_Initializer.deleteItem(mainLOG, hs, ohIP, p.getOH_ID(), true);
+//				OH_Initializer.deleteItem(LOG, hs, ohIP, p.getOH_ID(), true);
 //			} catch (HTTPException e) {
-//				mainLOG.error("Cannot delete device " + d.getSSID() + " from registry", e);
+//				LOG.error("Cannot delete device " + d.getSSID() + " from registry", e);
 //			}
 //		}
 //
-//		mainLOG.trace("Deleting device from sitemap...");
+//		LOG.trace("Deleting device from sitemap...");
 //		try {
 //			OH_Initializer.deleteItemFromSitemap(sitemapFE, idg, d.convertToSitemapString(), true);
-//			mainLOG.debug("Device deleted from OpenHAB!");
+//			LOG.debug("Device deleted from OpenHAB!");
 //		} catch (EngineException e) {
-//			mainLOG.error("Cannot delete device from OpenHAB sitemap file!", e);
+//			LOG.error("Cannot delete device from OpenHAB sitemap file!", e);
 //		}
 //	}
 //

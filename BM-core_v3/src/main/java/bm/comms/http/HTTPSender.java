@@ -1,11 +1,8 @@
 package bm.comms.http;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,32 +12,22 @@ import java.util.LinkedList;
 
 import javax.net.ssl.*;
 
-import org.apache.log4j.Logger;
-
-import bm.comms.Listener;
+import bm.comms.ResponseManager;
 import bm.comms.Sender;
 import bm.comms.http.messages.HTTPErrorResponse;
 import bm.comms.http.messages.HTTPRequest;
 import bm.comms.http.messages.HTTPRequestType;
 import bm.comms.http.messages.HTTPResponse;
-import bm.jeep.JEEPMessage;
-import bm.jeep.JEEPResponse;
-import bm.jeep.RawMessage;
-import bm.jeep.device.JEEPErrorResponse;
-import bm.main.controller.Controller;
-import bm.main.engines.AbstEngine;
-import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.EngineRequest;
+import bm.jeep.vo.JEEPMessage;
+import bm.jeep.vo.device.JEEPErrorResponse;
 
 public class HTTPSender extends Sender {
 	private LinkedList<HTTPRequest> queue = new LinkedList<HTTPRequest>();
 	private LinkedList<HTTPResponse> responses= new LinkedList<HTTPResponse>();
 	private int requestCounter = 0;
 
-	public HTTPSender(String name, String logDomain, int secondsToWaitBeforeResend, int resendTimeout,
-					  boolean isResending) {
-//		super(name, logDomain, controller, sender, rawRequestQueue);
-		super(logDomain, name, secondsToWaitBeforeResend, resendTimeout, isResending);
+	public HTTPSender(String name, String logDomain, ResponseManager responseManager) {
+		super(logDomain, name, responseManager);
 		LOG.info(name + " started!");
 	}
 

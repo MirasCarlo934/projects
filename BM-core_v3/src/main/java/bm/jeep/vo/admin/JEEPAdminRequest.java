@@ -1,11 +1,9 @@
-package bm.jeep.admin;
+package bm.jeep.vo.admin;
 
 import bm.comms.Protocol;
 import org.json.JSONObject;
 
-import bm.comms.Sender;
-import bm.jeep.JEEPMessage;
-import bm.jeep.JEEPRequest;
+import bm.jeep.vo.JEEPRequest;
 
 public class JEEPAdminRequest extends JEEPRequest {
 	private String pwd;

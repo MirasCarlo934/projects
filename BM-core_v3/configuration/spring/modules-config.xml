@@ -12,6 +12,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="register" class="bm.main.modules.RegistrationModule" scope="prototype">
         <constructor-arg name="adaptorManager" ref="AdaptorManager"/>
 		<constructor-arg name="deviceRepository" ref="Devices"/>
+		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="idg" ref="IDGenerator"/>
 		<constructor-arg name="logDomain" value="${log.domain.registration}"/>
@@ -37,6 +38,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="RTY" value="${rty.poop}"/>
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
 		<constructor-arg name="dr" ref="Devices"/>
+		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 		<constructor-arg name="propIDParam" value="${poop.param.propertyID}"/>
 		<constructor-arg name="propValParam" value="${poop.param.propertyValue}"/>
 		<constructor-arg name="sysTimer" ref="SystemTimer"/>
@@ -63,6 +65,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="RTY" value="${rty.detachment}"/>
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
 		<constructor-arg name="dr" ref="Devices"/>
+		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 		<!-- <constructor-arg name="extensions">
 			<array>
 				<ref bean="OH.DetachmentExtension"/>
@@ -83,40 +86,40 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	</bean>
 	
 	<!-- Admin Modules -->
-	<bean id="createRoom" class="bm.main.modules.admin.CreateRoomModule" scope="prototype">
-		<constructor-arg name="logDomain" value="${log.domain.room_creation}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-		<constructor-arg name="RTY" value="${rty.detachment}"/>
-		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
-		<constructor-arg name="dr" ref="Devices"/>
-		<constructor-arg name="rr" ref="Rooms"/>
-		<constructor-arg name="adaptorManager" ref="AdaptorManager"/>
-		<constructor-arg name="idg" ref="IDGenerator"/>
-		<constructor-arg name="pwdParam" value="${req.params.pwd}"/>
-		<constructor-arg name="encryptedPwd" value="${bm.pwd}"/>
-		<constructor-arg name="nameParam" value="${createRoom.param.name}"/>
-		<constructor-arg name="parentParam" value="${createRoom.param.parentID}"/>
-		<constructor-arg name="indexParam" value="${createRoom.param.index}"/>
-		<constructor-arg name="cipher" ref="Cipher"/>
-	</bean>
-	<bean id="deleteRoom" class="bm.main.modules.admin.DeleteRoomModule" scope="prototype">
-		<constructor-arg name="logDomain" value="${log.domain.room_deletion}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-		<constructor-arg name="RTY" value="${rty.deleteRoom}"/>
-		<constructor-arg name="dr" ref="Devices"/>
-		<constructor-arg name="rr" ref="Rooms"/>
-		<constructor-arg name="dbe" ref="DBManager"/>
-		<constructor-arg name="roomIDParam" value="${deleteRoom.param.roomID}"/>
-		<constructor-arg name="roomsTable" value="${table.roomstable}"/>
-		<!-- <constructor-arg name="ssidColname" value="SSID"/> -->
-		<constructor-arg name="idg" ref="IDGenerator"/>
-	</bean>
-	<bean id="getRooms" class="bm.main.modules.admin.GetRoomsModule" scope="prototype">
-		<constructor-arg name="logDomain" value="${log.domain.room_deletion}"/>
-		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
-		<constructor-arg name="RTY" value="${rty.getRooms}"/>
-		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
-		<constructor-arg name="dr" ref="Devices"/>
-		<constructor-arg name="rr" ref="Rooms"/>
-	</bean>
+	<!--<bean id="createRoom" class="bm.main.modules.admin.CreateRoomModule" scope="prototype">-->
+		<!--<constructor-arg name="logDomain" value="${log.domain.room_creation}"/>-->
+		<!--<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>-->
+		<!--<constructor-arg name="RTY" value="${rty.detachment}"/>-->
+		<!--&lt;!&ndash; <constructor-arg name="mp" ref="MQTTPublisher"/> &ndash;&gt;-->
+		<!--<constructor-arg name="dr" ref="Devices"/>-->
+		<!--<constructor-arg name="rr" ref="Rooms"/>-->
+		<!--<constructor-arg name="adaptorManager" ref="AdaptorManager"/>-->
+		<!--<constructor-arg name="idg" ref="IDGenerator"/>-->
+		<!--<constructor-arg name="pwdParam" value="${req.requestParams.pwd}"/>-->
+		<!--<constructor-arg name="encryptedPwd" value="${bm.pwd}"/>-->
+		<!--<constructor-arg name="nameParam" value="${createRoom.param.name}"/>-->
+		<!--<constructor-arg name="parentParam" value="${createRoom.param.parentID}"/>-->
+		<!--<constructor-arg name="indexParam" value="${createRoom.param.index}"/>-->
+		<!--<constructor-arg name="cipher" ref="Cipher"/>-->
+	<!--</bean>-->
+	<!--<bean id="deleteRoom" class="bm.main.modules.admin.DeleteRoomModule" scope="prototype">-->
+		<!--<constructor-arg name="logDomain" value="${log.domain.room_deletion}"/>-->
+		<!--<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>-->
+		<!--<constructor-arg name="RTY" value="${rty.deleteRoom}"/>-->
+		<!--<constructor-arg name="dr" ref="Devices"/>-->
+		<!--<constructor-arg name="rr" ref="Rooms"/>-->
+		<!--<constructor-arg name="dbe" ref="DBManager"/>-->
+		<!--<constructor-arg name="roomIDParam" value="${deleteRoom.param.roomID}"/>-->
+		<!--<constructor-arg name="roomsTable" value="${table.roomstable}"/>-->
+		<!--&lt;!&ndash; <constructor-arg name="ssidColname" value="SSID"/> &ndash;&gt;-->
+		<!--<constructor-arg name="idg" ref="IDGenerator"/>-->
+	<!--</bean>-->
+	<!--<bean id="getRooms" class="bm.main.modules.admin.GetRoomsModule" scope="prototype">-->
+		<!--<constructor-arg name="logDomain" value="${log.domain.room_deletion}"/>-->
+		<!--<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>-->
+		<!--<constructor-arg name="RTY" value="${rty.getRooms}"/>-->
+		<!--&lt;!&ndash; <constructor-arg name="mp" ref="MQTTPublisher"/> &ndash;&gt;-->
+		<!--<constructor-arg name="dr" ref="Devices"/>-->
+		<!--<constructor-arg name="rr" ref="Rooms"/>-->
+	<!--</bean>-->
 </beans>

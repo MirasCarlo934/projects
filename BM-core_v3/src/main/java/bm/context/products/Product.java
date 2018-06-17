@@ -9,6 +9,7 @@ import bm.comms.Protocol;
 import bm.comms.Sender;
 import bm.context.HTMLTransformable;
 import bm.context.properties.Property;
+import bm.jeep.JEEPManager;
 import org.apache.log4j.Logger;
 
 import bm.context.devices.Device;
@@ -25,9 +26,9 @@ public class Product implements HTMLTransformable {
 	protected String name;
 	protected String description;
 	protected HashMap<String, Property> properties = new HashMap<String, Property>(10);
-	protected DBEngine dbe;
 //	protected Vector<AbstAdaptor> adaptors = new Vector<AbstAdaptor>(1, 1);
 	protected HashMap<String, PropertyType> propertyTypes;
+	private JEEPManager jm;
 
 	private String iconImg;
 	
@@ -38,16 +39,15 @@ public class Product implements HTMLTransformable {
 
 	public Product(String mainLogDomain, String SSID, String name, String description,
                    String iconImg, HashMap<String, PropertyType> propertyTypes, String poopRTY,
-                   String propIDParam, String propValParam, IDGenerator idGenerator) {
+                   String propIDParam, String propValParam, JEEPManager jeepManager, IDGenerator idGenerator) {
 		LOG = Logger.getLogger(mainLogDomain + "." + Product.class.getSimpleName());
 		this.logDomain = mainLogDomain;
 		this.SSID = SSID;
 		this.name = name;
 		this.description = description;
 		this.iconImg = iconImg;
-//		this.OH_icon = OH_icon;
-//		this.adaptors = adaptors;
 		this.propertyTypes = propertyTypes;
+		this.jm = jeepManager;
 		this.poopRTY = poopRTY;
 		this.propIDParam = propIDParam;
 		this.propValParam = propValParam;
@@ -139,7 +139,8 @@ public class Product implements HTMLTransformable {
 		if(properties.isEmpty())
 			throw new IllegalArgumentException("Properties not yet retrieved from DB!");
 		else {
-			Device d = new Device(comID, MAC, name, topic, protocol, room, active, this, index);
+			Device d = new Device(logDomain, comID, MAC, name, topic, protocol, room, active, this,
+					index, jm);
 			return d;
 		}
 	}
@@ -176,7 +177,7 @@ public class Product implements HTMLTransformable {
 			PropertyMode prop_mode = PropertyMode.parseModeFromString(rs.getString("prop_mode"));
 			String prop_ssid = rs.getString("prop_index");
 			Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, poopRTY, propIDParam,
-                    propValParam, idg);
+                    propValParam, jm, idg);
 			properties.put(prop.getSSID(), prop);
 		}
 	}

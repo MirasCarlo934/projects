@@ -32,7 +32,7 @@ public class ThreadPool extends ThreadPoolExecutor {
 	}
 
 	/**
-	 * Renames thread to include process number
+	 * Renames thread to include processRequest number
 	 */
 	@Override
 	protected void beforeExecute(Thread t, Runnable r) {

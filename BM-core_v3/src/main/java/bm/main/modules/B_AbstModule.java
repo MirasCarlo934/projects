@@ -2,7 +2,7 @@ package bm.main.modules;
 
 import org.apache.log4j.Logger;
 
-import bm.jeep.JEEPRequest;
+import bm.jeep.vo.JEEPRequest;
 import bm.main.repositories.DeviceRepository;
 
 public abstract class B_AbstModule implements Runnable {

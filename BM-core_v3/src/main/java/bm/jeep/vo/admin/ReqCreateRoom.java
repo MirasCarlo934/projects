@@ -1,9 +1,7 @@
-package bm.jeep.admin;
+package bm.jeep.vo.admin;
 
 import bm.comms.Protocol;
 import org.json.JSONObject;
-
-import bm.comms.Sender;
 
 public class ReqCreateRoom extends JEEPAdminRequest {
 	private String name;

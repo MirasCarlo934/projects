@@ -1,7 +1,5 @@
 package bm.main.engines.exceptions;
 
-import bm.jeep.JEEPRequest;
-import bm.jeep.device.ResError;
 import bm.main.engines.AbstEngine;
 
 public class EngineException extends Exception {

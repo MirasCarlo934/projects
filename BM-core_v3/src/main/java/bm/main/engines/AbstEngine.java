@@ -1,18 +1,13 @@
 package bm.main.engines;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Timer;
-import java.util.TimerTask;
 
-import org.apache.catalina.Engine;
 import org.apache.log4j.Logger;
 
-import bm.jeep.device.ResError;
 import bm.main.engines.exceptions.EngineException;
 import bm.main.engines.requests.EngineRequest;
-import bm.tools.SystemTimer;
 
 public abstract class AbstEngine implements Runnable {
 	private String logDomain;
@@ -40,11 +35,11 @@ public abstract class AbstEngine implements Runnable {
 	}
 	
 	/**
-	 * Forwards and ERQS request to the specified engine. The request will be put into a queue and the engine will process
+	 * Forwards and ERQS request to the specified engine. The request will be put into a queue and the engine will processRequest
 	 * the queued requests in a turn-per-turn basis. After processing, the engine will return a response for the forwarded
 	 * request.
 	 * 
-	 * @param request The ERQS request for the specified engine to process
+	 * @param request The ERQS request for the specified engine to processRequest
 	 * @param caller The thread of the object that calls this method
 	 * @param waitForResponse <b>True</b> if engine response <b><i>must</i></b> be returned. <b>False</b> if not. 
 	 * 			<b>WARNING:</b> If this is false, this method will return a null value.
@@ -62,7 +57,7 @@ public abstract class AbstEngine implements Runnable {
 				LOG.trace("Thread " + caller.getName() + " set to wait");
 				caller.wait();
 			} catch (InterruptedException e) {
-				LOG.error("Thread " + caller.getName() + " was interrupted! Cannot process " + 
+				LOG.error("Thread " + caller.getName() + " was interrupted! Cannot processRequest " +
 						request.getSSID(), e);
 				throw new EngineException(this, "Thread " + caller.getName() + 
 						" was interrupted!", e);

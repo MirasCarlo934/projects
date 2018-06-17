@@ -9,8 +9,8 @@
 //import bm.comms.http.HTTPSender;
 //import bm.context.adaptors.exceptions.AdaptorException;
 //import bm.context.devices.Device;
-//import bm.jeep.JEEPRequest;
-//import bm.jeep.device.ReqRegister;
+//import bm.jeep.vo.JEEPRequest;
+//import bm.jeep.vo.device.InboundRegistrationRequest;
 //import bm.main.modules.AbstModuleExtension;
 //import bm.main.repositories.DeviceRepository;
 //import oh.main.initializables.OH_Initializer;
@@ -36,16 +36,16 @@
 //	}
 //
 //	@Override
-//	protected void process(JEEPRequest request) {
-//		ReqRegister reg = new ReqRegister(request, nameParam, roomIDParam, propsParam);
+//	protected void processRequest(JEEPRequest request) {
+//		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
 //		Device dev = dr.getDevice(reg.mac);
 //		Vector<JSONObject> items = new Vector<JSONObject>(dev.getProperties().length + 1);
 //
 //		//adds a device to the item registry, updates if it already exists
-//		mainLOG.debug("Adding device " + dev.getSSID() + " to OpenHAB item registry...");
+//		LOG.debug("Adding device " + dev.getSSID() + " to OpenHAB item registry...");
 //		if(dev.getProperties().length > 1) { //1-property components are persisted thru their sole property!!!
 //			items.addAll(Arrays.asList(dev.convertToItemsJSON()));
-//			mainLOG.debug("Adding properties of " + dev.getSSID() + " to OpenHAB item registry...");
+//			LOG.debug("Adding properties of " + dev.getSSID() + " to OpenHAB item registry...");
 //			for(int i = 0; i < dev.getProperties().length; i++) {
 //				items.addAll(Arrays.asList(dev.getProperties()[i].convertToItemsJSON()));
 //			}
@@ -54,10 +54,10 @@
 //		}
 //
 //		try {
-//			OH_Initializer.addItems(mainLOG, hs, ohIP, items.toArray(new JSONObject[items.size()]), true);
-//			mainLOG.debug("Device added successfully!");
+//			OH_Initializer.addItems(LOG, hs, ohIP, items.toArray(new JSONObject[items.size()]), true);
+//			LOG.debug("Device added successfully!");
 //		} catch (HTTPException e) {
-//			mainLOG.error("Cannot add device to OpenHAB!", e);
+//			LOG.error("Cannot add device to OpenHAB!", e);
 //		}
 //	}
 //

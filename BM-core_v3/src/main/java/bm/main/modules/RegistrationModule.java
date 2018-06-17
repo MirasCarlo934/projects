@@ -7,48 +7,58 @@ import bm.comms.Protocol;
 import bm.context.adaptors.AdaptorManager;
 import bm.context.products.Product;
 import bm.context.properties.Property;
+import bm.jeep.JEEPManager;
+import bm.jeep.vo.JEEPResponse;
+import bm.jeep.vo.device.InboundRegistrationRequest;
 import org.json.JSONObject;
 
 import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.context.rooms.Room;
-import bm.jeep.JEEPRequest;
-import bm.jeep.device.ReqRegister;
-import bm.jeep.device.ResError;
-import bm.jeep.device.ResRegister;
+import bm.jeep.vo.JEEPRequest;
+import bm.jeep.vo.device.ResError;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.ProductRepository;
 import bm.main.repositories.RoomRepository;
 import bm.tools.IDGenerator;
 
-public class RegistrationModule extends SimpleModule {
+public class RegistrationModule extends Module {
 	private String nameParam;
 	private String roomIDParam;
 	private String propsParam;
 	private String poopRTY;
+//	private String regIdParam;
+//	private String regTopicParam;
+
 	private ProductRepository pr;
 	private RoomRepository rr;
 	private IDGenerator idg;
 	private MQTTPublisher mp;
 	private AdaptorManager am;
+	private JEEPManager jm;
 	private HashMap<String, Protocol> protocols;
 	
 	public RegistrationModule(String logDomain, String errorLogDomain, String RTY, String poopRTY, String nameParam,
-							  String roomIDParam, String propsParam, MQTTPublisher mqttPublisher,
-							  DeviceRepository deviceRepository, ProductRepository productRepository,
-							  RoomRepository roomRepository, AdaptorManager adaptorManager, Protocol[] protocols,
-							  IDGenerator idg) {
-		super(logDomain, errorLogDomain, "RegistrationModule", RTY, new String[]{nameParam, roomIDParam}, /*mp, */deviceRepository);
+							  String roomIDParam, String propsParam, /*String regIdParam, String regTopicParam,*/
+							  MQTTPublisher mqttPublisher, DeviceRepository deviceRepository,
+							  ProductRepository productRepository, RoomRepository roomRepository,
+							  AdaptorManager adaptorManager, JEEPManager jeepManager,
+							  Protocol[] protocols, IDGenerator idg) {
+		super(logDomain, errorLogDomain, RegistrationModule.class.getSimpleName(), RTY,
+				new String[]{nameParam, roomIDParam}, null, deviceRepository);
 		this.pr = productRepository;
 		this.rr = roomRepository;
 		this.nameParam = nameParam;
 		this.roomIDParam = roomIDParam;
 		this.propsParam = propsParam;
 		this.poopRTY = poopRTY;
+//		this.regIdParam = regIdParam;
+//		this.regTopicParam = regTopicParam;
 		this.idg = idg;
 		this.mp = mqttPublisher;
 		this.am = adaptorManager;
+		this.jm = jeepManager;
 		this.protocols = new HashMap<String, Protocol>(protocols.length);
 		for(Protocol protocol : protocols) {
 		    this.protocols.put(protocol.getProtocolName(), protocol);
@@ -59,8 +69,8 @@ public class RegistrationModule extends SimpleModule {
 	 * Registers component into system.
 	 */
 	@Override
-	protected boolean process(JEEPRequest request) {
-		ReqRegister reg = new ReqRegister(request, nameParam, roomIDParam, propsParam);
+	protected boolean processRequest(JEEPRequest request) {
+		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
 		if(request.getJSON().has("exists")) {
 			if(checkCredentialChanges(reg)) {
 				updateDevice(reg);
@@ -70,14 +80,14 @@ public class RegistrationModule extends SimpleModule {
 			return true;
 		}
 		
-		mainLOG.info("Registering device " + reg.mac + " to system...");
-		mainLOG.debug("Creating device ID...");
+		LOG.info("Registering device " + reg.mac + " to Environment...");
+		LOG.debug("Creating device ID...");
 		String[] existingIDs = new String[dr.getAllDevices().length];
 		for(int i = 0; i < existingIDs.length; i++) {
 			existingIDs[i] = dr.getAllDevices()[i].getSSID();
 		}
 		String ssid = idg.generateCID(existingIDs);
-		mainLOG.debug("Creating Device object...");
+		LOG.debug("Creating Device object...");
 		String topic = ssid + "_topic";
 		Product product = pr.getProduct(reg.getCID());
 		Room parentRoom = rr.getRoom(reg.room);
@@ -91,60 +101,91 @@ public class RegistrationModule extends SimpleModule {
 			while(propIDs.hasNext()) {
 				String propID = propIDs.next();
 				Property prop = d.getProperty(propID);
-				mainLOG.debug("Setting property " + propID + " (" + prop.getDisplayName() + ")");
+				LOG.debug("Setting property " + propID + " (" + prop.getDisplayName() + ")");
 				prop.setValue(props.get(propID));
 			}
-		} 
-		dr.addDevice(d);
-		mainLOG.info("Device " + d.getSSID() + " created!");
-		
-		//persisting device to peripheral systems
+		}
 		try {
 			d.create(logDomain, true);
+			dr.addDevice(d);
 		} catch (AdaptorException e) {
-			error("Error in persisting device to DB! This device may not exist after "
-					+ "the BM restarts!", e, request.getProtocol());
-			return false;
+			LOG.error("Device couldn't be added to Environment!", e);
 		}
+
+		LOG.info("Sending device credentials to actual device...");
+		jm.sendRegistrationResponse(d, request);
+		//persisting device to peripheral systems
+//		try {
+//			d.create(logDomain, true);
+//			LOG.info("Device " + d.getSSID() + " created!");
+//		} catch (AdaptorException e) {
+//			error("Error in persisting device to DB! This device may not exist after "
+//					+ "the BM restarts!", e, request.getProtocol());
+//			return false;
+//		}
 		
 		//publishing of Device credentials to default_topic
-		mainLOG.debug("Publishing Component credentials to default topic...");
-		ResRegister response = new ResRegister(request, d.getSSID(), d.getTopic());
-		mp.publishToDefaultTopic(response);
-		d.publishCredentials(request.getProtocol().getSender(), requestType, logDomain);
-		mainLOG.info("Registration complete!");
+//		LOG.debug("Sending device credentials to actual device...");
+//		d.sendCredentials(request);
+//		OutboundRegistrationResponse response = new OutboundRegistrationResponse(request, regIdParam, regTopicParam, d.getSSID(),
+//				d.getTopic());
+//		mp.publishToDefaultTopic(response);
+//		d.sendCredentials(request.getProtocol().getSender(), requestType, logDomain);
+		LOG.info("Registration complete!");
 		return true;
 	}
-	
-	private void returnExistingComponent(ReqRegister request) {
-//		ReqRegister reg = new ReqRegister(request.getJSON(), nameParam, roomIDParam, propsParam);
-		Device c = dr.getDevice(request.mac);
-		mainLOG.info("Component already exists in system as " + c.getSSID() + "! "
-				+ "Returning existing credentials and property states.");
-		ResRegister response = new ResRegister(request, c.getSSID(), c.getTopic());
-		mp.publishToDefaultTopic(response);
-		c.publishCredentials(request.getProtocol().getSender(), requestType, logDomain);
-		c.publishPropertyValues(request.getProtocol().getSender(), poopRTY, logDomain);
-		
-		mainLOG.info("Activating component " + c.getSSID() + "...");
+
+	@Override
+	protected boolean processResponse(JEEPResponse response) {
+		return true;
+	}
+
+	@Override
+	public void processNonResponse(JEEPRequest request) {
+		Device d = dr.getDevice(request.getCID());
+		LOG.warn("Actual device with MAC " + d.getMAC() + " failed to respond to its registration message to " +
+				"the Environment. The device will be removed from Maestro.");
 		try {
-			c.setActive(true, true);
-			mainLOG.info("Component activated!");
+			d.delete(logDomain, true);
+			jm.sendDetachmentResponse(d, true, request);
+			dr.removeDevice(d.getSSID());
+			LOG.info("Device " + d.getMAC() + " deleted from Maestro records!");
 		} catch (AdaptorException e) {
-			error("Cannot activate component" + c.getSSID() + "!", e, request.getProtocol());
+			LOG.error("Device " + d.getMAC() + " failed to be deleted from the " + e.getAdaptorName()
+					+ " adaptor!");
+		}
+	}
+
+	private void returnExistingComponent(InboundRegistrationRequest request) {
+		Device d = dr.getDevice(request.mac);
+		LOG.info("Device already exists in system as " + d.getSSID() + "! "
+				+ "Returning existing credentials and property states.");
+		jm.sendRegistrationResponse(d, request);
+		for(Property prop : d.getProperties()) {
+			prop.sendValueToDevice(logDomain);
+		}
+
+		LOG.info("Activating device " + d.getSSID() + "...");
+		try {
+			d.setActive(true);
+			d.update(logDomain, true);
+			LOG.info("Device activated!");
+		} catch (AdaptorException e) {
+			error("Cannot activate device" + d.getSSID() + "!", e, request.getProtocol());
 		}
 	}
 	
-	private void updateDevice(ReqRegister request) {
+	private void updateDevice(InboundRegistrationRequest request) {
 		Device c = dr.getDevice(request.mac);
-		mainLOG.info("Updating device " + c.getSSID() + " credentials...");
-		mainLOG.fatal(c.getProperties()[0].getOH_ID());
+		LOG.info("Updating device " + c.getSSID() + " credentials...");
+		LOG.fatal(c.getProperties()[0].getOH_ID());
 		try {
 			c.setName(request.name);
 			c.setRoom(rr.getRoom(request.room));
 			c.update(logDomain, true);
-			c.setActive(true, true);
-			mainLOG.info("Device updated!");
+			c.setActive(true);
+            c.update(logDomain, true);
+			LOG.info("Device updated!");
 		} catch (AdaptorException e) {
 			error("Cannot updateRules device " + c.getSSID() + " credentials!", e, request.getProtocol());
 		}
@@ -160,7 +201,7 @@ public class RegistrationModule extends SimpleModule {
 	 * @param request The registration request sent by the registering component
 	 * @return <b>true</b> if the request contains changes in credentials, <b>false</b> otherwise
 	 */
-	private boolean checkCredentialChanges(ReqRegister request) {
+	private boolean checkCredentialChanges(InboundRegistrationRequest request) {
 		Device c = dr.getDevice(request.mac);
 		String[] reqCreds = new String[]{request.name, request.room};
 		String[] comCreds = new String[] {c.getName(), c.getParentRoom().getSSID()};
@@ -192,23 +233,23 @@ public class RegistrationModule extends SimpleModule {
 	 */
 	@Override
 	protected boolean additionalRequestChecking(JEEPRequest request) {
-		mainLOG.trace("Additional secondary request parameter checking...");
-		ReqRegister reg = new ReqRegister(request, nameParam, roomIDParam, propsParam);
+		LOG.trace("Additional secondary request parameter checking...");
+		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
 		
-		mainLOG.trace("Checking productID validity...");
+		LOG.trace("Checking productID validity...");
 		if(!pr.containsProduct(reg.getCID())) {
 			ResError error = new ResError(reg, "Request contains invalid product ID! (" + reg.getCID() + ")");
 			error(error);
 			return false;
 		}
-		mainLOG.trace("Checking roomID validity...");
+		LOG.trace("Checking roomID validity...");
 		if(!rr.containsRoom(reg.room)) {
 			ResError error = new ResError(reg, "Request contains invalid room ID!");
 			error(error);
 			return false;
 		}
 		
-		mainLOG.trace("Checking set property block validity...");
+		LOG.trace("Checking set property block validity...");
 		Product prod = pr.getProduct(reg.getCID());
 		if(reg.properties != null) { //it's okay if the request does not have a set properties block
 			JSONObject props = reg.properties;
@@ -230,13 +271,18 @@ public class RegistrationModule extends SimpleModule {
 			}
 		}
 		
-		mainLOG.trace("Checking MAC validity...");
+		LOG.trace("Checking MAC validity...");
 		if(dr.containsDevice(reg.mac)) {
-			mainLOG.warn("Request contains a preexisting MAC address!");
+			LOG.warn("Request contains a preexisting MAC address!");
 			request.getJSON().put("exists", true);
 			return true;
 		}
 		
+		return true;
+	}
+
+	@Override
+	protected boolean additionalResponseChecking(JEEPResponse response) {
 		return true;
 	}
 }
