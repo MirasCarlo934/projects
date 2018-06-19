@@ -19,10 +19,8 @@ Symphony s = Symphony();
 SymphProduct product = SymphProduct();
 
 enum propertyIndex : uint8_t {
-	TurnOn = 1,	//digital
-	TurnOff = 2, //digital
-	AutoOn = 3,	//digital
-	AutoOff = 4,	//digital
+	OnOff = 1,	//digital
+	AutoOnOff = 2,	//digital
 };
 
 #define IRLEDPin 13  // ESP8266 GPIO pin to use.
@@ -43,22 +41,30 @@ int WsCallback(uint8_t * payload, size_t length) {
 	Serial.printf("WsCallback payload=%s ssid=%s value=%s\n", payload, wsdata.getSSID().c_str(), wsdata.getValue().c_str());
 	product.setValue(wsdata.getSSID(), 1-atoi(wsdata.getValue().c_str()));
 	switch (product.getProperty(wsdata.getSSID()).index) {
-			case TurnOff:
-				irsend.sendRaw(rawDataOff, 447, 38);  // Send a raw data capture at 38kHz.
-				Serial.println("a rawData capture from IRrecvDumpV2 rawDataOff");
-		    	break;
-		    case TurnOn:
+//			case TurnOff:
+//				irsend.sendRaw(rawDataOff, 447, 38);  // Send a raw data capture at 38kHz.
+//				Symphony::setProperty("0007", "1");
+//				MqttUtil::sendCommand("0007", 1);
+//				Serial.println("a rawData capture from IRrecvDumpV2 rawDataOff");
+//		    	break;
+		    case OnOff:
 		    	irsend.sendRaw(rawDataOn, 443, 38);  // Send a raw data capture at 38kHz.
+		    	Symphony::setProperty("0006", "1");
+		    	MqttUtil::sendCommand("0006", 1);
 				Serial.println("a rawData capture from IRrecvDumpV2 rawDataOn");
 		    	break;
-		    case AutoOn:
+		    case AutoOnOff:
 		    	irsend.sendRaw(rawDataAutoOn, 441, 38);  // Send a raw data capture at 38kHz.
+		    	Symphony::setProperty("0008", "1");
+		    	MqttUtil::sendCommand("0008", 1);
 				Serial.println("a rawData capture from IRrecvDumpV2 rawDataAutoOn");
 				break;
-		    case AutoOff:
-		    	irsend.sendRaw(rawDataAutoOff, 439, 38);  // Send a raw data capture at 38kHz.
-				Serial.println("a rawData capture from IRrecvDumpV2 rawDataAutoOff");
-				break;
+//		    case AutoOff:
+//		    	irsend.sendRaw(rawDataAutoOff, 439, 38);  // Send a raw data capture at 38kHz.
+//		    	Symphony::setProperty("0009", "1");
+//		    	MqttUtil::sendCommand("0009", 1);
+//				Serial.println("a rawData capture from IRrecvDumpV2 rawDataAutoOff");
+//				break;
 		    default:
 		    	Serial.println("MyMqttcallback case default");
 		    	break;
@@ -75,22 +81,22 @@ attribStruct MyMqttCallback(attribStruct property, int scmd) {
 	MqttUtil::product.setValue(property.ssid, scmd);
 	MqttUtil::product.setDone(property.ssid);
 	switch (MqttUtil::product.getProperty(property.ssid).index) {
-		case TurnOff:
-			irsend.sendRaw(rawDataOff, 447, 38);  // Send a raw data capture at 38kHz.
-			Serial.println("a rawData capture from IRrecvDumpV2 rawDataOff");
-	    	break;
-	    case TurnOn:
+//		case TurnOff:
+//			irsend.sendRaw(rawDataOff, 447, 38);  // Send a raw data capture at 38kHz.
+//			Serial.println("a rawData capture from IRrecvDumpV2 rawDataOff");
+//	    	break;
+	    case OnOff:
 	    	irsend.sendRaw(rawDataOn, 443, 38);  // Send a raw data capture at 38kHz.
 			Serial.println("a rawData capture from IRrecvDumpV2 rawDataOn");
 	    	break;
-	    case AutoOn:
+	    case AutoOnOff:
 	    	irsend.sendRaw(rawDataAutoOn, 441, 38);  // Send a raw data capture at 38kHz.
 			Serial.println("a rawData capture from IRrecvDumpV2 rawDataAutoOn");
 			break;
-	    case AutoOff:
-	    	irsend.sendRaw(rawDataAutoOff, 439, 38);  // Send a raw data capture at 38kHz.
-			Serial.println("a rawData capture from IRrecvDumpV2 rawDataAutoOff");
-			break;
+//	    case AutoOff:
+//	    	irsend.sendRaw(rawDataAutoOff, 439, 38);  // Send a raw data capture at 38kHz.
+//			Serial.println("a rawData capture from IRrecvDumpV2 rawDataAutoOff");
+//			break;
 	    default:
 	    	Serial.println("MyMqttcallback case default");
 	    	break;
@@ -105,10 +111,8 @@ void setup()
 	product.productType = "0014";
 	product.room = "U7YY";  //salas
 	product.name = "AC_Remote";
-	product.addProperty(TurnOn, "0006", false, SymphProduct::createGui("AC", RADIO_OUT, "On", 0, 1, 1));
-	product.addProperty(TurnOff, "0007", false, SymphProduct::createGui("AC", RADIO_OUT, "Off", 0, 1, 1));
-	product.addProperty(AutoOn, "0008", false, SymphProduct::createGui("AT", RADIO_OUT, "Auto On", 0, 1, 1));
-	product.addProperty(AutoOff, "0009", false, SymphProduct::createGui("AT", RADIO_OUT, "Auto Off", 0, 1, 1));
+	product.addProperty(OnOff, "0061", false, SymphProduct::createGui("AC", RADIO_OUT, "On", 0, 1, 1));
+	product.addProperty(AutoOnOff, "0062", false, SymphProduct::createGui("AT", RADIO_OUT, "Auto On", 0, 1, 1));
 	s.setProduct(product);  //always set the product first before running the setup
 	s.setWsCallback(&WsCallback);
 	s.setMqttCallback(&MyMqttCallback);
