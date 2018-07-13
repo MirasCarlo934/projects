@@ -87,7 +87,7 @@ public class MQTTListener extends Listener implements MqttCallback {
 //	@Override
 //	public String convertReceivedMessageToJEEPRequestString(Object message) {
 //		MqttMessage msg = (MqttMessage) message;
-//		return msg.toString();
+//		return msg.toXML();
 //	}
 	
 //	private final class MQTTPublisher implements Runnable {

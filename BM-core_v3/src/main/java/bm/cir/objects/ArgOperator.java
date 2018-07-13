@@ -12,6 +12,11 @@ public enum ArgOperator {
 	public String getSymbol() {
 		return symbol;
 	}
+
+	@Override
+	public String toString() {
+		return symbol;
+	}
 	
 	/**
 	 * Translates the operator symbols into an ArgOperator. The only acceptable symbols are <b>=, >, <, >=, <=, !=</b>

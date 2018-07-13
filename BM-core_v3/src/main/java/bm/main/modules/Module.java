@@ -1,7 +1,10 @@
 package bm.main.modules;
 
 import bm.comms.Protocol;
+import bm.jeep.exceptions.SecondaryMessageCheckingException;
 import bm.jeep.vo.JEEPResponse;
+import bm.main.modules.exceptions.RequestProcessingException;
+import bm.main.modules.exceptions.ResponseProcessingException;
 import org.apache.log4j.Logger;
 
 import bm.jeep.vo.JEEPRequest;
@@ -31,9 +34,9 @@ public abstract class Module implements Runnable {
 	protected String requestType;
 	protected String[] requestParams;
 	private String[] responseParams;
-//	protected MQTTPublisher mp;
 	protected DeviceRepository dr;
 	protected JEEPRequest request;
+	protected JEEPResponse response;
 
 	/**
 	 * Creates a Module object with no extensions
@@ -99,24 +102,54 @@ public abstract class Module implements Runnable {
 	public JEEPRequest getRequest() {
 	    return request;
     }
+
+	public void setResponse(JEEPResponse response) {
+		this.response = response;
+	}
 	
 	public void run() {
 		LOG.debug(name + " request processing started!");
-		
-		if(checkSecondaryRequestParameters(request)) {
-			LOG.trace("Request valid! Proceeding to request processing...");
-			if(processRequest(request)) {
-				for(int i = 0; i < extensions.length; i++) {
-					AbstModuleExtension ext = extensions[i];
-					ext.processRequest(request);
+
+		if(request != null) {
+			try {
+				if (checkSecondaryRequestParameters(request)) {
+					LOG.trace("Request valid! Proceeding to request processing...");
+					try {
+						processRequest(request);
+						for (int i = 0; i < extensions.length; i++) {
+							AbstModuleExtension ext = extensions[i];
+							ext.processRequest(request);
+						}
+						LOG.info("Request processing finished!");
+					} catch(RequestProcessingException e) {
+						error("Request processing failed!", e, request.getProtocol());
+					}
 				}
-				LOG.info("Request processing finished!");
-			} else {
-				LOG.error(name + " did not processRequest the request successfully!");
+			} catch (SecondaryMessageCheckingException e){
+				LOG.error("Secondary request requestParams didn't check out. See also the additional request requestParams"
+						+ " checking.");
+				error(e.getMessage(), request.getProtocol());
 			}
-		} else {
-			LOG.error("Secondary request requestParams didn't check out. See also the additional request requestParams"
-					+ " checking.");
+		} else if(response != null) {
+			try {
+				if (checkSecondaryResponseParameters(response)) {
+					LOG.trace("Response valid! Proceeding to response processing...");
+					try {
+						processResponse(response);
+	//					for (int i = 0; i < extensions.length; i++) {
+	//						AbstModuleExtension ext = extensions[i];
+	//						ext.processResponse(request);
+	//					}
+						LOG.info("Response processing finished!");
+					} catch(ResponseProcessingException e) {
+						error("Response processing failed!", e, response.getProtocol());
+					}
+				}
+			} catch(SecondaryMessageCheckingException e) {
+				LOG.error("Secondary response requestParams didn't check out. See also the additional request requestParams"
+						+ " checking.");
+				error(e.getMessage(), request.getProtocol());
+			}
 		}
 	}
 	
@@ -152,16 +185,18 @@ public abstract class Module implements Runnable {
 	 * Checks if the request contains all the required secondary parameters
 	 * 
 	 * @param request The Request object
-	 * @return <b><i>True</b></i> if the request is valid, <b><i>false</i></b> if: <br>
+	 * @return <b><i>True</b></i> if the request is valid. A request can only be valid if: <br>
 	 * 		<ul>
-	 * 			<li>There are missing secondary request parameters</li>
-	 * 			<li>There are secondary request parameters that are null/empty</li>
-	 * 			<li>The module-specific request parameter check failed
+	 * 			<li>There are no missing secondary request parameters</li>
+	 * 			<li>There are no secondary request parameters that are null/empty</li>
+	 * 			<li>The module-specific request parameter check succeeded
 	 * 			<br><i>Each module can have additional request checks, see individual
 	 * 			modules for more details.</i></li>
 	 * 		</ul>
+	 * @throws SecondaryMessageCheckingException if the request checking failed
 	 */
-	protected boolean checkSecondaryRequestParameters(JEEPRequest request) {
+	protected boolean checkSecondaryRequestParameters(JEEPRequest request)
+			throws SecondaryMessageCheckingException {
 		LOG.trace("Checking secondary request parameters...");
 		boolean b = false; //true if request is valid
 		
@@ -173,10 +208,12 @@ public abstract class Module implements Runnable {
 				if(request.getParameter(param) != null && !request.getParameter(param).equals("")) 
 					b = true;
 				else {
-					error("Parameter '" + param + "' is either empty or nonexistent!",
-							request.getProtocol());
-					b = false;
-					break;
+					throw new SecondaryMessageCheckingException("Parameter '" + param
+							+ "' is either empty or nonexistent!");
+//					error("Parameter '" + param + "' is either empty or nonexistent!",
+//							request.getProtocol());
+//					b = false;
+//					break;
 				}
 			}
 			
@@ -194,14 +231,15 @@ public abstract class Module implements Runnable {
 	 * @param response The Request object
 	 * @return <b><i>True</b></i> if the request is valid, <b><i>false</i></b> if: <br>
 	 * 		<ul>
-	 * 			<li>There are missing secondary request parameters</li>
-	 * 			<li>There are secondary request parameters that are null/empty</li>
-	 * 			<li>The module-specific request parameter check failed
-	 * 			<br><i>Each module can have additional request checks, see individual
+	 * 			<li>There are missing secondary response parameters</li>
+	 * 			<li>There are secondary response parameters that are null/empty</li>
+	 * 			<li>The module-specific response parameter check failed
+	 * 			<br><i>Each module can have additional response checks, see individual
 	 * 			modules for more details.</i></li>
 	 * 		</ul>
 	 */
-	protected boolean checkSecondaryResponseParameters(JEEPResponse response) {
+	protected boolean checkSecondaryResponseParameters(JEEPResponse response)
+			throws SecondaryMessageCheckingException {
 		LOG.trace("Checking secondary request parameters...");
 		boolean b = false; //true if request is valid
 
@@ -212,10 +250,12 @@ public abstract class Module implements Runnable {
 				if(response.getParameter(param) != null && !response.getParameter(param).equals(""))
 					b = true;
 				else {
-					error("Parameter '" + param + "' is either empty or nonexistent!",
-							response.getProtocol());
-					b = false;
-					break;
+					throw new SecondaryMessageCheckingException("Parameter '" + param
+							+ "' is either empty or nonexistent!");
+//					error("Parameter '" + param + "' is either empty or nonexistent!",
+//							response.getProtocol());
+//					b = false;
+//					break;
 				}
 			}
 
@@ -226,15 +266,20 @@ public abstract class Module implements Runnable {
 
 		return b;
 	}
-	
-	protected abstract boolean processRequest(JEEPRequest request);
+
+	/**
+	 * Processes the request set to this Module
+	 * @param request The JEEPRequest object
+	 * @throws RequestProcessingException if request was not processed successfully
+	 */
+	protected abstract void processRequest(JEEPRequest request) throws RequestProcessingException;
 
 	/**
 	 * Processes the response associated with this Module.
 	 * @param response The JEEPResponse object
-	 * @return <b><i>true</i></b> if response was processed successfully, <b><i>false</i></b> otherwise.
+	 * @throws ResponseProcessingException if response was not processed successfully
 	 */
-	protected abstract boolean processResponse(JEEPResponse response);
+	protected abstract void processResponse(JEEPResponse response) throws ResponseProcessingException;
 
 	/**
 	 * A fall-back method called when a request sent by Maestro that is
@@ -248,9 +293,11 @@ public abstract class Module implements Runnable {
 	 * <b>true</b> if there are no additional request checking</i>
 	 * 
 	 * @param request The JEEPRequest object to be checked
-	 * @return <b>True</b> if JEEPRequest checks out, <b>false</b> otherwise.
+	 * @return <b>True</b> if JEEPRequest checking is successful
+	 * @throws SecondaryMessageCheckingException if the JEEPRequest checking fails
 	 */
-	protected abstract boolean additionalRequestChecking(JEEPRequest request);
+	protected abstract boolean additionalRequestChecking(JEEPRequest request)
+			throws SecondaryMessageCheckingException;
 
 	/**
 	 * Used in case of additional response parameter checking. <i>Must always return
@@ -259,7 +306,8 @@ public abstract class Module implements Runnable {
 	 * @param response The JEEPResponse object to be checked
 	 * @return <b>True</b> if JEEPResponse checks out, <b>false</b> otherwise.
 	 */
-	protected abstract boolean additionalResponseChecking(JEEPResponse response);
+	protected abstract boolean additionalResponseChecking(JEEPResponse response)
+			throws SecondaryMessageCheckingException;
 	
 	protected void error(String msg, Exception e, Protocol protocol) {
 		LOG.error(msg);

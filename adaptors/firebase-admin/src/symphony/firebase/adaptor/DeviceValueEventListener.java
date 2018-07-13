@@ -21,7 +21,6 @@ public class DeviceValueEventListener implements ValueEventListener {
 
 	/**
 	 * We are passing the ref parameter to be able to create an addChildEventListener for each device
-	 * @param ref
 	 */
 	public DeviceValueEventListener(DeviceRepository devices, String propertyId, String propertyName, String propertyValue) {
 //		this.devices = devices ;
@@ -64,9 +63,9 @@ public class DeviceValueEventListener implements ValueEventListener {
 			//need to test below for the sending to BM		
 			try {
 				logger.info("updating the bm property");
-				p.update("firebase", false);
+				p.update("firebase", true);
+				p.sendValueToDevice("firebase");
 			} catch (AdaptorException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				logger.error("Error in updating the property");
 			}

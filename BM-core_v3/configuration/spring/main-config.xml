@@ -26,6 +26,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<constructor-arg name="initializables">
 			<list>
+				<ref bean="IDGenerator"/>
 				<ref bean="MQTTPublisher"/>
 				<ref bean="AdaptorManager"/>
                 <ref bean="CIRs"/>

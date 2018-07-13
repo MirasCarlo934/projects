@@ -6,6 +6,7 @@ import java.util.concurrent.RejectedExecutionException;
 
 import bm.jeep.vo.JEEPMessage;
 import bm.jeep.vo.JEEPRequest;
+import bm.jeep.vo.JEEPResponse;
 import bm.main.modules.Module;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -33,10 +34,12 @@ public class Controller implements Runnable {
         if(message instanceof JEEPRequest) {
             m.setRequest((JEEPRequest) message);
             m.setReferenceNumber(rn);
-            LOG.trace("Adding module to ModuleQueue (RN:" + rn + ")");
-            moduleQueue.add(m);
+        } else {
+            m.setResponse((JEEPResponse) message);
+            m.setReferenceNumber(rn);
         }
-        //TASK add processRequest for JEEPResponse
+        LOG.trace("Adding " + m.getClass().getSimpleName() + " to ModuleQueue (RN:" + rn + ")");
+        moduleQueue.add(m);
         rn++;
     }
 

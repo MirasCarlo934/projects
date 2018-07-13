@@ -10,6 +10,7 @@ import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.properties.Property;
 import bm.main.repositories.DeviceRepository;
 import org.apache.log4j.Logger;
+import org.dom4j.DocumentHelper;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -69,7 +70,12 @@ public class CIRManager implements Initializable, Runnable {
 	    while(!Thread.currentThread().isInterrupted()) {
             Property property = propQueue.poll();
             if(property != null) {
-                LOG.debug("Property " + property.getCommonName() + " changed value. Checking CIR...");
+				try {
+					updateRules();
+				} catch (EngineException e) {
+					LOG.warn("Rules cannot be updated! Some rules may not take effect.", e);
+				}
+				LOG.debug("Property " + property.getCommonName() + " changed value. Checking CIR...");
                 Rule[] rules = getRulesTriggered(property);
                 if (rules.length == 0) {
                     LOG.debug("No rules found!");
@@ -86,6 +92,7 @@ public class CIRManager implements Initializable, Runnable {
                         prop.setValue(exec.getPropertyValue());
                         try {
                             prop.update(logDomain, false);
+                            prop.sendValueToDevice(logDomain);
                             LOG.info("Property " + prop.getCommonName() + " updated from rule \""
                                     + rule.getName() + "\"");
                         } catch (AdaptorException e) {
@@ -117,7 +124,10 @@ public class CIRManager implements Initializable, Runnable {
     }
 	
 	/**
-	 * Overwrites the entire rules.cir file. <b>NOTE:</b> Existing CIR file will be versioned before it is overwritten
+	 * Overwrites the entire rules.cir file. The existing CIR file will be versioned before it is overwritten.
+	 * <br/><br/>
+	 * <i><b>WARNING:</b></i> The new rules supplied in the <b>rules</b> parameter will not be checked. Improper
+	 * XML and CIR constructed string will still be written over the existing CIR file!
 	 * 
 	 * @param rules The new rules in XML format
 	 */
@@ -137,28 +147,6 @@ public class CIRManager implements Initializable, Runnable {
 		} catch (EngineException e) {
 			LOG.error("Cannot read new rules.cir file! Retaining old rules...", e);
 		}
-	}
-	
-	/**
-	 * Returns CIR that specify the given component and its specified property in their arguments block.
-	 * 
-	 * @param p The property to be checked
-	 * @return An array containing all the rules that specify the given component and its specified property in their 
-	 * 		arguments block
-	 */
-	public Rule[] getSpecificRules(Property p) {
-		LOG.trace("Retrieving rules for property " + p.getSystemName() + "...");
-		Vector<Rule> specRules = new Vector<Rule>(1,1);
-		
-		for(int i = 0; i < rules.length; i++) {
-			Rule rule = rules[i];
-			if(rule.containsArgument(p)) {
-				specRules.addElement(rule);
-			}
-		}
-		
-		LOG.trace(specRules.size() + " rule/s retrieved!");
-		return specRules.toArray(new Rule[0]);
 	}
 
     /**
@@ -199,6 +187,30 @@ public class CIRManager implements Initializable, Runnable {
 	 */
 	public Rule[] getAllRules() {
 		return rules;
+	}
+
+	/**
+	 * Removes the rules triggered by the specified property from the CIR file.
+	 *
+	 * @param p The property to check
+	 */
+	public void removeRulesTriggered(Property p) {
+		LOG.info("Removing rules with property " + p.getCommonName() + " as argument...");
+		int removed = 0;
+		String str = "";
+		org.dom4j.Document doc = DocumentHelper.createDocument();
+		org.dom4j.Element root = doc.addElement("rules");
+		for(Rule rule : rules) {
+			if(!rule.containsArgument(p)) {
+				root.add(rule.toXML());
+				str += "\n";
+			} else {
+				LOG.info("Removing rule \"" + rule.getName() + "\"...");
+				removed++;
+			}
+		}
+		overwriteRules(str);
+		LOG.info(removed + " rules removed!");
 	}
 	
 	private class CIRFileParser {

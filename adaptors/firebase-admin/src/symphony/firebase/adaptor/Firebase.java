@@ -17,16 +17,13 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import bm.comms.mqtt.MQTTListener;
 import bm.comms.mqtt.MQTTPublisher;
 import bm.context.adaptors.AbstAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.context.rooms.Room;
 import bm.main.interfaces.Initializable;
-import bm.main.repositories.DeviceRepository;
 import symphony.firebase.vo.FirebaseDevice;
-import symphony.firebase.vo.Property;
 
 /*
  * Notes
@@ -232,8 +229,9 @@ public class Firebase extends AbstAdaptor implements Initializable {
 
 	@Override
 	public void deviceCredentialsUpdated(Device arg0, boolean arg1) throws AdaptorException {
-		// TODO Auto-generated method stub
-		
+		logger.info("deviceCredentialsUpdated called.");
+		updateFirebaseDB(arg0);
+		logger.info("deviceCredentialsUpdated end.");
 	}
 
 	@Override

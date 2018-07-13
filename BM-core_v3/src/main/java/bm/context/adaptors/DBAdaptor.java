@@ -42,7 +42,7 @@ public class DBAdaptor extends AbstAdaptor {
 		valuesCom.put("functn", d.getProduct().getSSID());
 		valuesCom.put("active", d.isActive());
 		valuesCom.put("index", d.getIndex());
-		insertCom = new InsertDBEReq(idg.generateMixedCharID(10), dbe, devsTable, valuesCom);
+		insertCom = new InsertDBEReq(idg.generateERQSRequestID(), dbe, devsTable, valuesCom);
 		
 		//inserts component to DB
 		try {
@@ -86,7 +86,7 @@ public class DBAdaptor extends AbstAdaptor {
 		args.put("SSID", d.getSSID());
 		
 		//LOG.trace("Updating active state of component to " + comsTable + " table!");
-		UpdateDBEReq udber = new UpdateDBEReq(idg.generateMixedCharID(10), dbe, devsTable, vals, args);
+		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, devsTable, vals, args);
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
@@ -104,7 +104,7 @@ public class DBAdaptor extends AbstAdaptor {
 		vals.put("room", d.getParentRoom().getSSID());
 		args.put("SSID", d.getSSID());
 		
-		UpdateDBEReq udber = new UpdateDBEReq(idg.generateMixedCharID(10), dbe, devsTable, vals, args);
+		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, devsTable, vals, args);
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {
@@ -120,8 +120,8 @@ public class DBAdaptor extends AbstAdaptor {
 		HashMap<String, Object> args2 = new HashMap<String, Object>(1,1);
 		args1.put("ssid", c.getSSID());
 		args2.put("com_id", c.getSSID());
-		DeleteDBEReq delete1 = new DeleteDBEReq(idg.generateMixedCharID(10), dbe, devsTable, args1);
-		DeleteDBEReq delete2 = new DeleteDBEReq(idg.generateMixedCharID(10), dbe, propsTable, args2);
+		DeleteDBEReq delete1 = new DeleteDBEReq(idg.generateERQSRequestID(), dbe, devsTable, args1);
+		DeleteDBEReq delete2 = new DeleteDBEReq(idg.generateERQSRequestID(), dbe, propsTable, args2);
 		try {
 			dbe.putRequest(delete1, t, waitUntilDeleted);
 		} catch(EngineException e1) {
@@ -149,7 +149,7 @@ public class DBAdaptor extends AbstAdaptor {
 		values.put("cpl_ssid", p.getSSID());
 		
 		LOG.trace("Inserting property " + p.getDevice().getSSID() + "_" + p.getSSID() + " to " + propsTable + " table!");
-		InsertDBEReq insert = new InsertDBEReq(idg.generateMixedCharID(10), dbe, propsTable, values);
+		InsertDBEReq insert = new InsertDBEReq(idg.generateERQSRequestID(), dbe, propsTable, values);
 		try {
 			dbe.putRequest(insert, t, waitUntilPersisted);
 		} catch (EngineException e) {
@@ -168,7 +168,7 @@ public class DBAdaptor extends AbstAdaptor {
 		vals.put("prop_value", String.valueOf(p.getValue()));
 		args.put("com_id", p.getDevice().getSSID());
 		args.put("cpl_ssid", p.getSSID());
-		UpdateDBEReq udber = new UpdateDBEReq(idg.generateMixedCharID(10), dbe, propsTable, vals, args);
+		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, propsTable, vals, args);
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);
 		} catch (EngineException e) {

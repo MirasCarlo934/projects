@@ -6,6 +6,14 @@ import bm.context.HTMLTransformable;
 import bm.context.devices.Device;
 import bm.context.properties.Property;
 import bm.tools.StringTools;
+import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 public class Rule implements HTMLTransformable {
 	private int index;
@@ -165,23 +173,30 @@ public class Rule implements HTMLTransformable {
 	
 	/**
 	 * Returns a String representation of this CIR Statement.
+	 * @return A dom4j Document object
 	 */
-	public String toString() {
-		String args = "";
-		String execs = "";
-		String str = null;
-		
-		for(int i = 0; i < arguments.length; i++) {
-			args += arguments[i] + " ";
+	public Document toXML() {
+		Document document = DocumentHelper.createDocument();
+		Element rule = document.addElement("rule")
+				.addAttribute("name", name);
+		Element args = rule.addElement("arguments");
+		for(Argument a : arguments) {
+			args.addElement("component")
+					.addAttribute("id", a.getDeviceID())
+					.addElement("property")
+						.addAttribute("id", a.getPropertyID())
+						.addAttribute("value", a.getPropertyValue().toString())
+						.addAttribute("operator", a.getOperator().toString());
 		}
-		for(int i = 0; i < execBlocks.length; i++) {
-			execs += execBlocks[i] + " AND ";
+		Element execs = rule.addElement("execution");
+		for(ExecutionBlock e : execBlocks) {
+			execs.addElement("component")
+					.addAttribute("id", e.getDeviceID())
+					.addElement("property")
+						.addAttribute("id", e.getPropertyID())
+						.addAttribute("value", e.getPropertyValue().toString());
 		}
-		execs = execs.substring(0, execs.length() - 4);
-		
-		str = StringTools.injectStrings("IF %s THEN %s", new String[]{/*getCondition().toString(), */args, execs}, "%s");
-		
-		return str;
+		return document;
 	}
 
 	/**

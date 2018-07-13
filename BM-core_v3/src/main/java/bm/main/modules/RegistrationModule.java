@@ -8,8 +8,10 @@ import bm.context.adaptors.AdaptorManager;
 import bm.context.products.Product;
 import bm.context.properties.Property;
 import bm.jeep.JEEPManager;
+import bm.jeep.exceptions.SecondaryMessageCheckingException;
 import bm.jeep.vo.JEEPResponse;
 import bm.jeep.vo.device.InboundRegistrationRequest;
+import bm.main.modules.exceptions.RequestProcessingException;
 import org.json.JSONObject;
 
 import bm.comms.mqtt.MQTTPublisher;
@@ -69,7 +71,7 @@ public class RegistrationModule extends Module {
 	 * Registers component into system.
 	 */
 	@Override
-	protected boolean processRequest(JEEPRequest request) {
+	protected void processRequest(JEEPRequest request) throws RequestProcessingException {
 		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
 		if(request.getJSON().has("exists")) {
 			if(checkCredentialChanges(reg)) {
@@ -77,21 +79,16 @@ public class RegistrationModule extends Module {
 			} else {
 				returnExistingComponent(reg);
 			}
-			return true;
+			return;
 		}
 		
 		LOG.info("Registering device " + reg.mac + " to Environment...");
-		LOG.debug("Creating device ID...");
-		String[] existingIDs = new String[dr.getAllDevices().length];
-		for(int i = 0; i < existingIDs.length; i++) {
-			existingIDs[i] = dr.getAllDevices()[i].getSSID();
-		}
-		String ssid = idg.generateCID(existingIDs);
-		LOG.debug("Creating Device object...");
+		String ssid = idg.generateCID();
 		String topic = ssid + "_topic";
 		Product product = pr.getProduct(reg.getCID());
 		Room parentRoom = rr.getRoom(reg.room);
 		Protocol protocol = reg.getProtocol();
+		LOG.debug("Creating Device object...");
 		Device d = product.createDevice(ssid, reg.mac, reg.name, topic, protocol, parentRoom, true,
 				parentRoom.getHighestIndex() + 1);
 		d.setAdaptors(am.getAdaptorsLinkedToProduct(product.getSSID()));
@@ -109,35 +106,19 @@ public class RegistrationModule extends Module {
 			d.create(logDomain, true);
 			dr.addDevice(d);
 		} catch (AdaptorException e) {
-			LOG.error("Device couldn't be added to Environment!", e);
+//			LOG.error("Device couldn't be added to Environment!", e);
+			throw new RequestProcessingException("Device couldn't be added to Environment!", e);
 		}
 
 		LOG.info("Sending device credentials to actual device...");
 		jm.sendRegistrationResponse(d, request);
-		//persisting device to peripheral systems
-//		try {
-//			d.create(logDomain, true);
-//			LOG.info("Device " + d.getSSID() + " created!");
-//		} catch (AdaptorException e) {
-//			error("Error in persisting device to DB! This device may not exist after "
-//					+ "the BM restarts!", e, request.getProtocol());
-//			return false;
-//		}
-		
-		//publishing of Device credentials to default_topic
-//		LOG.debug("Sending device credentials to actual device...");
-//		d.sendCredentials(request);
-//		OutboundRegistrationResponse response = new OutboundRegistrationResponse(request, regIdParam, regTopicParam, d.getSSID(),
-//				d.getTopic());
-//		mp.publishToDefaultTopic(response);
-//		d.sendCredentials(request.getProtocol().getSender(), requestType, logDomain);
 		LOG.info("Registration complete!");
-		return true;
+//		return true;
 	}
 
 	@Override
-	protected boolean processResponse(JEEPResponse response) {
-		return true;
+	protected void processResponse(JEEPResponse response) {
+//		return true;
 	}
 
 	@Override
@@ -232,21 +213,23 @@ public class RegistrationModule extends Module {
 	 * </ol>
 	 */
 	@Override
-	protected boolean additionalRequestChecking(JEEPRequest request) {
+	protected boolean additionalRequestChecking(JEEPRequest request) throws SecondaryMessageCheckingException {
 		LOG.trace("Additional secondary request parameter checking...");
 		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
 		
 		LOG.trace("Checking productID validity...");
 		if(!pr.containsProduct(reg.getCID())) {
-			ResError error = new ResError(reg, "Request contains invalid product ID! (" + reg.getCID() + ")");
-			error(error);
-			return false;
+			throw new SecondaryMessageCheckingException("Request contains invalid product ID! (" + reg.getCID() + ")");
+//			ResError error = new ResError(reg, "Request contains invalid product ID! (" + reg.getCID() + ")");
+//			error(error);
+//			return false;
 		}
 		LOG.trace("Checking roomID validity...");
 		if(!rr.containsRoom(reg.room)) {
-			ResError error = new ResError(reg, "Request contains invalid room ID!");
-			error(error);
-			return false;
+			throw new SecondaryMessageCheckingException("Request contains invalid room ID! (" + reg.room + ")");
+//			ResError error = new ResError(reg, "Request contains invalid room ID!");
+//			error(error);
+//			return false;
 		}
 		
 		LOG.trace("Checking set property block validity...");
@@ -258,15 +241,18 @@ public class RegistrationModule extends Module {
 				String propID = propIDs.next();
 				if(prod.containsProperty(propID)) {
 					if(!prod.getProperty(propID).checkValueValidity(props.get(propID))) {
-						ResError error = new ResError(request, "Invalid property value for PID " + 
-								propID);
-						error(error);
-						return false;
+						throw new SecondaryMessageCheckingException("Invalid property value for PID ("
+								+ propID + ")");
+//						ResError error = new ResError(request, "Invalid property value for PID " +
+//								propID);
+//						error(error);
+//						return false;
 					}
 				} else {
-					ResError error = new ResError(request, "Invalid PID " + propID);
-					error(error);
-					return false;
+					throw new SecondaryMessageCheckingException("Invalid PID (" + propID + ")");
+//					ResError error = new ResError(request, "Invalid PID " + propID);
+//					error(error);
+//					return false;
 				}
 			}
 		}

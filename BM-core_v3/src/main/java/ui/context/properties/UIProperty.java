@@ -79,7 +79,7 @@
 //    @Override
 //    public String convertToJavascript() {
 //        String str = "new B_Property('" + property.getPropType().getSSID() + "', '" + property.getDisplayName()
-//                + "', '" + property.getMode().toString() + "', '" + property.getValue().toString() + "')";
+//                + "', '" + property.getMode().toXML() + "', '" + property.getValue().toXML() + "')";
 //        return str;
 //    }
 //

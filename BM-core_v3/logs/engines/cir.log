@@ -1,51 +1,183 @@
-2018-06-17 20:20:18,930 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
-2018-06-17 20:20:18,947 INFO  [restartedMain] (CIR.CIRManager) CIRManager started!
-2018-06-17 20:20:20,152 DEBUG [restartedMain] (CIR.CIRManager) Updating CIRManager...
-2018-06-17 20:20:20,177 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-06-17 20:20:20,177 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-06-17 20:20:20,178 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
-2018-06-17 20:20:20,178 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
-2018-06-17 20:20:20,185 DEBUG [CIRManager] (CIR.CIRManager) Property I2M4-0006 changed value. Checking CIR...
-2018-06-17 20:20:20,186 INFO  [CIRManager] (CIR.CIRManager) Property I2M4-0006 value change triggered 1 rules! Executing...
-2018-06-17 20:20:20,186 DEBUG [CIRManager] (CIR.CIRManager) Updating property C3K3-0001...
-2018-06-17 20:20:20,186 INFO  [CIRManager] (CIR.CIRManager) Property C3K3-0001 updated from rule "Test Rule 1 - OFF"
-2018-06-17 20:20:20,186 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
-2018-06-17 20:20:20,187 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,187 DEBUG [CIRManager] (CIR.CIRManager) Property J6L0-0001 changed value. Checking CIR...
-2018-06-17 20:20:20,188 INFO  [CIRManager] (CIR.CIRManager) Property J6L0-0001 value change triggered 1 rules! Executing...
-2018-06-17 20:20:20,188 DEBUG [CIRManager] (CIR.CIRManager) Updating property C3K3-0001...
-2018-06-17 20:20:20,188 INFO  [CIRManager] (CIR.CIRManager) Property C3K3-0001 updated from rule "Lights Off 1"
-2018-06-17 20:20:20,188 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
-2018-06-17 20:20:20,188 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,190 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0029 changed value. Checking CIR...
-2018-06-17 20:20:20,190 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,191 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0024 changed value. Checking CIR...
-2018-06-17 20:20:20,191 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,193 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0002 changed value. Checking CIR...
-2018-06-17 20:20:20,193 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,195 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0003 changed value. Checking CIR...
-2018-06-17 20:20:20,195 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,196 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0022 changed value. Checking CIR...
-2018-06-17 20:20:20,196 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,201 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0023 changed value. Checking CIR...
-2018-06-17 20:20:20,201 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,202 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0020 changed value. Checking CIR...
-2018-06-17 20:20:20,202 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,203 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0021 changed value. Checking CIR...
-2018-06-17 20:20:20,203 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,207 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0019 changed value. Checking CIR...
-2018-06-17 20:20:20,207 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:20,357 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
-2018-06-17 20:20:20,357 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:20:59,230 DEBUG [CIRManager] (CIR.CIRManager) Property I2M4-0006 changed value. Checking CIR...
-2018-06-17 20:20:59,254 INFO  [CIRManager] (CIR.CIRManager) Property I2M4-0006 value change triggered 1 rules! Executing...
-2018-06-17 20:20:59,254 DEBUG [CIRManager] (CIR.CIRManager) Updating property C3K3-0001...
-2018-06-17 20:20:59,255 INFO  [CIRManager] (CIR.CIRManager) Property C3K3-0001 updated from rule "Test Rule 1 - ON"
-2018-06-17 20:20:59,255 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
-2018-06-17 20:20:59,255 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-06-17 20:21:08,742 DEBUG [CIRManager] (CIR.CIRManager) Property I2M4-0006 changed value. Checking CIR...
-2018-06-17 20:21:08,742 INFO  [CIRManager] (CIR.CIRManager) Property I2M4-0006 value change triggered 1 rules! Executing...
-2018-06-17 20:21:08,742 DEBUG [CIRManager] (CIR.CIRManager) Updating property C3K3-0001...
-2018-06-17 20:21:08,742 INFO  [CIRManager] (CIR.CIRManager) Property C3K3-0001 updated from rule "Test Rule 1 - OFF"
-2018-06-17 20:21:08,742 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
-2018-06-17 20:21:08,742 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:45,981 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
+2018-06-20 16:01:46,011 INFO  [restartedMain] (CIR.CIRManager) CIRManager started!
+2018-06-20 16:01:47,612 DEBUG [restartedMain] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,632 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,633 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,633 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,633 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,662 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,733 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,734 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,735 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,736 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,736 DEBUG [CIRManager] (CIR.CIRManager) Property I2M4-0006 changed value. Checking CIR...
+2018-06-20 16:01:47,736 INFO  [CIRManager] (CIR.CIRManager) Property I2M4-0006 value change triggered 1 rules! Executing...
+2018-06-20 16:01:47,736 DEBUG [CIRManager] (CIR.CIRManager) Updating property C3K3-0001...
+2018-06-20 16:01:47,744 INFO  [CIRManager] (CIR.CIRManager) Property C3K3-0001 updated from rule "Test Rule 1 - ON"
+2018-06-20 16:01:47,745 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,747 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,747 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,747 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,748 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,748 DEBUG [CIRManager] (CIR.CIRManager) Property J6L0-0001 changed value. Checking CIR...
+2018-06-20 16:01:47,748 INFO  [CIRManager] (CIR.CIRManager) Property J6L0-0001 value change triggered 1 rules! Executing...
+2018-06-20 16:01:47,748 DEBUG [CIRManager] (CIR.CIRManager) Updating property C3K3-0001...
+2018-06-20 16:01:47,755 INFO  [CIRManager] (CIR.CIRManager) Property C3K3-0001 updated from rule "Lights Off 1"
+2018-06-20 16:01:47,755 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,757 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,757 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,757 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,757 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,757 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0029 changed value. Checking CIR...
+2018-06-20 16:01:47,757 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,757 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,759 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,759 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,759 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,759 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,759 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0024 changed value. Checking CIR...
+2018-06-20 16:01:47,760 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,760 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,761 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,762 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,762 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,762 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,762 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0002 changed value. Checking CIR...
+2018-06-20 16:01:47,762 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,762 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,764 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,764 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,764 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,764 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,764 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0003 changed value. Checking CIR...
+2018-06-20 16:01:47,764 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,764 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,766 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,766 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,766 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,766 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,766 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0022 changed value. Checking CIR...
+2018-06-20 16:01:47,766 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,766 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,769 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,769 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,769 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,769 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,769 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0023 changed value. Checking CIR...
+2018-06-20 16:01:47,769 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,769 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,771 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,771 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,771 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,772 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,772 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0020 changed value. Checking CIR...
+2018-06-20 16:01:47,772 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,772 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,875 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,876 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,876 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,876 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,876 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0021 changed value. Checking CIR...
+2018-06-20 16:01:47,876 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,876 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:47,918 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:47,918 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:47,918 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:47,919 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:47,919 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0019 changed value. Checking CIR...
+2018-06-20 16:01:47,919 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:47,919 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:48,110 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:48,111 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:48,111 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:48,111 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:48,111 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
+2018-06-20 16:01:48,111 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:48,111 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:48,115 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:48,118 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:48,119 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:48,120 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:48,120 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
+2018-06-20 16:01:48,120 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:01:48,120 DEBUG [CIRManager] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:01:48,122 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:01:48,123 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:01:48,123 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:01:48,123 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:01:48,123 DEBUG [CIRManager] (CIR.CIRManager) Property C3K3-0001 changed value. Checking CIR...
+2018-06-20 16:01:48,123 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-06-20 16:02:01,097 INFO  [Thread1:Process1] (CIR.CIRManager) Removing rules with property I2M4-0006 as argument...
+2018-06-20 16:02:01,177 INFO  [Thread1:Process1] (CIR.CIRManager) Removing rule "Test Rule 1 - ON"...
+2018-06-20 16:02:01,179 INFO  [Thread1:Process1] (CIR.CIRManager) Removing rule "Test Rule 1 - OFF"...
+2018-06-20 16:02:01,280 INFO  [Thread1:Process1] (CIR.CIRManager) CIR updated!
+2018-06-20 16:02:01,280 DEBUG [Thread1:Process1] (CIR.CIRManager) Updating CIRManager...
+2018-06-20 16:02:01,284 ERROR [Thread1:Process1] (CIR.CIRManager) Cannot parse CIR file!
+org.jdom.input.JDOMParseException: Error on line 3 of document file:/Users/carlomiras/git/BM-core_v3/cir/rules.cir: The processing instruction target matching "[xX][mM][lL]" is not allowed.
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:501)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:847)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:826)
+	at bm.cir.CIRManager$CIRFileParser.retrieveCIRFromFile(CIRManager.java:232)
+	at bm.cir.CIRManager.updateRules(CIRManager.java:113)
+	at bm.cir.CIRManager.overwriteRules(CIRManager.java:145)
+	at bm.cir.CIRManager.removeRulesTriggered(CIRManager.java:209)
+	at bm.main.modules.DetachmentModule.processRequest(DetachmentModule.java:59)
+	at bm.main.modules.DetachmentModule.run(DetachmentModule.java:94)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/Users/carlomiras/git/BM-core_v3/cir/rules.cir; lineNumber: 3; columnNumber: 6; The processing instruction target matching "[xX][mM][lL]" is not allowed.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanPIData(XMLScanner.java:746)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanPIData(XMLDocumentFragmentScannerImpl.java:1014)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanPI(XMLScanner.java:714)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$TrailingMiscDriver.next(XMLDocumentScannerImpl.java:1413)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:841)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:770)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:489)
+	... 11 more
+Caused by: org.xml.sax.SAXParseException; systemId: file:/Users/carlomiras/git/BM-core_v3/cir/rules.cir; lineNumber: 3; columnNumber: 6; The processing instruction target matching "[xX][mM][lL]" is not allowed.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanPIData(XMLScanner.java:746)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanPIData(XMLDocumentFragmentScannerImpl.java:1014)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.scanPI(XMLScanner.java:714)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$TrailingMiscDriver.next(XMLDocumentScannerImpl.java:1413)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:841)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:770)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:489)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:847)
+	at org.jdom.input.SAXBuilder.build(SAXBuilder.java:826)
+	at bm.cir.CIRManager$CIRFileParser.retrieveCIRFromFile(CIRManager.java:232)
+	at bm.cir.CIRManager.updateRules(CIRManager.java:113)
+	at bm.cir.CIRManager.overwriteRules(CIRManager.java:145)
+	at bm.cir.CIRManager.removeRulesTriggered(CIRManager.java:209)
+	at bm.main.modules.DetachmentModule.processRequest(DetachmentModule.java:59)
+	at bm.main.modules.DetachmentModule.run(DetachmentModule.java:94)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+2018-06-20 16:02:01,293 DEBUG [Thread1:Process1] (CIR.CIRManager) Adding rule "Lights On 1" to repository
+2018-06-20 16:02:01,293 DEBUG [Thread1:Process1] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
+2018-06-20 16:02:01,293 DEBUG [Thread1:Process1] (CIR.CIRManager) Adding rule "Test Rule 1 - ON" to repository
+2018-06-20 16:02:01,293 DEBUG [Thread1:Process1] (CIR.CIRManager) Adding rule "Test Rule 1 - OFF" to repository
+2018-06-20 16:02:01,294 INFO  [Thread1:Process1] (CIR.CIRManager) 2 rules removed!

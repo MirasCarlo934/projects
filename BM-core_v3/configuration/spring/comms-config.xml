@@ -61,6 +61,7 @@
 		<constructor-arg name="logDomain" value="${log.domain.mqtt}"/>
 		<constructor-arg name="default_topic" value="${mqtt.topic.default}"/>
 		<constructor-arg name="error_topic" value="${mqtt.topic.error}"/>
+		<constructor-arg name="regRTY" value="${rty.registration}"/>
 		<constructor-arg name="deviceRepository" ref="Devices"/>
 		<constructor-arg name="responseManager" ref="ResponseManager"/>
 	</bean>
@@ -79,5 +80,6 @@
 		<constructor-arg name="resendPeriod" value="${comms.resendTime}"/>
 		<constructor-arg name="timeout" value="${comms.resendTimeout}"/>
         <constructor-arg name="isResending" value="false"/>
+		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 	</bean>
 </beans>

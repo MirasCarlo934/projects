@@ -10,16 +10,11 @@ import bm.context.rooms.Room;
  * @author carlomiras
  *
  */
-//LATER check if roomIndex has to be distinct from index in SymphonyElement
 public abstract class SymphonyObject extends SymphonyElement {
 	protected Room parentRoom;
-//	protected int roomIndex = -1;
 
-	//TASK Remove throws AdaptorException
 	public SymphonyObject(String SSID, Room room, int index) {
 		super(SSID, index);
-//		this.roomIndex = index;
-//		super.setIndex(index);
 		setRoom(room, index);
 	}
 
@@ -33,7 +28,7 @@ public abstract class SymphonyObject extends SymphonyElement {
 	 * @param room The new parent room of this device
 	 * @throws AdaptorException 
 	 */
-	public void setRoom(Room room) {
+	public synchronized void setRoom(Room room) {
 		if(this.parentRoom != null) {
 			this.parentRoom.removeSmarthomeObject(this);
 		}
@@ -53,7 +48,7 @@ public abstract class SymphonyObject extends SymphonyElement {
 	 * 		are ordered in a room.</i>
 	 * @throws AdaptorException 
 	 */
-	public void setRoom(Room room, int index) {
+	public synchronized void setRoom(Room room, int index) {
 		if(this.parentRoom != null) {
 			this.parentRoom.removeSmarthomeObject(this);
 		}
@@ -64,13 +59,4 @@ public abstract class SymphonyObject extends SymphonyElement {
 			this.parentRoom = room;
 		}
 	}
-
-//	public int getRoomIndex() {
-//		return roomIndex;
-//	}
-//
-//	public void setRoomIndex(int roomIndex) {
-//		this.roomIndex = roomIndex;
-//		super.setIndex(roomIndex);
-//	}
 }

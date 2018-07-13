@@ -13,7 +13,7 @@ import bm.main.repositories.DeviceRepository;
 import symphony.firebase.vo.FirebaseDevice;
 import bm.context.devices.Device;
 
-public class ChildAddedListener implements ChildEventListener{
+public class ChildAddedListener implements ChildEventListener {
 	String path;
 	DatabaseReference ref;
 	private Logger logger = Logger.getLogger(ChildAddedListener.class);

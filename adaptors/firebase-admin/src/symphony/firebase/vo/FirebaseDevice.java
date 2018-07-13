@@ -7,14 +7,14 @@ import org.json.JSONObject;
 
 import com.google.firebase.database.DataSnapshot;
 
-import bm.context.properties.AbstProperty;
+import bm.context.properties.Property;
 import symphony.firebase.adaptor.Firebase;
 
 public class FirebaseDevice {
 	public String room;
 	public String id;
 	public String name;
-	public HashMap<String, Property> properties;
+	public HashMap<String, FirebaseProperty> properties;
 	private Logger logger = Logger.getLogger(FirebaseDevice.class);
 	
 	/*
@@ -43,12 +43,12 @@ public class FirebaseDevice {
 	public FirebaseDevice(bm.context.devices.Device device) {
 		this.id = device.getSSID();
 		this.name = device.getName();		
-		AbstProperty props[] = device.getProperties();
+		Property props[] = device.getProperties();
 		HashMap propertyMap = new HashMap();
 		logger.info("device.name="+device.getName()+" props.length="+props.length);
 		for (int i=0; i<props.length; i++) {
 			logger.info("device.name="+device.getName()+" props.length="+props.length+" prop="+props[i]);
-			Property prop = new Property(props[i]);
+			FirebaseProperty prop = new FirebaseProperty(props[i]);
 			propertyMap.put(props[i].getDisplayName(), prop);
 		}
 //		properties.put("properties", propertyMap);
@@ -83,17 +83,17 @@ public class FirebaseDevice {
 		properties = new HashMap();
 		for(DataSnapshot ds: props.getChildren()){
 			logger.info("property start");
-			Property p = ds.getValue(Property.class);			
+			FirebaseProperty p = ds.getValue(FirebaseProperty.class);
 			properties.put(ds.getKey(), p);
 			logger.info(" props key="+ds.getKey()+ " value="+ds.getValue()+"  p.id="+p.id+" p.name="+p.name);
 		}
 	}
 	
-	public HashMap<String, Property> getProperties() {
+	public HashMap<String, FirebaseProperty> getProperties() {
 		return properties;
 	}
 
-	public void setProperties(HashMap<String, Property> properties) {
+	public void setProperties(HashMap<String, FirebaseProperty> properties) {
 		this.properties = properties;
 	}
 }

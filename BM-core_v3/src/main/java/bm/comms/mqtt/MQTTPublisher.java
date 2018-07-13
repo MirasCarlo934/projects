@@ -24,10 +24,12 @@ public class MQTTPublisher extends Sender implements Initializable {
 	private DeviceRepository dr;
 	protected LinkedList<MQTTMessage> queue = new LinkedList<MQTTMessage>();
 	private Vector<String> deviceTopics;
+	private String regRTY;
 
-	public MQTTPublisher(String name, String logDomain, String default_topic, String error_topic,
+	public MQTTPublisher(String name, String logDomain, String default_topic, String error_topic, String regRTY,
 						 DeviceRepository deviceRepository, ResponseManager responseManager) {
 		super(logDomain, name, responseManager);
+		this.regRTY = regRTY;
 		this.default_topic = default_topic;
 		this.error_topic = error_topic;
 		this.dr = deviceRepository;
@@ -83,6 +85,9 @@ public class MQTTPublisher extends Sender implements Initializable {
 	@Override
 	public void sendJEEPMessage(JEEPMessage message) {
 		publish(message);
+		if(message.getRTY().equals(regRTY)) {
+			publishToDefaultTopic(message);
+		}
 	}
 	
 	@Override
@@ -132,8 +137,8 @@ public class MQTTPublisher extends Sender implements Initializable {
 		publish(topic, message.toString());
 	}
 
-	public void publishToDefaultTopic(JEEPResponse response) {
-		publish(default_topic, response.toString());
+	public void publishToDefaultTopic(JEEPMessage message) {
+		publish(default_topic, message.getJSON().toString());
 	}
 
 	private void publishToErrorTopic(JEEPResponse response) {

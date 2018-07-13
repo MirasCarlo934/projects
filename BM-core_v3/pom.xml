@@ -88,16 +88,16 @@
   
   <resources>
       <resource>
-          <directory>configuration</directory>  
+          <directory>configuration</directory>
           <excludes>
-          	<exclude>**/*.properties</exclude>  
+          	<exclude>**/*.properties</exclude>
           	<exclude>**/*.xml</exclude>
           </excludes>
       </resource>
       <resource>
-          <directory>configuration/spring</directory>      
+          <directory>configuration/spring</directory>
           <excludes>
-          	<exclude>**/*.xml</exclude>     
+          	<exclude>**/*.xml</exclude>
           </excludes>
       </resource>
   </resources>
@@ -162,36 +162,15 @@
     		<artifactId>log4j</artifactId>
     		<version>1.2.17</version>
 	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-	<!--<dependency>-->
-    		<!--<groupId>org.springframework</groupId>-->
-    		<!--<artifactId>spring-webmvc</artifactId>-->
-    		<!--<version>5.1.0.BUILD-SNAPSHOT</version>-->
-	<!--</dependency>-->
-	
-	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
-	<!--<dependency>-->
-    		<!--<groupId>javax.servlet</groupId>-->
-    		<!--<artifactId>servlet-api</artifactId>-->
-    		<!--<version>3.0-alpha-1</version>-->
-    		<!--<scope>provided</scope>-->
-	<!--</dependency>-->
-	
-	<!--
-	<dependency>
-    		<groupId>org.apache.logging.log4j</groupId>
-    		<artifactId>log4j-api</artifactId>
-    		<version>2.11.0</version>
-  	</dependency>
-  	<dependency>
-    		<groupId>org.apache.logging.log4j</groupId>
-    		<artifactId>log4j-core</artifactId>
-    		<version>2.11.0</version>
-  	</dependency>
-  	-->
-  
-	<dependency>
+
+      <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+      <dependency>
+          <groupId>dom4j</groupId>
+          <artifactId>dom4j</artifactId>
+          <version>1.6.1</version>
+      </dependency>
+
+      <dependency>
 		<groupId>org.json</groupId>
 		<artifactId>json</artifactId>
 		<version>20160212</version>

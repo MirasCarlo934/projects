@@ -1,11 +1,16 @@
 package bm.main.modules;
 
+import bm.cir.CIRManager;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
+import bm.context.properties.Property;
 import bm.jeep.JEEPManager;
+import bm.jeep.exceptions.SecondaryMessageCheckingException;
 import bm.jeep.vo.JEEPRequest;
 import bm.jeep.vo.JEEPResponse;
+import bm.main.modules.exceptions.RequestProcessingException;
 import bm.main.repositories.DeviceRepository;
+import bm.tools.IDGenerator;
 
 /**
  * The DetachmentModule basically unregisters or "detaches" the requesting component from the Symphony system. The 
@@ -16,6 +21,8 @@ import bm.main.repositories.DeviceRepository;
  */
 public class DetachmentModule extends Module {
 	private JEEPManager jm;
+	private IDGenerator idg;
+	private CIRManager cirm;
 
 	/**
 	 * Creates a DetachmentModule
@@ -25,9 +32,11 @@ public class DetachmentModule extends Module {
 	 * @param RTY the JEEP request type that this module handles
 	 */
 	public DetachmentModule(String logDomain, String errorLogDomain, String RTY, JEEPManager jeepManager,
-							DeviceRepository dr) {
+							CIRManager cirManager, DeviceRepository dr, IDGenerator idGenerator) {
 		super(logDomain, errorLogDomain, "DetachmentModule", RTY, new String[0], null, dr);
 		this.jm = jeepManager;
+		this.idg = idGenerator;
+		this.cirm = cirManager;
 	}
 	
 //	/**
@@ -43,26 +52,30 @@ public class DetachmentModule extends Module {
 //	}
 
 	@Override
-	protected boolean processRequest(JEEPRequest request) {
+	protected void processRequest(JEEPRequest request) throws RequestProcessingException{
 		String cid = request.getCID();
 		Device d = dr.getDevice(cid);
 		LOG.info("Detaching device " + cid + " from system...");
 		try {
+			for(Property p : d.getProperties()) {
+				cirm.removeRulesTriggered(p);
+			}
 			d.delete(logDomain, true);
 			jm.sendDetachmentResponse(d, true, request);
 			dr.removeDevice(d.getSSID());
+			idg.removeCID(d.getSSID());
 		} catch (AdaptorException e) {
-			error(e, request.getProtocol());
-			return false;
+//			error(e, request.getProtocol());
+//			return false;
+			throw new RequestProcessingException("Failed to detach device!", e);
 		}
 		
 		LOG.info("Detachment complete!");
-		return true;
+//		return true;
 	}
 
 	@Override
-	protected boolean processResponse(JEEPResponse response) {
-		return true;
+	protected void processResponse(JEEPResponse response) {
 	}
 
 	@Override
@@ -70,22 +83,29 @@ public class DetachmentModule extends Module {
 
 	}
 
+	/*
+	This method was overridden from superclass Module to allow attached ModuleExtensions to process first before
+	detaching.
+	 */
 	@Override
 	public void run() {
 		LOG.debug(name + " request processing started!");
-		
-		if(checkSecondaryRequestParameters(request)) {
-			LOG.trace("Request valid! Proceeding to request processing...");
-			for(int i = 0; i < extensions.length; i++) {
-				AbstModuleExtension ext = extensions[i];
-				ext.processRequest(request);
+
+		try {
+			if(checkSecondaryRequestParameters(request)) {
+				LOG.trace("Request valid! Proceeding to request processing...");
+				for(int i = 0; i < extensions.length; i++) {
+					AbstModuleExtension ext = extensions[i];
+					ext.processRequest(request);
+				}
+				try {
+					processRequest(request);
+					LOG.info("Request processing finished!");
+				} catch(RequestProcessingException e) {
+					error("Request processing failed!", e, request.getProtocol());
+				}
 			}
-			if(processRequest(request)) {
-				LOG.info("Request processing finished!");
-			} else {
-				LOG.error(name + " did not processRequest the request successfully!");
-			}
-		} else {
+		} catch (SecondaryMessageCheckingException e) {
 			LOG.error("Secondary request params didn't check out. See also the additional request params"
 					+ " checking.");
 		}

@@ -97,59 +97,59 @@ public abstract class SymphonyElement {
 	protected abstract void createInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilCreated)
 			throws AdaptorException;
 	
-	public void create(String callerLogDomain, boolean waitUntilCreated) throws AdaptorException {
+	public synchronized void create(String callerLogDomain, boolean waitUntilCreated) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
 			createInAdaptor(adaptors.get(i), callerLogDomain, waitUntilCreated);
 		}
 	}
 	
-	/**
-	 * Persists this object. The common objective of this method is to use all the injected adaptors 
-	 * to persist this object to various external systems and services, <b>with the exception of some 
-	 * specified adaptors</b>. <br><br>
-	 * 
-	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
-	 * repositories. That is mainly done in Modules.
-	 * 
-	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be created in
-	 * @param callerLogDomain the log domain of the object that called this method
-	 * @param waitUntilCreated 
-	 * @throws AdaptorException if an adaptor fails to persist this object
-	 */
-	public void createExcept(AbstAdaptor[] exceptions, String callerLogDomain,
-			boolean waitUntilCreated) throws AdaptorException {
-		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
-		for(int i = 0; i < adaptors.size(); i++) {
-			AbstAdaptor adaptor = adaptors.get(i);
-			if(!excepts.contains(adaptor)) {
-				createInAdaptor(adaptor, callerLogDomain, waitUntilCreated);
-			}
-		}
-	}
-	
-	/**
-	 * Persists this object. The common objective of this method is to use all the injected adaptors 
-	 * to persist this object to various external systems and services, <b>with the exception of some 
-	 * specified adaptors</b>. <br><br>
-	 * 
-	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
-	 * repositories. That is mainly done in Modules.
-	 * 
-	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be created in
-	 * @param callerLogDomain the log domain of the object that called this method
-	 * @param waitUntilCreated 
-	 * @throws AdaptorException if an adaptor fails to persist this object
-	 */
-	public void createExcept(String[] exceptions, String callerLogDomain,
-			boolean waitUntilCreated) throws AdaptorException {
-		List<String> excepts = Arrays.asList(exceptions);
-		for(int i = 0; i < adaptors.size(); i++) {
-			AbstAdaptor adaptor = adaptors.get(i);
-			if(!excepts.contains(adaptor.getName())) {
-				createInAdaptor(adaptor, callerLogDomain, waitUntilCreated);
-			}
-		}
-	}
+//	/**
+//	 * Persists this object. The common objective of this method is to use all the injected adaptors
+//	 * to persist this object to various external systems and services, <b>with the exception of some
+//	 * specified adaptors</b>. <br><br>
+//	 *
+//	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
+//	 * repositories. That is mainly done in Modules.
+//	 *
+//	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be created in
+//	 * @param callerLogDomain the log domain of the object that called this method
+//	 * @param waitUntilCreated
+//	 * @throws AdaptorException if an adaptor fails to persist this object
+//	 */
+//	public synchronized void createExcept(AbstAdaptor[] exceptions, String callerLogDomain,
+//			boolean waitUntilCreated) throws AdaptorException {
+//		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
+//		for(int i = 0; i < adaptors.size(); i++) {
+//			AbstAdaptor adaptor = adaptors.get(i);
+//			if(!excepts.contains(adaptor)) {
+//				createInAdaptor(adaptor, callerLogDomain, waitUntilCreated);
+//			}
+//		}
+//	}
+//
+//	/**
+//	 * Persists this object. The common objective of this method is to use all the injected adaptors
+//	 * to persist this object to various external systems and services, <b>with the exception of some
+//	 * specified adaptors</b>. <br><br>
+//	 *
+//	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
+//	 * repositories. That is mainly done in Modules.
+//	 *
+//	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be created in
+//	 * @param callerLogDomain the log domain of the object that called this method
+//	 * @param waitUntilCreated
+//	 * @throws AdaptorException if an adaptor fails to persist this object
+//	 */
+//	public synchronized void createExcept(String[] exceptions, String callerLogDomain,
+//			boolean waitUntilCreated) throws AdaptorException {
+//		List<String> excepts = Arrays.asList(exceptions);
+//		for(int i = 0; i < adaptors.size(); i++) {
+//			AbstAdaptor adaptor = adaptors.get(i);
+//			if(!excepts.contains(adaptor.getName())) {
+//				createInAdaptor(adaptor, callerLogDomain, waitUntilCreated);
+//			}
+//		}
+//	}
 	
 	/**
 	 * Persists this object to all plugged adaptors <b>EXCEPT</b> the DBAdaptor. This method is invoked mainly by 
@@ -174,59 +174,59 @@ public abstract class SymphonyElement {
 	protected abstract void deleteInAdaptor(AbstAdaptor adaptor, String callerLogDomain, boolean waitUntilDeleted)
 			throws AdaptorException;
 	
-	public void delete(String callerLogDomain, boolean waitUntilDeleted) throws AdaptorException {
+	public synchronized void delete(String callerLogDomain, boolean waitUntilDeleted) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
 			deleteInAdaptor(adaptors.get(i), callerLogDomain, waitUntilDeleted);
 		}
 	}
 	
-	/**
-	 * Persists this object. The common objective of this method is to use all the injected adaptors 
-	 * to persist this object to various external systems and services, <b>with the exception of some 
-	 * specified adaptors</b>. <br><br>
-	 * 
-	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
-	 * repositories. That is mainly done in Modules.
-	 * 
-	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be created in
-	 * @param callerLogDomain the log domain of the object that called this method
-	 * @param waitUntilDeleted
-	 * @throws AdaptorException if an adaptor fails to persist this object
-	 */
-	public void deleteExcept(AbstAdaptor[] exceptions, String callerLogDomain,
-			boolean waitUntilDeleted) throws AdaptorException {
-		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
-		for(int i = 0; i < adaptors.size(); i++) {
-			AbstAdaptor adaptor = adaptors.get(i);
-			if(!excepts.contains(adaptor)) {
-				deleteInAdaptor(adaptor, callerLogDomain, waitUntilDeleted);
-			}
-		}
-	}
-	
-	/**
-	 * Persists this object. The common objective of this method is to use all the injected adaptors 
-	 * to persist this object to various external systems and services, <b>with the exception of some 
-	 * specified adaptors</b>. <br><br>
-	 * 
-	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
-	 * repositories. That is mainly done in Modules.
-	 * 
-	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be created in
-	 * @param callerLogDomain the log domain of the object that called this method
-	 * @param waitUntilDeleted
-	 * @throws AdaptorException if an adaptor fails to persist this object
-	 */
-	public void deleteExcept(String[] exceptions, String callerLogDomain,
-			boolean waitUntilDeleted) throws AdaptorException {
-		List<String> excepts = Arrays.asList(exceptions);
-		for(int i = 0; i < adaptors.size(); i++) {
-			AbstAdaptor adaptor = adaptors.get(i);
-			if(!excepts.contains(adaptor.getName())) {
-				deleteInAdaptor(adaptor, callerLogDomain, waitUntilDeleted);
-			}
-		}
-	}
+//	/**
+//	 * Persists this object. The common objective of this method is to use all the injected adaptors
+//	 * to persist this object to various external systems and services, <b>with the exception of some
+//	 * specified adaptors</b>. <br><br>
+//	 *
+//	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
+//	 * repositories. That is mainly done in Modules.
+//	 *
+//	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be created in
+//	 * @param callerLogDomain the log domain of the object that called this method
+//	 * @param waitUntilDeleted
+//	 * @throws AdaptorException if an adaptor fails to persist this object
+//	 */
+//	public void deleteExcept(AbstAdaptor[] exceptions, String callerLogDomain,
+//			boolean waitUntilDeleted) throws AdaptorException {
+//		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
+//		for(int i = 0; i < adaptors.size(); i++) {
+//			AbstAdaptor adaptor = adaptors.get(i);
+//			if(!excepts.contains(adaptor)) {
+//				deleteInAdaptor(adaptor, callerLogDomain, waitUntilDeleted);
+//			}
+//		}
+//	}
+//
+//	/**
+//	 * Persists this object. The common objective of this method is to use all the injected adaptors
+//	 * to persist this object to various external systems and services, <b>with the exception of some
+//	 * specified adaptors</b>. <br><br>
+//	 *
+//	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine
+//	 * repositories. That is mainly done in Modules.
+//	 *
+//	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be created in
+//	 * @param callerLogDomain the log domain of the object that called this method
+//	 * @param waitUntilDeleted
+//	 * @throws AdaptorException if an adaptor fails to persist this object
+//	 */
+//	public void deleteExcept(String[] exceptions, String callerLogDomain,
+//			boolean waitUntilDeleted) throws AdaptorException {
+//		List<String> excepts = Arrays.asList(exceptions);
+//		for(int i = 0; i < adaptors.size(); i++) {
+//			AbstAdaptor adaptor = adaptors.get(i);
+//			if(!excepts.contains(adaptor.getName())) {
+//				deleteInAdaptor(adaptor, callerLogDomain, waitUntilDeleted);
+//			}
+//		}
+//	}
 	
 //	/**
 //	 * Updates this object. The common objective of this method is to use all the injected adaptors 
@@ -257,49 +257,49 @@ public abstract class SymphonyElement {
 	 * @param waitUntilUpdated
 	 * @throws AdaptorException if an adaptor fails to updateRules this object
 	 */
-	public void update(String callerLogDomain, boolean waitUntilUpdated) throws AdaptorException {
+	public synchronized void update(String callerLogDomain, boolean waitUntilUpdated) throws AdaptorException {
 		for(int i = 0; i < adaptors.size(); i++) {
 			updateInAdaptor(adaptors.get(i), callerLogDomain, waitUntilUpdated);
 		}
 	}
 	
-	/**
-	 * Updates this object to all plugged adaptors with the exception of some specified adaptors.
-	 * 
-	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be updated to
-	 * @param parentLogDomain the log domain of the object that called this method
-	 * @param waitUntilUpdated
-	 * @throws AdaptorException if an adaptor fails to updateRules this object
-	 */
-	public void updateExcept(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated) 
-			throws AdaptorException {
-		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
-		for(int i = 0; i < adaptors.size(); i++) {
-			AbstAdaptor adaptor = adaptors.get(i);
-			if(!excepts.contains(adaptor)) {
-				updateInAdaptor(adaptor, parentLogDomain, waitUntilUpdated);
-			}
-		}
-	}
+//	/**
+//	 * Updates this object to all plugged adaptors with the exception of some specified adaptors.
+//	 *
+//	 * @param exceptions the adaptors where this object <b>WILL NOT</b> be updated to
+//	 * @param parentLogDomain the log domain of the object that called this method
+//	 * @param waitUntilUpdated
+//	 * @throws AdaptorException if an adaptor fails to updateRules this object
+//	 */
+//	public void updateExcept(AbstAdaptor[] exceptions, String parentLogDomain, boolean waitUntilUpdated)
+//			throws AdaptorException {
+//		List<AbstAdaptor> excepts = Arrays.asList(exceptions);
+//		for(int i = 0; i < adaptors.size(); i++) {
+//			AbstAdaptor adaptor = adaptors.get(i);
+//			if(!excepts.contains(adaptor)) {
+//				updateInAdaptor(adaptor, parentLogDomain, waitUntilUpdated);
+//			}
+//		}
+//	}
 	
-	/**
-	 * Updates this object to all plugged adaptors with the exception of some specified adaptors.
-	 * 
-	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be updated to
-	 * @param callerLogDomain the log domain of the object that called this method
-	 * @param waitUntilUpdated
-	 * @throws AdaptorException if an adaptor fails to updateRules this object
-	 */
-	public void updateExcept(String[] exceptions, String callerLogDomain, boolean waitUntilUpdated)
-			throws AdaptorException {
-		List<String> excepts = Arrays.asList(exceptions);
-		for(int i = 0; i < adaptors.size(); i++) {
-			AbstAdaptor adaptor = adaptors.get(i);
-			if(!excepts.contains(adaptor.getName())) {
-				updateInAdaptor(adaptor, callerLogDomain, waitUntilUpdated);
-			}
-		}
-	}
+//	/**
+//	 * Updates this object to all plugged adaptors with the exception of some specified adaptors.
+//	 *
+//	 * @param exceptions the adaptor names where this object <b>WILL NOT</b> be updated to
+//	 * @param callerLogDomain the log domain of the object that called this method
+//	 * @param waitUntilUpdated
+//	 * @throws AdaptorException if an adaptor fails to updateRules this object
+//	 */
+//	public void updateExcept(String[] exceptions, String callerLogDomain, boolean waitUntilUpdated)
+//			throws AdaptorException {
+//		List<String> excepts = Arrays.asList(exceptions);
+//		for(int i = 0; i < adaptors.size(); i++) {
+//			AbstAdaptor adaptor = adaptors.get(i);
+//			if(!excepts.contains(adaptor.getName())) {
+//				updateInAdaptor(adaptor, callerLogDomain, waitUntilUpdated);
+//			}
+//		}
+//	}
 	
 //	/**
 //	 * Updates this object to all plugged adaptors with the exception of the specified adaptor classes. <b><i>NOTE:</b> 

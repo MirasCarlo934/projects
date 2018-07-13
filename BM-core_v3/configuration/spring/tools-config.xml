@@ -16,6 +16,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="ridLength" value="${id.rid.length}"/>
 		<constructor-arg name="cidLength" value="${id.cid.length}"/>
 		<constructor-arg name="engineRequestIDLength" value="${id.erqs_request.length}"/>
+		<property name="deviceRepository" ref="Devices"/>
+		<property name="roomRepository" ref="Rooms"/>
 	</bean>
 	<bean id="Cipher" class="bm.tools.Cipher">
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>

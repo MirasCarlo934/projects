@@ -6,11 +6,13 @@ import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.context.properties.Property;
 import bm.jeep.JEEPManager;
+import bm.jeep.exceptions.SecondaryMessageCheckingException;
 import bm.jeep.vo.JEEPRequest;
 import bm.jeep.vo.JEEPResponse;
 import bm.jeep.vo.device.JEEPErrorResponse;
 import bm.jeep.vo.device.ReqPOOP;
 import bm.jeep.vo.device.ResPOOP;
+import bm.main.modules.exceptions.RequestProcessingException;
 import bm.main.repositories.DeviceRepository;
 import bm.tools.IDGenerator;
 import bm.tools.SystemTimer;
@@ -65,7 +67,7 @@ public class POOPModule extends Module {
 	 * @param request The Request to be processed. <b>Must be</b> a <i>ReqPOOP</i> object.
 	 */
 	@Override
-	protected boolean processRequest(JEEPRequest request) {
+	protected void processRequest(JEEPRequest request) throws RequestProcessingException {
 		ReqPOOP poop = new ReqPOOP(request, propIDParam, propValParam);
 		Device d = dr.getDevice(poop.getCID());
 //		Vector<Property> propsToUpdate = new Vector<Property>(1, 1);
@@ -90,9 +92,11 @@ public class POOPModule extends Module {
 				prop.update(logDomain, false);
 				jm.sendPOOPResponse(prop, poop);
 			} catch (AdaptorException e) {
-				error("Cannot change property " + poop.propSSID + " of device " + poop.getCID(), e,
-						request.getProtocol());
-				return false;
+//				error("Cannot change property " + poop.propSSID + " of device " + poop.getCID(), e,
+//						request.getProtocol());
+//				return false;
+				throw new RequestProcessingException("Cannot change property " + poop.propSSID + " of device " +
+						poop.getCID(), e);
 			}
 			
 //			LOG.info("Updating affected devices in environment...");
@@ -133,14 +137,14 @@ public class POOPModule extends Module {
 //			if(!updatedOthers) LOG.info("No other components updated!");
 		}
 		LOG.info("Property changed. POOP processing complete!");
-		return true;
+//		return true;
 	}
 	
 	@Override
-	protected boolean processResponse(JEEPResponse response) {
+	protected void processResponse(JEEPResponse response) {
 //		ResPOOP res = new ResPOOP(response, propIDParam, propValParam);
 //		affectedIDs.remove(res.getCID() + res.getPropSSID());
-		return true;
+//		return true;
 	}
 
 	@Override
@@ -169,8 +173,8 @@ public class POOPModule extends Module {
 	 * </ol>
 	 */
 	@Override
-	protected boolean additionalRequestChecking(JEEPRequest request) {
-		boolean b = false;
+	protected boolean additionalRequestChecking(JEEPRequest request) throws SecondaryMessageCheckingException {
+		boolean b;
 		ReqPOOP poop = new ReqPOOP(request, propIDParam, propValParam);
 		
 		Device d = dr.getDevice(poop.getCID());
@@ -178,15 +182,16 @@ public class POOPModule extends Module {
 		if(d.getProperty(poop.propSSID) != null) { //checks if property exists in the component;
 			Property prop = d.getProperty(poop.propSSID);
 			if(!prop.checkValueValidity(poop.propValue)) {
-				JEEPErrorResponse errorRes = new JEEPErrorResponse(poop, "Invalid value! "
-						+ "Check property constraints and valid data types!");
-				error(errorRes);
-				return false;
+//				JEEPErrorResponse errorRes = new JEEPErrorResponse(poop, "Invalid value! "
+//						+ "Check property constraints and valid data types!");
+//				error(errorRes);
+				throw new SecondaryMessageCheckingException("Invalid value! Check valid data types for given " +
+						"property!");
 			} else b = true;
 		}
 		else {
-			error(new JEEPErrorResponse(request, "Property does not exist in the specified device!"));
-			return false;
+//			error(new JEEPErrorResponse(request, "Property does not exist in the specified device!"));
+			throw new SecondaryMessageCheckingException("Property does not exist in the specified device!");
 		}
 		
 		return b;

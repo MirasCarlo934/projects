@@ -133,12 +133,12 @@
 ////			boolean waitUntilAdded) throws HTTPException {
 ////		for(int i = 0; i < items.length; i++) {
 ////			JSONObject json = items[i];
-////			LOG.trace("Adding item " + json.toString() + " to registry!");
+////			LOG.trace("Adding item " + json.toXML() + " to registry!");
 ////			HashMap<String, String> headers = new HashMap<String, String>(2,1);
 ////			HashMap<String, String> parameters = new HashMap<String, String>(1,1);
 ////			headers.put("Content-Type", "application/json");
 ////			headers.put("Accept", "application/json");
-////			parameters.put("null", json.toString());
+////			parameters.put("null", json.toXML());
 ////			PutHTTPReq put = new PutHTTPReq(/*idg.generateMixedCharID(10), httpSender, */ohIP + "/rest/items/" +
 ////					json.getString("name"), headers, parameters, new int[]{200, 201});
 ////			hs.sendHTTPRequest(put, waitUntilAdded);

@@ -66,6 +66,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
 		<constructor-arg name="dr" ref="Devices"/>
 		<constructor-arg name="jeepManager" ref="JEEPManager"/>
+		<constructor-arg name="idGenerator" ref="IDGenerator"/>
 		<!-- <constructor-arg name="extensions">
 			<array>
 				<ref bean="OH.DetachmentExtension"/>

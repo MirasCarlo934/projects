@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import com.google.firebase.database.DatabaseReference;
 
 import symphony.firebase.vo.FirebaseDevice;
-import symphony.firebase.vo.Property;
+import symphony.firebase.vo.FirebaseProperty;
 
 
 /**
@@ -74,8 +74,8 @@ public class SymphonyMqttCB implements MqttCallback {
 	private void updateFirebaseDB(JSONObject json) {
 		DatabaseReference usersRef = ref.child(json.getString("CID")+"/properties");
 		HashMap props = new HashMap();
-		props.put("1234", new Property("id1", 7));
-		props.put("5467", new Property("id2", 8));
+		props.put("1234", new FirebaseProperty("id1", 7));
+		props.put("5467", new FirebaseProperty("id2", 8));
 		FirebaseDevice device = new FirebaseDevice("PIR", "PIRName", props);
 		usersRef.updateChildrenAsync(props);
 		System.out.println("done update db");

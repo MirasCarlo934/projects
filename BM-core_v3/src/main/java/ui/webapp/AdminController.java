@@ -230,7 +230,7 @@ public class AdminController extends AbstController {
 			HashMap<String, Object> compropVals = new HashMap<String, Object>(4);
 			compropVals.put("COM_TYPE", ssid);
 			compropVals.put("DISP_NAME", p.propname);
-			compropVals.put("SSID", idg.generateIntID(4));
+			compropVals.put("SSID", idg.generateIntID(4, new String[0]));
 			compropVals.put("INDEX", i + 1);
 			compropVals.put("BINDING", null);
 			compropVals.put("PROP_TYPE", p.proptype.getSSID());

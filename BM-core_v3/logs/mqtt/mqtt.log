@@ -1,34 +1,14 @@
-2018-06-17 20:20:19,145 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
-2018-06-17 20:20:19,149 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
-2018-06-17 20:20:19,149 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
-2018-06-17 20:20:19,149 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
-2018-06-17 20:20:41,709 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-06-17 20:20:41,710 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
+2018-06-20 16:01:46,307 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
+2018-06-20 16:01:46,311 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-06-20 16:01:46,311 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
+2018-06-20 16:01:46,311 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
+2018-06-20 16:01:47,780 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-20 16:01:47,818 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-20 16:02:00,903 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
+2018-06-20 16:02:00,904 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
 {
-RID:"test1",
+RID:"testmac",
 CID:"I2M4",
-RTY:"poop",
-property:"0001",
-value:1
+RTY:"detach"
 }
-2018-06-17 20:20:41,796 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-17 20:20:59,156 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-06-17 20:20:59,156 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-RID:"test1",
-CID:"I2M4",
-RTY:"poop",
-property:"0006",
-value:1
-}
-2018-06-17 20:20:59,187 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-06-17 20:21:08,679 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-06-17 20:21:08,680 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-RID:"test1",
-CID:"I2M4",
-RTY:"poop",
-property:"0006",
-value:0
-}
-2018-06-17 20:21:08,786 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-06-20 16:02:01,938 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!

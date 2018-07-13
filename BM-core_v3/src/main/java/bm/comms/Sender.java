@@ -94,12 +94,12 @@ public abstract class Sender implements Runnable {
 //					timeLeft.put(req, resendTimeout - secondsToWaitBeforeResending);
 //				}
 //				if(timeLeft.get(req).intValue() > 0) {
-//					LOG.debug("No response yet for JEEPRequest " + req.request.getJSON().toString() +
+//					LOG.debug("No response yet for JEEPRequest " + req.request.getJSON().toXML() +
 //							". Resending.");
 //					sendJEEPMessage(req.request);
 //				} else {
 //					LOG.warn("Device " + req.request.getCID() + " did not respond to JEEPRequest " +
-//							req.request.getJSON().toString() + " within the specified time! " +
+//							req.request.getJSON().toXML() + " within the specified time! " +
 //							"(Resending will stop)");
 //					timeLeft.remove(req);
 //				}

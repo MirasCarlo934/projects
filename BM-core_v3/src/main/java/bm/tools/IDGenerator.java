@@ -1,40 +1,74 @@
 package bm.tools;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.Vector;
 
+import bm.context.devices.Device;
+import bm.context.rooms.Room;
+import bm.main.interfaces.Initializable;
+import bm.main.repositories.DeviceRepository;
+import bm.main.repositories.RoomRepository;
 import org.apache.log4j.Logger;
 
-public class IDGenerator {
+public class IDGenerator implements Initializable {
 	private int ridLength;
 	private int cidLength;
 	private int engineRequestIDLength;
-	private static final Logger logger = Logger.getLogger("IDGenerator");
-	private Vector<String> existingIDs = new Vector<String>(1,1);
+	private static final Logger LOG = Logger.getLogger("IDGenerator");
+	private DeviceRepository dr;
+	private RoomRepository rr;
+	private Vector<String> cids = new Vector<String>(1,1);
+	private Vector<String> rids = new Vector<String>(1,1);
+	private Vector<String> erqs_ids = new Vector<String>(1,1);
 	
 	public IDGenerator(int ridLength, int cidLength, int engineRequestIDLength) {
 		this.ridLength = ridLength;
 		this.cidLength = cidLength;
 		this.engineRequestIDLength = engineRequestIDLength;
 	}
-	
+
+	@Override
+	public void initialize() throws Exception {
+		getCIDs();
+	}
+
+	private void getCIDs() {
+		for(Device d : dr.getAllDevices()) {
+			cids.add(d.getSSID());
+		}
+		for(Room r : rr.getAllRooms()) {
+			cids.add(r.getSSID());
+		}
+	}
+
 	public IDGenerator() {
 		cidLength = 4;
 		engineRequestIDLength = 10;
 	}
 	
 	public String generateERQSRequestID() {
-		return generateMixedCharID(engineRequestIDLength);
+		if(erqs_ids.size() > Math.pow(10, engineRequestIDLength) / 2) {
+			erqs_ids.clear();
+		}
+		String id = generateMixedCharID(engineRequestIDLength, erqs_ids);
+		erqs_ids.add(id);
+		return id;
 	}
 	
 	public String generateRID() {
-		return generateIntID(ridLength);
+		if(rids.size() > Math.pow(10, ridLength) / 2) {
+			rids.clear();
+		}
+		String rid = generateIntID(ridLength, rids);
+		rids.add(rid);
+		return rid;
 	}
 	
-	public String generateCID(String[] existingIDs) {
-		return generateMixedCharID(cidLength, existingIDs);
+	public String generateCID() {
+		String cid = generateMixedCharID(cidLength, cids);
+		cids.add(cid);
+		return cid;
 	}
 	
 	/**
@@ -42,11 +76,11 @@ public class IDGenerator {
 	 * Mixed character ID's are used almost exclusively as ID's of requests and components. <br><br>
 	 * 
 	 * <i><b>By convention,</b> all mixedchar IDs start with a letter.</i>
-	 * 
+	 *
 	 * @param length of the String ID to be generated.
 	 * @return The generated String mixed character ID with the specified length.
 	 */
-	public String generateMixedCharID(int length) {
+	public String generateMixedCharID(int length, Vector<String> existingIDs) {
 		String id = "";
 		Random r = new Random();
 		do {
@@ -97,7 +131,7 @@ public class IDGenerator {
 			
 			//compares the generated ID to the existing ID's
 			if(existingIDs != null) { //checks if there are no existing IDs
-				boolean c = true; //true if ID no longer has a duplicate in the existingIDs array
+				boolean c = true; //true if ID no longer has a duplicate in the cids array
 				for(int i = 0; i < existingIDs.length; i++) {
 					if(id.equals(existingIDs[i])) {
 						c = false;
@@ -116,11 +150,11 @@ public class IDGenerator {
 		/*Vector<String> ids = new Vector<String>(1,1); //container of all existing IDs
 		
 		//gets existing ids from ResultSet
-		if(existingIDs == null) { //generic ID generation, no existing IDs given
+		if(cids == null) { //generic ID generation, no existing IDs given
 			b = true;
 		} else {
-			while(existingIDs.next()) {
-				ids.add(existingIDs.getString(Application.configuration.getDatabaseConfig().getSsidColName()));
+			while(cids.next()) {
+				ids.add(cids.getString(Application.configuration.getDatabaseConfig().getSsidColName()));
 			}
 		}
 		
@@ -136,7 +170,7 @@ public class IDGenerator {
 			}
 			
 			//compares the generated ID to the existing ID's
-			boolean c = true; //true if ID no longer has a duplicate in the existingIDs array
+			boolean c = true; //true if ID no longer has a duplicate in the cids array
 			for(int i = 0; i < ids.size(); i++) {
 				if(id.equals(ids.get(i))) {
 					c = false;
@@ -162,7 +196,7 @@ public class IDGenerator {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public String generateIntID(int length, String[] existingIDs) throws SQLException {
+	public String generateIntID(int length, String[] existingIDs) {
 		String id = "";
 		boolean b = false; //true if ID generated is already unique
 		//Vector<String> ids = new Vector<String>(1,1); //container of all existing IDs
@@ -175,7 +209,7 @@ public class IDGenerator {
 			}
 			
 			//compares the generated ID to the existing ID's
-			boolean c = true; //true if ID no longer has a duplicate in the existingIDs array
+			boolean c = true; //true if ID no longer has a duplicate in the cids array
 			for(int i = 0; i < existingIDs.length; i++) {
 				if(id.equals(existingIDs[i])) {
 					c = false;
@@ -191,26 +225,44 @@ public class IDGenerator {
 		return id;
 	}
 	
-	public String generateIntID(int length) {
+	public String generateIntID(int length, Vector<String> existingIDs) {
 		String id = "";
 		boolean b = false; //true if ID generated is already unique
 		//Vector<String> ids = new Vector<String>(1,1); //container of all existing IDs
 		
 		//generates the ID
-		Random r = new Random();
-		for(int i = 0; i < length; i++) {
-			id += String.valueOf(r.nextInt(9));
-		}
-		
+		do {
+			Random r = new Random();
+			for (int i = 0; i < length; i++) {
+				id += String.valueOf(r.nextInt(9));
+			}
+		} while (existingIDs.contains(id));
+		existingIDs.add(id);
 		return id;
 	}
-		
-		//gets existing ids from ResultSet
-		/*if(existingIDs == null) { //generic ID generation, no existing IDs given
+
+	/**
+	 * Removes the specified CID from this IDGenerator's list of existing CIDs.
+	 * @param cid The cid to be removed
+	 */
+	public void removeCID(String cid) {
+		cids.remove(cid);
+	}
+
+	public void setDeviceRepository(DeviceRepository deviceRepository) {
+		this.dr = deviceRepository;
+	}
+
+	public void setRoomRepository(RoomRepository roomRepository) {
+		this.rr = roomRepository;
+	}
+
+	//gets existing ids from ResultSet
+		/*if(cids == null) { //generic ID generation, no existing IDs given
 			b = true;
 		} else {
-			while(existingIDs.next()) {
-				ids.add(existingIDs.getString(Application.configuration.getDatabaseConfig().getSsidColName()));
+			while(cids.next()) {
+				ids.add(cids.getString(Application.configuration.getDatabaseConfig().getSsidColName()));
 			}
 		}*/
 		
@@ -222,7 +274,7 @@ public class IDGenerator {
 			}
 			
 			//compares the generated ID to the existing ID's
-			boolean c = true; //true if ID no longer has a duplicate in the existingIDs array
+			boolean c = true; //true if ID no longer has a duplicate in the cids array
 			for(int i = 0; i < ids.size(); i++) {
 				if(id.equals(ids.get(i))) {
 					c = false;

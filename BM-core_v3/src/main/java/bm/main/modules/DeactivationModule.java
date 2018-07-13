@@ -4,6 +4,8 @@ import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.jeep.vo.JEEPRequest;
 import bm.jeep.vo.JEEPResponse;
+import bm.main.modules.exceptions.RequestProcessingException;
+import bm.main.modules.exceptions.ResponseProcessingException;
 import bm.main.repositories.DeviceRepository;
 
 /**
@@ -42,24 +44,23 @@ public class DeactivationModule extends Module {
 //	}
 
 	@Override
-	protected boolean processRequest(JEEPRequest request) {
+	protected void processRequest(JEEPRequest request) throws RequestProcessingException {
 		Device d = dr.getDevice(request.getCID());
 		LOG.info("Deactivating device " + d.getSSID() + " (MAC:" + d.getMAC() + ")");
 		try {
 			d.setActive(false);
 			d.update(logDomain, true);
             LOG.info("Device deactivated!");
-            return true;
 		} catch (AdaptorException e) {
-			LOG.error("Cannot deactivate device in one of the adaptors!", e);
-			return false;
+//			LOG.error("Cannot deactivate device in one of the adaptors!", e);
+//			return false;
+			throw new RequestProcessingException("Cannot deactivate device in one of the adaptors!", e);
 		}
 	}
 
     @Override
-    protected boolean processResponse(JEEPResponse response) {
+    protected void processResponse(JEEPResponse response) throws ResponseProcessingException {
 	    LOG.info("Device " + response.getCID() + " deactivated!");
-        return true;
     }
 
     @Override

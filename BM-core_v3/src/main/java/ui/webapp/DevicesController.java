@@ -494,10 +494,10 @@ public class DevicesController extends AbstController {
 	private Room createRoom(String name, String parentID, String color, int index) throws AdaptorException {
 		Room r;
 		if(parentID != null) {
-			r = new Room(idg.generateCID(rr.getAllRoomIDs()), rr.getRoom(parentID), name, color, index);
+			r = new Room(idg.generateCID(), rr.getRoom(parentID), name, color, index);
 			r.setAdaptors(am.getUniversalAdaptors());
 		} else {
-			r = new Room(idg.generateCID(rr.getAllRoomIDs()), name, color, index);
+			r = new Room(idg.generateCID(), name, color, index);
 			r.setAdaptors(am.getAllAdaptors());
 		}
 		r.create(logDomain, true);

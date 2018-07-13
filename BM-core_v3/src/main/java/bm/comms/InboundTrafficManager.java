@@ -1,5 +1,6 @@
 package bm.comms;
 
+import bm.jeep.exceptions.PrimaryMessageCheckingException;
 import bm.jeep.vo.*;
 import bm.jeep.vo.device.JEEPErrorResponse;
 import bm.jeep.vo.device.ReqRequest;
@@ -38,16 +39,20 @@ public class InboundTrafficManager implements Runnable {
             RawMessage rawMsg = rawMsgQueue.poll();
             if(rawMsg != null) {
                 LOG.trace("New request found! Checking primary validity...");
-                if(checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.REQUEST) {
-                    JEEPRequest request = new ReqRequest(new JSONObject(rawMsg.getMessageStr()),
-                            rawMsg.getProtocol());
-                    controller.processJEEPMessage(request);
-                } else if(checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.RESPONSE) {
-					JEEPResponse response = new JEEPResponse(new JSONObject(rawMsg.getMessageStr()),
-							rawMsg.getProtocol());
-					rm.removeActiveRequest(response.getRID());
-					controller.processJEEPMessage(response);
-				}
+                try {
+                    if (checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.REQUEST) {
+                        JEEPRequest request = new ReqRequest(new JSONObject(rawMsg.getMessageStr()),
+                                rawMsg.getProtocol());
+                        controller.processJEEPMessage(request);
+                    } else if (checkPrimaryMessageValidity(rawMsg) == JEEPMessageType.RESPONSE) {
+                        JEEPResponse response = new JEEPResponse(new JSONObject(rawMsg.getMessageStr()),
+                                rawMsg.getProtocol());
+                        rm.removeActiveRequest(response.getRID());
+                        controller.processJEEPMessage(response);
+                    }
+                } catch(PrimaryMessageCheckingException e) {
+                    sendError(e.getMessage(), rawMsg.getProtocol());
+                }
             }
         }
     }
@@ -66,7 +71,8 @@ public class InboundTrafficManager implements Runnable {
      * 			<li>RTY does not exist</li>
      * 		</ul>
      */
-    private JEEPMessageType checkPrimaryMessageValidity(RawMessage rawMsg) {
+    private JEEPMessageType checkPrimaryMessageValidity(RawMessage rawMsg)
+            throws PrimaryMessageCheckingException {
         LOG.trace("Checking primary request parameters...");
         JSONObject json;
         String request = rawMsg.getMessageStr();
@@ -76,35 +82,44 @@ public class InboundTrafficManager implements Runnable {
         try {
             json = new JSONObject(request);
         } catch(JSONException e) {
-            sendError("Improper JSON construction!", rawMsg.getProtocol());
-            return null;
+            throw new PrimaryMessageCheckingException("Improper JSON construction!");
+//            sendError("Improper JSON construction!", rawMsg.getProtocol());
+//            return null;
         }
 
         //#2: Checks if there are missing primary request parameters
-        if(!json.keySet().contains("RID") || !json.keySet().contains("CID") || !json.keySet().contains("RTY")) {
-            sendError("Request does not contain all primary request parameters!",
-                    rawMsg.getProtocol());
-            return null;
+        if(!json.keySet().contains("RID") || !json.keySet().contains("CID") ||
+                !json.keySet().contains("RTY")) {
+            throw new PrimaryMessageCheckingException("Request does not contain all primary " +
+                    "request parameters!");
+//            sendError("Request does not contain all primary request parameters!",
+//                    rawMsg.getProtocol());
+//            return null;
         }
 
         //#3: Checks if the primary request parameters are null/empty
         if(json.getString("RID").equals("") || json.getString("RID") == null) {
-            sendError("Null RID!", rawMsg.getProtocol());
-            return null;
+            throw new PrimaryMessageCheckingException("Null RID!");
+//            sendError("Null RID!", rawMsg.getProtocol());
+//            return null;
         } else if(json.getString("CID").equals("") || json.getString("CID") == null) {
-            sendError("Null DID!", rawMsg.getProtocol());
-            return null;
+            throw new PrimaryMessageCheckingException("Null CID!");
+//            sendError("Null CID!", rawMsg.getProtocol());
+//            return null;
         } else if(json.getString("RTY").equals("") || json.getString("RTY") == null) {
-            sendError("Null RTY!", rawMsg.getProtocol());
-            return null;
+            throw new PrimaryMessageCheckingException("Null RTY!");
+//            sendError("Null RTY!", rawMsg.getProtocol());
+//            return null;
         }
 
         //#4: Checks if CID exists
         if(json.getString("RTY").equals("register") ||
-                (json.getString("RTY").equals("getRooms") && json.getString("CID").equals("default_topic")));
+                (json.getString("RTY").equals("getRooms") &&
+                        json.getString("CID").equals("default_topic")));
         else if(!dr.containsDevice(json.getString("CID"))) {
-            sendError("CID does not exist!", rawMsg.getProtocol());
-            return null;
+            throw new PrimaryMessageCheckingException("CID does not exist!");
+//            sendError("CID does not exist!", rawMsg.getProtocol());
+//            return null;
         }
 
         //#5 Checks if RTY exists
@@ -124,8 +139,9 @@ public class InboundTrafficManager implements Runnable {
             }
         }
         else {
-            sendError("Invalid RTY!", rawMsg.getProtocol());
-            return null;
+            throw new PrimaryMessageCheckingException("Invalid RTY!");
+//            sendError("Invalid RTY!", rawMsg.getProtocol());
+//            return null;
         }
     }
 

@@ -80,7 +80,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	 */
 //	public abstract String transformValueToOHCommand();
 	public String transformValueToOHCommand() {
-//		System.out.println("COMMAND: " + propType.transformPropValueToOHCommand(value.toString()));
+//		System.out.println("COMMAND: " + propType.transformPropValueToOHCommand(value.toXML()));
 		return propType.transformPropValueToOHCommand(value.toString());
 	}
 	

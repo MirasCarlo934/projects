@@ -72,7 +72,7 @@
 //            if(!(prop.getPropType().getSSID().equals("INN"))) {
 //                s += "{id:\"" + prop.getSSID() + "\","
 //                        + "label:\"" + prop.getDisplayName() + "\","
-//                        + "io:\"" + prop.getMode().toString() + "\",";
+//                        + "io:\"" + prop.getMode().toXML() + "\",";
 //                if(!prop.getPropType().getSSID().equals("STR")) {
 //                    s += "min:" + prop.getPropType().getMin() + ","
 //                            + "max:" + prop.getPropType().getMax() + ",";

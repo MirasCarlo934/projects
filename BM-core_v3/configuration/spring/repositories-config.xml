@@ -16,6 +16,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
 		<constructor-arg name="pr" ref="Products"/>
 		<constructor-arg name="rr" ref="Rooms"/>
+		<constructor-arg name="idGenerator" ref="IDGenerator"/>
+		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 		<property name="protocols" ref="Protocols"/>
 	</bean>
 	<bean id="Rooms" class="bm.main.repositories.RoomRepository">

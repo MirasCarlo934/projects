@@ -28,7 +28,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	private HashMap<String, String> rooms = new HashMap<String, String>(1,1);
 	private HashMap<String, Device> devices = new HashMap<String, Device>(1);
 	private HashMap<String, String> registeredMACs = new HashMap<String, String>(1,1); //registered MAC and corresponding SSID
-	private IDGenerator idg = new IDGenerator();
+	private IDGenerator idg;
 	private DBEngine mainDBE;
 	private String deviceQuery;
 	private ProductRepository pr;
@@ -37,13 +37,15 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	private HashMap<String, Protocol> protocols;
 
 	public DeviceRepository(String logDomain, DBEngine dbm, String deviceQuery, JEEPManager jeepManager,
-			ProductRepository pr, RoomRepository rr) {
+			ProductRepository pr, RoomRepository rr, IDGenerator idGenerator) {
 		this.LOG = Logger.getLogger(logDomain + "." + DeviceRepository.class.getSimpleName());
 		this.logDomain = logDomain;
 		this.deviceQuery = deviceQuery;
 		this.mainDBE = dbm;
 		this.pr = pr;
 		this.rr = rr;
+		this.idg = idGenerator;
+		this.jm = jeepManager;
 	}
 	
 	@Override
@@ -58,7 +60,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	public void retrieveDevices() {
 		try {
 			LOG.info("Retrieving devices from DB...");
-			RawDBEReq dber1 = new RawDBEReq(idg.generateMixedCharID(10), mainDBE, deviceQuery);
+			RawDBEReq dber1 = new RawDBEReq(idg.generateERQSRequestID(), mainDBE, deviceQuery);
 			Object o;
 			try {
 				o = mainDBE.putRequest(dber1, Thread.currentThread(), true);
@@ -145,7 +147,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 			throws AdaptorException, IllegalArgumentException {
 		Room room = rr.getRoom(roomID);
 		Product product = pr.getProduct(prodID);
-		String id = idg.generateCID(new String[0]);
+		String id = idg.generateCID();
 		if(room == null) {
 			throw new IllegalArgumentException("Room with ID " + roomID + " doesn't exist!");
 		}
