@@ -30,16 +30,6 @@ public class CIRAdaptor extends AbstAdaptor {
     }
 
     @Override
-    public void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
-
-    }
-
-    @Override
-    public void deviceRoomUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
-
-    }
-
-    @Override
     public void propertyCreated(Property p, boolean waitUntilPersisted) throws AdaptorException {
 
     }

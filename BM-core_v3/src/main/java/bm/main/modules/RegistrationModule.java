@@ -105,6 +105,9 @@ public class RegistrationModule extends Module {
 		try {
 			d.create(logDomain, true);
 			dr.addDevice(d);
+			for(Property p : d.getProperties()) {
+				p.update(logDomain, true);
+			}
 		} catch (AdaptorException e) {
 //			LOG.error("Device couldn't be added to Environment!", e);
 			throw new RequestProcessingException("Device couldn't be added to Environment!", e);

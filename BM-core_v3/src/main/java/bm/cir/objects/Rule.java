@@ -177,6 +177,7 @@ public class Rule implements HTMLTransformable {
 	 */
 	public Document toXML() {
 		Document document = DocumentHelper.createDocument();
+		document.setName(name);
 		Element rule = document.addElement("rule")
 				.addAttribute("name", name);
 		Element args = rule.addElement("arguments");

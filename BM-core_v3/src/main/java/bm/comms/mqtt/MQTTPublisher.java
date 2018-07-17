@@ -17,13 +17,13 @@ import bm.jeep.vo.JEEPResponse;
 import bm.jeep.vo.device.JEEPErrorResponse;
 import bm.main.repositories.DeviceRepository;
 
-public class MQTTPublisher extends Sender implements Initializable {
+public class MQTTPublisher extends Sender {
 	private MQTTClient client;
 	private String default_topic;
 	private String error_topic;
 	private DeviceRepository dr;
 	protected LinkedList<MQTTMessage> queue = new LinkedList<MQTTMessage>();
-	private Vector<String> deviceTopics;
+//	private Vector<String> deviceTopics;
 	private String regRTY;
 
 	public MQTTPublisher(String name, String logDomain, String default_topic, String error_topic, String regRTY,
@@ -33,19 +33,19 @@ public class MQTTPublisher extends Sender implements Initializable {
 		this.default_topic = default_topic;
 		this.error_topic = error_topic;
 		this.dr = deviceRepository;
-		this.deviceTopics = new Vector<String>(dr.getAllDevices().length, 1);
+//		this.deviceTopics = new Vector<String>(dr.getAllDevices().length, 1);
 	}
 	
 	public void setClient(MQTTClient client) {
 		this.client = client;
 	}
 
-	@Override
-	public void initialize() {
-		LOG.debug("Getting device topics from DeviceRepository...");
-		getDevices();
-		LOG.debug("Device topics retrieved!");
-	}
+//	@Override
+//	public void initialize() {
+//		LOG.debug("Getting device topics from DeviceRepository...");
+//		getDevices();
+//		LOG.debug("Device topics retrieved!");
+//	}
 
 	@Override
 	public void run() {
@@ -64,29 +64,31 @@ public class MQTTPublisher extends Sender implements Initializable {
 					LOG.error("Cannot publish message \"" + m.message + "\" to topic \"" + m.topic + "\" "
 							+ "topic!", e);
 				}
+
 			}
 		}
 	}
 
-	private void getDevices() {
-		for(Device device : dr.getAllDevices()) {
-			if(deviceTopics.isEmpty()) {
-				deviceTopics.add(device.getTopic());
-			} else {
-				if (device.isActive()) {
-					deviceTopics.add(device.getTopic());
-				} else {
-					deviceTopics.remove(device.getTopic());
-				}
-			}
-		}
-	}
+//	private void getDevices() {
+//		for(Device device : dr.getAllDevices()) {
+//			if(deviceTopics.isEmpty()) {
+//				deviceTopics.add(device.getTopic());
+//			} else {
+//				if (device.isActive()) {
+//					deviceTopics.add(device.getTopic());
+//				} else {
+//					deviceTopics.remove(device.getTopic());
+//				}
+//			}
+//		}
+//	}
 
 	@Override
 	public void sendJEEPMessage(JEEPMessage message) {
-		publish(message);
 		if(message.getRTY().equals(regRTY)) {
 			publishToDefaultTopic(message);
+		} else {
+			publish(message);
 		}
 	}
 	
@@ -110,15 +112,6 @@ public class MQTTPublisher extends Sender implements Initializable {
 	}
 	
 	/**
-	 * Publish a JEEPResponse to a specific topic in MQTT.
-	 * @param destination The topic to publish to
-	 * @param response The JEEPResponse to be published
-	 */
-	private void publish(String destination, JEEPResponse response) {
-		publish(destination, response.toString());
-	}
-	
-	/**
 	 * Publish a JEEPMessage to MQTT
 	 *
 	 * @param message The JEEPMessage
@@ -126,13 +119,14 @@ public class MQTTPublisher extends Sender implements Initializable {
 	private void publish(JEEPMessage message) {
 		String topic = default_topic;
 		Device d = dr.getDevice(message.getCID());
-		if(d != null) { //get device if destination is a CID
-			if(deviceTopics.contains(d.getTopic())) {
-				topic = d.getTopic();
-			} else {
-				LOG.warn("Device " + d.getSSID() + " is not yet active. Sending to default_topic instead...");
-				deviceTopics.add(d.getTopic());
-			}
+		if(d != null) {
+			topic = d.getTopic();
+//			if(deviceTopics.contains(d.getTopic())) {
+//				topic = d.getTopic();
+//			} else { //flow goes here if device is newly created
+//				LOG.warn("Device " + d.getSSID() + " is not yet active. Sending to default_topic instead...");
+//				deviceTopics.add(d.getTopic());
+//			}
 		}
 		publish(topic, message.toString());
 	}

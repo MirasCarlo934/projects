@@ -66,7 +66,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 			throws AdaptorException {
 		LOG.debug("Creating device " + SSID + " in " + adaptor.getName() + "...");
 		adaptor.deviceCreated(this, waitUntilCreated);
-        LOG.debug("Device " + SSID + " created!");
+        LOG.debug("Device " + SSID + " created in " + adaptor.getName() + "!");
 	}
 
 	@Override

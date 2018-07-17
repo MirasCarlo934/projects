@@ -30,8 +30,8 @@ public abstract class AbstAdaptor {
 	public abstract void deviceCreated(Device d, boolean waitUntilCreated) throws AdaptorException;
 	public abstract void deviceDeleted(Device d, boolean waitUntilDeleted) throws AdaptorException;
 	public abstract void deviceCredentialsUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException;
-	public abstract void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException;
-	public abstract void deviceRoomUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException;
+//	public abstract void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException;
+//	public abstract void deviceRoomUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException;
 	
 	/*
 	 * adaptor methods for property

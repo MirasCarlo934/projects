@@ -68,6 +68,7 @@ public class OHAdaptor extends AbstAdaptor {
 			Property prop = props.next();
 			propertyCreated(prop, waitUntilUpdated);
 		}
+		deviceStateUpdated(d, waitUntilUpdated);
 		
 		if(d.getParentRoom() == null) {
 			LOG.trace("Adding device to sitemap since it has no parent room...");
@@ -117,7 +118,7 @@ public class OHAdaptor extends AbstAdaptor {
 		}
 	}
 
-	@Override
+//	@Override
 	public void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
 		LOG.trace("Updating state of component " + d.getSSID() + "to " + d.isActive() + "...");
 		String itemName;
@@ -312,7 +313,7 @@ public class OHAdaptor extends AbstAdaptor {
 		return ohSitemapName;
 	}
 
-	@Override
+//	@Override
 	public void deviceRoomUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
 		LOG.trace("Updating device parent room thru regular device persistence...");
 		deviceCreated(d, waitUntilUpdated);

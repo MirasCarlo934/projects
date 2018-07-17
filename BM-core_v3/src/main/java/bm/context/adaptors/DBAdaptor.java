@@ -76,42 +76,42 @@ public class DBAdaptor extends AbstAdaptor {
 		}
 	}
 	
-	public void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
-		LOG.trace("Updating device state in DB...");
-		Thread t = Thread.currentThread();
-		IDGenerator idg = new IDGenerator();
-		HashMap<String, Object> vals = new HashMap<String, Object>(1, 1);
-		HashMap<String, Object> args = new HashMap<String, Object>(1, 1);
-		vals.put("active", d.isActive());
-		args.put("SSID", d.getSSID());
-		
-		//LOG.trace("Updating active state of component to " + comsTable + " table!");
-		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, devsTable, vals, args);
-		try {
-			dbe.putRequest(udber, t, waitUntilUpdated);
-		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot updateRules device state!", e, getName());
-			throw a;
-		}
-	}
-	
-	public void deviceRoomUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
-		LOG.trace("Updating device room in DB...");
-		Thread t = Thread.currentThread();
-		IDGenerator idg = new IDGenerator();
-		HashMap<String, Object> vals = new HashMap<String, Object>(1, 1);
-		HashMap<String, Object> args = new HashMap<String, Object>(1, 1);
-		vals.put("room", d.getParentRoom().getSSID());
-		args.put("SSID", d.getSSID());
-		
-		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, devsTable, vals, args);
-		try {
-			dbe.putRequest(udber, t, waitUntilUpdated);
-		} catch (EngineException e) {
-			AdaptorException a = new AdaptorException("Cannot updateRules device room!", e, getName());
-			throw a;
-		}
-	}
+//	public void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
+//		LOG.trace("Updating device state in DB...");
+//		Thread t = Thread.currentThread();
+//		IDGenerator idg = new IDGenerator();
+//		HashMap<String, Object> vals = new HashMap<String, Object>(1, 1);
+//		HashMap<String, Object> args = new HashMap<String, Object>(1, 1);
+//		vals.put("active", d.isActive());
+//		args.put("SSID", d.getSSID());
+//
+//		//LOG.trace("Updating active state of component to " + comsTable + " table!");
+//		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, devsTable, vals, args);
+//		try {
+//			dbe.putRequest(udber, t, waitUntilUpdated);
+//		} catch (EngineException e) {
+//			AdaptorException a = new AdaptorException("Cannot updateRules device state!", e, getName());
+//			throw a;
+//		}
+//	}
+//
+//	public void deviceRoomUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
+//		LOG.trace("Updating device room in DB...");
+//		Thread t = Thread.currentThread();
+//		IDGenerator idg = new IDGenerator();
+//		HashMap<String, Object> vals = new HashMap<String, Object>(1, 1);
+//		HashMap<String, Object> args = new HashMap<String, Object>(1, 1);
+//		vals.put("room", d.getParentRoom().getSSID());
+//		args.put("SSID", d.getSSID());
+//
+//		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, devsTable, vals, args);
+//		try {
+//			dbe.putRequest(udber, t, waitUntilUpdated);
+//		} catch (EngineException e) {
+//			AdaptorException a = new AdaptorException("Cannot updateRules device room!", e, getName());
+//			throw a;
+//		}
+//	}
 	
 	public void deviceDeleted(Device c, boolean waitUntilDeleted) throws AdaptorException {
 		LOG.trace("Deleting component from DB...");

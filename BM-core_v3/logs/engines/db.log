@@ -1,2 +1,5 @@
-2018-06-20 16:01:45,842 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB
-2018-06-20 16:02:01,650 WARN  [Thread1:Process1] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
+2018-07-17 23:12:26,124 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB
+2018-07-17 23:12:36,161 WARN  [Thread1:Process1] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
+2018-07-17 23:17:51,819 WARN  [Thread3:Process12] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
+2018-07-17 23:27:15,218 WARN  [Thread3:Process39] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
+2018-07-17 23:28:18,843 WARN  [Thread1:Process40] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.

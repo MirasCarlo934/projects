@@ -12,6 +12,9 @@ import bm.jeep.vo.device.ResBasic;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.RoomRepository;
 import bm.tools.IDGenerator;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -453,14 +456,22 @@ public class DevicesController extends AbstController {
 	 * @return
 	 */
 	@RequestMapping("/composeCIR")
-	public String composeCIR(@RequestParam(value="cir", required=false, defaultValue="<rules></rules>") String cir, Model model) {
+	public String composeCIR(@RequestParam(value="cir", required=false, defaultValue="<rules></rules>") String cir,
+							 Model model) {
 		LOG.debug("CIR updateRules requested!");
-		cirm.overwriteRules(cir);
+		Document cirXML = null;
+		try {
+			cirXML = DocumentHelper.parseText(cir);
+		} catch (DocumentException e) {
+			LOG.error("CIR XML not propertly constructed!", e);
+			return notifyError("Cannot update rules! (CIR XML improper construction)", model);
+		}
+		cirm.overwriteRules(cirXML);
 		try {
 			cirm.updateRules();
 		} catch (EngineException e) {
-			LOG.error("Cannot updateRules CIRManager!", e);
-			return notifyError("Cannot updateRules rules! Restart BM!", model);
+			LOG.error("Cannot update CIRManager!", e);
+			return notifyError("Cannot update rules! Restart BM!", model);
 		}
 		LOG.info("CIR updated!");
 		return notify(null, "Home rules composed!", model);

@@ -27,7 +27,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="initializables">
 			<list>
 				<ref bean="IDGenerator"/>
-				<ref bean="MQTTPublisher"/>
+				<!--<ref bean="MQTTPublisher"/>-->
 				<ref bean="AdaptorManager"/>
                 <ref bean="CIRs"/>
 			</list>

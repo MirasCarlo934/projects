@@ -1,5 +1,6 @@
 package bm.cir;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,6 +12,7 @@ import bm.context.properties.Property;
 import bm.main.repositories.DeviceRepository;
 import org.apache.log4j.Logger;
 import org.dom4j.DocumentHelper;
+import org.dom4j.io.OutputFormat;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -29,6 +31,7 @@ import bm.main.engines.requests.FileEngine.UpdateFEReq;
 import bm.main.engines.requests.FileEngine.VersionizeFileFEReq;
 import bm.main.interfaces.Initializable;
 import bm.tools.IDGenerator;
+import sun.tools.jstat.OutputFormatter;
 
 public class CIRManager implements Initializable, Runnable {
     private String logDomain;
@@ -49,6 +52,7 @@ public class CIRManager implements Initializable, Runnable {
                       MQTTPublisher mqttPublisher, IDGenerator idg, String poopRTY,
                       String poopPropIDParam, String poopPropValParam) {
 		LOG = Logger.getLogger(logDomain + "." + CIRManager.class.getSimpleName());
+		this.logDomain = logDomain;
         this.dr = deviceRepository;
         this.mp = mqttPublisher;
 		this.cirFE = fe;
@@ -109,9 +113,10 @@ public class CIRManager implements Initializable, Runnable {
 	 * the ones that are currently in this repository.
 	 */
 	public void updateRules() throws EngineException {
-		LOG.debug("Updating CIRManager...");
+		LOG.debug("Updating CIR...");
 		cirFE.putRequest(new UpdateFEReq(idg.generateERQSRequestID(), cirFE), Thread.currentThread(), true);
 		rules = fileParser.retrieveCIRFromFile();
+		LOG.debug("CIR updated!");
 	}
 
     /**
@@ -131,17 +136,28 @@ public class CIRManager implements Initializable, Runnable {
 	 * 
 	 * @param rules The new rules in XML format
 	 */
-	public void overwriteRules(String rules) {
-		String[] lines = rules.split("\n");
+	public void overwriteRules(org.dom4j.Document rules) {
+		LOG.debug("Overwriting rules!");
+		OutputFormat formatter = OutputFormat.createPrettyPrint();
+		formatter.setNewlines(true);
+		formatter.setIndent(true);
 		try {
-			cirFE.putRequest(new VersionizeFileFEReq(idg.generateERQSRequestID(), cirFE), Thread.currentThread(), 
-					true);
-			cirFE.putRequest(new OverwriteFileFEReq(idg.generateERQSRequestID(), cirFE, lines), 
-					Thread.currentThread(), true);
-			LOG.info("CIR updated!");
-		} catch (EngineException e) {
+			org.dom4j.io.XMLWriter writer = new org.dom4j.io.XMLWriter(new FileWriter(cirFE.getFile()), formatter);
+			writer.write(rules);
+			writer.close();
+		} catch (IOException e) {
 			LOG.error("Cannot overwrite rules.cir file! Retaining old rules...", e);
 		}
+//		String[] lines = rules.split("\n");
+//		try {
+//			cirFE.putRequest(new VersionizeFileFEReq(idg.generateERQSRequestID(), cirFE), Thread.currentThread(),
+//					true);
+//			cirFE.putRequest(new OverwriteFileFEReq(idg.generateERQSRequestID(), cirFE, lines),
+//					Thread.currentThread(), true);
+//			LOG.info("CIR updated!");
+//		} catch (EngineException e) {
+//			LOG.error("Cannot overwrite rules.cir file! Retaining old rules...", e);
+//		}
 		try {
 			updateRules();
 		} catch (EngineException e) {
@@ -194,22 +210,25 @@ public class CIRManager implements Initializable, Runnable {
 	 *
 	 * @param p The property to check
 	 */
-	public void removeRulesTriggered(Property p) {
+	public synchronized void removeRulesTriggered(Property p) {
 		LOG.info("Removing rules with property " + p.getCommonName() + " as argument...");
 		int removed = 0;
-		String str = "";
+//		String str = "";
 		org.dom4j.Document doc = DocumentHelper.createDocument();
 		org.dom4j.Element root = doc.addElement("rules");
 		for(Rule rule : rules) {
 			if(!rule.containsArgument(p)) {
-				root.add(rule.toXML());
-				str += "\n";
+//				LOG.fatal(rule.toXML());
+				root.add(rule.toXML().getRootElement());
+//				LOG.fatal(rule.getName());
+//				str += "\n";
 			} else {
 				LOG.info("Removing rule \"" + rule.getName() + "\"...");
 				removed++;
 			}
 		}
-		overwriteRules(str);
+//		str = doc.asXML();
+		overwriteRules(doc);
 		LOG.info(removed + " rules removed!");
 	}
 	
