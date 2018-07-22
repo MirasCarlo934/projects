@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import bm.comms.Protocol;
-import bm.comms.Sender;
 import bm.context.HTMLTransformable;
 import bm.context.properties.Property;
 import bm.jeep.JEEPManager;
@@ -16,7 +15,6 @@ import bm.context.devices.Device;
 import bm.context.properties.PropertyMode;
 import bm.context.properties.PropertyType;
 import bm.context.rooms.Room;
-import bm.main.engines.DBEngine;
 import bm.tools.IDGenerator;
 
 public class Product implements HTMLTransformable {
@@ -31,15 +29,12 @@ public class Product implements HTMLTransformable {
 	private JEEPManager jm;
 
 	private String iconImg;
-	
-	private String poopRTY;
-	private String propIDParam;
-	private String propValParam;
+
 	private IDGenerator idg;
 
 	public Product(String mainLogDomain, String SSID, String name, String description,
-                   String iconImg, HashMap<String, PropertyType> propertyTypes, String poopRTY,
-                   String propIDParam, String propValParam, JEEPManager jeepManager, IDGenerator idGenerator) {
+                   String iconImg, HashMap<String, PropertyType> propertyTypes, JEEPManager jeepManager,
+				   IDGenerator idGenerator) {
 		LOG = Logger.getLogger(mainLogDomain + "." + Product.class.getSimpleName());
 		this.logDomain = mainLogDomain;
 		this.SSID = SSID;
@@ -48,9 +43,6 @@ public class Product implements HTMLTransformable {
 		this.iconImg = iconImg;
 		this.propertyTypes = propertyTypes;
 		this.jm = jeepManager;
-		this.poopRTY = poopRTY;
-		this.propIDParam = propIDParam;
-		this.propValParam = propValParam;
 		this.idg = idGenerator;
 //		if(retrieveProperties) {
 //			try {
@@ -92,7 +84,7 @@ public class Product implements HTMLTransformable {
 	 * @param description
 	 */
 	public Product(String mainLogDomain, String SSID, String name, String description, String iconImg,
-                   String poopRTY, String propIDParam, String propValParam, IDGenerator idGenerator) {
+				   IDGenerator idGenerator) {
 		LOG = Logger.getLogger(mainLogDomain + "." + Product.class.getSimpleName());
 		this.logDomain = mainLogDomain;
 		this.SSID = SSID;
@@ -101,9 +93,6 @@ public class Product implements HTMLTransformable {
 		this.iconImg = iconImg;
 //		this.OH_icon = OH_icon;
 //		this.adaptors = adaptors;
-		this.poopRTY = poopRTY;
-		this.propIDParam = propIDParam;
-		this.propValParam = propValParam;
 		this.idg = idGenerator;
 	}
 	
@@ -136,7 +125,7 @@ public class Product implements HTMLTransformable {
 	
 	public Device createDevice(String comID, String MAC, String name, String topic, Protocol protocol,
 			Room room, boolean active, int index) throws IllegalArgumentException {
-		if(properties.isEmpty())
+		if(properties.isEmpty() && !SSID.equals("0000"))
 			throw new IllegalArgumentException("Properties not yet retrieved from DB!");
 		else {
 			Device d = new Device(logDomain, comID, MAC, name, topic, protocol, room, active, this,
@@ -174,10 +163,9 @@ public class Product implements HTMLTransformable {
 			}
 			PropertyType prop_type = propertyTypes.get(rs.getString("prop_type"));
 			String prop_dispname = rs.getString("prop_dispname");
-			PropertyMode prop_mode = PropertyMode.parseModeFromString(rs.getString("prop_mode"));
+			PropertyMode prop_mode = PropertyMode.parseFromString(rs.getString("prop_mode"));
 			String prop_ssid = rs.getString("prop_index");
-			Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, poopRTY, propIDParam,
-                    propValParam, jm, idg);
+			Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, jm);
 			properties.put(prop.getSSID(), prop);
 		}
 	}

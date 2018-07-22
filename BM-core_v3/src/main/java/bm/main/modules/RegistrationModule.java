@@ -1,17 +1,19 @@
 package bm.main.modules;
 
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 import bm.comms.Protocol;
 import bm.context.adaptors.AdaptorManager;
 import bm.context.products.Product;
 import bm.context.properties.Property;
+import bm.context.properties.PropertyMode;
 import bm.jeep.JEEPManager;
 import bm.jeep.exceptions.SecondaryMessageCheckingException;
 import bm.jeep.vo.JEEPResponse;
 import bm.jeep.vo.device.InboundRegistrationRequest;
 import bm.main.modules.exceptions.RequestProcessingException;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import bm.comms.mqtt.MQTTPublisher;
@@ -19,7 +21,6 @@ import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.context.rooms.Room;
 import bm.jeep.vo.JEEPRequest;
-import bm.jeep.vo.device.ResError;
 import bm.main.repositories.DeviceRepository;
 import bm.main.repositories.ProductRepository;
 import bm.main.repositories.RoomRepository;
@@ -29,7 +30,13 @@ public class RegistrationModule extends Module {
 	private String nameParam;
 	private String roomIDParam;
 	private String propsParam;
-	private String poopRTY;
+	private String proplistParam; //only if CID is "0000"
+	private String iconParam; //only if CID is "0000"
+
+	private String plistIDParam;
+	private String plistNameParam;
+	private String plistModeParam;
+	private String plistIndexParam;
 //	private String regIdParam;
 //	private String regTopicParam;
 
@@ -41,8 +48,10 @@ public class RegistrationModule extends Module {
 	private JEEPManager jm;
 	private HashMap<String, Protocol> protocols;
 	
-	public RegistrationModule(String logDomain, String errorLogDomain, String RTY, String poopRTY, String nameParam,
-							  String roomIDParam, String propsParam, /*String regIdParam, String regTopicParam,*/
+	public RegistrationModule(String logDomain, String errorLogDomain, String RTY,
+							  String nameParam, String roomIDParam, String propsParam, String proplistParam,
+							  String iconParam, String plistIDParam, String plistNameParam, String plistModeParam,
+							  String plistIndexParam,
 							  MQTTPublisher mqttPublisher, DeviceRepository deviceRepository,
 							  ProductRepository productRepository, RoomRepository roomRepository,
 							  AdaptorManager adaptorManager, JEEPManager jeepManager,
@@ -54,9 +63,12 @@ public class RegistrationModule extends Module {
 		this.nameParam = nameParam;
 		this.roomIDParam = roomIDParam;
 		this.propsParam = propsParam;
-		this.poopRTY = poopRTY;
-//		this.regIdParam = regIdParam;
-//		this.regTopicParam = regTopicParam;
+		this.proplistParam = proplistParam;
+		this.iconParam = iconParam;
+		this.plistIDParam = plistIDParam;
+		this.plistNameParam = plistNameParam;
+		this.plistModeParam = plistModeParam;
+		this.plistIndexParam = plistIndexParam;
 		this.idg = idg;
 		this.mp = mqttPublisher;
 		this.am = adaptorManager;
@@ -72,7 +84,8 @@ public class RegistrationModule extends Module {
 	 */
 	@Override
 	protected void processRequest(JEEPRequest request) throws RequestProcessingException {
-		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
+		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam,
+				proplistParam, iconParam);
 		if(request.getJSON().has("exists")) {
 			if(checkCredentialChanges(reg)) {
 				updateDevice(reg);
@@ -82,18 +95,36 @@ public class RegistrationModule extends Module {
 			return;
 		}
 		
-		LOG.info("Registering device " + reg.mac + " to Environment...");
+		LOG.info("Registering device " + reg.getMAC() + " to Environment...");
 		String ssid = idg.generateCID();
 		String topic = ssid + "_topic";
 		Product product = pr.getProduct(reg.getCID());
-		Room parentRoom = rr.getRoom(reg.room);
+		Room parentRoom = rr.getRoom(reg.getRoomID());
 		Protocol protocol = reg.getProtocol();
 		LOG.debug("Creating Device object...");
-		Device d = product.createDevice(ssid, reg.mac, reg.name, topic, protocol, parentRoom, true,
+		Device d = product.createDevice(ssid, reg.getMAC(), reg.getName(), topic, protocol, parentRoom, true,
 				parentRoom.getHighestIndex() + 1);
 		d.setAdaptors(am.getAdaptorsLinkedToProduct(product.getSSID()));
-		if(reg.properties != null) {
-			JSONObject props = reg.properties;
+
+		if(reg.isProductless()) {
+			LOG.debug("Device is productless! Retrieving properties and device icon from registration request...");
+			LOG.fatal(reg.getProplist());
+			HashMap<String, Property> props = new HashMap<String, Property>(reg.getProplist().length());
+			for(int i = 0; i < reg.getProplist().length(); i++) {
+				JSONObject json = (JSONObject) reg.getProplist().get(i);
+				Property prop = new Property(pr.getPropertyType(json.getString(plistIDParam)),
+						String.valueOf(json.getInt(plistIndexParam)), json.getString(plistNameParam),
+						PropertyMode.parseFromString(json.getString(plistModeParam)), jm);
+				prop.setAdaptors(am.getUniversalAdaptors());
+				props.put(prop.getSSID(), prop);
+			}
+			d.setProperties(props);
+			LOG.debug("Properties retrieved!");
+			d.setIcon(reg.getIcon());
+			LOG.debug("Icon retrieved!");
+		}
+		if(reg.getProperties() != null) {
+			JSONObject props = reg.getProperties();
 			Iterator<String> propIDs = props.keys();
 			while(propIDs.hasNext()) {
 				String propID = propIDs.next();
@@ -141,7 +172,7 @@ public class RegistrationModule extends Module {
 	}
 
 	private void returnExistingComponent(InboundRegistrationRequest request) {
-		Device d = dr.getDevice(request.mac);
+		Device d = dr.getDevice(request.getMAC());
 		LOG.info("Device already exists in system as " + d.getSSID() + "! "
 				+ "Returning existing credentials and property states.");
 		jm.sendRegistrationResponse(d, request);
@@ -160,12 +191,12 @@ public class RegistrationModule extends Module {
 	}
 	
 	private void updateDevice(InboundRegistrationRequest request) {
-		Device c = dr.getDevice(request.mac);
+		Device c = dr.getDevice(request.getMAC());
 		LOG.info("Updating device " + c.getSSID() + " credentials...");
 		LOG.fatal(c.getProperties()[0].getOH_ID());
 		try {
-			c.setName(request.name);
-			c.setRoom(rr.getRoom(request.room));
+			c.setName(request.getName());
+			c.setRoom(rr.getRoom(request.getRoomID()));
 			c.update(logDomain, true);
 			c.setActive(true);
             c.update(logDomain, true);
@@ -186,8 +217,8 @@ public class RegistrationModule extends Module {
 	 * @return <b>true</b> if the request contains changes in credentials, <b>false</b> otherwise
 	 */
 	private boolean checkCredentialChanges(InboundRegistrationRequest request) {
-		Device c = dr.getDevice(request.mac);
-		String[] reqCreds = new String[]{request.name, request.room};
+		Device c = dr.getDevice(request.getMAC());
+		String[] reqCreds = new String[]{request.getName(), request.getRoomID()};
 		String[] comCreds = new String[] {c.getName(), c.getParentRoom().getSSID()};
 		
 		for(int i = 0; i < reqCreds.length; i++) {
@@ -218,7 +249,8 @@ public class RegistrationModule extends Module {
 	@Override
 	protected boolean additionalRequestChecking(JEEPRequest request) throws SecondaryMessageCheckingException {
 		LOG.trace("Additional secondary request parameter checking...");
-		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
+		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam,
+				proplistParam, iconParam);
 		
 		LOG.trace("Checking productID validity...");
 		if(!pr.containsProduct(reg.getCID())) {
@@ -226,10 +258,45 @@ public class RegistrationModule extends Module {
 //			ResError error = new ResError(reg, "Request contains invalid product ID! (" + reg.getCID() + ")");
 //			error(error);
 //			return false;
+		} else if(reg.isProductless()) {
+			List<String> params = Arrays.asList((reg.getParameters()));
+			if(params.contains(proplistParam) && params.contains(iconParam)) {
+				//check if proplist parameter is valid
+				JSONArray proplist = (JSONArray) reg.getParameter(proplistParam);
+				Vector<Integer> indexes = new Vector<Integer>(proplist.length());
+				for(int i = 0; i < proplist.length(); i++) {
+					JSONObject json = proplist.getJSONObject(i);
+					String[] jsonParams = {plistIDParam, plistNameParam, plistModeParam, plistIndexParam};
+					for(String param : jsonParams) {
+						try {
+							json.get(param);
+						} catch (JSONException e) {
+							throw new SecondaryMessageCheckingException("\"proplist\" parameter lacks parameters.");
+						}
+					}
+					if(!pr.containsPropertyType(json.getString(plistIDParam))) {
+						throw new SecondaryMessageCheckingException("\"proplist\" parameter contains an invalid " +
+								"property type (" + json.getString(plistIDParam) + ")");
+					}
+					if(PropertyMode.parseFromString(json.getString(plistModeParam)) == PropertyMode.Null) {
+						throw new SecondaryMessageCheckingException("\"proplist\" parameter contains an invalid " +
+								"property mode (" +json.getString(plistModeParam) + ")");
+					}
+					if(indexes.contains(json.getInt(plistIndexParam))) {
+						throw new SecondaryMessageCheckingException("\"proplist\" parameter contains a duplicate " +
+								"index (" + json.getInt(plistIndexParam) + ")");
+					} else {
+						indexes.add(json.getInt(plistIndexParam));
+					}
+				}
+			} else {
+				throw new SecondaryMessageCheckingException("Request lacks parameters for productless " +
+						"registration!");
+			}
 		}
 		LOG.trace("Checking roomID validity...");
-		if(!rr.containsRoom(reg.room)) {
-			throw new SecondaryMessageCheckingException("Request contains invalid room ID! (" + reg.room + ")");
+		if(!rr.containsRoom(reg.getRoomID())) {
+			throw new SecondaryMessageCheckingException("Request contains invalid room ID! (" + reg.getRoomID() + ")");
 //			ResError error = new ResError(reg, "Request contains invalid room ID!");
 //			error(error);
 //			return false;
@@ -237,8 +304,8 @@ public class RegistrationModule extends Module {
 		
 		LOG.trace("Checking set property block validity...");
 		Product prod = pr.getProduct(reg.getCID());
-		if(reg.properties != null) { //it's okay if the request does not have a set properties block
-			JSONObject props = reg.properties;
+		if(reg.getProperties() != null) { //it's okay if the request does not have a set properties block
+			JSONObject props = reg.getProperties();
 			Iterator<String> propIDs = props.keys();
 			while(propIDs.hasNext()) {
 				String propID = propIDs.next();
@@ -261,7 +328,7 @@ public class RegistrationModule extends Module {
 		}
 		
 		LOG.trace("Checking MAC validity...");
-		if(dr.containsDevice(reg.mac)) {
+		if(dr.containsDevice(reg.getMAC())) {
 			LOG.warn("Request contains a preexisting MAC address!");
 			request.getJSON().put("exists", true);
 			return true;

@@ -17,9 +17,16 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="idg" ref="IDGenerator"/>
 		<constructor-arg name="logDomain" value="${log.domain.registration}"/>
 		<constructor-arg name="mqttPublisher" ref="MQTTPublisher"/>
+
 		<constructor-arg name="nameParam" value="${registration.param.name}"/>
 		<constructor-arg name="propsParam" value="${registration.param.props}"/>
-		<constructor-arg name="poopRTY" value="${rty.poop}"/>
+		<constructor-arg name="proplistParam" value="${registration.param.proplist}"/>
+		<constructor-arg name="iconParam" value="${registration.param.icon}"/>
+		<constructor-arg name="plistIDParam" value="${registration.param.proplist.ptype}"/>
+		<constructor-arg name="plistNameParam" value="${registration.param.proplist.name}"/>
+		<constructor-arg name="plistModeParam" value="${registration.param.proplist.mode}"/>
+		<constructor-arg name="plistIndexParam" value="${registration.param.proplist.index}"/>
+
 		<constructor-arg name="productRepository" ref="Products"/>
 		<constructor-arg name="roomIDParam" value="${registration.param.roomID}"/>
 		<constructor-arg name="roomRepository" ref="Rooms"/>

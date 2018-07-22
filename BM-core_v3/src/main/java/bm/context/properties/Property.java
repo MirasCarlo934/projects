@@ -29,35 +29,24 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
     private Object value = "0";
     private Object previousValue = "0";
 
-    private String poopRTY;
-    private String propIDParam;
-    private String propValParam;
-    private IDGenerator idg;
 	private JEEPManager jm;
 
 	//TASK add index to constructor params
 	public Property(PropertyType propType, String SSID, /*String genericName, */String dispname,
 					/*String ohItemType,*/ PropertyMode mode, /*PropertyValueType propValType,*/
-					String poopRTY, String propIDParam, String propValParam, JEEPManager jeepManager,
-					IDGenerator idGenerator) {
+					JEEPManager jeepManager) {
 		super(SSID, 0);
 		this.displayName = (dispname);
 		this.genericName = propType.getName() + "-" + mode.toString();
 		this.setSystemName(genericName, SSID);
 		this.mode = (mode);
 		this.propType = propType;
-		
-		this.poopRTY = poopRTY;
-		this.propIDParam = propIDParam;
-		this.propValParam = propValParam;
-		this.idg = idGenerator;
 		this.jm = jeepManager;
 	}
 
 	@Override
 	public Property clone() {
-		Property p = new Property(propType, SSID, displayName, mode, poopRTY, propIDParam, propValParam, jm,
-				idg);
+		Property p = new Property(propType, SSID, displayName, mode, jm);
 		p.setAdaptors(p.getAdaptors());
 		return p;
 	}

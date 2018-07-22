@@ -12,25 +12,22 @@ import org.apache.log4j.Logger;
 import bm.context.properties.PropertyType;
 import bm.tools.IDGenerator;
 
+/**
+ * The ProductFactory <i>constructs</i> the products in the Symphony environment by retrieving their individual
+ * properties from the database.
+ */
 public class ProductFactory {
 	protected Logger LOG;
 	protected String logDomain;
 	protected static HashMap<String, PropertyType> propertyTypes = new HashMap<String, PropertyType>(6);
 	private JEEPManager jm;
-	
-	private String poopRTY;
-	protected String propIDParam;
-	protected String propValParam;
+
 	private IDGenerator idg;
 
-	public ProductFactory(String logDomain, JEEPManager jeepManager, String poopRTY, String propIDParam,
-			String propValParam, IDGenerator idGenerator) {
+	public ProductFactory(String logDomain, JEEPManager jeepManager, IDGenerator idGenerator) {
 		this.LOG = Logger.getLogger(logDomain + "." + ProductFactory.class.getSimpleName());
 		this.logDomain = logDomain;
 		this.jm = jeepManager;
-		this.poopRTY = poopRTY;
-		this.propIDParam = propIDParam;
-		this.propValParam = propValParam;
 		this.idg = idGenerator;
 	}
 
@@ -46,8 +43,8 @@ public class ProductFactory {
      */
 	public Product createProductObject(String SSID, String name, String description, String iconImg,
                                        ResultSet productsRS) {
-	    Product prod = new Product(logDomain, SSID, name, description, iconImg, propertyTypes,
-                poopRTY, propIDParam, propValParam, jm, idg);
+	    LOG.debug("Constructing product " + SSID + " (" + name + ")");
+	    Product prod = new Product(logDomain, SSID, name, description, iconImg, propertyTypes, jm, idg);
         try {
             productsRS.beforeFirst();
             while(productsRS.next()) {
@@ -56,10 +53,9 @@ public class ProductFactory {
                     if(prod_ssid.equals(SSID)) {
                         PropertyType prop_type = propertyTypes.get(productsRS.getString("prop_type"));
                         String prop_dispname = productsRS.getString("prop_dispname");
-                        PropertyMode prop_mode = PropertyMode.parseModeFromString(productsRS.getString("prop_mode"));
+                        PropertyMode prop_mode = PropertyMode.parseFromString(productsRS.getString("prop_mode"));
                         String prop_ssid = productsRS.getString("prop_index");
-                        Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, poopRTY, propIDParam,
-                                propValParam, jm, idg);
+                        Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, jm);
                         LOG.debug("Adding property " + prop.getSystemName() + " to product " + prod_ssid + "!");
                         prod.addProperty(prop);
                     }
@@ -72,6 +68,10 @@ public class ProductFactory {
         }
 
         return prod;
+    }
+
+    public NoProduct createNoProductObject(String name, String description, String iconImg) {
+	    return new NoProduct(logDomain, name, description, iconImg, idg);
     }
 
 	public void setPropertyTypes(HashMap<String, PropertyType> propertyTypes) {

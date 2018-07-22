@@ -10,9 +10,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<!-- SYMPHONY PRODUCT CONFIGURATION -->
 	<bean id="ProductFactory" class="bm.context.products.ProductFactory" scope="singleton">
 		<constructor-arg name="logDomain" value="${log.domain.main}"/>
-		<constructor-arg name="poopRTY" value="${rty.poop}"/>
-		<constructor-arg name="propIDParam" value="${poop.param.propertyID}"/>
-		<constructor-arg name="propValParam" value="${poop.param.propertyValue}"/>
 		<constructor-arg name="idGenerator" ref="IDGenerator"/>
 		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 	</bean>

@@ -170,7 +170,7 @@ public class AdminController extends AbstController {
 			PropertyMode propmode;
 			private PropertyParams(String proptype, String propname, String propmode) {
 				this.proptype = pr.getPropertyType(proptype);
-				this.propmode = PropertyMode.parseModeFromString(propmode);
+				this.propmode = PropertyMode.parseFromString(propmode);
 				this.propname = propname;
 			}
 		}

@@ -89,10 +89,10 @@
   <resources>
       <resource>
           <directory>configuration</directory>
-          <excludes>
-          	<exclude>**/*.properties</exclude>
-          	<exclude>**/*.xml</exclude>
-          </excludes>
+          <!--<excludes>-->
+          	<!--<exclude>**/*.properties</exclude>-->
+          	<!--<exclude>**/*.xml</exclude>-->
+          <!--</excludes>-->
       </resource>
       <resource>
           <directory>configuration/spring</directory>

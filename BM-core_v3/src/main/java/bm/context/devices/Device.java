@@ -33,6 +33,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
     private String topic;
 	private Protocol protocol;
     private boolean active;
+    private String icon;
 	private JEEPManager jm;
 	
 	public Device(String logDomain, String SSID, String MAC, String name, String topic, Protocol protocol, Room room,
@@ -46,8 +47,9 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		this.protocol = protocol;
 		this.jm = jeepManager;
 		this.active = active;
+		this.icon = product.getIconImg();
 		
-		//sets this device as the owner of the properties given to it
+		//clones properties of products and sets this device as the owner of the properties given to it
 		Iterator<Property> props = product.getProperties().values().iterator();
 		while(props.hasNext()) {
             Property prop = props.next().clone();
@@ -320,7 +322,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 			json.put("type", "Group");
 			json.put("name", getSSID());
 			json.put("label", getName());
-			json.put("category", product.getIconImg());
+			json.put("category", icon);
 			if(getParentRoom() != null)
 				json.put("groupNames", new String[]{getParentRoom().getSSID()});
 			return new JSONObject[]{json};
@@ -462,6 +464,9 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	}
 
 	public void setProperties(HashMap<String, Property> properties) {
+    	for(Property p : properties.values()) {
+    		p.setDevice(this);
+		}
 		this.properties = properties;
 	}
 
@@ -480,4 +485,12 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
             property.setAdaptors(adaptors);
         }
     }
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
 }

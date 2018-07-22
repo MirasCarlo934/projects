@@ -87,8 +87,9 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 				name = rs.getString("prod_name");
 				description = rs.getString("prod_desc");
 				icon = rs.getString("icon");
-				if(!products.containsKey(SSID)) {
-					LOG.debug("Adding product " + SSID + " (" + name + ") to repository!");
+				if(SSID.equals("0000")) {
+					products.put(SSID, mainProdFactory.createNoProductObject(name, description, icon));
+				} else if(!products.containsKey(SSID)) {
 					Product prod;
 					if(specialProducts.containsKey(SSID)) {
 						prod = specialProducts.get(SSID).createProductObject(SSID, name, description,
@@ -98,6 +99,7 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 					}
 					products.put(SSID, prod);
 				}
+				LOG.debug("Product " + SSID + " (" + name + ") added to repository!");
 			}
 			rs.close();
 		} catch (SQLException e) {
@@ -225,6 +227,10 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 	
 	public PropertyType[] getAllPropertyTypes() {
 		return propertyTypes.values().toArray(new PropertyType[propertyTypes.size()]);
+	}
+
+	public boolean containsPropertyType(String ptypeID) {
+		return propertyTypes.containsKey(ptypeID);
 	}
 
 	public void addProduct(Product product) {

@@ -105,22 +105,22 @@ public class OHAdaptor extends AbstAdaptor {
 
 	@Override
 	public void deviceCreated(Device d, boolean waitUntilPersisted) throws AdaptorException {
-		LOG.trace("Persisting component " + d.getSSID() + " to OpenHAB item registry...");
+		LOG.trace("Persisting device " + d.getSSID() + " to OpenHAB item registry...");
 		if(d.getProperties().length > 1) { //1-property components are persisted thru their sole property!!!
 			JSONObject[] items = d.convertToItemsJSON();
 			try {
 				addItems(items, waitUntilPersisted);
 			} catch(AdaptorException e) { 
-				throw new AdaptorException("Cannot add component " + d.getSSID() + " to OpenHAB item registry", e,
+				throw new AdaptorException("Cannot add device " + d.getSSID() + " to OpenHAB item registry", e,
 						getName());
 			}
-			LOG.trace("Component item representation added successfully!");
+			LOG.trace("Device item representation added successfully!");
 		}
 	}
 
 //	@Override
 	public void deviceStateUpdated(Device d, boolean waitUntilUpdated) throws AdaptorException {
-		LOG.trace("Updating state of component " + d.getSSID() + "to " + d.isActive() + "...");
+		LOG.trace("Updating state of device " + d.getSSID() + "to " + d.isActive() + "...");
 		String itemName;
 		if(d.getProperties().length > 1) {
 			itemName = d.getSSID();
@@ -139,7 +139,7 @@ public class OHAdaptor extends AbstAdaptor {
 				json.put("name", itemName);
 				json.put("label", d.getName() + " [inactive]");
 				json.put("groupNames", new String[]{d.getParentRoom().getSSID()});
-				json.put("category", d.getProduct().getIconImg());
+				json.put("category", d.getIcon());
 				addItems(new JSONObject[]{json}, waitUntilUpdated);
 			}
 		} catch(AdaptorException e) {

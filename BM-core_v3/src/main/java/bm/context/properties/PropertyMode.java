@@ -8,8 +8,13 @@ public enum PropertyMode {
 //	private PropertyMode(String string) {
 //		this.string = string;
 //	}
-	
-	public static PropertyMode parseModeFromString(String str) {
+
+	/**
+	 * Parses a string and returns the equivalent PropertyMode enum.
+	 * @param str
+	 * @return The PropertyMode enum, or PropertyMode.Null if string is not "I", "O", or "IO".
+	 */
+	public static PropertyMode parseFromString(String str) {
 		if(str.equals("I"))
 			return I;
 		else if(str.equals("O"))

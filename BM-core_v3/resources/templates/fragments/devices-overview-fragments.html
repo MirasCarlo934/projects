@@ -50,7 +50,7 @@
 		<form>
 			<input type="hidden" name="devID" th:value="${device.getSSID()}"/>
 			<div class="icon">
-				<img class="icon" src="../resources/static/pics/iconset/switch.png" th:src="${'/pics/iconset/' + device.getProduct().getIconImg() + '.png'}"/>
+				<img class="icon" src="../resources/static/pics/iconset/switch.png" th:src="${'/pics/iconset/' + device.getIcon() + '.png'}"/>
 				<img class="move" src="../resources/static/pics/move.png" th:src="@{/pics/move.png}"/>
 				<img th:id="${'d_' + device.getSSID() + '_editBtn'}" class="edit" th:onclick="${'editDevice(''' + device.getProduct().getSSID() + ''')'}" src="../resources/static/pics/info2.png" th:src="@{/pics/info.png}"/>
 			</div>
