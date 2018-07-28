@@ -467,7 +467,7 @@ void handleRegister() {
 void doUnRegister() {
 	server.send(200, "text/html", "<h1>will do UnRegister!</h1>");
 	Serial.printf("Manually unregister name=%s, ssid=%s\n", MqttUtil::product.name.c_str(), MqttUtil::product.attributes->ssid.c_str());
-	MqttUtil::unRegister();
+	MqttUtil::detach();
 }
 
 /* Just a little test message to show the main config/captive portal page
@@ -739,7 +739,7 @@ void Symphony::loop() {
 		if (!isUpdating) {
 			if (!MqttUtil::isConnectedToBM && (bmLoginAttemptTimer - bmLoginAttemptTimerPrev)>=maxBmLoginDelay) {
 				Serial.println("Symphony::loop login to BM");
-				MqttUtil::signin(product.name, product.room, product.productType);
+				MqttUtil::registerBasic(product.name, product.room, product.productType);
 				bmLoginAttemptTimerPrev = bmLoginAttemptTimer;
 				bmLoginAttemptTimer = 0;
 			}

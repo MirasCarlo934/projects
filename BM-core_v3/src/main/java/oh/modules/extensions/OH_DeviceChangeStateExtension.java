@@ -32,16 +32,16 @@
 //
 //		LOG.debug("Updating state of device " + dev.getSSID() + "to " + dev.isActive() + "...");
 //		String itemName;
-//		if(dev.getProperties().length > 1) {
+//		if(dev.getPropvals().length > 1) {
 //			itemName = dev.getSSID();
 //		} else {
-//			itemName = dev.getProperties()[0].getOH_ID();
+//			itemName = dev.getPropvals()[0].getOH_ID();
 //		}
 //		try {
 //			if(dev.isActive()) {
 //				OH_Initializer.addItems(LOG, hs, ohIP, dev.convertToItemsJSON(), true);
-//				if(dev.getProperties().length == 1) {
-//					OH_Initializer.addItems(LOG, hs, ohIP, dev.getProperties()[0].convertToItemsJSON(), true);
+//				if(dev.getPropvals().length == 1) {
+//					OH_Initializer.addItems(LOG, hs, ohIP, dev.getPropvals()[0].convertToItemsJSON(), true);
 //				}
 //			} else {
 //				JSONObject json = new JSONObject();

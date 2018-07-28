@@ -65,7 +65,7 @@
 //            s += "\"" + device.getParentRoom().getSSID() + "\", ";
 //        }
 //        s += "[";
-//        Iterator<Property> props = Arrays.asList(device.getProperties()).iterator();
+//        Iterator<Property> props = Arrays.asList(device.getPropvals()).iterator();
 //
 //        while(props.hasNext()) { //convert each property to format ex. {id:"0006",label:"Detected",io:"I"}
 //            Property prop = props.next();
@@ -87,7 +87,7 @@
 //
 //    @Override
 //    public JSONObject[] convertToItemsJSON() {
-//        if(device.getProperties().length > 1) { //creates a group item if component has >1 properties
+//        if(device.getPropvals().length > 1) { //creates a group item if component has >1 properties
 //            JSONObject json = new JSONObject();
 //            json.put("type", "Group");
 //            json.put("name", getSSID());
@@ -104,10 +104,10 @@
 //    @Override
 //    public String convertToSitemapString() {
 //        String itemType;
-//        if(device.getProperties().length > 1) {
+//        if(device.getPropvals().length > 1) {
 //            itemType = "Group";
 //        } else {
-//            Property p = device.getProperties()[0];
+//            Property p = device.getPropvals()[0];
 //            itemType = p.getOHItemType();
 //        }
 //        return itemType + " item=" + SSID + " [label=\"" + device.getName() + "\"] [icon=\"" +

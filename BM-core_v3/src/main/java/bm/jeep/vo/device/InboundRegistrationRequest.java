@@ -17,7 +17,7 @@ public class InboundRegistrationRequest extends JEEPRequest{
 	private String name;
 	private String room;
 	private String mac;
-	private JSONObject properties = null; //optional
+	private JSONObject propvals = null; //optional
 	private JSONArray proplist = null; //only if CID = "0000"
 	private String icon = null; //only if CID = "0000"
 	private boolean productless = false;
@@ -28,7 +28,7 @@ public class InboundRegistrationRequest extends JEEPRequest{
 		this.name = json.getString(nameParam);
 		this.room = json.getString(roomIDParam);
 		try {
-			this.properties = json.getJSONObject(propsParam);
+			this.propvals = json.getJSONObject(propsParam);
 		} catch(JSONException e) {
 
 		}
@@ -48,13 +48,13 @@ public class InboundRegistrationRequest extends JEEPRequest{
 		}
 	}
 	
-	public InboundRegistrationRequest(JEEPRequest request, String nameParam, String roomIDParam, String propsParam,
+	public InboundRegistrationRequest(JEEPRequest request, String nameParam, String roomIDParam, String propValsParam,
 									  String proplistParam, String iconParam) {
 		super(request);
 		this.name = json.getString(nameParam);
 		this.room = json.getString(roomIDParam);
 		try {
-			this.properties = json.getJSONObject(propsParam);
+			this.propvals = json.getJSONObject(propValsParam);
 		} catch(JSONException e) {
 
 		}
@@ -86,8 +86,8 @@ public class InboundRegistrationRequest extends JEEPRequest{
 		return mac;
 	}
 
-	public JSONObject getProperties() {
-		return properties;
+	public JSONObject getPropvals() {
+		return propvals;
 	}
 
 	public JSONArray getProplist() {

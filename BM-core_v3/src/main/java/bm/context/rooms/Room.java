@@ -13,7 +13,7 @@ import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 
 //FIXME indexing children
-public class Room extends SymphonyObject implements OHItemmable, HTMLTransformable {
+public class Room extends SymphonyObject {
 	private String name;
 	private Vector<SymphonyObject> children = new Vector<SymphonyObject>(1,1); //arranged by order added (index)
     private String color;

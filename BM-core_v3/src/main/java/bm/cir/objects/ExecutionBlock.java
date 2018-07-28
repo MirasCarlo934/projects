@@ -13,8 +13,8 @@ public class ExecutionBlock extends CodeBlock {
 
 	@Override
 	public String toString() {
-		return StringTools.injectStrings("%s:%s = %s", new String[]{getDeviceID(), getPropertyID(), getPropertyValue().toString()},
-				"%s");
+		return StringTools.injectStrings("%s:%s = %s", new String[]{getDeviceID(),
+						String.valueOf(getPropertyIndex()), getPropertyValue().toString()}, "%s");
 	}
 
 }

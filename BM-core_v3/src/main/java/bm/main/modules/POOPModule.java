@@ -1,7 +1,5 @@
 package bm.main.modules;
 
-import java.util.Vector;
-
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
 import bm.context.properties.Property;
@@ -9,9 +7,7 @@ import bm.jeep.JEEPManager;
 import bm.jeep.exceptions.SecondaryMessageCheckingException;
 import bm.jeep.vo.JEEPRequest;
 import bm.jeep.vo.JEEPResponse;
-import bm.jeep.vo.device.JEEPErrorResponse;
 import bm.jeep.vo.device.ReqPOOP;
-import bm.jeep.vo.device.ResPOOP;
 import bm.main.modules.exceptions.RequestProcessingException;
 import bm.main.repositories.DeviceRepository;
 import bm.tools.IDGenerator;
@@ -77,31 +73,31 @@ public class POOPModule extends Module {
 //			error("CIRManager cannot updateRules! Old rules may apply!", e1, request.getProtocol());
 //		}
 		
-		LOG.info("Changing property " + poop.propSSID + " of device " + d.getSSID() + " to "
+		LOG.info("Changing property " + poop.propIndex + " of device " + d.getSSID() + " to "
                 + poop.propValue + "...");
-		if(d.getProperty(poop.propSSID).getValue().toString().equals(poop.propValue.toString())) {
+		if(d.getProperty(poop.propIndex).getValue().toString().equals(poop.propValue.toString())) {
 			LOG.info("Property is already set to " + poop.propValue + "!");
-			jm.sendPOOPResponse(d.getProperty(poop.propSSID), poop);
+			jm.sendPOOPResponse(d.getProperty(poop.propIndex), poop);
 		}
 		else {
 			LOG.debug("Updating property in system...");
 			try {
-				Property prop = d.getProperty(poop.propSSID);
+				Property prop = d.getProperty(poop.propIndex);
 //				prop.setValue(poop.propValue, logDomain, false);
                 prop.setValue(poop.propValue);
 				prop.update(logDomain, false);
 				jm.sendPOOPResponse(prop, poop);
 			} catch (AdaptorException e) {
-//				error("Cannot change property " + poop.propSSID + " of device " + poop.getCID(), e,
+//				error("Cannot change property " + poop.propIndex + " of device " + poop.getCID(), e,
 //						request.getProtocol());
 //				return false;
-				throw new RequestProcessingException("Cannot change property " + poop.propSSID + " of device " +
+				throw new RequestProcessingException("Cannot change property " + poop.propIndex + " of device " +
 						poop.getCID(), e);
 			}
 			
 //			LOG.info("Updating affected devices in environment...");
 //			boolean updatedOthers = false;
-//			Rule[] rules = cirr.getSpecificRules(d.getProperty(poop.propSSID));
+//			Rule[] rules = cirr.getSpecificRules(d.getProperty(poop.propIndex));
 //			HashMap<Property, Boolean> alreadyChanged = new HashMap<Property, Boolean>(1);
 //
 //			for(int k = 0; k < rules.length; k++) {
@@ -110,12 +106,12 @@ public class POOPModule extends Module {
 //					for(int l = 0; l < rule.getExecBlocks().length; l++) {
 //						ExecutionBlock exec = rule.getExecBlocks()[l];
 //						Device dev = dr.getDevice(exec.getDeviceID());
-//						Property prop2 = dev.getProperty(exec.getPropertyID());
+//						Property prop2 = dev.getProperty(exec.getPropertyIndex());
 //						if(alreadyChanged.containsKey(prop2)) {
 //							continue;
 //						}
 //						LOG.info("Changing device " + dev.getSSID() + " property " +
-//								exec.getPropertyID() + " to " + exec.getPropertyValue() + "...");
+//								exec.getPropertyIndex() + " to " + exec.getPropertyValue() + "...");
 //						try {
 //							affectedIDs.add(dev.getSSID() + "-" + prop2.getSSID());
 //							prop2.setValue(exec.getPropertyValue(), poop.getCID(), logDomain, false);
@@ -126,7 +122,7 @@ public class POOPModule extends Module {
 //							alreadyChanged.put(prop2, true);
 //							updatedOthers = true;
 //						} catch (AdaptorException e) {
-//							error("Cannot change property " + exec.getPropertyID() +
+//							error("Cannot change property " + exec.getPropertyIndex() +
 //									" of component " + dev.getSSID(),
 //									e, request.getProtocol());
 //							return false;
@@ -152,7 +148,7 @@ public class POOPModule extends Module {
 		ReqPOOP poop = (ReqPOOP) request;
 		Device device = dr.getDevice(request.getCID());
 		LOG.warn("Device " + request.getCID() + " has not responded to a request to change its property "
-				+ device.getProperty(poop.propSSID) + " (" + device.getProperty(poop.propSSID).getDisplayName()
+				+ device.getProperty(poop.propIndex) + " (" + device.getProperty(poop.propIndex).getDisplayName()
 				+ ") to " + poop.propValue);
 	}
 
@@ -178,9 +174,9 @@ public class POOPModule extends Module {
 		ReqPOOP poop = new ReqPOOP(request, propIDParam, propValParam);
 		
 		Device d = dr.getDevice(poop.getCID());
-		//System.out.println(c.getProperties().length + "--" + c.getProperty(poop.propSSID));
-		if(d.getProperty(poop.propSSID) != null) { //checks if property exists in the component;
-			Property prop = d.getProperty(poop.propSSID);
+		//System.out.println(c.getPropvals().length + "--" + c.getProperty(poop.propIndex));
+		if(d.getProperty(poop.propIndex) != null) { //checks if property exists in the component;
+			Property prop = d.getProperty(poop.propIndex);
 			if(!prop.checkValueValidity(poop.propValue)) {
 //				JEEPErrorResponse errorRes = new JEEPErrorResponse(poop, "Invalid value! "
 //						+ "Check property constraints and valid data types!");

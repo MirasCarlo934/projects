@@ -81,12 +81,14 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 				int index = devs_rs.getInt("index");
 				String protocol = devs_rs.getString("protocol");
 				
-				String prop_id = devs_rs.getString("prop_id");
+				String prop_index = devs_rs.getString("prop_index");
 				Object prop_val = devs_rs.getString("prop_value");
+				String prop_id = SSID + "_" + prop_index;
 				if(devices.containsKey(SSID)) {
-					LOG.debug("Setting property: " + prop_id + " of component: " + SSID + 
+					Property prop = getDevice(SSID).getProperty(prop_id);
+					LOG.debug("Setting property: " + prop_id + " (" + prop.getDisplayName() + ") of device: " + SSID +
 							" with value: " + prop_val);
-					getDevice(SSID).getProperty(prop_id).setValue(prop_val);
+					prop.setValue(prop_val);
 				} else {
 				    if(protocols.containsKey(protocol)) {
                         LOG.debug("Adding device " + SSID + " (" + name + ") to repository!");
@@ -104,7 +106,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 				}
 			}
 			devs_rs.close();
-			LOG.info("Devices retrieved!");
+			LOG.info(devices.size() + " devices retrieved!");
 		} catch (SQLException e) {
 			LOG.error("Cannot populate DeviceRepository!", e);
 		}

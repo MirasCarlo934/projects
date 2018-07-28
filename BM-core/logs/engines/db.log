@@ -1,0 +1,2 @@
+2018-01-26 14:56:58,071 INFO  [main] (DB.MainDBEngine) DBEngine started on url: jdbc:derby://localhost:1527/DB
+2018-01-26 14:56:58,522 INFO  [main] (DB.MainDBEngine) Connected to Derby DB!

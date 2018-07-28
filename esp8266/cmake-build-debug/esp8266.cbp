@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="esp8266"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/carlomiras/git/esp8266/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/carlomiras/git/esp8266/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/carlomiras/git/esp8266/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="esp8266">
+				<Option output="/Users/carlomiras/git/esp8266/cmake-build-debug/esp8266" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/carlomiras/git/esp8266/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/carlomiras/git/esp8266/SymphonyCore"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 esp8266"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="esp8266/fast">
+				<Option output="/Users/carlomiras/git/esp8266/cmake-build-debug/esp8266" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/carlomiras/git/esp8266/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/carlomiras/git/esp8266/SymphonyCore"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 esp8266/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/CloudMqttUtil.cpp">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/CloudMqttUtil.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/MqttUtil.cpp">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/MqttUtil.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/PushBullet.cpp">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/PushBullet.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/CloudMqttUtil.cpp.d">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/CloudMqttUtil.cpp.o">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/MqttUtil.cpp.d">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/MqttUtil.cpp.o">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/PushBullet.cpp.d">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/PushBullet.cpp.o">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SpiffsUtil.cpp.d">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SpiffsUtil.cpp.o">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SymphonyCore.bin">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SymphonyCore.cpp.d">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SymphonyCore.cpp.o">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SymphonyCore.elf">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SymphonyProduct.cpp.d">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/SymphonyProduct.cpp.o">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/Release/arduino.ar">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SpiffsUtil.cpp">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SpiffsUtil.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SymphonyCore.cpp">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SymphonyCore.cpp1">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SymphonyCore.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SymphonyCore.h1">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SymphonyCore.ino">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SymphonyProduct.cpp">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/SymphonyProduct.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/admin-v1.1.html">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/admin.html">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/admin.html.bak">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/control.css">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/control.html">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/sample.html">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/symphony-v1.1.js">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/symphony.css">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/data/symphony.js">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/mainhtml.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/mainhtml2.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/mainhtml3.h">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/readme/Mkspiffs_esptool_settings.docx">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/readme/load_datafile.txt">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/SymphonyCore/spiffs/data.bin">
+			<Option target="esp8266"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/esp8266/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

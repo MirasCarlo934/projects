@@ -89,10 +89,12 @@
   <resources>
       <resource>
           <directory>configuration</directory>
+          <!--COMMENT OUT THIS PART DURING DEPLOYMENT!!!-->
           <!--<excludes>-->
           	<!--<exclude>**/*.properties</exclude>-->
           	<!--<exclude>**/*.xml</exclude>-->
           <!--</excludes>-->
+          <!---->
       </resource>
       <resource>
           <directory>configuration/spring</directory>

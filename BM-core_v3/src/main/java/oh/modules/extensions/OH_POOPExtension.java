@@ -34,7 +34,7 @@ public class OH_POOPExtension extends AbstModuleExtension {
 	protected void process(JEEPRequest request) {
 		ReqPOOP poop = new ReqPOOP(request, propIDParam, propValParam);
 		Device dev = dr.getDevice(poop.getCID());
-		Property p = dev.getProperty(poop.propSSID);
+		Property p = dev.getProperty(poop.propIndex);
 		
 		mainLOG.debug("Updating property " + p.getDevice().getSSID() + "_" + p.getSSID() + " state in OpenHAB...");
 		HashMap<String, String> parameters = new HashMap<String, String>(1,1);
@@ -44,7 +44,7 @@ public class OH_POOPExtension extends AbstModuleExtension {
 		parameters.put("null", p.transformValueToOHCommand());
 		
 		PutHTTPReq req = new PutHTTPReq(/*idg.generateMixedCharID(10), he, */ohIP + "/rest/items/" +
-				p.getOH_ID() + "/state", headers, parameters, new int[]{200, 202});
+				p.getSSID() + "/state", headers, parameters, new int[]{200, 202});
 		try {
 			hs.sendHTTPRequest(req, false);
 		} catch (HTTPException e) {

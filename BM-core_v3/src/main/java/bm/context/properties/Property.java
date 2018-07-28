@@ -21,9 +21,9 @@ import bm.tools.IDGenerator;
 public class Property extends SymphonyElement implements OHItemmable, HTMLTransformable {
 	private Device parentDevice;
     private String loggerName;
-    private String genericName;
+//    private String genericName;
     private String displayName;
-    private String systemName; //[prop_type]-[prop_mode]-[cpl_SSID]
+//    private String systemName; //[prop_type]-[prop_mode]-[cpl_SSID]
     private PropertyMode mode;
     private PropertyType propType;
     private Object value = "0";
@@ -32,13 +32,13 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	private JEEPManager jm;
 
 	//TASK add index to constructor params
-	public Property(PropertyType propType, String SSID, /*String genericName, */String dispname,
+	public Property(PropertyType propType, int index, /*String genericName, */String dispname,
 					/*String ohItemType,*/ PropertyMode mode, /*PropertyValueType propValType,*/
 					JEEPManager jeepManager) {
-		super(SSID, 0);
+		super(IDGenerator.generateIntID(4, new String[0]) + "_" + index, index);
 		this.displayName = (dispname);
-		this.genericName = propType.getName() + "-" + mode.toString();
-		this.setSystemName(genericName, SSID);
+//		this.genericName = propType.getName() + "-" + mode.toString();
+//		this.setSystemName(genericName, index);
 		this.mode = (mode);
 		this.propType = propType;
 		this.jm = jeepManager;
@@ -46,7 +46,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 
 	@Override
 	public Property clone() {
-		Property p = new Property(propType, SSID, displayName, mode, jm);
+		Property p = new Property(propType, getIndex(), displayName, mode, jm);
 		p.setAdaptors(p.getAdaptors());
 		return p;
 	}
@@ -82,9 +82,9 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 			throws AdaptorException {
 		final Logger LOG = getLogger(callerLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
-			LOG.debug("Creating property " + getOH_ID() + " in " + adaptor.getName() + "...");
+			LOG.debug("Creating property " + getSSID() + " in " + adaptor.getName() + "...");
 			adaptor.propertyCreated(this, waitUntilCreated);
-			LOG.debug("Property " + getOH_ID() + " created!");
+			LOG.debug("Property " + getSSID() + " created!");
 		}
 	}
 	
@@ -109,9 +109,9 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 			throws AdaptorException {
 		Logger LOG = getLogger(callerLogDomain);
 		if(!propType.getOHIcon().equals("none")) {
-			LOG.debug("Deleting property " + getOH_ID() + " from " + adaptor.getName() + "...");
+			LOG.debug("Deleting property " + getSSID() + " from " + adaptor.getName() + "...");
 			adaptor.propertyDeleted(this, waitUntilDeleted);
-			LOG.debug("Property " + getOH_ID() + " deleted!");
+			LOG.debug("Property " + getSSID() + " deleted!");
 		}
 	}
 
@@ -120,10 +120,10 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
             throws AdaptorException {
 		if(!propType.getOHIcon().equals("none")) {
 			Logger LOG = getLogger(callerLogDomain);
-			LOG.debug("Updating value of property " + getOH_ID() + " in " + adaptor.getName() + 
+			LOG.debug("Updating value of property " + getSSID() + " in " + adaptor.getName() + 
 					"...");
 			adaptor.propertyValueUpdated(this, waitUntilUpdated);
-			LOG.debug("Property " + getOH_ID() + " updated!");
+			LOG.debug("Property " + getSSID() + " updated!");
 		}
 	}
 
@@ -152,7 +152,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	@Override
 	public JSONObject[] convertToItemsJSON() {
 		JSONObject json = new JSONObject();
-		json.put("name", getOH_ID());
+		json.put("name", getSSID());
 		json.put("type", propType.getOHIcon());
 		if(parentDevice.getProperties().length > 1) {
 			json.put("groupNames", new String[]{parentDevice.getSSID()});
@@ -235,7 +235,7 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 //	public void setValue(Object value, String cid, String parentLogDomain, boolean waitUntilUpdated)
 //			throws AdaptorException {
 //		Logger LOG = getLogger(parentLogDomain);
-//		LOG.debug("Setting value of property " + getOH_ID() + " to " + value + "...");
+//		LOG.debug("Setting value of property " + getSSID() + " to " + value + "...");
 //		setValue(value);
 //		if(cid == null)
 //			update(parentLogDomain, waitUntilUpdated);
@@ -279,29 +279,29 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	}
 
 
-	/**
-	 * Returns the system name of this B_Property. <br><br>
-	 * 
-	 * <b>Construction:</b><br>
-	 * [<i>genericName</i>]-[<i>SSID</i>]
-	 * 
-	 * @return the system name of this B_Property
-	 */
-	public String getSystemName() {
-		return systemName;
-	}
+//	/**
+//	 * Returns the system name of this B_Property. <br><br>
+//	 *
+//	 * <b>Construction:</b><br>
+//	 * [<i>genericName</i>]-[<i>SSID</i>]
+//	 *
+//	 * @return the system name of this B_Property
+//	 */
+//	public String getSystemName() {
+//		return systemName;
+//	}
 
-	public String getCommonName() {
-	    return parentDevice.getSSID() + "-" + SSID;
-    }
-
-	/**
-	 * @param systemName the systemName to set
-	 * @param index the index set in table COMPROPLIST
-	 */
-	private void setSystemName(String systemName, String index) {
-		this.systemName = systemName + "-" + index;
-	}
+//	public String getCommonName() {
+//	    return parentDevice.getSSID() + "-" + SSID;
+//    }
+//
+//	/**
+//	 * @param systemName the systemName to set
+//	 * @param index the index set in table COMPROPLIST
+//	 */
+//	private void setSystemName(String systemName, String index) {
+//		this.systemName = systemName + "-" + index;
+//	}
 
 	/**
 	 * Returns the data type of the value held by this B_Property.
@@ -332,18 +332,20 @@ public class Property extends SymphonyElement implements OHItemmable, HTMLTransf
 	
 	public void setDevice(Device device) {
 		this.parentDevice = device;
-		loggerName = getOH_ID();
+		setSSID(device.getSSID() + "_" + getIndex());
+		loggerName = getSSID();
+//		loggerName = getSSID();
 	}
 	
-	/**
-	 * Returns the standard ID for this property which is defined as <b>[CID]_[SSID]</b>. This is 
-	 * commonly used in OpenHAB.
-	 * 
-	 * @return the standard ID of this property
-	 */
-	public String getOH_ID() {
-		return parentDevice.getSSID() + "_" + SSID;
-	}
+//	/**
+//	 * Returns the standard ID for this property which is defined as <b>[CID]_[SSID]</b>. This is 
+//	 * commonly used in OpenHAB.
+//	 * 
+//	 * @return the standard ID of this property
+//	 */
+//	public String getSSID() {
+//		return parentDevice.getSSID() + "_" + SSID;
+//	}
 	
 	public String getOHItemType() {
 		return propType.getOHIcon();

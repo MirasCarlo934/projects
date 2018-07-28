@@ -53,10 +53,12 @@ public class ProductFactory {
                     if(prod_ssid.equals(SSID)) {
                         PropertyType prop_type = propertyTypes.get(productsRS.getString("prop_type"));
                         String prop_dispname = productsRS.getString("prop_dispname");
-                        PropertyMode prop_mode = PropertyMode.parseFromString(productsRS.getString("prop_mode"));
-                        String prop_ssid = productsRS.getString("prop_index");
-                        Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, jm);
-                        LOG.debug("Adding property " + prop.getSystemName() + " to product " + prod_ssid + "!");
+                        PropertyMode prop_mode = PropertyMode.parseFromString(productsRS.getString(
+                                "prop_mode"));
+                        int prop_index = productsRS.getInt("prop_index");
+                        Property prop = new Property(prop_type, prop_index, prop_dispname, prop_mode, jm);
+                        LOG.debug("Adding property \"" + prop_dispname + "\" (index: " + prop_index +
+                                ") to product \"" + name + "\" (SSID: " + SSID + ")!");
                         prod.addProperty(prop);
                     }
                 } catch(NullPointerException e) {
@@ -64,7 +66,7 @@ public class ProductFactory {
                 }
             }
         } catch (SQLException e) {
-            LOG.error("Could not retrieve properties for product " + prod.getSSID() + "!");
+            LOG.error("Could not retrieve properties for product \"" + name + "\" (SSID: " + SSID + ")!");
         }
 
         return prod;

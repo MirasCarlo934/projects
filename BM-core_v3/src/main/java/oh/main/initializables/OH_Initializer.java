@@ -90,8 +90,8 @@
 ////			try {
 ////				LOG.debug("Updating device " + d.getSSID() + "(" + d.getName() + ")");
 ////				registerDevice(d);
-////				for(int j = 0; j < d.getProperties().length; j++) {
-////					Property p = d.getProperties()[j];
+////				for(int j = 0; j < d.getPropvals().length; j++) {
+////					Property p = d.getPropvals()[j];
 ////					LOG.debug("Updating device property " + p.getOH_ID() + "(" + p.getDisplayName() + ")");
 ////					p.create(oha, logDomain, false);
 //////					p.createExcept(new AbstAdaptor[]{p.getMainDBAdaptor()}, logDomain, false);
@@ -118,7 +118,7 @@
 //
 ////	public void registerDevice(Device d) {
 ////		LOG.trace("Adding device " + d.getSSID() + " to OpenHAB item registry...");
-////		if(d.getProperties().length > 1) { //1-property components are persisted thru their sole property!!!
+////		if(d.getPropvals().length > 1) { //1-property components are persisted thru their sole property!!!
 ////			JSONObject[] items = d.convertToItemsJSON();
 ////			try {
 ////				addItems(LOG, hs, ohIP, items, true);

@@ -2,12 +2,12 @@ package bm.cir.objects;
 
 public abstract class CodeBlock {
 	private String comID;
-	private String propSSID;
+	private int propIndex;
 	private Object propValue;
 	
 	public CodeBlock(String comID, String comProperty, Object comValue) {
 		setDeviceID(comID);
-		setDeviceProperty(comProperty);
+		setDeviceProperty(Integer.parseInt(comProperty));
 		setPropValue(comValue);
 	}
 	
@@ -33,15 +33,15 @@ public abstract class CodeBlock {
 	/**
 	 * @return the comProperty
 	 */
-	public String getPropertyID() {
-		return propSSID;
+	public int getPropertyIndex() {
+		return propIndex;
 	}
 
 	/**
 	 * @param comProperty the comProperty to set
 	 */
-	public void setDeviceProperty(String comProperty) {
-		this.propSSID = comProperty;
+	public void setDeviceProperty(int comProperty) {
+		this.propIndex = comProperty;
 	}
 
 	/**

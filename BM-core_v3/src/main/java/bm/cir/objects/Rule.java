@@ -5,15 +5,9 @@ import java.util.HashMap;
 import bm.context.HTMLTransformable;
 import bm.context.devices.Device;
 import bm.context.properties.Property;
-import bm.tools.StringTools;
-import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 public class Rule implements HTMLTransformable {
 	private int index;
@@ -58,7 +52,7 @@ public class Rule implements HTMLTransformable {
 		for(int i = 0; i < arguments.length; i++) {
 			Argument arg = arguments[i];
 			if(arg.getDeviceID().equals(p.getDevice().getSSID())) {
-				if(arg.getPropertyID().equals(p.getSSID())) {
+				if(arg.getPropertyIndex() == p.getIndex()) {
 					b = true;
 					break;
 				}
@@ -87,7 +81,7 @@ public class Rule implements HTMLTransformable {
 			if(dev == null) {
 				return false;
 			}
-			Property prop = dev.getProperty(arg.getPropertyID());
+			Property prop = dev.getProperty(arg.getPropertyIndex());
 			//FIXME Rule: Compare raw data types, not just strings! To avoid having to specify decimal numbers in CIR!
 			if(!prop.getValue().toString().equals(arg.getPropertyValue().toString())) {
 				return false;
@@ -151,18 +145,18 @@ public class Rule implements HTMLTransformable {
 		
 		for(int i = 0; i < args.length; i++) {
 			Argument arg = args[i];
-			script += "var rule_" + index + "_arg_" + arg.getDeviceID() + "_" + arg.getPropertyID() + " = new Component('" + arg.getDeviceID() + "', "
-					+ "[{id:'" + arg.getPropertyID() + "', value:'" + arg.getPropertyValue()
+			script += "var rule_" + index + "_arg_" + arg.getDeviceID() + "_" + arg.getPropertyIndex() + " = new Component('" + arg.getDeviceID() + "', "
+					+ "[{id:'" + arg.getPropertyIndex() + "', value:'" + arg.getPropertyValue()
 					+ "', operator:'" + arg.getOperator().getSymbol() + "'}]); \n";
-			argsArray += "rule_" + index + "_arg_" + arg.getDeviceID() + "_" + arg.getPropertyID() +  ",";
+			argsArray += "rule_" + index + "_arg_" + arg.getDeviceID() + "_" + arg.getPropertyIndex() +  ",";
 		}
 		
 		for(int i = 0; i < execs.length; i++) {
 			ExecutionBlock exec = execs[i];
-			script += "var rule_" + index + "_exec_" + exec.getDeviceID() + "_" + exec.getPropertyID() + " = new Component('" + exec.getDeviceID() + "', "
-					+ "[{id:'" + exec.getPropertyID() + "', value:'" + exec.getPropertyValue()
+			script += "var rule_" + index + "_exec_" + exec.getDeviceID() + "_" + exec.getPropertyIndex() + " = new Component('" + exec.getDeviceID() + "', "
+					+ "[{id:'" + exec.getPropertyIndex() + "', value:'" + exec.getPropertyValue()
 					+ "', operator:'='}]); \n";
-			execsArray += "rule_" + index + "_exec_" + exec.getDeviceID() + "_" + exec.getPropertyID() +  ",";
+			execsArray += "rule_" + index + "_exec_" + exec.getDeviceID() + "_" + exec.getPropertyIndex() +  ",";
 		}
 		
 		argsArray = argsArray.substring(0, argsArray.length() - 1) + "];";
@@ -185,7 +179,7 @@ public class Rule implements HTMLTransformable {
 			args.addElement("component")
 					.addAttribute("id", a.getDeviceID())
 					.addElement("property")
-						.addAttribute("id", a.getPropertyID())
+						.addAttribute("id", String.valueOf(a.getPropertyIndex()))
 						.addAttribute("value", a.getPropertyValue().toString())
 						.addAttribute("operator", a.getOperator().toString());
 		}
@@ -194,7 +188,7 @@ public class Rule implements HTMLTransformable {
 			execs.addElement("component")
 					.addAttribute("id", e.getDeviceID())
 					.addElement("property")
-						.addAttribute("id", e.getPropertyID())
+						.addAttribute("id", String.valueOf(e.getPropertyIndex()))
 						.addAttribute("value", e.getPropertyValue().toString());
 		}
 		return document;

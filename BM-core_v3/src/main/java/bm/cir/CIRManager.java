@@ -26,12 +26,9 @@ import bm.cir.objects.Rule;
 import bm.context.devices.Device;
 import bm.main.engines.FileEngine;
 import bm.main.engines.exceptions.EngineException;
-import bm.main.engines.requests.FileEngine.OverwriteFileFEReq;
 import bm.main.engines.requests.FileEngine.UpdateFEReq;
-import bm.main.engines.requests.FileEngine.VersionizeFileFEReq;
 import bm.main.interfaces.Initializable;
 import bm.tools.IDGenerator;
-import sun.tools.jstat.OutputFormatter;
 
 public class CIRManager implements Initializable, Runnable {
     private String logDomain;
@@ -79,28 +76,28 @@ public class CIRManager implements Initializable, Runnable {
 				} catch (EngineException e) {
 					LOG.warn("Rules cannot be updated! Some rules may not take effect.", e);
 				}
-				LOG.debug("Property " + property.getCommonName() + " changed value. Checking CIR...");
+				LOG.debug("Property " + property.getSSID() + " changed value. Checking CIR...");
                 Rule[] rules = getRulesTriggered(property);
                 if (rules.length == 0) {
                     LOG.debug("No rules found!");
                     continue;
                 }
-                LOG.info("Property " + property.getCommonName() + " value change triggered " + rules.length
+                LOG.info("Property " + property.getSSID() + " value change triggered " + rules.length
                         + " rules! Executing...");
                 for (Rule rule : rules) {
                     ExecutionBlock[] execs = rule.getExecBlocks();
                     for (ExecutionBlock exec : execs) {
                         Device dev = dr.getDevice(exec.getDeviceID());
-                        Property prop = dev.getProperty(exec.getPropertyID());
-                        LOG.debug("Updating property " + prop.getCommonName() + "...");
+                        Property prop = dev.getProperty(exec.getPropertyIndex());
+                        LOG.debug("Updating property " + prop.getSSID() + "...");
                         prop.setValue(exec.getPropertyValue());
                         try {
                             prop.update(logDomain, false);
                             prop.sendValueToDevice(logDomain);
-                            LOG.info("Property " + prop.getCommonName() + " updated from rule \""
+                            LOG.info("Property " + prop.getSSID() + " updated from rule \""
                                     + rule.getName() + "\"");
                         } catch (AdaptorException e) {
-                            LOG.error("Could not updateRules " + prop.getCommonName() + "!");
+                            LOG.error("Could not updateRules " + prop.getSSID() + "!");
                         }
                     }
                 }
@@ -171,7 +168,7 @@ public class CIRManager implements Initializable, Runnable {
      * @return The CIRs
      */
 	public Rule[] getRulesTriggered(Property p) {
-        LOG.trace("Retrieving rules triggered by property " + p.getCommonName() + " value change " +
+        LOG.trace("Retrieving rules triggered by property " + p.getSSID() + " value change " +
                 "to " + p.getValue());
         Vector<Rule> specRules = new Vector<Rule>(1,1);
 
@@ -180,7 +177,7 @@ public class CIRManager implements Initializable, Runnable {
             if(rule.containsArgument(p)) {
                 boolean b = true;
                 for(Argument arg : rule.getArguments()) {
-                    Property argProp = dr.getDevice(arg.getDeviceID()).getProperty(arg.getPropertyID());
+                    Property argProp = dr.getDevice(arg.getDeviceID()).getProperty(arg.getPropertyIndex());
                     if(!argProp.getValue().toString().equals(arg.getPropertyValue())) {
                         b = false;
                         break;
@@ -211,7 +208,7 @@ public class CIRManager implements Initializable, Runnable {
 	 * @param p The property to check
 	 */
 	public synchronized void removeRulesTriggered(Property p) {
-		LOG.info("Removing rules with property " + p.getCommonName() + " as argument...");
+		LOG.info("Removing rules with property " + p.getSSID() + " as argument...");
 		int removed = 0;
 //		String str = "";
 		org.dom4j.Document doc = DocumentHelper.createDocument();
@@ -298,7 +295,7 @@ public class CIRManager implements Initializable, Runnable {
 						} else if(!dev.getProperty(pid).checkValueValidity(pval)) {
 							Property prop = dev.getProperty(pid);
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property value \"" + pval + 
-									"\" for property " + prop.getOH_ID() + " in arguments block. Disregarding rule!");
+									"\" for property " + prop.getSSID() + " in arguments block. Disregarding rule!");
 						}
 						ArgOperator operator = ArgOperator.translate(
 								raw_args_com_prop.getAttributeValue("operator"));
@@ -338,7 +335,7 @@ public class CIRManager implements Initializable, Runnable {
 						} else if(!dev.getProperty(pid).checkValueValidity(pval)) {
 							Property prop = dev.getProperty(pid);
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property value \"" + pval + 
-									"\" for property " + prop.getOH_ID() + " in execution block. Disregarding rule!");
+									"\" for property " + prop.getSSID() + " in execution block. Disregarding rule!");
 							continue rulesLoop;
 						}
 						execs.add(new ExecutionBlock(cid, pid, pval));

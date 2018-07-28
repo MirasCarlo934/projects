@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="firebase-admin" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ae09bc6-cc36-45b1-a38e-733fb1c44799" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/BM-core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/BM-core.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/cir/rules.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/cir/rules.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/configuration/bm.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/configuration/bm.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/configuration/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/configuration/log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/configuration/spring/engines-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/configuration/spring/engines-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/logs/bm_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/logs/bm_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/logs/engines/cir.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/logs/engines/cir.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/logs/engines/db.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/logs/engines/db.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/logs/engines/openhab.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/logs/engines/openhab.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/logs/modules/registration.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/logs/modules/registration.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/logs/mqtt/mqtt.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/logs/mqtt/mqtt.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/CIRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/CIRManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/Argument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/CodeBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/ExecutionBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/ExecutionBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/cir/objects/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/SymphonyObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/SymphonyObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/adaptors/DBAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/adaptors/DBAdaptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/devices/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/devices/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/products/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/products/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/products/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/products/ProductFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/properties/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/properties/Property.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/rooms/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/context/rooms/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/jeep/vo/device/InboundRegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/jeep/vo/device/InboundRegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/jeep/vo/device/ReqPOOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/jeep/vo/device/ReqPOOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/modules/DetachmentModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/modules/DetachmentModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/modules/POOPModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/modules/POOPModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/modules/RegistrationModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/modules/RegistrationModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/tools/IDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/bm/tools/IDGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/context/adaptors/OHAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/context/adaptors/OHAdaptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/main/initializables/OH_Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/main/initializables/OH_Initializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_DetachmentExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_DetachmentExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_DeviceChangeStateExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_DeviceChangeStateExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_POOPExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_POOPExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_RegistrationExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/oh/modules/extensions/OH_RegistrationExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/ui/context/devices/UIDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/ui/context/devices/UIDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/ui/context/devices/products/UIProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/ui/context/devices/products/UIProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/ui/context/properties/UIProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../BM-core_v3/src/main/java/ui/context/properties/UIProperty.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ChildAddedListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildAddedListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChildChangedEventListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildChangedEventListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeviceValueEventListener.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/DeviceValueEventListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="726">
+              <caret line="68" column="36" lean-forward="true" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FirebaseDevice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseDevice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="95" column="54" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestFirebase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/symphony/firebase/test/TestFirebase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="56" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymphonyMqttCB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/SymphonyMqttCB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FirebaseProperty.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseProperty.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildAddedListener.java" />
+        <option value="$PROJECT_DIR$/src/symphony/firebase/adaptor/Firebase.java" />
+        <option value="$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseProperty.java" />
+        <option value="$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseDevice.java" />
+        <option value="$PROJECT_DIR$/src/symphony/firebase/test/TestFirebase.java" />
+        <option value="$PROJECT_DIR$/src/symphony/firebase/adaptor/DeviceValueEventListener.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="firebase-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firebase-admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firebase-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firebase-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firebase-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firebase-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="firebase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firebase-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firebase-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="adaptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firebase-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firebase-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firebase-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firebase-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firebase-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ae09bc6-cc36-45b1-a38e-733fb1c44799" name="Default" comment="" />
+      <created>1528534362754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1528534362754</updated>
+      <workItem from="1528534364445" duration="540000" />
+      <workItem from="1529239066584" duration="25000" />
+      <workItem from="1529617752553" duration="1106000" />
+      <workItem from="1529619107109" duration="2445000" />
+      <workItem from="1531083685747" duration="304000" />
+      <workItem from="1531084048953" duration="1904000" />
+      <workItem from="1532620206636" duration="4000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="6328000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.3298611" />
+      <window_info id="Learn" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32876712" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildAddedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildChangedEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="95" column="54" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/test/TestFirebase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/SymphonyMqttCB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/DeviceValueEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="68" column="36" lean-forward="true" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildAddedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildChangedEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="95" column="54" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/test/TestFirebase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/SymphonyMqttCB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/DeviceValueEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="22" column="101" selection-start-line="22" selection-start-column="101" selection-end-line="22" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildAddedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildChangedEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/DeviceValueEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="95" column="54" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/test/TestFirebase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/SymphonyMqttCB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="43" column="42" lean-forward="true" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildAddedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildChangedEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/DeviceValueEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/Firebase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2895">
+          <caret line="221" column="39" lean-forward="true" selection-start-line="221" selection-start-column="39" selection-end-line="221" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/Firebase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="220" selection-start-line="220" selection-end-line="220" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/test/TestFirebase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/SymphonyMqttCB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/vo/FirebaseDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="95" column="54" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildAddedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/ChildChangedEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/symphony/firebase/adaptor/DeviceValueEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="68" column="36" lean-forward="true" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>firebase-admin</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>firebase-admin</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>firebase-lib</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

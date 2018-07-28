@@ -24,9 +24,9 @@ import bm.context.rooms.Room;
  * @author Carlo Miras
  *
  */
-public class Device extends SymphonyObject implements OHItemmable, HTMLTransformable {
+public class Device extends SymphonyObject {
 	private final Logger LOG;
-    private HashMap<String, Property> properties = new HashMap<String, Property>(1);
+    private HashMap<Integer, Property> properties = new HashMap<Integer, Property>(1);
     private Product product;
     private String MAC;
     private String name;
@@ -54,7 +54,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		while(props.hasNext()) {
             Property prop = props.next().clone();
             prop.setDevice(this);
-            properties.put(prop.getSSID(), prop);
+            properties.put(prop.getIndex(), prop);
 //            System.out.println("Device" + getSSID() + ": " + prop.getSSID() + "-" + prop.getDevice().getSSID());
 		}
 	}
@@ -79,7 +79,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
         while(props.hasNext()) {
             Property prop = props.next();
             prop.create(callerLogDomain, waitUntilCreated);
-            LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " created!");
+            LOG.debug("Property " + prop.getSSID() + " of device " + SSID + " created!");
         }
         LOG.debug("Device " + SSID + " created!");
     }
@@ -99,7 +99,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		while(props.hasNext()) {
 			Property prop = props.next();
 			adaptor.propertyDeleted(prop, waitUntilDeleted);
-			LOG.debug("Property " + prop.getOH_ID() + " of device " + SSID + " deleted!");
+			LOG.debug("Property " + prop.getSSID() + " of device " + SSID + " deleted!");
 		}
 		parentRoom.removeSmarthomeObject(this);
 		LOG.debug("Device " + SSID + " deleted!");
@@ -245,7 +245,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //		Iterator<Property> props = properties.values().iterator();
 //		while(props.hasNext()) {
 //			Property prop = props.next();
-//			LOG.trace(prop.getOH_ID() + " = " + prop.getValue());
+//			LOG.trace(prop.getSSID() + " = " + prop.getValue());
 //			ResPOOP poop = new ResPOOP("POOP", SSID, poopRTY, protocol, prop.getSSID(), prop.getValue());
 ////			sender.send(poop);
 //		}
@@ -260,7 +260,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	 */
 //	@Override
 //	public JSONObject[] convertToItemsJSON() {
-//		if(getProperties().length > 1) { //creates a group item if component has >1 properties
+//		if(getPropvals().length > 1) { //creates a group item if component has >1 properties
 //			JSONObject json = new JSONObject();
 //			json.put("type", "Group");
 //			json.put("name", getSSID());
@@ -277,10 +277,10 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 //	@Override
 //	public String convertToSitemapString() {
 //		String itemType;
-//		if(getProperties().length > 1) {
+//		if(getPropvals().length > 1) {
 //			itemType = "Group";
 //		} else {
-//			Property p = getProperties()[0];
+//			Property p = getPropvals()[0];
 //			itemType = p.getOHItemType();
 //		}
 //		return itemType + " item=" + SSID + " [label=\"" + name + "\"] [icon=\"" + product.getOHIcon() + "\"]";
@@ -355,13 +355,28 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 	}
 	
 	/**
-	 * Returns the property object with the SSID specified
+	 * Returns the property object with the specified property index.
 	 * 
-	 * @param ssid The SSID of the property
+	 * @param index The index of the property
+	 * @return The property, <b><i>null</i></b> if the property does not exist
+	 */
+	public Property getProperty(int index) {
+		return properties.get(index);
+	}
+
+	/**
+	 * Returns the property object with the specified property SSID.
+	 *
+	 * @param ssid The index of the property
 	 * @return The property, <b><i>null</i></b> if the property does not exist
 	 */
 	public Property getProperty(String ssid) {
-		return properties.get(ssid);
+		for(Property prop : properties.values()) {
+			if(prop.getSSID().equals(ssid)) {
+				return prop;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -463,7 +478,7 @@ public class Device extends SymphonyObject implements OHItemmable, HTMLTransform
 		return properties.values().toArray(new Property[properties.size()]);
 	}
 
-	public void setProperties(HashMap<String, Property> properties) {
+	public void setProperties(HashMap<Integer, Property> properties) {
     	for(Property p : properties.values()) {
     		p.setDevice(this);
 		}

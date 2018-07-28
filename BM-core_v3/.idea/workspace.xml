@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7bdadd4a-a8b2-4822-9eda-abbd8ead1a0f" name="Default" comment="Added productless registration">
+      <change beforePath="$PROJECT_DIR$/BM-core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BM-core.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cir/rules.cir" beforeDir="false" afterPath="$PROJECT_DIR$/cir/rules.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/bm.properties" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/bm.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/spring/engines-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/spring/engines-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/bm_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/bm_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/engines/cir.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/engines/cir.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/engines/db.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/engines/db.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/engines/openhab.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/engines/openhab.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/modules/registration.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/modules/registration.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/mqtt/mqtt.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/mqtt/mqtt.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Argument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/ExecutionBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/ExecutionBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/SymphonyObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/SymphonyObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/products/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/products/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/products/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/products/ProductFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/properties/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/properties/Property.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/rooms/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/rooms/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/InboundRegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/InboundRegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/ReqPOOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/ReqPOOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/modules/DetachmentModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/modules/DetachmentModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/modules/RegistrationModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/modules/RegistrationModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/tools/IDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/tools/IDGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oh/context/adaptors/OHAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oh/context/adaptors/OHAdaptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oh/main/initializables/OH_Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oh/main/initializables/OH_Initializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_DetachmentExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_DetachmentExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_DeviceChangeStateExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_DeviceChangeStateExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_POOPExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_POOPExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_RegistrationExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_RegistrationExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/context/devices/UIDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/context/devices/UIDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/context/devices/products/UIProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/context/devices/products/UIProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/context/properties/UIProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/context/properties/UIProperty.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MacBook Main DB" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MacBook Main DB" type="feb32156:DbDataSourceImpl" />
+        <item name="APP: schema" type="6aa84934:DerbyImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MacBook Products DB" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="RPI Main DB" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="RPI Main DB" type="feb32156:DbDataSourceImpl" />
+        <item name="APP: schema" type="6aa84934:DerbyImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="RegistrationModule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/modules/RegistrationModule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="290" column="70" selection-start-line="290" selection-start-column="70" selection-end-line="290" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OHAdaptor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/oh/context/adaptors/OHAdaptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="266" column="36" selection-start-line="266" selection-start-column="36" selection-end-line="266" selection-end-column="36" />
+              <folding>
+                <element signature="e#944#969#0" expanded="true" />
+                <element signature="e#3023#3039#0" expanded="true" />
+                <element signature="e#3093#3109#0" expanded="true" />
+                <element signature="e#8547#8563#0" expanded="true" />
+                <element signature="e#8621#8637#0" expanded="true" />
+                <element signature="e#12362#12378#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bm.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/bm.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="109" selection-start-line="109" selection-end-line="120" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/spring/product-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/spring/main-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-249" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PROPERTIES" pinned="false" current-in-tab="false">
+        <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/PROPERTIES">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="engines-config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/configuration/spring/engines-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modules-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/spring/modules-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DEVICES" pinned="false" current-in-tab="false">
+        <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/DEVICES">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ad</find>
+      <find>createRoom</find>
+      <find>system</find>
+      <find>openRoomCreator</find>
+      <find>initi</find>
+      <find>device credentials</find>
+      <find>System</find>
+      <find>addprop</find>
+      <find>sys</find>
+      <find>add</find>
+      <find>getSymphonyObject().</find>
+      <find>reload</find>
+      <find>roomjsobj</find>
+      <find>update</find>
+      <find>send</find>
+      <find>loggerName</find>
+      <find>id.rid</find>
+      <find>topic</find>
+      <find>getLogger</find>
+      <find>fatal</find>
+      <find>updating de</find>
+      <find>iconimg</find>
+      <find>getIcon</find>
+      <find>getCommonName</find>
+      <find>invalid pid</find>
+      <find>getOH_ID</find>
+      <find>device</find>
+      <find>devices ret</find>
+      <find>prop_in</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>LOG</replace>
+      <replace>getSSID</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/comms/ResponseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/AbstModuleExtension.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/SymphonyElement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/jeep/exceptions/PrimaryMessageCheckingException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/comms/InboundTrafficManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/jeep/exceptions/SecondaryMessageCheckingException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/exceptions/RequestProcessingException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/exceptions/ResponseProcessingException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/DeactivationModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/Module.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ui/webapp/DevicesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/adaptors/AbstAdaptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/cir/CIRAdaptor.java" />
+        <option value="$PROJECT_DIR$/configuration/spring/main-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/comms/mqtt/MQTTPublisher.java" />
+        <option value="$PROJECT_DIR$/cir/rules.cir" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/products/NoProduct.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/jeep/vo/JEEPMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/properties/PropertyMode.java" />
+        <option value="$PROJECT_DIR$/resources/templates/fragments/devices-overview-fragments.html" />
+        <option value="$PROJECT_DIR$/configuration/spring/modules-config.xml" />
+        <option value="$PROJECT_DIR$/configuration/log4j.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/tools/IDGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_POOPExtension.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/products/ProductFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/ReqPOOP.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/388d9b2e-6786-4fb4-b87f-221dfdcbd980/console_1.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/cir/objects/Argument.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/cir/objects/ExecutionBlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/properties/Property.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/ProductRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/products/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/InboundRegistrationRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/DetachmentModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/SymphonyObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/rooms/Room.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oh/context/adaptors/OHAdaptor.java" />
+        <option value="$PROJECT_DIR$/configuration/bm.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/configuration/spring/product-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/RegistrationModule.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="BM-core" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bm" type="462c0819:PsiDirectoryNode" />
+              <item name="context" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bm" type="462c0819:PsiDirectoryNode" />
+              <item name="context" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bm" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bm" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bm" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bm" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="oh" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="oh" type="462c0819:PsiDirectoryNode" />
+              <item name="adaptors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Derby (Remote)&#10;Derby (Embedded)" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="database.data.extractors.current.id" value="SQL Inserts" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Maven.Maestro Compile">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="BM-core (2)" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+    </configuration>
+    <configuration name="Maestro Compile" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method>
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Maestro" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="BM-core" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bm.main.Maestro" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.Maestro Compile" />
+      <item itemvalue="Spring Boot.Maestro" />
+    </list>
+  </component>
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.3" />
+  </component>
+  <component name="SpringConfigurationTabSettings">
+    <option name="sortAlpha" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7bdadd4a-a8b2-4822-9eda-abbd8ead1a0f" name="Default" comment="" />
+      <created>1528011650448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1528011650448</updated>
+      <workItem from="1528011652396" duration="5250000" />
+      <workItem from="1528026802991" duration="6154000" />
+      <workItem from="1528079585174" duration="136000" />
+      <workItem from="1528118451616" duration="5788000" />
+      <workItem from="1528169514938" duration="3252000" />
+      <workItem from="1528189594683" duration="6775000" />
+      <workItem from="1528201877167" duration="477000" />
+      <workItem from="1528207535620" duration="564000" />
+      <workItem from="1528242025903" duration="808000" />
+      <workItem from="1528346093261" duration="191000" />
+      <workItem from="1528346741517" duration="496000" />
+      <workItem from="1528349438850" duration="10355000" />
+      <workItem from="1528369081373" duration="9026000" />
+      <workItem from="1528383173356" duration="208000" />
+      <workItem from="1528383550469" duration="2437000" />
+      <workItem from="1528443567986" duration="216000" />
+      <workItem from="1528450402774" duration="8638000" />
+      <workItem from="1528470728846" duration="3214000" />
+      <workItem from="1528474873974" duration="1173000" />
+      <workItem from="1528507511329" duration="8763000" />
+      <workItem from="1528532019443" duration="27000" />
+      <workItem from="1528533756201" duration="245000" />
+      <workItem from="1528542157632" duration="5784000" />
+      <workItem from="1528552903614" duration="499000" />
+      <workItem from="1528679710611" duration="1027000" />
+      <workItem from="1528701967647" duration="2418000" />
+      <workItem from="1528719965662" duration="8888000" />
+      <workItem from="1528759545382" duration="8065000" />
+      <workItem from="1528804130517" duration="2669000" />
+      <workItem from="1528874019276" duration="2117000" />
+      <workItem from="1528890105556" duration="3374000" />
+      <workItem from="1528985130663" duration="8258000" />
+      <workItem from="1529031577785" duration="3131000" />
+      <workItem from="1529109245895" duration="2668000" />
+      <workItem from="1529233730505" duration="5554000" />
+      <workItem from="1529406439013" duration="484000" />
+      <workItem from="1529409855194" duration="1296000" />
+      <workItem from="1529412153101" duration="6362000" />
+      <workItem from="1529619065453" duration="606000" />
+      <workItem from="1531083550871" duration="439000" />
+      <workItem from="1531084051344" duration="4401000" />
+      <workItem from="1531238330173" duration="246000" />
+      <workItem from="1531489962846" duration="1832000" />
+      <workItem from="1531725287586" duration="2059000" />
+      <workItem from="1531727858649" duration="4000" />
+      <workItem from="1531727900742" duration="1868000" />
+      <workItem from="1531819563790" duration="7391000" />
+      <workItem from="1531898001089" duration="544000" />
+      <workItem from="1531898645272" duration="1145000" />
+      <workItem from="1531921176181" duration="1169000" />
+      <workItem from="1531923831357" duration="432000" />
+      <workItem from="1532100282601" duration="4452000" />
+      <workItem from="1532181763490" duration="5358000" />
+      <workItem from="1532262480933" duration="32000" />
+      <workItem from="1532262767023" duration="151000" />
+      <workItem from="1532329383131" duration="3784000" />
+      <workItem from="1532438532851" duration="1142000" />
+      <workItem from="1532440043302" duration="2779000" />
+      <workItem from="1532486739211" duration="5575000" />
+      <workItem from="1532589510247" duration="1327000" />
+      <workItem from="1532613810501" duration="3679000" />
+    </task>
+    <task id="LOCAL-00001" summary="Introduced AdaptorManager and streamlined context objects.">
+      <created>1528467532761</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528467532762</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fixed architecture for CIR. Introduced CIRManager and CIRAdaptor.">
+      <created>1528475345756</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528475345757</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Protocol object.">
+      <created>1528533900756</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528533900756</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed AdaptorManager function &quot;getAdaptorsLinkedToProduct()&quot;.">
+      <created>1528542491472</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528542491472</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed adaptor injection during registration.">
+      <created>1528549057012</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528549057012</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added JEEPManager and CIRManager.">
+      <created>1529238184012</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1529238184013</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Request and response processing as well as JEEP message checking now throws exceptions instead of only returning true or false.">
+      <created>1531491769866</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1531491769866</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Core functions functional.">
+      <created>1531841385097</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1531841385097</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added productless registration">
+      <created>1532262867525</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1532262867526</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="187202000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.25625" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" anchor="right" id="Database" order="5" visible="true" weight="0.20347223" />
+      <window_info id="Structure" order="1" sideWeight="0.4139151" side_tool="true" visible="true" weight="0.22013889" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32900944" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.3278302" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32900944" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.4634434" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.3278302" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.32900944" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32900944" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32900944" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5860849" visible="true" weight="0.22013889" />
+      <window_info anchor="right" id="Bean Validation" order="8" weight="0.3298611" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info id="Learn" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32900944" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="16" weight="0.32900944" />
+      <window_info anchor="bottom" id="SQL Generator" order="16" weight="0.32900944" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3962264" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Extracted UI-related functions of SymphonyElements to UISymphonyObjects" />
+    <MESSAGE value="Introduced AdaptorManager and streamlined context objects." />
+    <MESSAGE value="Fixed architecture for CIR. Introduced CIRManager and CIRAdaptor." />
+    <MESSAGE value="Added Protocol object." />
+    <MESSAGE value="Fixed AdaptorManager function &quot;getAdaptorsLinkedToProduct()&quot;." />
+    <MESSAGE value="Fixed adaptor injection during registration." />
+    <MESSAGE value="Added JEEPManager and CIRManager." />
+    <MESSAGE value="Request and response processing as well as JEEP message checking now throws exceptions instead of only returning true or false." />
+    <MESSAGE value="Core functions functional." />
+    <MESSAGE value="Added productless registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added productless registration" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/properties/PropertyMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="94" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/jeep/vo/JEEPRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ui/webapp/DevicesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="466" column="94" selection-start-line="466" selection-start-column="94" selection-end-line="466" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/devices-overview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="68" lean-forward="true" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/fragments/devices-overview-fragments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="52" column="124" lean-forward="true" selection-start-line="52" selection-start-column="124" selection-end-line="52" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/PROPCAT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/ROOMS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/adaptors/AdaptorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1289">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/PVALCAT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/tools/StringTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/tools/IDGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="198" column="18" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oh/modules/extensions/OH_POOPExtension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="811">
+          <caret line="340" column="70" selection-start-line="340" selection-start-column="70" selection-end-line="340" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/ReqPOOP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/objects/Argument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="54" column="16" lean-forward="true" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/objects/ExecutionBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="92" lean-forward="true" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/388d9b2e-6786-4fb4-b87f-221dfdcbd980/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="115" selection-end-column="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2595">
+          <caret line="190" column="81" selection-start-line="190" selection-start-column="81" selection-end-line="190" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/engines/DBEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="85" column="49" selection-start-line="85" selection-start-column="49" selection-end-line="85" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/modules/Module.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1515">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/ProductRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="161" column="21" selection-start-line="161" selection-start-column="21" selection-end-line="161" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/products/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2595">
+          <caret line="190" column="16" selection-start-line="190" selection-start-column="16" selection-end-line="190" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/PRODUCTS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/InboundRegistrationRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/DEVICES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/modules/DetachmentModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/products/ProductFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="61" column="47" lean-forward="true" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/COMPROPLIST">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="88" column="96" selection-start-line="88" selection-start-column="96" selection-end-line="88" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2385">
+          <caret line="170" column="40" selection-start-line="170" selection-start-column="40" selection-end-line="170" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/rooms/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/SymphonyObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="102" selection-start-line="12" selection-start-column="102" selection-end-line="12" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/properties/Property.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="e#1978#1979#0" expanded="true" />
+            <element signature="e#2030#2031#0" expanded="true" />
+            <element signature="e#5951#5952#0" expanded="true" />
+            <element signature="e#5969#5970#0" expanded="true" />
+            <element signature="e#6476#6477#0" expanded="true" />
+            <element signature="e#6495#6496#0" expanded="true" />
+            <element signature="e#6633#6634#0" expanded="true" />
+            <element signature="e#6666#6667#0" expanded="true" />
+            <element signature="e#9749#9750#0" expanded="true" />
+            <element signature="e#9774#9775#0" expanded="true" />
+            <element signature="e#9990#9991#0" expanded="true" />
+            <element signature="e#10008#10009#0" expanded="true" />
+            <element signature="e#11042#11043#0" expanded="true" />
+            <element signature="e#11064#11065#0" expanded="true" />
+            <element signature="e#11220#11221#0" expanded="true" />
+            <element signature="e#11246#11247#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/SymphonyElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3600">
+          <caret line="259" column="29" selection-start-line="259" selection-start-column="29" selection-end-line="259" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/PROPERTIES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/DEVICES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oh/context/adaptors/OHAdaptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="266" column="36" selection-start-line="266" selection-start-column="36" selection-end-line="266" selection-end-column="36" />
+          <folding>
+            <element signature="e#944#969#0" expanded="true" />
+            <element signature="e#3023#3039#0" expanded="true" />
+            <element signature="e#3093#3109#0" expanded="true" />
+            <element signature="e#8547#8563#0" expanded="true" />
+            <element signature="e#8621#8637#0" expanded="true" />
+            <element signature="e#12362#12378#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/spring/modules-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/bm.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="109" selection-start-line="109" selection-end-line="120" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="92" column="10" selection-start-line="92" selection-start-column="14" selection-end-line="95" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/spring/product-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/modules/RegistrationModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="290" column="70" selection-start-line="290" selection-start-column="70" selection-end-line="290" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/PVALCAT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/spring/main-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-249" />
+      </provider>
+    </entry>
+    <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/PROPERTIES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/spring/engines-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>BM-core</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

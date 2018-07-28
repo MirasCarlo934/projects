@@ -37,8 +37,6 @@ public class RegistrationModule extends Module {
 	private String plistNameParam;
 	private String plistModeParam;
 	private String plistIndexParam;
-//	private String regIdParam;
-//	private String regTopicParam;
 
 	private ProductRepository pr;
 	private RoomRepository rr;
@@ -109,28 +107,29 @@ public class RegistrationModule extends Module {
 		if(reg.isProductless()) {
 			LOG.debug("Device is productless! Retrieving properties and device icon from registration request...");
 			LOG.fatal(reg.getProplist());
-			HashMap<String, Property> props = new HashMap<String, Property>(reg.getProplist().length());
+			HashMap<Integer, Property> props = new HashMap<Integer, Property>(reg.getProplist().length());
 			for(int i = 0; i < reg.getProplist().length(); i++) {
 				JSONObject json = (JSONObject) reg.getProplist().get(i);
 				Property prop = new Property(pr.getPropertyType(json.getString(plistIDParam)),
-						String.valueOf(json.getInt(plistIndexParam)), json.getString(plistNameParam),
+						json.getInt(plistIndexParam), json.getString(plistNameParam),
 						PropertyMode.parseFromString(json.getString(plistModeParam)), jm);
 				prop.setAdaptors(am.getUniversalAdaptors());
-				props.put(prop.getSSID(), prop);
+				props.put(prop.getIndex(), prop);
 			}
 			d.setProperties(props);
 			LOG.debug("Properties retrieved!");
 			d.setIcon(reg.getIcon());
 			LOG.debug("Icon retrieved!");
 		}
-		if(reg.getProperties() != null) {
-			JSONObject props = reg.getProperties();
-			Iterator<String> propIDs = props.keys();
-			while(propIDs.hasNext()) {
-				String propID = propIDs.next();
-				Property prop = d.getProperty(propID);
-				LOG.debug("Setting property " + propID + " (" + prop.getDisplayName() + ")");
-				prop.setValue(props.get(propID));
+		if(reg.getPropvals() != null) {
+			JSONObject props = reg.getPropvals();
+			Iterator<String> propIndices = props.keys();
+			while(propIndices.hasNext()) {
+				int propIndex = Integer.parseInt(propIndices.next());
+				LOG.fatal(propIndex);
+				Property prop = d.getProperty(propIndex);
+				LOG.debug("Setting property " + propIndex + " (" + prop.getDisplayName() + ")");
+				prop.setValue(props.get(String.valueOf(propIndex)));
 			}
 		}
 		try {
@@ -193,7 +192,6 @@ public class RegistrationModule extends Module {
 	private void updateDevice(InboundRegistrationRequest request) {
 		Device c = dr.getDevice(request.getMAC());
 		LOG.info("Updating device " + c.getSSID() + " credentials...");
-		LOG.fatal(c.getProperties()[0].getOH_ID());
 		try {
 			c.setName(request.getName());
 			c.setRoom(rr.getRoom(request.getRoomID()));
@@ -255,9 +253,6 @@ public class RegistrationModule extends Module {
 		LOG.trace("Checking productID validity...");
 		if(!pr.containsProduct(reg.getCID())) {
 			throw new SecondaryMessageCheckingException("Request contains invalid product ID! (" + reg.getCID() + ")");
-//			ResError error = new ResError(reg, "Request contains invalid product ID! (" + reg.getCID() + ")");
-//			error(error);
-//			return false;
 		} else if(reg.isProductless()) {
 			List<String> params = Arrays.asList((reg.getParameters()));
 			if(params.contains(proplistParam) && params.contains(iconParam)) {
@@ -271,24 +266,33 @@ public class RegistrationModule extends Module {
 						try {
 							json.get(param);
 						} catch (JSONException e) {
-							throw new SecondaryMessageCheckingException("\"proplist\" parameter lacks parameters.");
+							throw new SecondaryMessageCheckingException("'proplist' parameter lacks parameters.");
 						}
 					}
 					if(!pr.containsPropertyType(json.getString(plistIDParam))) {
-						throw new SecondaryMessageCheckingException("\"proplist\" parameter contains an invalid " +
+						throw new SecondaryMessageCheckingException("'proplist' parameter contains an invalid " +
 								"property type (" + json.getString(plistIDParam) + ")");
 					}
 					if(PropertyMode.parseFromString(json.getString(plistModeParam)) == PropertyMode.Null) {
-						throw new SecondaryMessageCheckingException("\"proplist\" parameter contains an invalid " +
+						throw new SecondaryMessageCheckingException("'proplist' parameter contains an invalid " +
 								"property mode (" +json.getString(plistModeParam) + ")");
 					}
 					if(indexes.contains(json.getInt(plistIndexParam))) {
-						throw new SecondaryMessageCheckingException("\"proplist\" parameter contains a duplicate " +
+						throw new SecondaryMessageCheckingException("'proplist' parameter contains a duplicate " +
 								"index (" + json.getInt(plistIndexParam) + ")");
 					} else {
 						indexes.add(json.getInt(plistIndexParam));
 					}
 				}
+				indexes.sort(Comparator.naturalOrder());
+				int i = 0;
+				for(int a : indexes) {
+                    if(a != 0) {
+                        throw new SecondaryMessageCheckingException("'proplist' parameter skipped an index " +
+                                "(" + i + ")");
+                    }
+                    i++;
+                }
 			} else {
 				throw new SecondaryMessageCheckingException("Request lacks parameters for productless " +
 						"registration!");
@@ -304,25 +308,22 @@ public class RegistrationModule extends Module {
 		
 		LOG.trace("Checking set property block validity...");
 		Product prod = pr.getProduct(reg.getCID());
-		if(reg.getProperties() != null) { //it's okay if the request does not have a set properties block
-			JSONObject props = reg.getProperties();
-			Iterator<String> propIDs = props.keys();
-			while(propIDs.hasNext()) {
-				String propID = propIDs.next();
-				if(prod.containsProperty(propID)) {
-					if(!prod.getProperty(propID).checkValueValidity(props.get(propID))) {
-						throw new SecondaryMessageCheckingException("Invalid property value for PID ("
-								+ propID + ")");
+		if(reg.getPropvals() != null) { //it's okay if the request does not have a set properties block
+			JSONObject props = reg.getPropvals();
+			Iterator<String> propIndices = props.keys();
+			while(propIndices.hasNext()) {
+				int propIndex = Integer.parseInt(propIndices.next());
+				if(prod.containsProperty(propIndex)) {
+					if(!prod.getProperty(propIndex).checkValueValidity(props.get(String.valueOf(propIndex)))) {
+						throw new SecondaryMessageCheckingException("Invalid property value for property index ("
+								+ propIndex + ")");
 //						ResError error = new ResError(request, "Invalid property value for PID " +
 //								propID);
 //						error(error);
 //						return false;
 					}
 				} else {
-					throw new SecondaryMessageCheckingException("Invalid PID (" + propID + ")");
-//					ResError error = new ResError(request, "Invalid PID " + propID);
-//					error(error);
-//					return false;
+					throw new SecondaryMessageCheckingException("Invalid propery index \"" + propIndex + "\"!");
 				}
 			}
 		}

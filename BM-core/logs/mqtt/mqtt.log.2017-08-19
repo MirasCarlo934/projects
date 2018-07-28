@@ -1,0 +1,27 @@
+2017-08-19 22:43:45,547 INFO  [main] (MQTT.MQTTClient) Connected to MQTT!
+2017-08-19 22:43:45,550 DEBUG [main] (MQTT.MQTTClient) Subscribed to BM topic!
+2017-08-19 22:43:45,550 DEBUG [main] (MQTT.MQTTClient) Listener set!
+2017-08-19 22:43:45,550 DEBUG [main] (MQTT.MQTTClient) Publisher set!
+2017-08-19 22:49:37,096 DEBUG [MQTT Call: VM_12345678] (MQTT.MQTTListener) Message arrived at topic BM
+2017-08-19 22:49:37,100 DEBUG [MQTT Call: VM_12345678] (MQTT.MQTTListener) Message is: 
+{RID:'OH-POOP', CID:'SMVX',RTY:'poop',property:'0006',value:1}
+2017-08-19 22:49:37,167 DEBUG [MQTTHandler] (MQTT.MQTTPublisher) Publishing message:{"RTY":"poop","success":true,"property":"0006","RID":"OH-POOP","value":1} to SMVX_topic
+2017-08-19 22:49:43,431 DEBUG [MQTT Call: VM_12345678] (MQTT.MQTTListener) Message arrived at topic BM
+2017-08-19 22:49:43,431 DEBUG [MQTT Call: VM_12345678] (MQTT.MQTTListener) Message is: 
+{RID:'OH-POOP', CID:'SMVX',RTY:'poop',property:'0006',value:0}
+2017-08-19 22:49:43,548 DEBUG [MQTTHandler] (MQTT.MQTTPublisher) Publishing message:{"RTY":"poop","success":true,"property":"0006","RID":"OH-POOP","value":0} to SMVX_topic
+2017-08-19 22:49:51,370 DEBUG [MQTT Call: VM_12345678] (MQTT.MQTTListener) Message arrived at topic BM
+2017-08-19 22:49:51,370 DEBUG [MQTT Call: VM_12345678] (MQTT.MQTTListener) Message is: 
+{RID:'OH-POOP', CID:'SMVX',RTY:'poop',property:'0006',value:1}
+2017-08-19 22:49:51,490 DEBUG [MQTTHandler] (MQTT.MQTTPublisher) Publishing message:{"RTY":"poop","success":true,"property":"0006","RID":"OH-POOP","value":1} to SMVX_topic
+2017-08-19 23:49:23,311 FATAL [Timer-0] (MQTT.MQTTListener) Connection lost with MQTT server!
+Timed out while waiting to write messages to the server (32002)
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31)
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.checkForActivity(ClientState.java:690)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:758)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms.checkForActivity(ClientComms.java:744)
+	at org.eclipse.paho.client.mqttv3.TimerPingSender$PingTask.run(TimerPingSender.java:78)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+2017-08-19 23:57:24,294 INFO  [SystemTimer] (MQTT.MQTTClient) Reconnecting...
+2017-08-19 23:57:24,297 INFO  [SystemTimer] (MQTT.MQTTClient) Connected to MQTT!

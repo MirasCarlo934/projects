@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config/>
+	<bean id="register" class="bm.main.modules.RegistrationModule" scope="prototype">
+		<constructor-arg name="components" ref="Components"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="logDomain" value="${log.domain.registration}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="nameParam" value="${registration.param.name}"/>
+		<constructor-arg name="propsParam" value="${registration.param.props}"/>
+		<constructor-arg name="poopRTY" value="${rty.poop}"/>
+		<constructor-arg name="pr" ref="Products"/>
+		<constructor-arg name="roomIDParam" value="${registration.param.roomID}"/>
+		<constructor-arg name="rr" ref="Rooms"/>
+		<constructor-arg name="RTY" value="${rty.registration}"/>
+	</bean>
+	<bean id="poop" class="bm.main.modules.POOPModule" scope="prototype">
+		<constructor-arg name="logDomain" value="${log.domain.poop}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="RTY" value="${rty.poop}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="cirr" ref="CIRs"/>
+		<constructor-arg name="dbe" ref="DBManager"/>
+		<constructor-arg name="propIDParam" value="${poop.param.propertyID}"/>
+		<constructor-arg name="propValParam" value="${poop.param.propertyValue}"/>
+		<constructor-arg name="oh_topic" value="{oh.mqtt_topic}"/>
+		<property name="propsTable" value="${table.propstable}"/>
+	</bean>
+	<!-- <bean id="plex" class="bm.main.modules.PlexModule" scope="prototype">
+		<constructor-arg name="logDomain" value="${log.domain.plex}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="RTY" value="${rty.plex}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="dbe" ref="DBManager"/>
+		<constructor-arg name="pe" ref="PlexEngine"/>
+		<constructor-arg name="commandParam" value="${plex.param.command}"/>
+		<constructor-arg name="playerProdSSID" value="${plex.playerProdSSID}"/>
+	</bean> -->
+	<bean id="detach" class="bm.main.modules.DetachmentModule" scope="prototype">
+		<constructor-arg name="logDomain" value="${log.domain.detachment}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="RTY" value="${rty.detachment}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="dr" ref="Components"/>
+	</bean>
+	<bean id="bye" class="bm.main.modules.DeactivationModule">
+		<constructor-arg name="logDomain" value="${log.domain.deactivation}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="RTY" value="${rty.deactivation}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="dr" ref="Components"/>
+	</bean>
+	
+	<bean id="createRoom" class="bm.main.modules.CreateRoomModule" scope="prototype">
+		<constructor-arg name="logDomain" value="${log.domain.room_creation}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="RTY" value="${rty.detachment}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="rr" ref="Rooms"/>
+		<constructor-arg name="dba" ref="DBAdaptor"/>
+		<constructor-arg name="oha" ref="OHAdaptor"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+	</bean>
+	<bean id="deleteRoom" class="bm.main.modules.DeleteRoomModule" scope="prototype">
+		<constructor-arg name="logDomain" value="${log.domain.room_deletion}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="RTY" value="${rty.deleteRoom}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="roomIDParam" value="${deleteRoom.param.roomID}"/>
+	</bean>
+	<bean id="getRooms" class="bm.main.modules.GetRoomsModule" scope="prototype">
+		<constructor-arg name="logDomain" value="${log.domain.room_deletion}"/>
+		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
+		<constructor-arg name="RTY" value="${rty.getRooms}"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+		<constructor-arg name="dr" ref="Components"/>
+		<constructor-arg name="rr" ref="Rooms"/>
+	</bean>
+</beans>

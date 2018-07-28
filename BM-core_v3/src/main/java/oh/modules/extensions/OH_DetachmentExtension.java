@@ -36,11 +36,11 @@
 //		Device d = dr.getDevice(request.getCID());
 //
 //		LOG.debug("Deleting device " + d.getSSID() + " from OpenHAB item registry...");
-//		if(d.getProperties().length > 1) { //deletes device AND properties
+//		if(d.getPropvals().length > 1) { //deletes device AND properties
 //			try {
 //				OH_Initializer.deleteItem(LOG, hs, ohIP, d.getSSID(), true);
-//				for(int i = 0; i < d.getProperties().length; i++) {
-//					Property p = d.getProperties()[i];
+//				for(int i = 0; i < d.getPropvals().length; i++) {
+//					Property p = d.getPropvals()[i];
 //					LOG.trace("Deleting property " + p.getOH_ID() + " from OpenHAB item registry...");
 //					try {
 //						OH_Initializer.deleteItem(LOG, hs, ohIP, p.getOH_ID(), true);
@@ -54,7 +54,7 @@
 //						+ "registry", e);
 //			}
 //		} else { //deletes sole property of device in OH
-//			Property p = d.getProperties()[0];
+//			Property p = d.getPropvals()[0];
 //			try {
 //				OH_Initializer.deleteItem(LOG, hs, ohIP, p.getOH_ID(), true);
 //			} catch (HTTPException e) {

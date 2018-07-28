@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import bm.jeep.vo.JEEPRequest;
 
 public class ReqPOOP extends JEEPRequest {
-	public String propSSID;
+	public int propIndex;
 	public Object propValue;
 
 	public ReqPOOP(JSONObject json, Protocol protocol, String propIDParam, String propValParam) {
@@ -28,7 +28,7 @@ public class ReqPOOP extends JEEPRequest {
 	}
 	
 	private void assignVariablesFromJSON(JSONObject json, String propIDParam, String propValParam) {
-		propSSID = json.getString(propIDParam);
+		propIndex = json.getInt(propIDParam);
 		propValue = json.get(propValParam);
 	}
 }

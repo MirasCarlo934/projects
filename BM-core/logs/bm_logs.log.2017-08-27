@@ -1,0 +1,142 @@
+2017-08-27 23:44:10,661 INFO  [main] (MAIN.BusinessMachine) Starting VirtualMaestro... (build 1
+2017-08-27 23:44:11,180 INFO  [main] (bm.main.BusinessMachine) Starting BusinessMachine on Carlos-MacBook-Pro.local with PID 9628 (/Users/carlomiras/git/BM-core/target/classes started by carlomiras in /Users/carlomiras/git/BM-core)
+2017-08-27 23:44:11,180 DEBUG [main] (bm.main.BusinessMachine) Running with Spring Boot v1.5.2.RELEASE, Spring v4.3.7.RELEASE
+2017-08-27 23:44:11,181 INFO  [main] (bm.main.BusinessMachine) No active profile set, falling back to default profiles: default
+2017-08-27 23:44:11,657 DEBUG [background-preinit] (org.jboss.logging) Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2017-08-27 23:44:13,738 WARN  [main] (MAIN.VMCipher) Key cannot be assembled! Creating backup key...
+2017-08-27 23:44:13,892 INFO  [main] (MAIN.UserPropertyManager) UserPropertyManager started!
+2017-08-27 23:44:13,898 INFO  [main] (UI.BaseController) BaseController started!
+2017-08-27 23:44:13,909 INFO  [main] (UI.DevicesController) DevicesController started!
+2017-08-27 23:44:13,918 INFO  [main] (DB.MainDBEngine) DBEngine started on url: jdbc:derby://localhost:1527/DB
+2017-08-27 23:44:14,031 INFO  [main] (DB.MainDBEngine) Connected to Derby DB!
+2017-08-27 23:44:14,131 INFO  [main] (CIR.CIRRepository) CIREngine started!
+2017-08-27 23:44:14,133 INFO  [main] (UI.ErrorController) ErrorController started!
+2017-08-27 23:44:14,138 INFO  [main] (UI.SettingsController) SettingsController started!
+2017-08-27 23:44:14,164 INFO  [main] (MAIN.Controller) Controller constructed!
+2017-08-27 23:44:14,345 INFO  [main] (MQTT.MQTTClient) Connected to MQTT!
+2017-08-27 23:44:14,346 DEBUG [main] (MQTT.MQTTClient) Subscribed to BM topic!
+2017-08-27 23:44:14,346 DEBUG [main] (MQTT.MQTTClient) Listener set!
+2017-08-27 23:44:14,346 DEBUG [main] (MQTT.MQTTClient) Publisher set!
+2017-08-27 23:44:15,576 INFO  [main] (bm.main.BusinessMachine) Started BusinessMachine in 4.788 seconds (JVM running for 5.717)
+2017-08-27 23:44:15,577 DEBUG [main] (MAIN.BusinessMachine) Clearing OpenHAB sitemap...
+2017-08-27 23:44:15,637 DEBUG [main] (MAIN.BusinessMachine) Initializing repositories...
+2017-08-27 23:44:15,638 DEBUG [main] (MAIN.DeviceRepository) Retrieving rooms from DB...
+2017-08-27 23:44:15,772 DEBUG [main] (MAIN.DeviceRepository) Adding room DKF5 (Salas) to repository!
+2017-08-27 23:44:15,772 DEBUG [main] (MAIN.DeviceRepository) Adding room J444 (Kitchen) to repository!
+2017-08-27 23:44:15,772 DEBUG [main] (MAIN.DeviceRepository) Adding room CRL0 (Kuya's Bedroom) to repository!
+2017-08-27 23:44:15,772 DEBUG [main] (MAIN.DeviceRepository) Adding room XKWG (ABCD) to repository!
+2017-08-27 23:44:15,772 DEBUG [main] (MAIN.DeviceRepository) Adding room PLEX (Plex Media Players) to repository!
+2017-08-27 23:44:15,773 DEBUG [main] (MAIN.DeviceRepository) Adding room GD32 (Lanai) to repository!
+2017-08-27 23:44:15,774 DEBUG [main] (MAIN.DeviceRepository) Room retrieval complete!
+2017-08-27 23:44:15,774 DEBUG [main] (MAIN.DeviceRepository) Updating OpenHAB item registry!
+2017-08-27 23:44:15,775 DEBUG [main] (MAIN.Room:J444) Persisting room J444 (Kitchen)
+2017-08-27 23:44:15,776 WARN  [main] (DB.DBAdaptor) Room persistence not yet supported!
+2017-08-27 23:44:15,776 DEBUG [main] (MAIN.Room:XKWG) Persisting room XKWG (ABCD)
+2017-08-27 23:44:15,776 WARN  [main] (DB.DBAdaptor) Room persistence not yet supported!
+2017-08-27 23:44:15,777 DEBUG [main] (MAIN.Room:PLEX) Persisting room PLEX (Plex Media Players)
+2017-08-27 23:44:15,777 WARN  [main] (DB.DBAdaptor) Room persistence not yet supported!
+2017-08-27 23:44:15,777 DEBUG [main] (MAIN.Room:CRL0) Persisting room CRL0 (Kuya's Bedroom)
+2017-08-27 23:44:15,777 WARN  [main] (DB.DBAdaptor) Room persistence not yet supported!
+2017-08-27 23:44:15,779 DEBUG [main] (MAIN.Room:GD32) Persisting room GD32 (Lanai)
+2017-08-27 23:44:15,779 WARN  [main] (DB.DBAdaptor) Room persistence not yet supported!
+2017-08-27 23:44:15,779 DEBUG [main] (MAIN.Room:DKF5) Persisting room DKF5 (Salas)
+2017-08-27 23:44:15,779 WARN  [main] (DB.DBAdaptor) Room persistence not yet supported!
+2017-08-27 23:44:15,780 INFO  [main] (MAIN.ProductRepository) Retrieving property types from DB...
+2017-08-27 23:44:15,851 DEBUG [main] (MAIN.ProductRepository) Adding property type D (Digital) to repository!
+2017-08-27 23:44:15,853 DEBUG [main] (MAIN.ProductRepository) Adding property type A1 (Analog) to repository!
+2017-08-27 23:44:15,855 DEBUG [main] (MAIN.ProductRepository) Adding property type A2 (Percent) to repository!
+2017-08-27 23:44:15,857 DEBUG [main] (MAIN.ProductRepository) Adding property type A3 (AnalogHue) to repository!
+2017-08-27 23:44:15,858 DEBUG [main] (MAIN.ProductRepository) Adding property type STR (String) to repository!
+2017-08-27 23:44:15,859 DEBUG [main] (MAIN.ProductRepository) Adding property type INN (Innate) to repository!
+2017-08-27 23:44:15,861 INFO  [main] (MAIN.ProductRepository) Retrieving products from DB...
+2017-08-27 23:44:16,065 DEBUG [main] (MAIN.ProductRepository) Adding product 0002 (SoloLightRGB) to repository!
+2017-08-27 23:44:16,076 DEBUG [main] (MAIN.ProductRepository) Adding product 0008 (PIRSensor) to repository!
+2017-08-27 23:44:16,080 DEBUG [main] (MAIN.ProductRepository) Adding product 0000 (system) to repository!
+2017-08-27 23:44:16,085 DEBUG [main] (MAIN.ProductRepository) Adding product 0005 (PlexMediaPlayer) to repository!
+2017-08-27 23:44:16,091 DEBUG [main] (MAIN.ProductRepository) Adding product 0009 (SamsungRemote) to repository!
+2017-08-27 23:44:16,095 DEBUG [main] (MAIN.ProductRepository) Adding product 0006 (TFTSwitch) to repository!
+2017-08-27 23:44:16,100 DEBUG [main] (MAIN.ProductRepository) Adding product 0003 (Symphony Socket) to repository!
+2017-08-27 23:44:16,105 DEBUG [main] (MAIN.ProductRepository) Adding product 0001 (SoloLight) to repository!
+2017-08-27 23:44:16,111 DEBUG [main] (MAIN.ProductRepository) Adding product 0007 (Test1) to repository!
+2017-08-27 23:44:16,115 INFO  [main] (MAIN.DeviceRepository) Retrieving components from DB...
+2017-08-27 23:44:16,164 DEBUG [main] (MAIN.DeviceRepository) Adding device T0WE (TestLight1) to repository!
+2017-08-27 23:44:16,168 DEBUG [main] (MAIN.DeviceRepository) Setting property: 0001 of device: T0WE with value: 1
+2017-08-27 23:44:16,169 DEBUG [main] (MAIN.DeviceRepository) Setting property: 0001 of component: T0WE with value: 1
+2017-08-27 23:44:16,170 DEBUG [main] (MAIN.DeviceRepository) Setting property: 0001 of component: T0WE with value: 1
+2017-08-27 23:44:16,170 DEBUG [main] (MAIN.DeviceRepository) Setting property: 0001 of component: T0WE with value: 1
+2017-08-27 23:44:16,171 DEBUG [main] (MAIN.DeviceRepository) Setting property: 0001 of component: T0WE with value: 1
+2017-08-27 23:44:16,171 DEBUG [main] (MAIN.DeviceRepository) Setting property: 0001 of component: T0WE with value: 1
+2017-08-27 23:44:16,171 DEBUG [main] (MAIN.DeviceRepository) Setting property: 0001 of component: T0WE with value: 1
+2017-08-27 23:44:16,173 INFO  [main] (MAIN.DeviceRepository) DeviceRepository population done!
+2017-08-27 23:44:16,173 INFO  [main] (MAIN.DeviceRepository) Updating OpenHAB item registry...
+2017-08-27 23:44:16,173 DEBUG [main] (MAIN.DeviceRepository) Updating device T0WE(TestLight1)
+2017-08-27 23:44:16,174 DEBUG [main] (MAIN.DeviceRepository) Updating device property T0WE_0001(Switch)
+2017-08-27 23:44:16,174 DEBUG [main] (MAIN.T0WE_0001) Persisting property T0WE_0001...
+2017-08-27 23:44:16,175 DEBUG [main] (MAIN.T0WE_0001) Property T0WE_0001 persisted!
+2017-08-27 23:44:16,175 DEBUG [main] (MAIN.T0WE_0001) Updating property value...
+2017-08-27 23:44:16,175 DEBUG [main] (MAIN.T0WE_0001) Property T0WE_0001 updated!
+2017-08-27 23:44:16,175 DEBUG [main] (CIR.CIRRepository) Updating CIRRepository...
+2017-08-27 23:44:16,276 WARN  [main] (CIR.CIRRepository) Rule "Test Open 1" contains invalid component "SMVX" in arguments block. Disregarding rule!
+2017-08-27 23:44:16,276 WARN  [main] (CIR.CIRRepository) Rule "Test Close 1" contains invalid component "SMVX" in arguments block. Disregarding rule!
+2017-08-27 23:44:16,276 INFO  [main] (MAIN.BusinessMachine) BusinessMachine started!
+2017-08-27 23:46:04,404 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:46:04,407 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Session password invalid!
+2017-08-27 23:46:04,408 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Dispatching view 'login'
+2017-08-27 23:46:08,435 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Login requested!
+2017-08-27 23:46:08,474 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Login successful! Redirecting to home page...
+2017-08-27 23:46:08,475 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Redirecting to 'home' view
+2017-08-27 23:46:08,655 DEBUG [http-nio-8181-exec-2] (UI.BaseController) Requested 'home' view access...
+2017-08-27 23:46:08,656 DEBUG [http-nio-8181-exec-2] (UI.BaseController) Accessing a password-restricted view, authenticating request-sent password...
+2017-08-27 23:46:08,657 DEBUG [http-nio-8181-exec-2] (UI.BaseController) Request password invalid/nonexistent!
+2017-08-27 23:46:08,657 DEBUG [http-nio-8181-exec-2] (UI.BaseController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:46:08,657 DEBUG [http-nio-8181-exec-2] (UI.BaseController) Session password valid!
+2017-08-27 23:46:08,657 DEBUG [http-nio-8181-exec-2] (UI.BaseController) Dispatching view 'home'
+2017-08-27 23:46:08,657 DEBUG [http-nio-8181-exec-2] (UI.BaseController) Adding cookie for encrypted user password...
+2017-08-27 23:46:10,417 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:46:10,418 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Session password valid!
+2017-08-27 23:46:10,418 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:48:25,743 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:48:25,744 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Session password valid!
+2017-08-27 23:48:25,744 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:49:15,056 DEBUG [http-nio-8181-exec-5] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:49:15,059 DEBUG [http-nio-8181-exec-5] (UI.DevicesController) Session password valid!
+2017-08-27 23:49:15,059 DEBUG [http-nio-8181-exec-5] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:49:27,712 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:49:27,717 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Session password valid!
+2017-08-27 23:49:27,717 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:50:37,948 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:50:37,950 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Session password valid!
+2017-08-27 23:50:37,950 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:50:56,927 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:50:56,927 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Session password valid!
+2017-08-27 23:50:56,928 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:51:14,081 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:51:14,083 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Session password valid!
+2017-08-27 23:51:14,083 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:52:10,789 DEBUG [http-nio-8181-exec-10] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:52:10,790 DEBUG [http-nio-8181-exec-10] (UI.DevicesController) Session password valid!
+2017-08-27 23:52:10,790 DEBUG [http-nio-8181-exec-10] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:52:32,799 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:52:32,800 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Session password valid!
+2017-08-27 23:52:32,800 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:52:44,333 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:52:44,334 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Session password valid!
+2017-08-27 23:52:44,334 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:52:55,356 DEBUG [http-nio-8181-exec-8] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:52:55,359 DEBUG [http-nio-8181-exec-8] (UI.DevicesController) Session password valid!
+2017-08-27 23:52:55,360 DEBUG [http-nio-8181-exec-8] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:52:56,402 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:52:56,403 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Session password valid!
+2017-08-27 23:52:56,403 DEBUG [http-nio-8181-exec-3] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:54:38,136 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:54:38,137 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Session password valid!
+2017-08-27 23:54:38,138 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:54:56,194 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:54:56,195 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Session password valid!
+2017-08-27 23:54:56,195 DEBUG [http-nio-8181-exec-1] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:56:42,520 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:56:42,521 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Session password valid!
+2017-08-27 23:56:42,521 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Dispatching view 'devices-overview'
+2017-08-27 23:59:12,225 DEBUG [http-nio-8181-exec-5] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2017-08-27 23:59:12,227 DEBUG [http-nio-8181-exec-5] (UI.DevicesController) Session password valid!
+2017-08-27 23:59:12,227 DEBUG [http-nio-8181-exec-5] (UI.DevicesController) Dispatching view 'devices-overview'

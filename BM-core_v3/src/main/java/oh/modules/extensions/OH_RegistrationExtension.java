@@ -39,18 +39,18 @@
 //	protected void processRequest(JEEPRequest request) {
 //		InboundRegistrationRequest reg = new InboundRegistrationRequest(request, nameParam, roomIDParam, propsParam);
 //		Device dev = dr.getDevice(reg.mac);
-//		Vector<JSONObject> items = new Vector<JSONObject>(dev.getProperties().length + 1);
+//		Vector<JSONObject> items = new Vector<JSONObject>(dev.getPropvals().length + 1);
 //
 //		//adds a device to the item registry, updates if it already exists
 //		LOG.debug("Adding device " + dev.getSSID() + " to OpenHAB item registry...");
-//		if(dev.getProperties().length > 1) { //1-property components are persisted thru their sole property!!!
+//		if(dev.getPropvals().length > 1) { //1-property components are persisted thru their sole property!!!
 //			items.addAll(Arrays.asList(dev.convertToItemsJSON()));
 //			LOG.debug("Adding properties of " + dev.getSSID() + " to OpenHAB item registry...");
-//			for(int i = 0; i < dev.getProperties().length; i++) {
-//				items.addAll(Arrays.asList(dev.getProperties()[i].convertToItemsJSON()));
+//			for(int i = 0; i < dev.getPropvals().length; i++) {
+//				items.addAll(Arrays.asList(dev.getPropvals()[i].convertToItemsJSON()));
 //			}
 //		} else {
-//			items.addAll(Arrays.asList(dev.getProperties()[0].convertToItemsJSON()));
+//			items.addAll(Arrays.asList(dev.getPropvals()[0].convertToItemsJSON()));
 //		}
 //
 //		try {

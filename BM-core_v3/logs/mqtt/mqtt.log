@@ -1,44 +1,4 @@
-2018-07-21 23:50:52,663 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
-2018-07-21 23:50:52,664 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
-2018-07-21 23:50:52,664 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
-2018-07-21 23:50:52,664 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
-2018-07-21 23:50:54,471 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-07-21 23:51:29,771 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-07-21 23:51:29,771 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-"RID":"testnoprod",
-"CID":"0000",
-"RTY":"register",
-"name":"TestNoProd1",
-"roomID":"CRL0",
-"proplist":[
-	{
-	"ptype":"D",
-	"name":"Digital-O",
-	"mode":"O",
-	"index":0
-	},
-	{
-	"ptype":"A2",
-	"name":"Percent-O",
-	"mode":"O",
-	"index":1
-	},
-	{
-	"ptype":"A1",
-	"name":"Analog-I",
-	"mode":"I",
-	"index":2
-	}
-],
-"icon":"switch"
-}
-2018-07-21 23:51:29,915 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-07-21 23:52:33,474 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-07-21 23:52:33,475 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-RID:"testmac",
-CID:"testnoprod",
-RTY:"detach"
-}
-2018-07-21 23:52:33,722 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-07-26 15:31:48,482 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
+2018-07-26 15:31:48,485 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-07-26 15:31:48,485 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
+2018-07-26 15:31:48,485 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!

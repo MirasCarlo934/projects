@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config/>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<!-- <value>..\..\..\configuration\bm.properties</value> -->
+			<value>file:configuration/bm.properties</value>
+		</property>
+	</bean>
+	<!-- <import resource="modules-config.xml"/> -->
+	
+	<!-- repositories -->
+	<bean id="Components" class="bm.main.repositories.ComponentRepository">
+		<constructor-arg name="deviceQuery" value="${devices.queryString}"/>
+		<constructor-arg name="roomsTable" value="${table.roomstable}"/>
+		<constructor-arg name="dbm" ref="DBManager"/>
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="pr" ref="Products"/>
+		<constructor-arg name="rr" ref="Rooms"/>
+		<constructor-arg name="oha" ref="OHAdaptor"/>
+	</bean>
+	<bean id="Rooms" class="bm.main.repositories.RoomRepository">
+		<constructor-arg name="dbe" ref="DBManager"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="getRoomsQuery" value="${rooms.queryString}"/>
+		<constructor-arg name="dba" ref="DBAdaptor"/>
+		<constructor-arg name="oha" ref="OHAdaptor"/>
+		<constructor-arg name="additionalAdaptors">
+			<array></array>
+		</constructor-arg>
+		<!-- <property name="mqttPublisher" ref="MQTTPublisher"/> -->
+	</bean>
+	<bean id="Products" class="bm.main.repositories.ProductRepository">
+		<constructor-arg name="dbe" ref="DBManager"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<constructor-arg name="getProductsQuery" value="${product.queryString}"/>
+	</bean>
+	<bean id="CIRs" class="bm.main.repositories.CIRRepository">
+		<constructor-arg name="logDomain" value="${log.domain.cir}"/>
+		<constructor-arg name="componentRepository" ref="Components"/>
+		<constructor-arg name="fe" ref="CIR.FileEngine"/>
+		<constructor-arg name="idg" ref="IDGenerator"/>
+		<constructor-arg name="errorLogDomain" value="{log.domain.error}"/>
+	</bean>
+	
+	<bean id="Controller" class="bm.main.controller.Controller">
+		<constructor-arg name="logDomain" value="${log.domain.main}"/>
+		<!-- <constructor-arg name="devices" ref="Components"/> -->
+		<constructor-arg name="threadPool" ref="ThreadPool"/>
+	</bean>
+	<bean id="ControllerModule" class="bm.main.controller.ControllerModule" scope="prototype">
+		<constructor-arg name="cr" ref="Components"/>
+		<constructor-arg name="mp" ref="MQTTPublisher"/>
+	</bean>
+	
+	<!-- For thread management -->
+	<bean id="ThreadPool" class="bm.main.controller.ThreadPool">
+		<constructor-arg name="corePoolSize" value="3"/>
+		<constructor-arg name="maximumPoolSize" value="10"/>
+		<constructor-arg name="keepAliveTime" value="10"/>
+		<constructor-arg name="threadFactory" ref="ThreadFactory"/>
+		<constructor-arg name="handler" ref="ThreadRejectionHandler"/>
+	</bean>
+	<bean id="ThreadFactory" class="bm.main.controller.ControllerThreadFactory">
+	</bean>
+	<bean id="ThreadRejectionHandler" class="bm.main.controller.ThreadRejectionHandler">
+		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
+	</bean>
+</beans>

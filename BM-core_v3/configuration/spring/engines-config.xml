@@ -78,7 +78,7 @@
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="cr" ref="Components"/>
 		<constructor-arg name="plexURL" value="${plex.serverURL}"/>
-		<constructor-arg name="URLPropSSID" value="${plex.URLproperty.propSSID}"/>
+		<constructor-arg name="URLPropSSID" value="${plex.URLproperty.propIndex}"/>
 		<constructor-arg name="playerProdSSID" value="${plex.playerProdSSID}"/>
 		<constructor-arg name="playerURLPropID" value="${plex.playerProperties.URL}"/>
 		<constructor-arg name="playerStatePropID" value="${plex.playerProperties.playerStatus}"/>

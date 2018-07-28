@@ -8,6 +8,8 @@
  *      Author: cels
  */
 #include "MqttUtil.h"
+#include <map>
+#include <string>
 
 const char* MqttUtil::server = "192.168.1.5";
 int MqttUtil::mqttPort = 1883;
@@ -207,39 +209,70 @@ boolean MqttUtil::connectToMQTT(const char *id, const char *url, int port, PubSu
 		} else {
 			Serial.println("\tSubscribe to error_topic failed");
 		}
-		MqttUtil::signin(p.name, p.room, p.productType);
+        MqttUtil::registerBasic(p.name, p.room, p.productType);
 	}
     return isConnected;
 }
 
 /**
- * SignsIn to the BM
- *
-    RID String MAC address of the registering component
-    RTY String register
-    CID String The Product SSID of the component (can be found in ‘COMCAT’ DB table
-    name String Name of the registering component. This is the name that will be seen by the users.
-    roomID String SSID of the room in which this component belongs to.
+ * Registers to Symphony Environment. Sends a basic registration request to BM.
+ * @param name The name of the device
+ * @param room The ID of the room where the device belongs to
+ * @param product The ID of the product of the device
  */
-void MqttUtil::signin(String ngalan, String room, String product) {
+void MqttUtil::registerBasic(String name, String room, String product) {
 
 //  String payload = "{RID:5ccf7f15a492,CID:0000,RTY:register,name:Ngalan,roomID:J444,product:0000}";
 
     String payload = "{RID:"; payload += MqttUtil::clientID;
     payload += ",CID:"; payload += product;
     payload += ",RTY:register";
-    payload += ",name:"; payload += ngalan;
+    payload += ",name:"; payload += name;
     payload += ",roomID:"; payload += room;
     payload += ",product:"; payload += product;
     payload += "}";
 #ifdef DEBUG_
-    Serial.print("\SignIn to BM topic:");Serial.println(payload);
+    Serial.print("\tSending basic registration request to BM topic:");Serial.println(payload);
     Serial.print("\tpayload length is:");Serial.println(payload.length());
 #endif
     if ( client->publish("BM", (byte*) payload.c_str(), payload.length())) {
       Serial.println("\tPublish to BM topic success.  Waiting for response from BM.");
     } else {
       Serial.println("\tPublish to BM topic failed ");
+    }
+}
+
+void MqttUtil::registerBasicWithPropvals(String name, String room, String product, std::map<int, String> props) {
+    String payload = "{RID:"; payload += MqttUtil::clientID;
+    payload += ", CID:"; payload += product;
+    payload += ", RTY:register";
+    payload += ", name:"; payload += name;
+    payload += ", roomID:"; payload += room;
+    payload += ", product:"; payload += product;
+    payload += ", propvals:{";
+    for(int i = 0; i < props.size(); i++) {
+        if(props.contains(i)) {
+            payload += + i + ":" + props[i];
+        } else {
+            if(i == 0) {
+                throw "Indices must always start with 0 !";
+            } else {
+                throw "Indices are not consecutive!";
+            }
+        }
+        if(i + 1 != props.size) {
+            payload += ",";
+        }
+    }
+    payload += "}}";
+#ifdef DEBUG_
+    Serial.print("\tSending basic registration request to BM topic:");Serial.println(payload);
+    Serial.print("\tpayload length is:");Serial.println(payload.length());
+#endif
+    if ( client->publish("BM", (byte*) payload.c_str(), payload.length())) {
+        Serial.println("\tPublish to BM topic success.  Waiting for response from BM.");
+    } else {
+        Serial.println("\tPublish to BM topic failed ");
     }
 }
 
@@ -298,7 +331,7 @@ void MqttUtil::setBmStatusCB(void (* BmStatusCB) ()) {
 /*
  * Unregisters the device from the BM
  */
-void MqttUtil::unRegister() {
+void MqttUtil::detach() {
 #ifdef DEBUG_
   Serial.print("inside unRegister. CID:");Serial.print(clientID);Serial.print(", topic:");Serial.println(myTopic);
 #endif

@@ -70,6 +70,7 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 				}
 				rooms.put(room.getSSID(), room);
 			}
+			LOG.debug(rooms.size() + " rooms added!");
 			rooms_rs.close();
 		} catch (SQLException e) {
 			LOG.fatal("Cannot retrieve rooms from DB!", e);

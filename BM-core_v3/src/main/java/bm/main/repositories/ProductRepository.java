@@ -101,6 +101,7 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 				}
 				LOG.debug("Product " + SSID + " (" + name + ") added to repository!");
 			}
+			LOG.debug(products.size() + " products added!");
 			rs.close();
 		} catch (SQLException e) {
 			LOG.fatal("Cannot retrieve products from DB!", e);
@@ -158,6 +159,7 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 //					}
 //				}
 			}
+			LOG.debug(propertyTypes.size() + " property types added!");
 			rs.close();
 		} catch (SQLException e) {
 			LOG.fatal("Cannot retrieve property types from DB!", e);

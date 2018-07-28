@@ -1,550 +1,477 @@
-2018-07-21 23:50:49,387 INFO  [main] (MAIN.Maestro) Starting Maestro... 
-2018-07-21 23:50:49,595 INFO  [restartedMain] (MAIN.Maestro) Starting Maestro... 
-2018-07-21 23:50:50,153 INFO  [restartedMain] (bm.main.Maestro) Starting Maestro on Carlos-MacBook-Pro-2.local with PID 6992 (/Users/carlomiras/git/BM-core_v3/target/classes started by carlomiras in /Users/carlomiras/git/BM-core_v3)
-2018-07-21 23:50:50,154 DEBUG [restartedMain] (bm.main.Maestro) Running with Spring Boot v2.0.2.RELEASE, Spring v5.1.0.BUILD-SNAPSHOT
-2018-07-21 23:50:50,154 INFO  [restartedMain] (bm.main.Maestro) No active profile set, falling back to default profiles: default
-2018-07-21 23:50:52,272 INFO  [restartedMain] (UI.AdminController) AdminController started!
-2018-07-21 23:50:52,372 INFO  [restartedMain] (MAIN.UserPropertyManager) UserPropertyManager started!
-2018-07-21 23:50:52,415 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB
-2018-07-21 23:50:52,442 INFO  [restartedMain] (MAIN.Controller) Controller started!
-2018-07-21 23:50:52,444 INFO  [restartedMain] (MAIN.ResponseManager) ResponseManager started!
-2018-07-21 23:50:52,451 INFO  [restartedMain] (MainMQTTPublisher.MQTT) Starting MQTT Sender...
-2018-07-21 23:50:52,451 INFO  [restartedMain] (MainMQTTPublisher.MQTT) MQTT Sender started!
-2018-07-21 23:50:52,459 INFO  [restartedMain] (UI.BaseController) BaseController started!
-2018-07-21 23:50:52,463 INFO  [restartedMain] (UI.DevicesController) DevicesController started!
-2018-07-21 23:50:52,475 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
-2018-07-21 23:50:52,489 INFO  [restartedMain] (CIR.CIRManager) CIRManager started!
-2018-07-21 23:50:52,494 INFO  [restartedMain] (MAIN.AdaptorsDBEngine) AdaptorsDBEngine started @ URL: jdbc:derby://localhost:1527/products
-2018-07-21 23:50:52,501 INFO  [restartedMain] (MainHTTPSender.MAIN) Starting MAIN Sender...
-2018-07-21 23:50:52,501 INFO  [restartedMain] (MainHTTPSender.MAIN) MAIN Sender started!
-2018-07-21 23:50:52,501 INFO  [restartedMain] (MainHTTPSender.MAIN) MainHTTPSender started!
-2018-07-21 23:50:52,504 INFO  [restartedMain] (OH.OH-SitemapFileEngine) FileEngine for file 'home.sitemap' started!
-2018-07-21 23:50:52,509 INFO  [restartedMain] (UI.ErrorController) ErrorController started!
-2018-07-21 23:50:52,513 INFO  [restartedMain] (UI.SettingsController) SettingsController started!
-2018-07-21 23:50:52,663 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
-2018-07-21 23:50:52,664 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
-2018-07-21 23:50:52,664 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
-2018-07-21 23:50:52,664 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
-2018-07-21 23:50:52,668 INFO  [restartedMain] (OH.OH-RulesFileEngine) FileEngine for file 'home.rules' started!
-2018-07-21 23:50:52,670 INFO  [restartedMain] (MAIN.PropertiesFileEngine) FileEngine for file 'bm.properties' started!
-2018-07-21 23:50:53,650 INFO  [restartedMain] (bm.main.Maestro) Started Maestro in 4.047 seconds (JVM running for 5.182)
-2018-07-21 23:50:53,714 DEBUG [restartedMain] (MAIN.Maestro) Initializing repositories...
-2018-07-21 23:50:53,714 INFO  [restartedMain] (MAIN.RoomRepository) Retrieving rooms from DB...
-2018-07-21 23:50:53,864 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room J444 (Kitchen) to repository!
-2018-07-21 23:50:53,864 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room U7YY (Dining Area) to repository!
-2018-07-21 23:50:53,865 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room RJ2L (Lanai) to repository!
-2018-07-21 23:50:53,865 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room DKF5 (Salas) to repository!
-2018-07-21 23:50:53,865 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room CRL0 (Kuya's Bedroom) to repository!
-2018-07-21 23:50:53,865 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room XKWG (2nd Floor) to repository!
-2018-07-21 23:50:53,866 DEBUG [restartedMain] (MAIN.RoomRepository) Room retrieval complete!
-2018-07-21 23:50:53,866 INFO  [restartedMain] (MAIN.ProductRepository) Retrieving property types from DB...
-2018-07-21 23:50:53,868 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type D (Digital) to repository!
-2018-07-21 23:50:53,868 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A1 (Analog) to repository!
-2018-07-21 23:50:53,868 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A2 (Percent) to repository!
-2018-07-21 23:50:53,869 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A3 (AnalogHue) to repository!
-2018-07-21 23:50:53,869 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type STR (String) to repository!
-2018-07-21 23:50:53,869 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INN (Innate) to repository!
-2018-07-21 23:50:53,869 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INT (Integer) to repository!
-2018-07-21 23:50:53,869 INFO  [restartedMain] (MAIN.ProductRepository) Populating products from DB...
-2018-07-21 23:50:53,874 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0010 (Timer)
-2018-07-21 23:50:53,878 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0047 to product 0010!
-2018-07-21 23:50:53,878 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Integer-O-0048 to product 0010!
-2018-07-21 23:50:53,878 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
-2018-07-21 23:50:53,878 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
-2018-07-21 23:50:53,878 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0011 (WS2812B)
-2018-07-21 23:50:53,879 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0049 to product 0011!
-2018-07-21 23:50:53,879 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0050 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0051 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0052 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0053 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0054 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Integer-O-0055 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Percent-O-0056 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0057 to product 0011!
-2018-07-21 23:50:53,880 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-07-21 23:50:53,881 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0012 (VirtualSwitch)
-2018-07-21 23:50:53,882 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0058 to product 0012!
-2018-07-21 23:50:53,882 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0012 (VirtualSwitch) added to repository!
-2018-07-21 23:50:53,883 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0013 (VirtualSlider)
-2018-07-21 23:50:53,884 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Percent-O-0059 to product 0013!
-2018-07-21 23:50:53,884 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0013 (VirtualSlider) added to repository!
-2018-07-21 23:50:53,885 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0002 (SoloLightRGB)
-2018-07-21 23:50:53,885 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0019 to product 0002!
-2018-07-21 23:50:53,886 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0020 to product 0002!
-2018-07-21 23:50:53,886 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0021 to product 0002!
-2018-07-21 23:50:53,886 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0022 to product 0002!
-2018-07-21 23:50:53,886 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Analog-O-0023 to product 0002!
-2018-07-21 23:50:53,886 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0024 to product 0002!
-2018-07-21 23:50:53,886 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0029 to product 0002!
-2018-07-21 23:50:53,886 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Percent-O-0003 to product 0002!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0002 to product 0002!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,887 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0008 (PIRSensor)
-2018-07-21 23:50:53,888 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-I-0025 to product 0008!
-2018-07-21 23:50:53,888 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0026 to product 0008!
-2018-07-21 23:50:53,889 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
-2018-07-21 23:50:53,889 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
-2018-07-21 23:50:53,889 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
-2018-07-21 23:50:53,889 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
-2018-07-21 23:50:53,889 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,889 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0005 (PlexMediaPlayer)
-2018-07-21 23:50:53,891 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property String-O-0030 to product 0005!
-2018-07-21 23:50:53,892 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Percent-O-0031 to product 0005!
-2018-07-21 23:50:53,892 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property String-O-0032 to product 0005!
-2018-07-21 23:50:53,892 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Innate-Null-0045 to product 0005!
-2018-07-21 23:50:53,892 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Innate-Null-0046 to product 0005!
-2018-07-21 23:50:53,892 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0016 to product 0005!
-2018-07-21 23:50:53,892 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0018 to product 0005!
-2018-07-21 23:50:53,892 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-07-21 23:50:53,893 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-07-21 23:50:53,893 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-07-21 23:50:53,893 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0009 (SamsungRemote)
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0037 to product 0009!
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0038 to product 0009!
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0039 to product 0009!
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0040 to product 0009!
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0041 to product 0009!
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0042 to product 0009!
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0043 to product 0009!
-2018-07-21 23:50:53,894 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0044 to product 0009!
-2018-07-21 23:50:53,895 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,895 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0006 (TFTSwitch)
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0034 to product 0006!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0035 to product 0006!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0036 to product 0006!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0011 to product 0006!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,896 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-07-21 23:50:53,897 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0003 (Symphony Socket)
-2018-07-21 23:50:53,898 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0006 to product 0003!
-2018-07-21 23:50:53,899 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0003 (Symphony Socket) added to repository!
-2018-07-21 23:50:53,899 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,899 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-07-21 23:50:53,899 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0001 (SoloLight)
-2018-07-21 23:50:53,900 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0001 to product 0001!
-2018-07-21 23:50:53,900 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0001 (SoloLight) added to repository!
-2018-07-21 23:50:53,900 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0007 (Test1)
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0012 to product 0007!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Digital-O-0013 to product 0007!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Analog-O-0014 to product 0007!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property Analog-O-0015 to product 0007!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-07-21 23:50:53,902 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-07-21 23:50:53,903 INFO  [restartedMain] (MAIN.DeviceRepository) Retrieving devices from DB...
-2018-07-21 23:50:53,905 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device J6L0 (Main Room Light) to repository!
-2018-07-21 23:50:53,905 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0001 of device: J6L0 with value: 0
-2018-07-21 23:50:53,905 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device OJ7S (RGB) to repository!
-2018-07-21 23:50:53,905 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0029 of device: OJ7S with value: 0
-2018-07-21 23:50:53,905 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0024 of component: OJ7S with value: 0
-2018-07-21 23:50:53,905 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0002 of component: OJ7S with value: 0
-2018-07-21 23:50:53,906 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0003 of component: OJ7S with value: 0
-2018-07-21 23:50:53,906 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0022 of component: OJ7S with value: 0
-2018-07-21 23:50:53,906 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0023 of component: OJ7S with value: 0
-2018-07-21 23:50:53,906 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0020 of component: OJ7S with value: 0
-2018-07-21 23:50:53,906 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0021 of component: OJ7S with value: 0
-2018-07-21 23:50:53,906 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: 0019 of component: OJ7S with value: 0
-2018-07-21 23:50:53,906 INFO  [restartedMain] (MAIN.DeviceRepository) Devices retrieved!
-2018-07-21 23:50:53,943 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.tools.IDGenerator
-2018-07-21 23:50:53,943 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.context.adaptors.AdaptorManager
-2018-07-21 23:50:53,943 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptors to products...
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) 0 adaptor-product links made. 0 adaptor-product links failed. 0 total.
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) No links found for 3 adaptors. Assuming to be universal adaptors. Linking to all products...
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all devices...
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all devices...
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all devices...
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Universal adaptors linked!
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Linking all adaptors to all rooms...
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all rooms!
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all rooms!
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all rooms!
-2018-07-21 23:50:54,212 INFO  [restartedMain] (MAIN.AdaptorManager) All adaptors linked to rooms!
-2018-07-21 23:50:54,212 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.cir.CIRManager
-2018-07-21 23:50:54,212 DEBUG [restartedMain] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,298 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,298 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,298 DEBUG [restartedMain] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,298 DEBUG [restartedMain] (MAIN.RoomRepository) Updating rooms in Symphony Environment...
-2018-07-21 23:50:54,298 DEBUG [restartedMain] (MAIN.Room:J444) Updating room J444 (Kitchen) in CIRAdaptor...
-2018-07-21 23:50:54,298 DEBUG [restartedMain] (MAIN.Room:J444) Room J444 (Kitchen) updated!
-2018-07-21 23:50:54,298 DEBUG [restartedMain] (MAIN.Room:J444) Updating room J444 (Kitchen) in DBAdaptor...
-2018-07-21 23:50:54,299 DEBUG [restartedMain] (MAIN.Room:J444) Room J444 (Kitchen) updated!
-2018-07-21 23:50:54,299 DEBUG [restartedMain] (MAIN.Room:J444) Updating room J444 (Kitchen) in OHAdaptor...
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:J444) Room J444 (Kitchen) updated!
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:XKWG) Updating room XKWG (2nd Floor) in CIRAdaptor...
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:XKWG) Room XKWG (2nd Floor) updated!
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:XKWG) Updating room XKWG (2nd Floor) in DBAdaptor...
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:XKWG) Room XKWG (2nd Floor) updated!
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:XKWG) Updating room XKWG (2nd Floor) in OHAdaptor...
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:XKWG) Room XKWG (2nd Floor) updated!
-2018-07-21 23:50:54,302 DEBUG [restartedMain] (MAIN.Room:RJ2L) Updating room RJ2L (Lanai) in CIRAdaptor...
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:RJ2L) Room RJ2L (Lanai) updated!
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:RJ2L) Updating room RJ2L (Lanai) in DBAdaptor...
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:RJ2L) Room RJ2L (Lanai) updated!
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:RJ2L) Updating room RJ2L (Lanai) in OHAdaptor...
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:RJ2L) Room RJ2L (Lanai) updated!
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:CRL0) Updating room CRL0 (Kuya's Bedroom) in CIRAdaptor...
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:CRL0) Room CRL0 (Kuya's Bedroom) updated!
-2018-07-21 23:50:54,303 DEBUG [restartedMain] (MAIN.Room:CRL0) Updating room CRL0 (Kuya's Bedroom) in DBAdaptor...
-2018-07-21 23:50:54,304 DEBUG [restartedMain] (MAIN.Room:CRL0) Room CRL0 (Kuya's Bedroom) updated!
-2018-07-21 23:50:54,304 DEBUG [restartedMain] (MAIN.Room:CRL0) Updating room CRL0 (Kuya's Bedroom) in OHAdaptor...
-2018-07-21 23:50:54,304 DEBUG [restartedMain] (MAIN.Room:CRL0) Room CRL0 (Kuya's Bedroom) updated!
-2018-07-21 23:50:54,304 DEBUG [restartedMain] (MAIN.Room:U7YY) Updating room U7YY (Dining Area) in CIRAdaptor...
-2018-07-21 23:50:54,304 DEBUG [restartedMain] (MAIN.Room:U7YY) Room U7YY (Dining Area) updated!
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:U7YY) Updating room U7YY (Dining Area) in DBAdaptor...
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:U7YY) Room U7YY (Dining Area) updated!
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:U7YY) Updating room U7YY (Dining Area) in OHAdaptor...
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:U7YY) Room U7YY (Dining Area) updated!
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:DKF5) Updating room DKF5 (Salas) in CIRAdaptor...
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:DKF5) Room DKF5 (Salas) updated!
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:DKF5) Updating room DKF5 (Salas) in DBAdaptor...
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:DKF5) Room DKF5 (Salas) updated!
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:DKF5) Updating room DKF5 (Salas) in OHAdaptor...
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.Room:DKF5) Room DKF5 (Salas) updated!
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.RoomRepository) Rooms updated in Symphony Environment!
-2018-07-21 23:50:54,305 DEBUG [restartedMain] (MAIN.DeviceRepository) Updating devices in Symphony Environment...
-2018-07-21 23:50:54,306 DEBUG [restartedMain] (MAIN.DEV:J6L0) Updating device J6L0 in CIRAdaptor...
-2018-07-21 23:50:54,306 DEBUG [restartedMain] (MAIN.DEV:J6L0) Device J6L0 updated!
-2018-07-21 23:50:54,307 DEBUG [restartedMain] (MAIN.DEV:J6L0) Updating device J6L0 in DBAdaptor...
-2018-07-21 23:50:54,307 DEBUG [restartedMain] (MAIN.DEV:J6L0) Device J6L0 updated!
-2018-07-21 23:50:54,307 DEBUG [restartedMain] (MAIN.DEV:J6L0) Updating device J6L0 in OHAdaptor...
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.DEV:J6L0) Device J6L0 updated!
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.J6L0_0001) Updating value of property J6L0_0001 in CIRAdaptor...
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.J6L0_0001) Property J6L0_0001 updated!
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.J6L0_0001) Updating value of property J6L0_0001 in DBAdaptor...
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.J6L0_0001) Property J6L0_0001 updated!
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.J6L0_0001) Updating value of property J6L0_0001 in OHAdaptor...
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.J6L0_0001) Property J6L0_0001 updated!
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.DEV:OJ7S) Updating device OJ7S in CIRAdaptor...
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.DEV:OJ7S) Device OJ7S updated!
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.DEV:OJ7S) Updating device OJ7S in DBAdaptor...
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.DEV:OJ7S) Device OJ7S updated!
-2018-07-21 23:50:54,308 DEBUG [restartedMain] (MAIN.DEV:OJ7S) Updating device OJ7S in OHAdaptor...
-2018-07-21 23:50:54,309 DEBUG [restartedMain] (MAIN.DEV:OJ7S) Device OJ7S updated!
-2018-07-21 23:50:54,309 DEBUG [restartedMain] (MAIN.OJ7S_0029) Updating value of property OJ7S_0029 in CIRAdaptor...
-2018-07-21 23:50:54,309 DEBUG [restartedMain] (MAIN.OJ7S_0029) Property OJ7S_0029 updated!
-2018-07-21 23:50:54,309 DEBUG [restartedMain] (MAIN.OJ7S_0029) Updating value of property OJ7S_0029 in DBAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0029) Property OJ7S_0029 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0029) Updating value of property OJ7S_0029 in OHAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0029) Property OJ7S_0029 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0024) Updating value of property OJ7S_0024 in CIRAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0024) Property OJ7S_0024 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0024) Updating value of property OJ7S_0024 in DBAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0024) Property OJ7S_0024 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0024) Updating value of property OJ7S_0024 in OHAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0024) Property OJ7S_0024 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0002) Updating value of property OJ7S_0002 in CIRAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0002) Property OJ7S_0002 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0002) Updating value of property OJ7S_0002 in DBAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0002) Property OJ7S_0002 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0002) Updating value of property OJ7S_0002 in OHAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0002) Property OJ7S_0002 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0003) Updating value of property OJ7S_0003 in CIRAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0003) Property OJ7S_0003 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0003) Updating value of property OJ7S_0003 in DBAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0003) Property OJ7S_0003 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0003) Updating value of property OJ7S_0003 in OHAdaptor...
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0003) Property OJ7S_0003 updated!
-2018-07-21 23:50:54,310 DEBUG [restartedMain] (MAIN.OJ7S_0022) Updating value of property OJ7S_0022 in CIRAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0022) Property OJ7S_0022 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0022) Updating value of property OJ7S_0022 in DBAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0022) Property OJ7S_0022 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0022) Updating value of property OJ7S_0022 in OHAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0022) Property OJ7S_0022 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0023) Updating value of property OJ7S_0023 in CIRAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0023) Property OJ7S_0023 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0023) Updating value of property OJ7S_0023 in DBAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0023) Property OJ7S_0023 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0023) Updating value of property OJ7S_0023 in OHAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0023) Property OJ7S_0023 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0020) Updating value of property OJ7S_0020 in CIRAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0020) Property OJ7S_0020 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0020) Updating value of property OJ7S_0020 in DBAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0020) Property OJ7S_0020 updated!
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0020) Updating value of property OJ7S_0020 in OHAdaptor...
-2018-07-21 23:50:54,311 DEBUG [restartedMain] (MAIN.OJ7S_0020) Property OJ7S_0020 updated!
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0021) Updating value of property OJ7S_0021 in CIRAdaptor...
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0021) Property OJ7S_0021 updated!
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0021) Updating value of property OJ7S_0021 in DBAdaptor...
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0021) Property OJ7S_0021 updated!
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0021) Updating value of property OJ7S_0021 in OHAdaptor...
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0021) Property OJ7S_0021 updated!
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0019) Updating value of property OJ7S_0019 in CIRAdaptor...
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0019) Property OJ7S_0019 updated!
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0019) Updating value of property OJ7S_0019 in DBAdaptor...
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0019) Property OJ7S_0019 updated!
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0019) Updating value of property OJ7S_0019 in OHAdaptor...
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.OJ7S_0019) Property OJ7S_0019 updated!
-2018-07-21 23:50:54,312 DEBUG [restartedMain] (MAIN.DeviceRepository) Devices updated in Symphony Environment!
-2018-07-21 23:50:54,312 INFO  [restartedMain] (MAIN.Maestro) BusinessMachine started!
-2018-07-21 23:50:54,314 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,362 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,362 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,362 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,362 DEBUG [CIRManager] (CIR.CIRManager) Property J6L0-0001 changed value. Checking CIR...
-2018-07-21 23:50:54,362 INFO  [CIRManager] (CIR.CIRManager) Property J6L0-0001 value change triggered 1 rules! Executing...
-2018-07-21 23:50:54,362 DEBUG [CIRManager] (CIR.CIRManager) Updating property OJ7S-0020...
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (CIR.OJ7S_0020) Updating value of property OJ7S_0020 in CIRAdaptor...
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (CIR.OJ7S_0020) Property OJ7S_0020 updated!
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (CIR.OJ7S_0020) Updating value of property OJ7S_0020 in DBAdaptor...
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (CIR.OJ7S_0020) Property OJ7S_0020 updated!
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (CIR.OJ7S_0020) Updating value of property OJ7S_0020 in OHAdaptor...
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (CIR.OJ7S_0020) Property OJ7S_0020 updated!
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (CIR.OJ7S_0020) Sending property value to device...
-2018-07-21 23:50:54,363 DEBUG [CIRManager] (MAIN.JEEPManager) Sending POOP request...
-2018-07-21 23:50:54,367 DEBUG [CIRManager] (CIR.OJ7S_0020) Property value sent!
-2018-07-21 23:50:54,367 INFO  [CIRManager] (CIR.CIRManager) Property OJ7S-0020 updated from rule "Lights Off 1"
-2018-07-21 23:50:54,367 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,367 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","property":"0020","RID":"0881281634","value":"0","CID":"OJ7S"} to OJ7S_topic
-2018-07-21 23:50:54,458 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,458 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,458 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,458 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0029 changed value. Checking CIR...
-2018-07-21 23:50:54,458 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,458 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,471 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-07-21 23:50:54,509 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,509 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,509 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,509 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0024 changed value. Checking CIR...
-2018-07-21 23:50:54,509 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,509 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,513 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,513 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,513 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,513 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0002 changed value. Checking CIR...
-2018-07-21 23:50:54,514 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,514 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,520 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,521 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,521 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,521 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0003 changed value. Checking CIR...
-2018-07-21 23:50:54,521 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,521 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,526 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,526 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,526 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,526 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0022 changed value. Checking CIR...
-2018-07-21 23:50:54,526 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,526 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,527 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,527 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,527 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,528 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0023 changed value. Checking CIR...
-2018-07-21 23:50:54,528 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,528 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,529 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,529 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,529 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,529 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0020 changed value. Checking CIR...
-2018-07-21 23:50:54,529 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,529 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,533 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,533 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,533 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,533 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0021 changed value. Checking CIR...
-2018-07-21 23:50:54,533 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,533 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,534 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,535 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,535 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,535 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0019 changed value. Checking CIR...
-2018-07-21 23:50:54,535 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:50:54,536 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:50:54,539 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:50:54,539 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:50:54,539 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:50:54,539 DEBUG [CIRManager] (CIR.CIRManager) Property OJ7S-0020 changed value. Checking CIR...
-2018-07-21 23:50:54,540 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:51:29,771 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-07-21 23:51:29,771 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-"RID":"testnoprod",
-"CID":"0000",
-"RTY":"register",
-"name":"TestNoProd1",
-"roomID":"CRL0",
-"proplist":[
-	{
-	"ptype":"D",
-	"name":"Digital-O",
-	"mode":"O",
-	"index":0
-	},
-	{
-	"ptype":"A2",
-	"name":"Percent-O",
-	"mode":"O",
-	"index":1
-	},
-	{
-	"ptype":"A1",
-	"name":"Analog-I",
-	"mode":"I",
-	"index":2
-	}
-],
-"icon":"switch"
-}
-2018-07-21 23:51:29,845 DEBUG [Thread1:Process1] (REG.RegistrationModule) RegistrationModule request processing started!
-2018-07-21 23:51:29,846 INFO  [Thread1:Process1] (REG.RegistrationModule) Registering device testnoprod to Environment...
-2018-07-21 23:51:29,846 DEBUG [Thread1:Process1] (REG.RegistrationModule) Creating Device object...
-2018-07-21 23:51:29,846 DEBUG [Thread1:Process1] (REG.RegistrationModule) Device is productless! Retrieving properties and device icon from registration request...
-2018-07-21 23:51:29,846 FATAL [Thread1:Process1] (REG.RegistrationModule) [{"mode":"O","name":"Digital-O","index":0,"ptype":"D"},{"mode":"O","name":"Percent-O","index":1,"ptype":"A2"},{"mode":"I","name":"Analog-I","index":2,"ptype":"A1"}]
-2018-07-21 23:51:29,847 DEBUG [Thread1:Process1] (REG.RegistrationModule) Properties retrieved!
-2018-07-21 23:51:29,847 FATAL [Thread1:Process1] (REG.RegistrationModule) switch
-2018-07-21 23:51:29,847 DEBUG [Thread1:Process1] (REG.RegistrationModule) Icon retrieved!
-2018-07-21 23:51:29,847 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Creating device V3D6 in CIRAdaptor...
-2018-07-21 23:51:29,847 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Device V3D6 created in CIRAdaptor!
-2018-07-21 23:51:29,847 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Creating device V3D6 in DBAdaptor...
-2018-07-21 23:51:29,860 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Device V3D6 created in DBAdaptor!
-2018-07-21 23:51:29,860 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Creating device V3D6 in OHAdaptor...
-2018-07-21 23:51:29,860 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Device V3D6 created in OHAdaptor!
-2018-07-21 23:51:29,860 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Creating properties of device V3D6 in Environment...
-2018-07-21 23:51:29,860 DEBUG [Thread1:Process1] (REG.V3D6_0) Creating property V3D6_0 in CIRAdaptor...
-2018-07-21 23:51:29,860 DEBUG [Thread1:Process1] (REG.V3D6_0) Property V3D6_0 created!
-2018-07-21 23:51:29,860 DEBUG [Thread1:Process1] (REG.V3D6_0) Creating property V3D6_0 in DBAdaptor...
-2018-07-21 23:51:29,864 DEBUG [Thread1:Process1] (REG.V3D6_0) Property V3D6_0 created!
-2018-07-21 23:51:29,865 DEBUG [Thread1:Process1] (REG.V3D6_0) Creating property V3D6_0 in OHAdaptor...
-2018-07-21 23:51:29,865 DEBUG [Thread1:Process1] (REG.V3D6_0) Property V3D6_0 created!
-2018-07-21 23:51:29,865 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Property V3D6_0 of device V3D6 created!
-2018-07-21 23:51:29,865 DEBUG [Thread1:Process1] (REG.V3D6_1) Creating property V3D6_1 in CIRAdaptor...
-2018-07-21 23:51:29,865 DEBUG [Thread1:Process1] (REG.V3D6_1) Property V3D6_1 created!
-2018-07-21 23:51:29,865 DEBUG [Thread1:Process1] (REG.V3D6_1) Creating property V3D6_1 in DBAdaptor...
-2018-07-21 23:51:29,869 DEBUG [Thread1:Process1] (REG.V3D6_1) Property V3D6_1 created!
-2018-07-21 23:51:29,869 DEBUG [Thread1:Process1] (REG.V3D6_1) Creating property V3D6_1 in OHAdaptor...
-2018-07-21 23:51:29,869 DEBUG [Thread1:Process1] (REG.V3D6_1) Property V3D6_1 created!
-2018-07-21 23:51:29,870 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Property V3D6_1 of device V3D6 created!
-2018-07-21 23:51:29,870 DEBUG [Thread1:Process1] (REG.V3D6_2) Creating property V3D6_2 in CIRAdaptor...
-2018-07-21 23:51:29,870 DEBUG [Thread1:Process1] (REG.V3D6_2) Property V3D6_2 created!
-2018-07-21 23:51:29,870 DEBUG [Thread1:Process1] (REG.V3D6_2) Creating property V3D6_2 in DBAdaptor...
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (REG.V3D6_2) Property V3D6_2 created!
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (REG.V3D6_2) Creating property V3D6_2 in OHAdaptor...
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (REG.V3D6_2) Property V3D6_2 created!
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Property V3D6_2 of device V3D6 created!
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (MAIN.DEV:V3D6) Device V3D6 created!
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (REG.V3D6_0) Updating value of property V3D6_0 in CIRAdaptor...
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (REG.V3D6_0) Property V3D6_0 updated!
-2018-07-21 23:51:29,873 DEBUG [Thread1:Process1] (REG.V3D6_0) Updating value of property V3D6_0 in DBAdaptor...
-2018-07-21 23:51:29,881 DEBUG [Thread1:Process1] (REG.V3D6_0) Property V3D6_0 updated!
-2018-07-21 23:51:29,881 DEBUG [Thread1:Process1] (REG.V3D6_0) Updating value of property V3D6_0 in OHAdaptor...
-2018-07-21 23:51:29,881 DEBUG [Thread1:Process1] (REG.V3D6_0) Property V3D6_0 updated!
-2018-07-21 23:51:29,881 DEBUG [Thread1:Process1] (REG.V3D6_1) Updating value of property V3D6_1 in CIRAdaptor...
-2018-07-21 23:51:29,881 DEBUG [Thread1:Process1] (REG.V3D6_1) Property V3D6_1 updated!
-2018-07-21 23:51:29,881 DEBUG [Thread1:Process1] (REG.V3D6_1) Updating value of property V3D6_1 in DBAdaptor...
-2018-07-21 23:51:29,888 DEBUG [Thread1:Process1] (REG.V3D6_1) Property V3D6_1 updated!
-2018-07-21 23:51:29,888 DEBUG [Thread1:Process1] (REG.V3D6_1) Updating value of property V3D6_1 in OHAdaptor...
-2018-07-21 23:51:29,888 DEBUG [Thread1:Process1] (REG.V3D6_1) Property V3D6_1 updated!
-2018-07-21 23:51:29,888 DEBUG [Thread1:Process1] (REG.V3D6_2) Updating value of property V3D6_2 in CIRAdaptor...
-2018-07-21 23:51:29,888 DEBUG [Thread1:Process1] (REG.V3D6_2) Property V3D6_2 updated!
-2018-07-21 23:51:29,888 DEBUG [Thread1:Process1] (REG.V3D6_2) Updating value of property V3D6_2 in DBAdaptor...
-2018-07-21 23:51:29,894 DEBUG [Thread1:Process1] (REG.V3D6_2) Property V3D6_2 updated!
-2018-07-21 23:51:29,894 DEBUG [Thread1:Process1] (REG.V3D6_2) Updating value of property V3D6_2 in OHAdaptor...
-2018-07-21 23:51:29,894 DEBUG [Thread1:Process1] (REG.V3D6_2) Property V3D6_2 updated!
-2018-07-21 23:51:29,894 INFO  [Thread1:Process1] (REG.RegistrationModule) Sending device credentials to actual device...
-2018-07-21 23:51:29,894 DEBUG [Thread1:Process1] (MAIN.JEEPManager) Sending registration response...
-2018-07-21 23:51:29,895 INFO  [Thread1:Process1] (REG.RegistrationModule) Registration complete!
-2018-07-21 23:51:29,895 INFO  [Thread1:Process1] (REG.RegistrationModule) Request processing finished!
-2018-07-21 23:51:29,909 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:51:29,914 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"register","success":true,"topic":"V3D6_topic","id":"V3D6","RID":"testnoprod","CID":"V3D6"} to default_topic
-2018-07-21 23:51:29,915 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-07-21 23:51:29,916 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:51:29,916 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:51:29,916 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:51:29,916 DEBUG [CIRManager] (CIR.CIRManager) Property V3D6-0 changed value. Checking CIR...
-2018-07-21 23:51:29,916 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:51:29,916 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:51:29,919 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:51:29,919 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:51:29,919 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:51:29,919 DEBUG [CIRManager] (CIR.CIRManager) Property V3D6-1 changed value. Checking CIR...
-2018-07-21 23:51:29,920 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:51:29,920 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:51:29,930 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:51:29,930 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:51:29,930 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-07-21 23:51:29,930 DEBUG [CIRManager] (CIR.CIRManager) Property V3D6-2 changed value. Checking CIR...
-2018-07-21 23:51:29,930 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-07-21 23:52:33,474 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-07-21 23:52:33,475 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-RID:"testmac",
-CID:"testnoprod",
-RTY:"detach"
-}
-2018-07-21 23:52:33,567 DEBUG [Thread2:Process2] (DETACH.DetachmentModule) DetachmentModule request processing started!
-2018-07-21 23:52:33,567 INFO  [Thread2:Process2] (DETACH.DetachmentModule) Detaching device testnoprod from system...
-2018-07-21 23:52:33,567 INFO  [Thread2:Process2] (CIR.CIRManager) Removing rules with property V3D6-0 as argument...
-2018-07-21 23:52:33,578 DEBUG [Thread2:Process2] (CIR.CIRManager) Overwriting rules!
-2018-07-21 23:52:33,583 DEBUG [Thread2:Process2] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:52:33,588 DEBUG [Thread2:Process2] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:52:33,588 DEBUG [Thread2:Process2] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:52:33,588 DEBUG [Thread2:Process2] (CIR.CIRManager) CIR updated!
-2018-07-21 23:52:33,588 INFO  [Thread2:Process2] (CIR.CIRManager) 0 rules removed!
-2018-07-21 23:52:33,588 INFO  [Thread2:Process2] (CIR.CIRManager) Removing rules with property V3D6-1 as argument...
-2018-07-21 23:52:33,588 DEBUG [Thread2:Process2] (CIR.CIRManager) Overwriting rules!
-2018-07-21 23:52:33,589 DEBUG [Thread2:Process2] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:52:33,590 DEBUG [Thread2:Process2] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:52:33,590 DEBUG [Thread2:Process2] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:52:33,590 DEBUG [Thread2:Process2] (CIR.CIRManager) CIR updated!
-2018-07-21 23:52:33,590 INFO  [Thread2:Process2] (CIR.CIRManager) 0 rules removed!
-2018-07-21 23:52:33,590 INFO  [Thread2:Process2] (CIR.CIRManager) Removing rules with property V3D6-2 as argument...
-2018-07-21 23:52:33,590 DEBUG [Thread2:Process2] (CIR.CIRManager) Overwriting rules!
-2018-07-21 23:52:33,590 DEBUG [Thread2:Process2] (CIR.CIRManager) Updating CIR...
-2018-07-21 23:52:33,591 DEBUG [Thread2:Process2] (CIR.CIRManager) Adding rule "Lights On 1" to repository
-2018-07-21 23:52:33,591 DEBUG [Thread2:Process2] (CIR.CIRManager) Adding rule "Lights Off 1" to repository
-2018-07-21 23:52:33,591 DEBUG [Thread2:Process2] (CIR.CIRManager) CIR updated!
-2018-07-21 23:52:33,591 INFO  [Thread2:Process2] (CIR.CIRManager) 0 rules removed!
-2018-07-21 23:52:33,592 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Deleting device V3D6 from CIRAdaptor...
-2018-07-21 23:52:33,593 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Deleting properties of device V3D6 from CIRAdaptor...
-2018-07-21 23:52:33,593 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_0 of device V3D6 deleted!
-2018-07-21 23:52:33,593 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_1 of device V3D6 deleted!
-2018-07-21 23:52:33,593 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_2 of device V3D6 deleted!
-2018-07-21 23:52:33,593 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Device V3D6 deleted!
-2018-07-21 23:52:33,593 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Deleting device V3D6 from DBAdaptor...
-2018-07-21 23:52:33,648 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Deleting properties of device V3D6 from DBAdaptor...
-2018-07-21 23:52:33,648 WARN  [Thread2:Process2] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
-2018-07-21 23:52:33,649 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_0 of device V3D6 deleted!
-2018-07-21 23:52:33,649 WARN  [Thread2:Process2] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
-2018-07-21 23:52:33,649 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_1 of device V3D6 deleted!
-2018-07-21 23:52:33,649 WARN  [Thread2:Process2] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
-2018-07-21 23:52:33,649 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_2 of device V3D6 deleted!
-2018-07-21 23:52:33,649 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Device V3D6 deleted!
-2018-07-21 23:52:33,649 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Deleting device V3D6 from OHAdaptor...
-2018-07-21 23:52:33,694 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Deleting properties of device V3D6 from OHAdaptor...
-2018-07-21 23:52:33,695 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_0 of device V3D6 deleted!
-2018-07-21 23:52:33,695 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_1 of device V3D6 deleted!
-2018-07-21 23:52:33,695 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Property V3D6_2 of device V3D6 deleted!
-2018-07-21 23:52:33,695 DEBUG [Thread2:Process2] (MAIN.DEV:V3D6) Device V3D6 deleted!
-2018-07-21 23:52:33,695 DEBUG [Thread2:Process2] (MAIN.JEEPManager) Sending detachment response...
-2018-07-21 23:52:33,695 INFO  [Thread2:Process2] (DETACH.DetachmentModule) Detachment complete!
-2018-07-21 23:52:33,695 INFO  [Thread2:Process2] (DETACH.DetachmentModule) Request processing finished!
-2018-07-21 23:52:33,721 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"detach","RID":"testmac","CID":"testnoprod"} to V3D6_topic
-2018-07-21 23:52:33,722 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
+2018-07-26 15:31:44,612 INFO  [main] (MAIN.Maestro) Starting Maestro... 
+2018-07-26 15:31:45,058 INFO  [restartedMain] (MAIN.Maestro) Starting Maestro... 
+2018-07-26 15:31:45,539 INFO  [restartedMain] (bm.main.Maestro) Starting Maestro on Carlos-MBP-2 with PID 23064 (/Users/carlomiras/git/BM-core_v3/target/classes started by carlomiras in /Users/carlomiras/git/BM-core_v3)
+2018-07-26 15:31:45,540 DEBUG [restartedMain] (bm.main.Maestro) Running with Spring Boot v2.0.2.RELEASE, Spring v5.1.0.BUILD-SNAPSHOT
+2018-07-26 15:31:45,541 INFO  [restartedMain] (bm.main.Maestro) No active profile set, falling back to default profiles: default
+2018-07-26 15:31:47,962 INFO  [restartedMain] (UI.AdminController) AdminController started!
+2018-07-26 15:31:48,069 INFO  [restartedMain] (MAIN.UserPropertyManager) UserPropertyManager started!
+2018-07-26 15:31:48,203 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB
+2018-07-26 15:31:48,238 INFO  [restartedMain] (MAIN.Controller) Controller started!
+2018-07-26 15:31:48,240 INFO  [restartedMain] (MAIN.ResponseManager) ResponseManager started!
+2018-07-26 15:31:48,245 INFO  [restartedMain] (MainMQTTPublisher.MQTT) Starting MQTT Sender...
+2018-07-26 15:31:48,245 INFO  [restartedMain] (MainMQTTPublisher.MQTT) MQTT Sender started!
+2018-07-26 15:31:48,253 INFO  [restartedMain] (UI.BaseController) BaseController started!
+2018-07-26 15:31:48,257 INFO  [restartedMain] (UI.DevicesController) DevicesController started!
+2018-07-26 15:31:48,271 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
+2018-07-26 15:31:48,289 INFO  [restartedMain] (CIR.CIRManager) CIRManager started!
+2018-07-26 15:31:48,298 INFO  [restartedMain] (MAIN.AdaptorsDBEngine) AdaptorsDBEngine started @ URL: jdbc:derby://localhost:1527/products
+2018-07-26 15:31:48,307 INFO  [restartedMain] (MainHTTPSender.MAIN) Starting MAIN Sender...
+2018-07-26 15:31:48,307 INFO  [restartedMain] (MainHTTPSender.MAIN) MAIN Sender started!
+2018-07-26 15:31:48,307 INFO  [restartedMain] (MainHTTPSender.MAIN) MainHTTPSender started!
+2018-07-26 15:31:48,309 INFO  [restartedMain] (OH.OH-SitemapFileEngine) FileEngine for file 'home.sitemap' started!
+2018-07-26 15:31:48,315 INFO  [restartedMain] (UI.ErrorController) ErrorController started!
+2018-07-26 15:31:48,318 INFO  [restartedMain] (UI.SettingsController) SettingsController started!
+2018-07-26 15:31:48,482 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
+2018-07-26 15:31:48,485 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-07-26 15:31:48,485 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
+2018-07-26 15:31:48,485 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
+2018-07-26 15:31:48,489 INFO  [restartedMain] (OH.OH-RulesFileEngine) FileEngine for file 'home.rules' started!
+2018-07-26 15:31:48,490 INFO  [restartedMain] (MAIN.PropertiesFileEngine) FileEngine for file 'bm.properties' started!
+2018-07-26 15:31:49,186 INFO  [restartedMain] (bm.main.Maestro) Started Maestro in 4.122 seconds (JVM running for 5.877)
+2018-07-26 15:31:49,221 DEBUG [restartedMain] (MAIN.Maestro) Initializing repositories...
+2018-07-26 15:31:49,221 INFO  [restartedMain] (MAIN.RoomRepository) Retrieving rooms from DB...
+2018-07-26 15:31:49,317 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room J444 (Kitchen) to repository!
+2018-07-26 15:31:49,317 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room U7YY (Dining Area) to repository!
+2018-07-26 15:31:49,317 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room RJ2L (Lanai) to repository!
+2018-07-26 15:31:49,317 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room DKF5 (Salas) to repository!
+2018-07-26 15:31:49,317 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room CRL0 (Kuya's Bedroom) to repository!
+2018-07-26 15:31:49,317 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room XKWG (2nd Floor) to repository!
+2018-07-26 15:31:49,317 DEBUG [restartedMain] (MAIN.RoomRepository) 6 rooms added!
+2018-07-26 15:31:49,320 DEBUG [restartedMain] (MAIN.RoomRepository) Room retrieval complete!
+2018-07-26 15:31:49,320 INFO  [restartedMain] (MAIN.ProductRepository) Retrieving property types from DB...
+2018-07-26 15:31:49,348 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type D (Digital) to repository!
+2018-07-26 15:31:49,348 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A1 (Analog) to repository!
+2018-07-26 15:31:49,348 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A2 (Percent) to repository!
+2018-07-26 15:31:49,349 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A3 (AnalogHue) to repository!
+2018-07-26 15:31:49,349 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type STR (String) to repository!
+2018-07-26 15:31:49,349 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INN (Innate) to repository!
+2018-07-26 15:31:49,349 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INT (Integer) to repository!
+2018-07-26 15:31:49,349 DEBUG [restartedMain] (MAIN.ProductRepository) 7 property types added!
+2018-07-26 15:31:49,349 INFO  [restartedMain] (MAIN.ProductRepository) Populating products from DB...
+2018-07-26 15:31:49,364 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0010 (Timer)
+2018-07-26 15:31:49,369 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Active" (index: 1) to product "Timer" (SSID: 0010)!
+2018-07-26 15:31:49,369 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Time" (index: 2) to product "Timer" (SSID: 0010)!
+2018-07-26 15:31:49,370 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
+2018-07-26 15:31:49,370 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
+2018-07-26 15:31:49,372 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0011 (WS2812B)
+2018-07-26 15:31:49,373 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Warmwhite" (index: 1) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,373 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Red" (index: 2) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,373 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Random" (index: 3) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,373 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Sequence" (index: 4) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,373 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Off" (index: 5) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Group" (index: 6) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Groups" (index: 7) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Timer" (index: 8) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Start Timer" (index: 9) to product "WS2812B" (SSID: 0011)!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,374 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,375 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-07-26 15:31:49,375 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0012 (VirtualSwitch)
+2018-07-26 15:31:49,375 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 1) to product "VirtualSwitch" (SSID: 0012)!
+2018-07-26 15:31:49,376 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0012 (VirtualSwitch) added to repository!
+2018-07-26 15:31:49,376 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0013 (VirtualSlider)
+2018-07-26 15:31:49,377 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Slider" (index: 1) to product "VirtualSlider" (SSID: 0013)!
+2018-07-26 15:31:49,377 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0013 (VirtualSlider) added to repository!
+2018-07-26 15:31:49,377 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0002 (SoloLightRGB)
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Warm White" (index: 1) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Red" (index: 4) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Green" (index: 5) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Blue" (index: 6) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "StartTimer" (index: 2) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Timer(Mins)" (index: 3) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Off" (index: 9) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "brightness" (index: 8) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,378 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Orange" (index: 7) to product "SoloLightRGB" (SSID: 0002)!
+2018-07-26 15:31:49,379 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,379 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,379 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,379 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,379 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,379 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,379 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0008 (PIRSensor)
+2018-07-26 15:31:49,380 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "MotionDetected" (index: 1) to product "PIRSensor" (SSID: 0008)!
+2018-07-26 15:31:49,380 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "PIR Indicator" (index: 2) to product "PIRSensor" (SSID: 0008)!
+2018-07-26 15:31:49,380 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
+2018-07-26 15:31:49,380 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
+2018-07-26 15:31:49,380 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
+2018-07-26 15:31:49,381 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
+2018-07-26 15:31:49,381 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,381 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0005 (PlexMediaPlayer)
+2018-07-26 15:31:49,381 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Now Playing" (index: 1) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Progress" (index: 4) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player Status" (index: 5) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player URL" (index: 0) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player Client Identifier" (index: 0) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Play" (index: 2) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Stop" (index: 4) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-07-26 15:31:49,382 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0009 (SamsungRemote)
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "TogglePower" (index: 1) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Left" (index: 2) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Right" (index: 3) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Up" (index: 4) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Down" (index: 5) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Voume Up" (index: 6) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Volume Down" (index: 7) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,383 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Menu" (index: 8) to product "SamsungRemote" (SSID: 0009)!
+2018-07-26 15:31:49,384 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,384 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0006 (TFTSwitch)
+2018-07-26 15:31:49,384 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "EnablePushSwitch" (index: 2) to product "TFTSwitch" (SSID: 0006)!
+2018-07-26 15:31:49,384 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "State" (index: 3) to product "TFTSwitch" (SSID: 0006)!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 4) to product "TFTSwitch" (SSID: 0006)!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "EnableToggleSwitch" (index: 1) to product "TFTSwitch" (SSID: 0006)!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-07-26 15:31:49,385 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-07-26 15:31:49,386 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0003 (Symphony Socket)
+2018-07-26 15:31:49,386 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Socket Switch" (index: 1) to product "Symphony Socket" (SSID: 0003)!
+2018-07-26 15:31:49,386 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0003 (Symphony Socket) added to repository!
+2018-07-26 15:31:49,386 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,386 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-07-26 15:31:49,386 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0001 (SoloLight)
+2018-07-26 15:31:49,388 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 1) to product "SoloLight" (SSID: 0001)!
+2018-07-26 15:31:49,388 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0001 (SoloLight) added to repository!
+2018-07-26 15:31:49,388 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0007 (Test1)
+2018-07-26 15:31:49,389 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "DO1" (index: 1) to product "Test1" (SSID: 0007)!
+2018-07-26 15:31:49,389 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "DO2" (index: 2) to product "Test1" (SSID: 0007)!
+2018-07-26 15:31:49,389 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "AO1" (index: 3) to product "Test1" (SSID: 0007)!
+2018-07-26 15:31:49,389 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "AO2" (index: 4) to product "Test1" (SSID: 0007)!
+2018-07-26 15:31:49,389 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-07-26 15:31:49,389 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-07-26 15:31:49,389 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-07-26 15:31:49,390 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-07-26 15:31:49,391 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-07-26 15:31:49,391 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-07-26 15:31:49,391 DEBUG [restartedMain] (MAIN.ProductRepository) 13 products added!
+2018-07-26 15:31:49,391 INFO  [restartedMain] (MAIN.DeviceRepository) Retrieving devices from DB...
+2018-07-26 15:31:49,395 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device D6N7 (TestComponent1) to repository!
+2018-07-26 15:31:49,395 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: D6N7_1 of device: D6N7 with value: 1
+2018-07-26 15:31:49,395 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device C3I4 (RGB) to repository!
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_1 of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_2 (StartTimer) of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_3 (Timer(Mins)) of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_4 (Red) of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_5 (Green) of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_6 (Blue) of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_7 (Orange) of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_8 (brightness) of device: C3I4 with value: 20
+2018-07-26 15:31:49,396 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_9 (Off) of device: C3I4 with value: 0
+2018-07-26 15:31:49,396 INFO  [restartedMain] (MAIN.DeviceRepository) 2 devices retrieved!
+2018-07-26 15:31:49,442 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.tools.IDGenerator
+2018-07-26 15:31:49,442 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.context.adaptors.AdaptorManager
+2018-07-26 15:31:49,442 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptors to products...
+2018-07-26 15:31:49,572 INFO  [restartedMain] (MAIN.AdaptorManager) 0 adaptor-product links made. 0 adaptor-product links failed. 0 total.
+2018-07-26 15:31:49,572 INFO  [restartedMain] (MAIN.AdaptorManager) No links found for 3 adaptors. Assuming to be universal adaptors. Linking to all products...
+2018-07-26 15:31:49,572 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all devices...
+2018-07-26 15:31:49,572 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all devices...
+2018-07-26 15:31:49,572 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all devices...
+2018-07-26 15:31:49,573 INFO  [restartedMain] (MAIN.AdaptorManager) Universal adaptors linked!
+2018-07-26 15:31:49,573 INFO  [restartedMain] (MAIN.AdaptorManager) Linking all adaptors to all rooms...
+2018-07-26 15:31:49,573 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all rooms!
+2018-07-26 15:31:49,573 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all rooms!
+2018-07-26 15:31:49,573 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all rooms!
+2018-07-26 15:31:49,573 INFO  [restartedMain] (MAIN.AdaptorManager) All adaptors linked to rooms!
+2018-07-26 15:31:49,573 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.cir.CIRManager
+2018-07-26 15:31:49,573 DEBUG [restartedMain] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:49,586 DEBUG [restartedMain] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:49,586 DEBUG [restartedMain] (MAIN.RoomRepository) Updating rooms in Symphony Environment...
+2018-07-26 15:31:49,586 DEBUG [restartedMain] (MAIN.Room:J444) Updating room J444 (Kitchen) in CIRAdaptor...
+2018-07-26 15:31:49,586 DEBUG [restartedMain] (MAIN.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:31:49,586 DEBUG [restartedMain] (MAIN.Room:J444) Updating room J444 (Kitchen) in DBAdaptor...
+2018-07-26 15:31:49,587 DEBUG [restartedMain] (MAIN.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:31:49,587 DEBUG [restartedMain] (MAIN.Room:J444) Updating room J444 (Kitchen) in OHAdaptor...
+2018-07-26 15:31:49,710 DEBUG [restartedMain] (MAIN.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:31:49,710 DEBUG [restartedMain] (MAIN.Room:XKWG) Updating room XKWG (2nd Floor) in CIRAdaptor...
+2018-07-26 15:31:49,710 DEBUG [restartedMain] (MAIN.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:31:49,710 DEBUG [restartedMain] (MAIN.Room:XKWG) Updating room XKWG (2nd Floor) in DBAdaptor...
+2018-07-26 15:31:49,710 DEBUG [restartedMain] (MAIN.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:31:49,710 DEBUG [restartedMain] (MAIN.Room:XKWG) Updating room XKWG (2nd Floor) in OHAdaptor...
+2018-07-26 15:31:49,782 DEBUG [restartedMain] (MAIN.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:31:49,783 DEBUG [restartedMain] (MAIN.Room:RJ2L) Updating room RJ2L (Lanai) in CIRAdaptor...
+2018-07-26 15:31:49,783 DEBUG [restartedMain] (MAIN.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:31:49,783 DEBUG [restartedMain] (MAIN.Room:RJ2L) Updating room RJ2L (Lanai) in DBAdaptor...
+2018-07-26 15:31:49,783 DEBUG [restartedMain] (MAIN.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:31:49,783 DEBUG [restartedMain] (MAIN.Room:RJ2L) Updating room RJ2L (Lanai) in OHAdaptor...
+2018-07-26 15:31:49,874 DEBUG [restartedMain] (MAIN.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:31:49,874 DEBUG [restartedMain] (MAIN.Room:CRL0) Updating room CRL0 (Kuya's Bedroom) in CIRAdaptor...
+2018-07-26 15:31:49,874 DEBUG [restartedMain] (MAIN.Room:CRL0) Room CRL0 (Kuya's Bedroom) updated!
+2018-07-26 15:31:49,875 DEBUG [restartedMain] (MAIN.Room:CRL0) Updating room CRL0 (Kuya's Bedroom) in DBAdaptor...
+2018-07-26 15:31:49,875 DEBUG [restartedMain] (MAIN.Room:CRL0) Room CRL0 (Kuya's Bedroom) updated!
+2018-07-26 15:31:49,875 DEBUG [restartedMain] (MAIN.Room:CRL0) Updating room CRL0 (Kuya's Bedroom) in OHAdaptor...
+2018-07-26 15:31:49,876 DEBUG [restartedMain] (MAIN.Room:CRL0) Room CRL0 (Kuya's Bedroom) updated!
+2018-07-26 15:31:49,876 DEBUG [restartedMain] (MAIN.Room:U7YY) Updating room U7YY (Dining Area) in CIRAdaptor...
+2018-07-26 15:31:49,876 DEBUG [restartedMain] (MAIN.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:31:49,876 DEBUG [restartedMain] (MAIN.Room:U7YY) Updating room U7YY (Dining Area) in DBAdaptor...
+2018-07-26 15:31:49,876 DEBUG [restartedMain] (MAIN.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:31:49,876 DEBUG [restartedMain] (MAIN.Room:U7YY) Updating room U7YY (Dining Area) in OHAdaptor...
+2018-07-26 15:31:49,881 DEBUG [restartedMain] (MAIN.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:31:49,881 DEBUG [restartedMain] (MAIN.Room:DKF5) Updating room DKF5 (Salas) in CIRAdaptor...
+2018-07-26 15:31:49,881 DEBUG [restartedMain] (MAIN.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:31:49,881 DEBUG [restartedMain] (MAIN.Room:DKF5) Updating room DKF5 (Salas) in DBAdaptor...
+2018-07-26 15:31:49,881 DEBUG [restartedMain] (MAIN.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:31:49,881 DEBUG [restartedMain] (MAIN.Room:DKF5) Updating room DKF5 (Salas) in OHAdaptor...
+2018-07-26 15:31:49,913 DEBUG [restartedMain] (MAIN.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:31:49,913 DEBUG [restartedMain] (MAIN.RoomRepository) Rooms updated in Symphony Environment!
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.DeviceRepository) Updating devices in Symphony Environment...
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.DEV:D6N7) Updating device D6N7 in CIRAdaptor...
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.DEV:D6N7) Device D6N7 updated!
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.DEV:D6N7) Updating device D6N7 in DBAdaptor...
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.DEV:D6N7) Device D6N7 updated!
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.DEV:D6N7) Updating device D6N7 in OHAdaptor...
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.DEV:D6N7) Device D6N7 updated!
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.D6N7_1) Updating value of property D6N7_1 in CIRAdaptor...
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.D6N7_1) Property D6N7_1 updated!
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.D6N7_1) Updating value of property D6N7_1 in DBAdaptor...
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.D6N7_1) Property D6N7_1 updated!
+2018-07-26 15:31:49,914 DEBUG [restartedMain] (MAIN.D6N7_1) Updating value of property D6N7_1 in OHAdaptor...
+2018-07-26 15:31:49,915 DEBUG [restartedMain] (MAIN.D6N7_1) Property D6N7_1 updated!
+2018-07-26 15:31:49,915 DEBUG [restartedMain] (MAIN.DEV:C3I4) Updating device C3I4 in CIRAdaptor...
+2018-07-26 15:31:49,915 DEBUG [restartedMain] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:31:49,915 DEBUG [restartedMain] (MAIN.DEV:C3I4) Updating device C3I4 in DBAdaptor...
+2018-07-26 15:31:49,915 DEBUG [restartedMain] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:31:49,915 DEBUG [restartedMain] (MAIN.DEV:C3I4) Updating device C3I4 in OHAdaptor...
+2018-07-26 15:31:49,915 DEBUG [restartedMain] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_1) Updating value of property C3I4_1 in CIRAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_1) Property C3I4_1 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_1) Updating value of property C3I4_1 in DBAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_1) Property C3I4_1 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_1) Updating value of property C3I4_1 in OHAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_1) Property C3I4_1 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_2) Updating value of property C3I4_2 in CIRAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_2) Property C3I4_2 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_2) Updating value of property C3I4_2 in DBAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_2) Property C3I4_2 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_2) Updating value of property C3I4_2 in OHAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_2) Property C3I4_2 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_3) Updating value of property C3I4_3 in CIRAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_3) Property C3I4_3 updated!
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_3) Updating value of property C3I4_3 in DBAdaptor...
+2018-07-26 15:31:49,916 DEBUG [restartedMain] (MAIN.C3I4_3) Property C3I4_3 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_3) Updating value of property C3I4_3 in OHAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_3) Property C3I4_3 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_4) Updating value of property C3I4_4 in CIRAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_4) Property C3I4_4 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_4) Updating value of property C3I4_4 in DBAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_4) Property C3I4_4 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_4) Updating value of property C3I4_4 in OHAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_4) Property C3I4_4 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_5) Updating value of property C3I4_5 in CIRAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_5) Property C3I4_5 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_5) Updating value of property C3I4_5 in DBAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_5) Property C3I4_5 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_5) Updating value of property C3I4_5 in OHAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_5) Property C3I4_5 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_6) Updating value of property C3I4_6 in CIRAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_6) Property C3I4_6 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_6) Updating value of property C3I4_6 in DBAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_6) Property C3I4_6 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_6) Updating value of property C3I4_6 in OHAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_6) Property C3I4_6 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_7) Updating value of property C3I4_7 in CIRAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_7) Property C3I4_7 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_7) Updating value of property C3I4_7 in DBAdaptor...
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_7) Property C3I4_7 updated!
+2018-07-26 15:31:49,917 DEBUG [restartedMain] (MAIN.C3I4_7) Updating value of property C3I4_7 in OHAdaptor...
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_7) Property C3I4_7 updated!
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_8) Updating value of property C3I4_8 in CIRAdaptor...
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_8) Property C3I4_8 updated!
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_8) Updating value of property C3I4_8 in DBAdaptor...
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_8) Property C3I4_8 updated!
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_8) Updating value of property C3I4_8 in OHAdaptor...
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_8) Property C3I4_8 updated!
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_9) Updating value of property C3I4_9 in CIRAdaptor...
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_9) Property C3I4_9 updated!
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_9) Updating value of property C3I4_9 in DBAdaptor...
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_9) Property C3I4_9 updated!
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_9) Updating value of property C3I4_9 in OHAdaptor...
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.C3I4_9) Property C3I4_9 updated!
+2018-07-26 15:31:49,918 DEBUG [restartedMain] (MAIN.DeviceRepository) Devices updated in Symphony Environment!
+2018-07-26 15:31:49,918 INFO  [restartedMain] (MAIN.Maestro) BusinessMachine started!
+2018-07-26 15:31:49,989 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,123 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,124 DEBUG [CIRManager] (CIR.CIRManager) Property D6N7_1 changed value. Checking CIR...
+2018-07-26 15:31:50,124 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,124 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,185 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,196 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_1 changed value. Checking CIR...
+2018-07-26 15:31:50,198 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,202 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,566 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,566 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_2 changed value. Checking CIR...
+2018-07-26 15:31:50,566 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,566 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,566 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,566 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_3 changed value. Checking CIR...
+2018-07-26 15:31:50,566 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,567 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,567 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,567 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_4 changed value. Checking CIR...
+2018-07-26 15:31:50,567 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,567 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,568 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,568 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_5 changed value. Checking CIR...
+2018-07-26 15:31:50,568 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,568 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,568 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,569 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_6 changed value. Checking CIR...
+2018-07-26 15:31:50,569 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,569 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,569 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,569 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_7 changed value. Checking CIR...
+2018-07-26 15:31:50,569 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,569 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,570 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,570 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_8 changed value. Checking CIR...
+2018-07-26 15:31:50,570 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:31:50,570 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
+2018-07-26 15:31:50,570 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
+2018-07-26 15:31:50,570 DEBUG [CIRManager] (CIR.CIRManager) Property C3I4_9 changed value. Checking CIR...
+2018-07-26 15:31:50,570 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
+2018-07-26 15:32:42,482 DEBUG [http-nio-8181-exec-8] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2018-07-26 15:32:42,483 WARN  [http-nio-8181-exec-8] (UI.DevicesController) Session password empty!
+2018-07-26 15:32:42,483 DEBUG [http-nio-8181-exec-8] (UI.DevicesController) Dispatching view 'login'
+2018-07-26 15:32:42,483 DEBUG [http-nio-8181-exec-8] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2018-07-26 15:32:42,483 WARN  [http-nio-8181-exec-8] (UI.DevicesController) Session password empty!
+2018-07-26 15:32:42,483 DEBUG [http-nio-8181-exec-8] (UI.DevicesController) Dispatching view 'login'
+2018-07-26 15:32:45,749 DEBUG [http-nio-8181-exec-10] (UI.BaseController) Login requested!
+2018-07-26 15:32:45,773 DEBUG [http-nio-8181-exec-10] (UI.BaseController) Login successful! Redirecting to home page...
+2018-07-26 15:32:45,775 DEBUG [http-nio-8181-exec-10] (UI.BaseController) Redirecting to 'home' view
+2018-07-26 15:32:45,958 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Requested 'home' view access...
+2018-07-26 15:32:45,960 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Dispatching view 'home'
+2018-07-26 15:32:45,960 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Adding cookie for encrypted user password...
+2018-07-26 15:32:45,960 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Accessing a password-restricted view, authenticating request-sent password...
+2018-07-26 15:32:45,961 DEBUG [http-nio-8181-exec-1] (MAIN.Cipher) Decrypting a null value!
+2018-07-26 15:32:45,961 DEBUG [http-nio-8181-exec-1] (UI.BaseController) Session password valid!
+2018-07-26 15:32:47,549 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Accessing a password-restricted view, authenticating session password...
+2018-07-26 15:32:47,549 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Session password valid!
+2018-07-26 15:32:47,549 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Accessing a password-restricted view, authenticating request-sent password...
+2018-07-26 15:32:47,550 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Request password valid!
+2018-07-26 15:32:47,563 DEBUG [http-nio-8181-exec-2] (UI.DevicesController) Dispatching view 'devices-overview'
+2018-07-26 15:33:07,487 DEBUG [http-nio-8181-exec-10] (UI.DevicesController) Relocating room RJ2L to room root
+2018-07-26 15:33:07,489 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in CIRAdaptor...
+2018-07-26 15:33:07,489 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:07,489 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in DBAdaptor...
+2018-07-26 15:33:07,489 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:07,489 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in OHAdaptor...
+2018-07-26 15:33:07,560 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:07,560 DEBUG [http-nio-8181-exec-10] (UI.DevicesController) Rearranging root SymphonyObjects...
+2018-07-26 15:33:07,560 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in CIRAdaptor...
+2018-07-26 15:33:07,560 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:07,560 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in DBAdaptor...
+2018-07-26 15:33:07,560 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:07,560 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in OHAdaptor...
+2018-07-26 15:33:07,565 DEBUG [http-nio-8181-exec-10] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:07,565 DEBUG [http-nio-8181-exec-10] (UI.Room:DKF5) Updating room DKF5 (Salas) in CIRAdaptor...
+2018-07-26 15:33:07,565 DEBUG [http-nio-8181-exec-10] (UI.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:33:07,565 DEBUG [http-nio-8181-exec-10] (UI.Room:DKF5) Updating room DKF5 (Salas) in DBAdaptor...
+2018-07-26 15:33:07,565 DEBUG [http-nio-8181-exec-10] (UI.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:33:07,565 DEBUG [http-nio-8181-exec-10] (UI.Room:DKF5) Updating room DKF5 (Salas) in OHAdaptor...
+2018-07-26 15:33:07,688 DEBUG [http-nio-8181-exec-10] (UI.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:33:07,689 DEBUG [http-nio-8181-exec-10] (UI.Room:XKWG) Updating room XKWG (2nd Floor) in CIRAdaptor...
+2018-07-26 15:33:07,689 DEBUG [http-nio-8181-exec-10] (UI.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:33:07,689 DEBUG [http-nio-8181-exec-10] (UI.Room:XKWG) Updating room XKWG (2nd Floor) in DBAdaptor...
+2018-07-26 15:33:07,689 DEBUG [http-nio-8181-exec-10] (UI.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:33:07,689 DEBUG [http-nio-8181-exec-10] (UI.Room:XKWG) Updating room XKWG (2nd Floor) in OHAdaptor...
+2018-07-26 15:33:07,792 DEBUG [http-nio-8181-exec-10] (UI.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:33:07,792 DEBUG [http-nio-8181-exec-10] (UI.Room:J444) Updating room J444 (Kitchen) in CIRAdaptor...
+2018-07-26 15:33:07,793 DEBUG [http-nio-8181-exec-10] (UI.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:33:07,793 DEBUG [http-nio-8181-exec-10] (UI.Room:J444) Updating room J444 (Kitchen) in DBAdaptor...
+2018-07-26 15:33:07,793 DEBUG [http-nio-8181-exec-10] (UI.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:33:07,793 DEBUG [http-nio-8181-exec-10] (UI.Room:J444) Updating room J444 (Kitchen) in OHAdaptor...
+2018-07-26 15:33:07,810 DEBUG [http-nio-8181-exec-10] (UI.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:33:07,810 DEBUG [http-nio-8181-exec-10] (UI.Room:U7YY) Updating room U7YY (Dining Area) in CIRAdaptor...
+2018-07-26 15:33:07,811 DEBUG [http-nio-8181-exec-10] (UI.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:33:07,811 DEBUG [http-nio-8181-exec-10] (UI.Room:U7YY) Updating room U7YY (Dining Area) in DBAdaptor...
+2018-07-26 15:33:07,811 DEBUG [http-nio-8181-exec-10] (UI.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:33:07,811 DEBUG [http-nio-8181-exec-10] (UI.Room:U7YY) Updating room U7YY (Dining Area) in OHAdaptor...
+2018-07-26 15:33:07,839 DEBUG [http-nio-8181-exec-10] (UI.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:33:15,605 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Relocating room RJ2L to room root
+2018-07-26 15:33:15,607 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in CIRAdaptor...
+2018-07-26 15:33:15,608 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:15,608 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in DBAdaptor...
+2018-07-26 15:33:15,608 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:15,608 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in OHAdaptor...
+2018-07-26 15:33:15,636 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:15,637 DEBUG [http-nio-8181-exec-6] (UI.DevicesController) Rearranging root SymphonyObjects...
+2018-07-26 15:33:15,637 DEBUG [http-nio-8181-exec-6] (UI.Room:DKF5) Updating room DKF5 (Salas) in CIRAdaptor...
+2018-07-26 15:33:15,637 DEBUG [http-nio-8181-exec-6] (UI.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:33:15,637 DEBUG [http-nio-8181-exec-6] (UI.Room:DKF5) Updating room DKF5 (Salas) in DBAdaptor...
+2018-07-26 15:33:15,637 DEBUG [http-nio-8181-exec-6] (UI.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:33:15,637 DEBUG [http-nio-8181-exec-6] (UI.Room:DKF5) Updating room DKF5 (Salas) in OHAdaptor...
+2018-07-26 15:33:15,640 DEBUG [http-nio-8181-exec-6] (UI.Room:DKF5) Room DKF5 (Salas) updated!
+2018-07-26 15:33:15,640 DEBUG [http-nio-8181-exec-6] (UI.Room:XKWG) Updating room XKWG (2nd Floor) in CIRAdaptor...
+2018-07-26 15:33:15,640 DEBUG [http-nio-8181-exec-6] (UI.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:33:15,640 DEBUG [http-nio-8181-exec-6] (UI.Room:XKWG) Updating room XKWG (2nd Floor) in DBAdaptor...
+2018-07-26 15:33:15,640 DEBUG [http-nio-8181-exec-6] (UI.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:33:15,640 DEBUG [http-nio-8181-exec-6] (UI.Room:XKWG) Updating room XKWG (2nd Floor) in OHAdaptor...
+2018-07-26 15:33:15,644 DEBUG [http-nio-8181-exec-6] (UI.Room:XKWG) Room XKWG (2nd Floor) updated!
+2018-07-26 15:33:15,644 DEBUG [http-nio-8181-exec-6] (UI.Room:J444) Updating room J444 (Kitchen) in CIRAdaptor...
+2018-07-26 15:33:15,644 DEBUG [http-nio-8181-exec-6] (UI.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:33:15,644 DEBUG [http-nio-8181-exec-6] (UI.Room:J444) Updating room J444 (Kitchen) in DBAdaptor...
+2018-07-26 15:33:15,644 DEBUG [http-nio-8181-exec-6] (UI.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:33:15,644 DEBUG [http-nio-8181-exec-6] (UI.Room:J444) Updating room J444 (Kitchen) in OHAdaptor...
+2018-07-26 15:33:15,646 DEBUG [http-nio-8181-exec-6] (UI.Room:J444) Room J444 (Kitchen) updated!
+2018-07-26 15:33:15,646 DEBUG [http-nio-8181-exec-6] (UI.Room:U7YY) Updating room U7YY (Dining Area) in CIRAdaptor...
+2018-07-26 15:33:15,646 DEBUG [http-nio-8181-exec-6] (UI.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:33:15,646 DEBUG [http-nio-8181-exec-6] (UI.Room:U7YY) Updating room U7YY (Dining Area) in DBAdaptor...
+2018-07-26 15:33:15,646 DEBUG [http-nio-8181-exec-6] (UI.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:33:15,647 DEBUG [http-nio-8181-exec-6] (UI.Room:U7YY) Updating room U7YY (Dining Area) in OHAdaptor...
+2018-07-26 15:33:15,668 DEBUG [http-nio-8181-exec-6] (UI.Room:U7YY) Room U7YY (Dining Area) updated!
+2018-07-26 15:33:15,668 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in CIRAdaptor...
+2018-07-26 15:33:15,668 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:15,668 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in DBAdaptor...
+2018-07-26 15:33:15,669 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:33:15,669 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Updating room RJ2L (Lanai) in OHAdaptor...
+2018-07-26 15:33:15,670 DEBUG [http-nio-8181-exec-6] (UI.Room:RJ2L) Room RJ2L (Lanai) updated!
+2018-07-26 15:34:14,493 DEBUG [http-nio-8181-exec-9] (UI.DevicesController) Relocating device C3I4 to room CRL0
+2018-07-26 15:34:14,495 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Updating device C3I4 in CIRAdaptor...
+2018-07-26 15:34:14,495 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:14,495 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Updating device C3I4 in DBAdaptor...
+2018-07-26 15:34:14,495 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:14,495 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Updating device C3I4 in OHAdaptor...
+2018-07-26 15:34:14,496 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:14,496 DEBUG [http-nio-8181-exec-9] (UI.DevicesController) Rearranging room CRL0(Kuya's Bedroom) contents...
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:D6N7) Updating device D6N7 in CIRAdaptor...
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:D6N7) Device D6N7 updated!
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:D6N7) Updating device D6N7 in DBAdaptor...
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:D6N7) Device D6N7 updated!
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:D6N7) Updating device D6N7 in OHAdaptor...
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:D6N7) Device D6N7 updated!
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Updating device C3I4 in CIRAdaptor...
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Updating device C3I4 in DBAdaptor...
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:14,497 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Updating device C3I4 in OHAdaptor...
+2018-07-26 15:34:14,498 DEBUG [http-nio-8181-exec-9] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:27,303 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Relocating device C3I4 to room J444
+2018-07-26 15:34:27,307 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Updating device C3I4 in CIRAdaptor...
+2018-07-26 15:34:27,307 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:27,307 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Updating device C3I4 in DBAdaptor...
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Updating device C3I4 in OHAdaptor...
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (UI.DevicesController) Rearranging room J444(Kitchen) contents...
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Updating device C3I4 in CIRAdaptor...
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Updating device C3I4 in DBAdaptor...
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Device C3I4 updated!
+2018-07-26 15:34:27,308 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Updating device C3I4 in OHAdaptor...
+2018-07-26 15:34:27,309 DEBUG [http-nio-8181-exec-4] (MAIN.DEV:C3I4) Device C3I4 updated!

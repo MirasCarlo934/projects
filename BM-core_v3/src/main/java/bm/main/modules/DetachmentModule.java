@@ -67,7 +67,8 @@ public class DetachmentModule extends Module {
 		} catch (AdaptorException e) {
 //			error(e, request.getProtocol());
 //			return false;
-			throw new RequestProcessingException("Failed to detach device!", e);
+			throw new RequestProcessingException("Failed to detach device in " + e.getAdaptorName() + "!",
+					e);
 		}
 		
 		LOG.info("Detachment complete!");

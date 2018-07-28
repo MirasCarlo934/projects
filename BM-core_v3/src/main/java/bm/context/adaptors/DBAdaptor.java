@@ -144,11 +144,12 @@ public class DBAdaptor extends AbstAdaptor {
 		Thread t = Thread.currentThread();
 		HashMap<String, Object> values = new HashMap<String, Object>(4,1);
 		values.put("com_id", p.getDevice().getSSID());
-		values.put("prop_name", p.getSystemName());
+		values.put("prop_name", p.getDisplayName());
 		values.put("prop_value", String.valueOf(p.getValue()));
-		values.put("cpl_ssid", p.getSSID());
+		values.put("index", p.getIndex());
 		
-		LOG.trace("Inserting property " + p.getDevice().getSSID() + "_" + p.getSSID() + " to " + propsTable + " table!");
+		LOG.trace("Inserting property " + p.getDevice().getSSID() + "_" + p.getSSID() + " to " + propsTable +
+				" table!");
 		InsertDBEReq insert = new InsertDBEReq(idg.generateERQSRequestID(), dbe, propsTable, values);
 		try {
 			dbe.putRequest(insert, t, waitUntilPersisted);
@@ -160,14 +161,14 @@ public class DBAdaptor extends AbstAdaptor {
 	
 	@Override
 	public void propertyValueUpdated(Property p, boolean waitUntilUpdated) throws AdaptorException {
-		LOG.trace("Updating property value of " + p.getOH_ID() + " to " + p.getValue() + " in " + propsTable 
+		LOG.trace("Updating property value of " + p.getSSID() + " to " + p.getValue() + " in " + propsTable
 				+ " in DB...");
 		Thread t = Thread.currentThread();
 		HashMap<String, Object> vals = new HashMap<String, Object>(1, 1);
 		HashMap<String, Object> args = new HashMap<String, Object>(2, 1);
 		vals.put("prop_value", String.valueOf(p.getValue()));
 		args.put("com_id", p.getDevice().getSSID());
-		args.put("cpl_ssid", p.getSSID());
+		args.put("index", p.getIndex());
 		UpdateDBEReq udber = new UpdateDBEReq(idg.generateERQSRequestID(), dbe, propsTable, vals, args);
 		try {
 			dbe.putRequest(udber, t, waitUntilUpdated);

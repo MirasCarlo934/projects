@@ -23,7 +23,7 @@ public class Product implements HTMLTransformable {
 	protected String SSID;
 	protected String name;
 	protected String description;
-	protected HashMap<String, Property> properties = new HashMap<String, Property>(10);
+	protected HashMap<Integer, Property> properties = new HashMap<Integer, Property>(10);
 //	protected Vector<AbstAdaptor> adaptors = new Vector<AbstAdaptor>(1, 1);
 	protected HashMap<String, PropertyType> propertyTypes;
 	private JEEPManager jm;
@@ -151,33 +151,14 @@ public class Product implements HTMLTransformable {
 		return str;
 	}
 	
-	protected void retrieveProperties(ResultSet rs) throws SQLException, IllegalArgumentException {
-		while(rs.next()) {
-			String prod_ssid =  rs.getString("prod_ssid");
-			try{
-				if(!prod_ssid.equals(SSID)) {
-					continue;
-				}
-			} catch(NullPointerException e) {
-				throw new IllegalArgumentException("Product not yet initialized!", e);
-			}
-			PropertyType prop_type = propertyTypes.get(rs.getString("prop_type"));
-			String prop_dispname = rs.getString("prop_dispname");
-			PropertyMode prop_mode = PropertyMode.parseFromString(rs.getString("prop_mode"));
-			String prop_ssid = rs.getString("prop_index");
-			Property prop = new Property(prop_type, prop_ssid, prop_dispname, prop_mode, jm);
-			properties.put(prop.getSSID(), prop);
-		}
-	}
-	
 	/**
 	 * Checks if the property with the specified PID exists in this component
 	 * 
-	 * @param pid The property ID
+	 * @param index The property index
 	 * @return <b>true</b> if the property exists, <b>false</b> otherwise
 	 */
-	public boolean containsProperty(String pid) {
-		return properties.containsKey(pid);
+	public boolean containsProperty(int index) {
+		return properties.containsKey(index);
 	}
 	
 	/**
@@ -208,11 +189,11 @@ public class Product implements HTMLTransformable {
 //	}
 	
 	public void addProperty(Property prop) {
-		properties.put(prop.getSSID(), prop);
+		properties.put(prop.getIndex(), prop);
 	}
 	
-	public Property getProperty(String ssid) {
-		return properties.get(ssid);
+	public Property getProperty(int index) {
+		return properties.get(index);
 	}
 	
 	/**
@@ -222,7 +203,7 @@ public class Product implements HTMLTransformable {
 	 * @return a HashMap containing the copies of each property, the key being the property's CPL SSID and the value being
 	 * 		the property object itself
 	 */
-	public HashMap<String, Property> getProperties() {
+	public HashMap<Integer, Property> getProperties() {
 	    return properties;
 //		HashMap<String, Property> props = new HashMap<String, Property>(properties.size());
 //		Iterator<Property> ps = properties.values().iterator();

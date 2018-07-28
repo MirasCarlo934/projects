@@ -51,7 +51,7 @@
 //        JSONObject json = new JSONObject();
 //        json.put("name", property.getOH_ID());
 //        json.put("type", property.getPropType().getOHIcon());
-//        if(property.getDevice().getProperties().length > 1) {
+//        if(property.getDevice().getPropvals().length > 1) {
 //            json.put("groupNames", new String[]{property.getDevice().getSSID()});
 //            json.put("label", property.getDisplayName());
 //        } else {

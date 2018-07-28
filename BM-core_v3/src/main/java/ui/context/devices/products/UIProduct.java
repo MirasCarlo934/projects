@@ -21,7 +21,7 @@
 //        this.adaptors = adaptors;
 //        this.iconImg = iconImg;
 //
-//        Iterator<Property> props = product.getProperties().values().iterator();
+//        Iterator<Property> props = product.getPropvals().values().iterator();
 //        while(props.hasNext()) {
 //            Property prop = props.next();
 //            properties.put(prop.getSSID(), new UIProperty(prop, adaptors));

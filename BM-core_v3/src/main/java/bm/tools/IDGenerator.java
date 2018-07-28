@@ -196,7 +196,7 @@ public class IDGenerator implements Initializable {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public String generateIntID(int length, String[] existingIDs) {
+	public static String generateIntID(int length, String[] existingIDs) {
 		String id = "";
 		boolean b = false; //true if ID generated is already unique
 		//Vector<String> ids = new Vector<String>(1,1); //container of all existing IDs

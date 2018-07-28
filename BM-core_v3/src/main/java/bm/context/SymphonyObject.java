@@ -10,7 +10,7 @@ import bm.context.rooms.Room;
  * @author carlomiras
  *
  */
-public abstract class SymphonyObject extends SymphonyElement {
+public abstract class SymphonyObject extends SymphonyElement implements OHItemmable, HTMLTransformable {
 	protected Room parentRoom;
 
 	public SymphonyObject(String SSID, Room room, int index) {
