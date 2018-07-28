@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="io.sloeber.core.toolChain.release.111461788">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="io.sloeber.core.toolChain.release.111461788" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="io.sloeber.core.toolChain.release.111461788" name="Release" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="io.sloeber.core.toolChain.release.111461788.345700010" name="/" resourcePath="">
+						<toolChain id="io.sloeber.core.toolChain.release.1548356116" name="Arduino Toolchain (Sloeber edition)" superClass="io.sloeber.core.toolChain.release">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="io.sloeber.targetplatform.203944354" name="Arduino Target" osList="all" superClass="io.sloeber.targetplatform"/>
+							<builder arguments="" buildPath="${workspace_loc:/SymphonyCore}/Release" command="${JANTJE.MAKE_LOCATION}make" id="io.sloeber.sketch.builder.372469942" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" superClass="io.sloeber.sketch.builder"/>
+							<tool id="io.sloeber.tool.sketch.compiler.cpp.1127177124" name="Arduino C++ Compiler" superClass="io.sloeber.tool.sketch.compiler.cpp">
+								<option id="io.sloeber.compiler.cpp.sketch.option.incpath.1828198872" name="Include Paths (-I)" superClass="io.sloeber.compiler.cpp.sketch.option.incpath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/core/core}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WiFi}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WiFi/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/arduinoWebSockets-master}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266-RemoteDebug-Telnet-master}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/arduinoWebSockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoJson}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoJson/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoOTA}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/DNSServer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/DNSServer/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WebServer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WebServer/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/PubSubClient}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/PubSubClient/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266mDNS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WebSockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WebSockets/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266-RemoteDebug-Telnet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Hash}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Hash/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WiFiManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Ethernet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Ethernet/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/SPI}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266HTTPClient}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266HTTPClient/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266httpUpdate}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266httpUpdate/src}&quot;"/>
+								</option>
+								<inputType id="io.sloeber.compiler.cpp.sketch.input.841553547" name="CPP source files" superClass="io.sloeber.compiler.cpp.sketch.input"/>
+							</tool>
+							<tool id="io.sloeber.tool.compiler.c.1661000861" name="Arduino C Compiler" superClass="io.sloeber.tool.compiler.c">
+								<option id="io.sloeber.compiler.c.sketch.option.incpath.1143169627" name="Include Paths (-I)" superClass="io.sloeber.compiler.c.sketch.option.incpath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/core/core}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WiFi}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WiFi/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/arduinoWebSockets-master}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266-RemoteDebug-Telnet-master}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/arduinoWebSockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoJson}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoJson/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoOTA}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/DNSServer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/DNSServer/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WebServer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WebServer/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/PubSubClient}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/PubSubClient/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266mDNS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WebSockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WebSockets/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266-RemoteDebug-Telnet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Hash}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Hash/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WiFiManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Ethernet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Ethernet/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/SPI}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266HTTPClient}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266HTTPClient/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266httpUpdate}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266httpUpdate/src}&quot;"/>
+								</option>
+								<inputType id="io.sloeber.compiler.c.sketch.input.1309994147" name="C Source Files" superClass="io.sloeber.compiler.c.sketch.input"/>
+							</tool>
+							<tool id="io.sloeber.tool.sketch.compiler.s.58738429" name="Arduino Assembler" superClass="io.sloeber.tool.sketch.compiler.s">
+								<option id="io.sloeber.compiler.asm.sketch.option.incpath.433685820" name="Include Paths (-I)" superClass="io.sloeber.compiler.asm.sketch.option.incpath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/core/core}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WiFi}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WiFi/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/arduinoWebSockets-master}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266-RemoteDebug-Telnet-master}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/arduinoWebSockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoJson}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoJson/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ArduinoOTA}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/DNSServer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/DNSServer/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WebServer}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266WebServer/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/PubSubClient}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/PubSubClient/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266mDNS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WebSockets}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WebSockets/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266-RemoteDebug-Telnet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Hash}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Hash/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/WiFiManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Ethernet}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/Ethernet/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/SPI}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266HTTPClient}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266HTTPClient/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266httpUpdate}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyCore/libraries/ESP8266httpUpdate/src}&quot;"/>
+								</option>
+								<inputType id="io.sloeber.compiler.S.sketch.input.948008638" name="Assembly source files" superClass="io.sloeber.compiler.S.sketch.input"/>
+							</tool>
+							<tool id="io.sloeber.tool.ar.322393840" name="Arduino archiver" superClass="io.sloeber.tool.ar"/>
+							<tool id="io.sloeber.tool.combine.1749983755" name="Arduino combiner" superClass="io.sloeber.tool.combine"/>
+							<tool id="io.sloeber.tool.objcopy.eep.280489104" name="Arduino tool Create eeprom" superClass="io.sloeber.tool.objcopy.eep"/>
+							<tool id="io.sloeber.tool.size.892330070" name="Arduino tool Print Size" superClass="io.sloeber.tool.size"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="libraries/ArduinoJson|libraries/ArduinoJson/scripts|libraries/ArduinoJson/fuzzing|libraries/?*/**/?xamples/**|libraries/?*/**/?xtras/**|libraries/?*/**/test*/**|libraries/?*/**/third-party/**|libraries**/._*|libraries/?*/c*/?*|libraries/?*/d*/?*|libraries/?*/D*/?*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="SymphonyCore.null.744989359" name="SymphonyCore"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/SymphonyCore"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+</cproject>
