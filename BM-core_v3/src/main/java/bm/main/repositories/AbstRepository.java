@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import bm.comms.mqtt.MQTTPublisher;
 
 /**
- * DEPRECATED. ALL REPOSITORY OBJECTS NOW IMPLEMENT INITIALIZABLE INTERFACE
- * 
+ * @deprecated ALL REPOSITORY OBJECTS NOW IMPLEMENT INITIALIZABLE INTERFACE.
+ * <br/><br/>
  * The superclass extended by Repository objects
  * <br><br>
  * Repository objects are the ones that hold all data related to the smarthome elements (ie. devices, properties, rooms).
@@ -33,7 +33,7 @@ public abstract class AbstRepository {
 		try {
 			initializeProcess();
 		} catch (Exception e) {
-			LOG.fatal("Cannot initialize repository!", e);
+			LOG.fatal("Cannot initialize " + name + "!", e);
 			return;
 		}
 		LOG.info(name + " has initialized successfully!");
@@ -44,9 +44,5 @@ public abstract class AbstRepository {
 	
 	public boolean hasInitialized() {
 		return initialized;
-	}
-	
-	public void setMQTTPublisher(MQTTPublisher mqttPublisher) {
-		this.mp = mqttPublisher;
 	}
 }

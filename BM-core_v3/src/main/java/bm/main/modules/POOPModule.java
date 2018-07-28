@@ -28,8 +28,6 @@ import bm.tools.SystemTimer;
  *
  */
 
-//TASK Follow new JEEP request/response protocol
-//TASK Handle JEEPResponses accordingly
 public class POOPModule extends Module {
 //	private CIRManager cirr;
 	private String propIDParam;
