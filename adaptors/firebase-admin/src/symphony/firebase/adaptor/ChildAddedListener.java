@@ -8,8 +8,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
-import bm.comms.mqtt.MQTTListener;
-import bm.main.repositories.DeviceRepository;
 import symphony.firebase.vo.FirebaseDevice;
 import bm.context.devices.Device;
 

@@ -58,25 +58,32 @@ function processV1Request (request, response) {
       // Use the Actions on Google lib to respond to Google requests; for other requests use JSON
       if (requestSource === googleAssistantRequest) {
         //query the tree of the room to find the device
-        console.log('test lang ito getting /symphony/bahay/'+room+'/'+device+'/properties/'+property);
+        console.log('SYMPHONY_LOG getting /symphony/bahay/'+room+'/'+device+'/properties/'+property);
         admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties').once('value')
           .then(function(snapshot) {
         	var retVal =  snapshot.val();
         	if (retVal == null) {//device not found
-        		console.log('test lang ito query once retVal is null. No Device found.');
+        		console.log('SYMPHONY_LOG query once retVal is null. No Device found.');
+        		let responseToUser = {
+                        //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
+                        //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
+                        speech: 'There is no ' + device +' in '+ room +'.' , // spoken response
+                        text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nThere is no ' + device +' in '+ room +'.' // displayed response
+                }; 	
+            	sendGoogleResponse(responseToUser);
         	} else {//device found
                 if (property == null) {//property not found, we will assume the default property 'state'
-                	console.log('test lang property is null');
+                	console.log('SYMPHONY_LOG property is null');
                 	if (status == 'on' || status == 'off') {//we will be setting the state property of the device
 //                		if (status == 'on' ) {//we will be setting the state property of the device
                     		//let us check if device has state property
                     		admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties/state').once('value')
               			  	.then(function(snpsht) {
               			  		if (snpsht.val() == null) {//property not found
-              			  			console.log('test lang ito, device has no state property.');
+              			  			console.log('SYMPHONY_LOG device has no state property.');
               			  		} else {//property found, let us update the value
-              			  			console.log('test lang ito, device has state property. id='+snpsht.val().id+' value='+snpsht.val().value);
-              			  			console.log('test lang ito will update /symphony/bahay/'+room+'/'+device+'/properties/state/value to '+status + ' retVal=' + retVal);
+              			  			console.log('SYMPHONY_LOG device has state property. id='+snpsht.val().id+' value='+snpsht.val().value);
+              			  			console.log('SYMPHONY_LOG will update /symphony/bahay/'+room+'/'+device+'/properties/state/value to '+status + ' retVal=' + retVal);
               			  			if (status == 'on')
               			  				admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties/state').update({"/value":"1" , "/isGoogle":"true"});
               			  			else
@@ -84,26 +91,26 @@ function processV1Request (request, response) {
               			  		}      			  		
               			  	});
                 		} else {//we will set the other properties of the device
-                			console.log('test lang ito will set other properties');
+                			console.log('SYMPHONY_LOG will set other properties');
                 			for (var key in retVal) {//loop on all properties of the device to find the specific property
-                    			console.log('test lang ito key='+key+' will find the property');
+                    			console.log('SYMPHONY_LOG key='+key+' will find the property');
                     			admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties/'+key).once('value')
                     			  .then(function(snpsht) {
-                    				  console.log('test lang ito snpsht='+snpsht.val()+' id='+snpsht.val().id+' value='+snpsht.val().value);
+                    				  console.log('SYMPHONY_LOG snpsht='+snpsht.val()+' id='+snpsht.val().id+' value='+snpsht.val().value);
 //                    				  admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties/state/value').update(status);
                     			  });        			
                     		}
                 		}
                 } else {
-                	console.log('test lang property is ' + property);
+                	console.log('SYMPHONY_LOG property is ' + property);
                 	//let us check if device has state property
             		admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties/'+property).once('value')
       			  	.then(function(snpsht) {
       			  		if (snpsht.val() == null) {//property not found
-      			  			console.log('test lang ito, device has no '+property+' property.');
+      			  			console.log('SYMPHONY_LOG device has no '+property+' property.');
       			  		} else {//property found, let us update the value
-      			  			console.log('test lang ito, device has '+property+' property. id='+snpsht.val().id+' value='+snpsht.val().value);
-      			  			console.log('test lang ito will update /symphony/bahay/'+room+'/'+device+'/properties/'+property+'/value to '+status + ' retVal=' + retVal);
+      			  			console.log('SYMPHONY_LOG device has '+property+' property. id='+snpsht.val().id+' value='+snpsht.val().value);
+      			  			console.log('SYMPHONY_LOG will update /symphony/bahay/'+room+'/'+device+'/properties/'+property+'/value to '+status + ' retVal=' + retVal);
       			  			if (status == 'on')
       			  				admin.database().ref('/symphony/bahay/'+room+'/'+device+'/properties/'+property).update({"/value":"1" , "/isGoogle":"true"});
       			  			else
@@ -112,28 +119,28 @@ function processV1Request (request, response) {
       			  	});
                 }
 
-        		//device exists, update the tree for the device
-        	}        	
-        });
-        if (property == null) {
-        	console.log('test lang ulit ito, device has no '+property+' property.');
-        	let responseToUser = {
-                    //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
-                    //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
-                    speech: 'Turning ' + device +' ' + status +' in '+ room +'.' , // spoken response
-                    text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nTurning ' + device +' ' + status+'.' // displayed response
-            }; 	
-        	sendGoogleResponse(responseToUser);
-        } else {
-        	console.log('test lang ulit property is ' + property);
-        	let responseToUser = {
-                    //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
-                    //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
-        			speech: 'Turning ' + device +' ' + property + ' ' + status +' in '+ room +'.' , // spoken response
-                    text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nTurning ' + device +' ' + status+'.' // displayed response
-            };
-        	sendGoogleResponse(responseToUser);
-        }               
+        		//device exists, send response
+                if (property == null) {
+                	console.log('SYMPHONY_LOG device has no '+property+' property.');
+                	let responseToUser = {
+                            //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
+                            //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
+                            speech: 'Turning ' + device +' ' + status +' in '+ room +'.' , // spoken response
+                            text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nTurning ' + device +' ' + status+'.' // displayed response
+                    }; 	
+                	sendGoogleResponse(responseToUser);
+                } else {
+                	console.log('SYMPHONY_LOG property is ' + property);
+                	let responseToUser = {
+                            //googleRichResponse: googleRichResponse, // Optional, uncomment to enable
+                            //googleOutputContexts: ['weather', 2, { ['city']: 'rome' }], // Optional, uncomment to enable
+                			speech: 'Turning ' + device +' ' + property + ' ' + status +' in '+ room +'.' , // spoken response
+                            text: 'This is from Symphony\'s Cloud Default Functions for Firebase editor! :-) \nTurning ' + device +' ' + status+'.' // displayed response
+                    };
+                	sendGoogleResponse(responseToUser);
+                }
+        	}
+        });             
       } else {
         let responseToUser = {
           //data: richResponsesV1, // Optional, uncomment to enable

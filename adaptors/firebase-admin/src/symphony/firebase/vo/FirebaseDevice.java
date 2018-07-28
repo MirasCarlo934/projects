@@ -3,12 +3,14 @@ package symphony.firebase.vo;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
-import org.json.JSONObject;
 
 import com.google.firebase.database.DataSnapshot;
+<<<<<<< Upstream, based on branch 'master' of https://github.com/MirasCarlo934/projects
 
 import bm.context.properties.Property;
 import symphony.firebase.adaptor.Firebase;
+=======
+>>>>>>> b0e7896 commit1
 
 public class FirebaseDevice {
 	public String room;
@@ -43,7 +45,11 @@ public class FirebaseDevice {
 	public FirebaseDevice(bm.context.devices.Device device) {
 		this.id = device.getSSID();
 		this.name = device.getName();		
+<<<<<<< Upstream, based on branch 'master' of https://github.com/MirasCarlo934/projects
 		Property props[] = device.getProperties();
+=======
+		bm.context.properties.Property props[] = device.getProperties();
+>>>>>>> b0e7896 commit1
 		HashMap propertyMap = new HashMap();
 		logger.info("device.name="+device.getName()+" props.length="+props.length);
 		for (int i=0; i<props.length; i++) {

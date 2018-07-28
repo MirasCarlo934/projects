@@ -17,7 +17,10 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/MirasCarlo934/projects
 import bm.comms.mqtt.MQTTPublisher;
+=======
+>>>>>>> b0e7896 commit1
 import bm.context.adaptors.AbstAdaptor;
 import bm.context.adaptors.exceptions.AdaptorException;
 import bm.context.devices.Device;
@@ -43,11 +46,6 @@ public class Firebase extends AbstAdaptor implements Initializable {
 //	private DeviceRepository devices;
 	private Device device;
 	
-	MQTTPublisher mqttPublisher;
-
-	public void setMqttPublisher(MQTTPublisher mqttPublisher) {
-		this.mqttPublisher = mqttPublisher;
-	}
 
 //	public DeviceRepository getDevices() {
 //		return devices;
