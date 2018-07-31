@@ -22,6 +22,10 @@ import bm.main.engines.requests.DBEngine.RawDBEReq;
 import bm.main.interfaces.Initializable;
 import bm.tools.IDGenerator;
 
+/**
+ * The DeviceRepository is the container for all the devices that are registered within the Symphony Environment.
+ * Only one DeviceRepository object must exist in the Symphony Environment.
+ */
 public class DeviceRepository /*extends AbstRepository*/ implements Initializable {
 	private Logger LOG;
 	private String logDomain;
@@ -33,10 +37,19 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	private String deviceQuery;
 	private ProductRepository pr;
 	private RoomRepository rr;
-	private JEEPManager jm;
 	private HashMap<String, Protocol> protocols;
 
-	public DeviceRepository(String logDomain, DBEngine dbm, String deviceQuery, JEEPManager jeepManager,
+	/**
+	 * Constructs the DeviceRepository. The DeviceRepository is initialized by {@link bm.main.Maestro Maestro} in
+	 * the startup phase.
+	 * @param logDomain
+	 * @param dbm
+	 * @param deviceQuery
+	 * @param pr
+	 * @param rr
+	 * @param idGenerator
+	 */
+	public DeviceRepository(String logDomain, DBEngine dbm, String deviceQuery,
 			ProductRepository pr, RoomRepository rr, IDGenerator idGenerator) {
 		this.LOG = Logger.getLogger(logDomain + "." + DeviceRepository.class.getSimpleName());
 		this.logDomain = logDomain;
@@ -45,17 +58,17 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 		this.pr = pr;
 		this.rr = rr;
 		this.idg = idGenerator;
-		this.jm = jeepManager;
 	}
 	
 	@Override
 	public void initialize() throws Exception {
 		retrieveDevices();
-//		updateRoomsInEnvironment();
+		updateDevicesInEnvironment();
 	}
 	
 	/**
-	 * Retrieves all components from DB.
+	 * Retrieves all registered devices from the Symphony Database. This method is ONLY USUALLY called by the
+	 * {@link bm.main.Maestro Maestro} class in the startup phase.
 	 */
 	public void retrieveDevices() {
 		try {
@@ -101,7 +114,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
                         registeredMACs.put(MAC, SSID);
                     } else {
 				        LOG.warn("Device " + SSID + " specifies a non-supported protocol! Device " +
-                                "will not be recognized by Maestro.");
+                                "will not be managed by Maestro.");
                     }
 				}
 			}
@@ -112,6 +125,10 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 		}
 	}
 
+	/**
+	 * Calls an update to all the adaptors connected to the device and the device's properties. This method is ONLY
+	 * USUALLY called by the {@link bm.main.Maestro Maestro} class in the startup phase.
+	 */
     public void updateDevicesInEnvironment() {
         LOG.debug("Updating devices in Symphony Environment...");
         Iterator<Device> devices = this.devices.values().iterator();
@@ -129,43 +146,43 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
         LOG.debug("Devices updated in Symphony Environment!");
     }
 
-	/**
-	 * Creates a new Device object in the Environment. This method sends a registration device request to the created
-	 * device.
-	 *
-	 * @param mac The MAC address of the new Device object
-	 * @param name The name of the new Device object
-	 * @param roomID The room ID of the parent room of the new Device object
-	 * @param prodID The product ID of the product of the new Device object
-	 * @param protocol The protocol of the new Device object
-	 * @param active <b><i>true</i></b> if the device is already active upon registration, <i><b>false</i></b>
-	 *               if not
-	 * @return The Device object created
-	 * @throws AdaptorException
-	 * @throws IllegalArgumentException
-	 */
-	public Device createDevice(String mac, String name, String roomID, String prodID, Protocol protocol,
-							   boolean active)
-			throws AdaptorException, IllegalArgumentException {
-		Room room = rr.getRoom(roomID);
-		Product product = pr.getProduct(prodID);
-		String id = idg.generateCID();
-		if(room == null) {
-			throw new IllegalArgumentException("Room with ID " + roomID + " doesn't exist!");
-		}
-		if(product == null) {
-			throw new IllegalArgumentException("Product with ID " + prodID + " doesn't exist!");
-		}
-		Device device = new Device(logDomain, id, mac, name, id + "_topic", protocol, room,
-				active, product, room.getHighestIndex() + 1, jm);
-		LOG.debug("Creating device in Maestro...");
-		device.create(logDomain, true);
-		device.sendCredentials();
-		devices.put(device.getSSID(), device);
-		registeredMACs.put(device.getMAC(), device.getSSID());
-		LOG.info("Device created!");
-		return device;
-	}
+//	/**
+//	 * Creates a new Device object in the Environment. This method sends a registration device request to the created
+//	 * device.
+//	 *
+//	 * @param mac The MAC address of the new Device object
+//	 * @param name The name of the new Device object
+//	 * @param roomID The ID of the parent room of the new Device object
+//	 * @param prodID The ID of the product of the new Device object
+//	 * @param protocol The protocol of the new Device object
+//	 * @param active <b><i>true</i></b> if the device is already active upon registration, <i><b>false</i></b>
+//	 *               if not
+//	 * @return The Device object created
+//	 * @throws AdaptorException
+//	 * @throws IllegalArgumentException
+//	 */
+//	public Device createDevice(String mac, String name, String roomID, String prodID, Protocol protocol,
+//							   boolean active)
+//			throws AdaptorException, IllegalArgumentException {
+//		Room room = rr.getRoom(roomID);
+//		Product product = pr.getProduct(prodID);
+//		String id = idg.generateCID();
+//		if(room == null) {
+//			throw new IllegalArgumentException("Room with ID " + roomID + " doesn't exist!");
+//		}
+//		if(product == null) {
+//			throw new IllegalArgumentException("Product with ID " + prodID + " doesn't exist!");
+//		}
+//		Device device = new Device(logDomain, id, mac, name, id + "_topic", protocol, room,
+//				active, product, room.getHighestIndex() + 1, jm);
+//		LOG.debug("Creating device in Maestro...");
+//		device.create(logDomain, true);
+//		device.sendCredentials();
+//		devices.put(device.getSSID(), device);
+//		registeredMACs.put(device.getMAC(), device.getSSID());
+//		LOG.info("Device created!");
+//		return device;
+//	}
 
 //	/**
 //	 * Adds a new Device object in the Environment. <i>This method is called mainly by Module objects as a
@@ -185,34 +202,39 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 //		return device;
 //	}
 
+	/**
+	 * Adds a device object to the repository. <b>NOTE:</b> Device is added ONLY to the repository. To integrate
+	 * device to the environment completely, {@link Device#create(String, boolean)} must be called.
+	 * @param device The device object to be added
+	 */
 	public void addDevice(Device device) {
 		devices.put(device.getSSID(), device);
 		registeredMACs.put(device.getMAC(), device.getSSID());
 	}
 	
-	/**
-	 * Detaches the device with the specified identifier from Maestro and the Environment. This method sends a
-	 * detachment request to the device for it to recognize that it is being detached from the Environment.
-	 * 
-	 * @param identifier The SSID or MAC address of the device to be removed
-	 * @param detachmentMessage A message detailing the reason why the specified device is being
-	 *                          removed from the Environment
-	 * @return The device that was removed, <i>null</i> if the SSID specified does not pertain to an
-	 * 		existing device
-	 */
-	public Device detachDevice(String identifier, String detachmentMessage) throws AdaptorException {
-		if(registeredMACs.containsKey(identifier))
-			identifier = registeredMACs.get(identifier);
-		Device d = devices.get(identifier);
-		if(d != null) {
-			d.delete(logDomain, true);
-			d.detachDevice(detachmentMessage);
-			registeredMACs.remove(d.getMAC());
-			devices.remove(identifier);
-			LOG.info("Device " + d.getSSID() + " detached!");
-		}
-		return d;
-	}
+//	/**
+//	 * Detaches the device with the specified identifier from Maestro and the environment. This method sends a
+//	 * detachment request to the device for it to recognize that it is being detached from the Environment.
+//	 *
+//	 * @param identifier The SSID or MAC address of the device to be removed
+//	 * @param detachmentMessage A message detailing the reason why the specified device is being
+//	 *                          removed from the Environment
+//	 * @return The device that was removed, <i>null</i> if the SSID specified does not pertain to an
+//	 * 		existing device
+//	 */
+//	public Device detachDevice(String identifier, String detachmentMessage) throws AdaptorException {
+//		if(registeredMACs.containsKey(identifier))
+//			identifier = registeredMACs.get(identifier);
+//		Device d = devices.get(identifier);
+//		if(d != null) {
+//			d.delete(logDomain, true);
+//			d.detachDevice(detachmentMessage);
+//			registeredMACs.remove(d.getMAC());
+//			devices.remove(identifier);
+//			LOG.info("Device " + d.getSSID() + " detached!");
+//		}
+//		return d;
+//	}
 
 //	/**
 //	 * Detaches the device with the specified identifier from Maestro and the Environment. <i>This method is called
@@ -238,6 +260,11 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 //		return d;
 //	}
 
+	/**
+	 * Removes a device object from the repository. <b>NOTE:</b> Device is removed ONLY from the repository. To
+	 * integrate device to the environment completely, {@link Device#delete(String, boolean)} must be called.
+	 * @param s The SSID or MAC address of the device to be removed
+	 */
 	public Device removeDevice(String s) {
 		if(devices.containsKey(s)) {
 			Device d = devices.remove(s);
@@ -251,9 +278,9 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	}
 	
 	/**
-	 * Returns the device with the specified SSID or MAC
+	 * Returns the device object with the specified SSID or MAC.
 	 * @param s The SSID or MAC to specify
-	 * @return the Component with the specified SSID or MAC, <i>null</i> if nonexistent
+	 * @return the device object with the specified SSID or MAC; <i>null</i> if nonexistent
 	 */
 	public Device getDevice(String s) {
 		if(devices.containsKey(s)) {
@@ -266,26 +293,25 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	}
 	
 	/**
-	 * Returns all the devices registered in this ComponentRepository
-	 * @return the array containing all Components
+	 * Returns all the devices registered in the repository
+	 * @return an array containing all the device objects in the repository
 	 */
 	public Device[] getAllDevices() {
 		return devices.values().toArray(new Device[devices.size()]);
 	}
 	
 	/**
-	 * Returns all devices that are instances of the specified product SSID
-	 * 
-	 * @param prodSSID The product SSID to be specified
-	 * @return the array containing the devices
+	 * Returns all devices that belong to the product with the specified ID.
+	 * @param prodID The product ID to specify
+	 * @return an array containing the devices
 	 */
-	public Device[] getAllDevicesUnderProductSSID(String prodSSID) {
+	public Device[] getAllDevicesUnderProductSSID(String prodID) {
 		Device[] devs = getAllDevices();
 		Vector<Device> d = new Vector<Device>(1,1);
 		
 		for(int i = 0; i < devs.length; i++) {
 			Device dev = devs[i];
-			if(dev.getProduct().getSSID().equals(prodSSID)) {
+			if(dev.getProduct().getSSID().equals(prodID)) {
 				d.add(dev);
 			}
 		}
@@ -294,17 +320,9 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	}
 	
 	/**
-	 * Returns all existing rooms in this ComponentRepository
-	 * @return the HashMap containing all room SSID and room names
-	 */
-	public HashMap<String, String> getAllRooms() {
-		return rooms;
-	}
-	
-	/**
-	 * Checks if the SSID or the MAC specified already exists in this ComponentRepository
-	 * @param str The SSID or MAC to be tested
-	 * @return
+	 * Checks if a device with the specified SSID or MAC already exists in the repository.
+	 * @param str The SSID or MAC address to be checked
+	 * @return <b><i>true</i></b> if the device exists, <b><i>false</i></b> if not
 	 */
 	public boolean containsDevice(String str) {
 		if(devices.containsKey(str) || registeredMACs.containsKey(str)) {
@@ -313,24 +331,12 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 			return false;
 		}
 	}
-	
-	/**
-	 * Checks if a component with the specified name exists in the repository.
-	 * 
-	 * @param name The name of the component to be checked
-	 * @return
-	 */
-	public boolean containsComponentWithName(String name) {
-		Iterator<Device> devs = devices.values().iterator();
-		while(devs.hasNext()) {
-			Device d = devs.next();
-			if(d.getName().equals(name)) {
-				return true;
-			}
-		}
-		return false;
-	}
 
+	/**
+	 * Sets all the protocols supported by the Symphony Environment. This method is ONLY used by the Spring IoC
+	 * Container in the startup phase.
+	 * @param protocols
+	 */
     public void setProtocols(Protocol[] protocols) {
         this.protocols = new HashMap<String, Protocol>(protocols.length, 1);
         for(Protocol protocol : protocols) {

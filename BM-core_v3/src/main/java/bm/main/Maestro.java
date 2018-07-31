@@ -18,35 +18,13 @@ import org.springframework.context.annotation.ImportResource;
 
 import java.util.List;
 
-//import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-//@SpringBootApplication
-//@ComponentScan({"bm.ui"})
-//@PropertySource({"file:configuration/bm.properties", "file:configuration/user.properties"})
-//@ImportResource({
-//	"file:configuration/spring/main-config.xml", "file:configuration/spring/devices-config.xml", 
-//	"file:configuration/spring/adaptors-config.xml", "file:configuration/spring/engines-config.xml", 
-//	"file:configuration/spring/modules-config.xml", "file:configuration/spring/tools-config.xml", 
-//	"file:configuration/spring/core-config.xml", "file:configuration/spring/product-config.xml", 
-//	"file:configuration/spring/comms-config.xml", "file:configuration/spring/openhab-config.xml",
-//	"file:configuration/spring/repositories-config.xml"
-//})
 @SpringBootApplication
 @ComponentScan({"ui"})
-//TASK Do not use @ImportResource and @PropertySource
-//@PropertySource({"file:configuration/bm.properties", "file:configuration/user.properties", 
-//	"file:configuration/ui.properties"})
-//@ImportResource({
-//	"file:configuration/spring/main-config.xml", "file:configuration/spring/devices-config.xml", 
-//	"file:configuration/spring/adaptors-config.xml", "file:configuration/spring/engines-config.xml", 
-//	"file:configuration/spring/modules-config.xml", "file:configuration/spring/tools-config.xml", 
-//	"file:configuration/spring/core-config.xml", "file:configuration/spring/product-config.xml", 
-//	"file:configuration/spring/comms-config.xml", "file:configuration/spring/openhab-config.xml",
-//	"file:configuration/spring/repositories-config.xml"
-//})
-//@ImportResource("${config.locations}")
 @ImportResource({"file:configuration/spring/core-config.xml"})
+/**
+ * The main class of the Maestro application. This is responsible for the initialization of important objects and
+ * starting the application.
+ */
 public class Maestro {
 	private static ApplicationContext applicationContext;
 	private static final int build = 1;
@@ -84,7 +62,7 @@ public class Maestro {
 	
 	 /**
      * Retrieves all objects to be initialized for Symphony to run. Objects are retrieved from the 
-     * Spring IoC container using the <i>ConfigLoader</i> object.
+     * Spring IoC Container.
      */
     public void setup(String[] args) {
     		LOG.info("Starting Maestro... ");
@@ -116,9 +94,13 @@ public class Maestro {
     }
     
     /**
-     * 
+     * Starts Maestro. Maestro is started by initializing objects from bottom-to-top layers, starting from the engine
+	 * layer to the controller layer then, finally, the comm layer.
      */
     public void start() {
+    	/*
+    		NOTE: Order of initialization is VERY IMPORTANT. DO NOT TOUCH!!!
+    	 */
 		//initializes engines
 		while(!engines.isEmpty()) {
 			AbstEngine engine = engines.remove(0);
@@ -164,17 +146,12 @@ public class Maestro {
 		}
 
 		//updates Environment
-        rr.updateRoomsInEnvironment();
-		dr.updateDevicesInEnvironment();
-		
-		/*
-		 * TESTING GROUNDS FOR REPOSITORY TESTING
-		 */
-		
-		/* */	  	
+//        rr.updateRoomsInEnvironment();
+//		dr.updateDevicesInEnvironment();
 		LOG.info("BusinessMachine started!");
 	}
-    
+
+	//TASK: Avoid this!!!
     public static ApplicationContext getApplicationContext() {
     		return applicationContext;
     }

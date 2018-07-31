@@ -26,8 +26,6 @@ public class AbstController {
 	protected String logDomain;
 	@Value("${log.domain.ui}") String cipherStr;
 	@Value("${ui.userPropManager}") String upmStr;
-//	@Autowired
-//	protected ConfigLoader config;
 	@Autowired
 	protected Cipher cipher; //injectable
 	@Autowired

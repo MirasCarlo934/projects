@@ -7,6 +7,10 @@ package bm.main.interfaces;
  *
  */
 public interface Initializable {
-	
+
+	/**
+	 * Initializes the object during startup phase. {@link bm.main.Maestro Maestro} calls this method during startup.
+	 * @throws Exception
+	 */
 	void initialize() throws Exception;
 }

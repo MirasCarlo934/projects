@@ -17,7 +17,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="pr" ref="Products"/>
 		<constructor-arg name="rr" ref="Rooms"/>
 		<constructor-arg name="idGenerator" ref="IDGenerator"/>
-		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 		<property name="protocols" ref="Protocols"/>
 	</bean>
 	<bean id="Rooms" class="bm.main.repositories.RoomRepository">
@@ -33,10 +32,5 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="getProductsQuery" value="${product.queryString}"/>
 		<constructor-arg name="getPropertyTypesQuery" value="${propertyType.queryString}"/>
 		<constructor-arg name="productFactory" ref="ProductFactory"/>
-		<constructor-arg name="specialProducts">
-			<map>
-				<!-- <entry key="0010" value-ref="TimerProductFactory"/> -->
-			</map>
-		</constructor-arg>
 	</bean>
 </beans>
