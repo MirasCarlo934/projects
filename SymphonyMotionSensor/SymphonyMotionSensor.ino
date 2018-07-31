@@ -52,10 +52,10 @@ void setup()
 	product.room = "U7YY";  //salas
 	product.name = "PIR";
 	int pIndex;
-	product.addProperty(1, "0025", true, LED_PIN1, SymphProduct::createGui("Mode", BUTTON_OUT, "Latch", 0, 1, 0));
+	product.addProperty(1, "1", true, LED_PIN1, SymphProduct::createGui("Mode", BUTTON_OUT, "Latch", 0, 1, 0));
 //	pIndex = product.addProperty(1, 12, BUTTON_OUT, true, "0025", "Switch", 0, 1, 0);
-	product.addProperty(2, "0026", true, INPUT_PIN, SymphProduct::createGui("Mode", BUTTON_IN, "Sensor", 0, 1, 0));
-	product.addProperty(3, "0060", false, SymphProduct::createGui("State", BUTTON_OUT, "State", 0, 1, 0));
+	product.addProperty(2, "2", true, INPUT_PIN, SymphProduct::createGui("Mode", BUTTON_IN, "Sensor", 0, 1, 0));
+	product.addProperty(3, "3", false, SymphProduct::createGui("State", BUTTON_OUT, "State", 0, 1, 0));
 //	pIndex = product.addProperty(13, INPUT_PIN, BUTTON_IN, true, "0026", "Sensor", 0, 1, 0);
 	//	pinMode(INPUT_PIN, INPUT);
     oldInputState = digitalRead(INPUT_PIN);
@@ -82,14 +82,14 @@ void loop()
 				oldInputState = !oldInputState;
 				char state[2];
 				sprintf(state, "%d", oldInputState);
-				Symphony::setProperty("0026", state);
-				MqttUtil::sendCommand("0026", oldInputState);
+				Symphony::setProperty("2", state);
+				MqttUtil::sendCommand("2", oldInputState);
 			}
 		} else {
 			char state[2];
 			sprintf(state, "%d", inputState);
-			Symphony::setProperty("0026", state);
-			MqttUtil::sendCommand("0026", inputState);
+			Symphony::setProperty("2", state);
+			MqttUtil::sendCommand("2", inputState);
 			Serial.println("*** MotionSensor isMomentary\n");
 		}
 	}
