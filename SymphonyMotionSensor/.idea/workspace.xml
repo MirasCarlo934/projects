@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="false">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="198356cf-8693-4d21-8daf-ab9a61662a92" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/clion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/platformio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/lib/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/platformio.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/src/test.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/clion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/platformio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/lib/MqttUtil/MqttUtil.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/lib/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/platformio.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/src/test.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/serialmonitor_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-esp-clion/src/test.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/configuration/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/configuration/log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/Maestro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/Maestro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/ui/webapp/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/ui/webapp/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.cproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.ino.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.settings/language.settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.settings/org.eclipse.cdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.ino.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.ino.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/CloudMqttUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/CloudMqttUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/MqttUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/MqttUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/PushBullet.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/PushBullet.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SpiffsUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SpiffsUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.elf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyProduct.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyProduct.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/arduino.ar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin-v1.1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin.html.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/control.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/control.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/sample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony-v1.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/readme/Mkspiffs_esptool_settings.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/readme/load_datafile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/spiffs/data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../esp8266-clion/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../esp8266-clion/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../esp8266-clion/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../esp8266-clion/platformio.ini" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-527576157">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="77" />
+    <option name="y" value="23" />
+    <option name="width" value="1241" />
+    <option name="height" value="826" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SymphonyMotionSensor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SymphonyMotionSensor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="198356cf-8693-4d21-8daf-ab9a61662a92" name="Default Changelist" comment="" />
+      <created>1533084999910</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533084999910</updated>
+      <workItem from="1533085001480" duration="118000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="118000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="77" y="23" width="1241" height="826" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24979855" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+</project>

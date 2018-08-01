@@ -250,7 +250,7 @@ public class AdminController extends AbstController {
 		}
 		
 		LOG.debug("Adding new product to ProductRepository...");
-		pr.retrieveProducts();
+		pr.retrieveProductsFromDB();
 		
 		model.addAttribute("status", true);
 		LOG.info("Product " + ssid + " (" + name + ") created!");

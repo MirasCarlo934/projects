@@ -3,7 +3,6 @@ package bm.main.repositories;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
@@ -54,17 +53,17 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 	 */
 	@Override
 	public void initialize() throws Exception {
-		retrievePropertyTypes();
+		retrievePropertyTypesFromDB();
 		mainProdFactory.setPropertyTypes(propertyTypes);
-		retrieveProducts();
+		retrieveProductsFromDB();
 	}
 
 	/**
 	 * Retrieves all products from the Symphony Database. This method is ONLY USUALLY called by the
-	 * {@link bm.main.Maestro Maestro} class in the startup phase.
+	 * {@link bm.main.Maestro Maestro} in the startup phase.
 	 */
 	//TASK recode this to be simpler, use individual SelectDBEReq for each table instead
-	public void retrieveProducts() {
+	public void retrieveProductsFromDB() {
 		LOG.info("Populating products from DB...");
 		RawDBEReq request = new RawDBEReq(idg.generateERQSRequestID(), dbe, getProductsQuery);
 		Object o;
@@ -118,9 +117,9 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 
 	/**
 	 * Retrieves all property types from the Symphony Database. This method is ONLY USUALLY called by the
-	 * {@link bm.main.Maestro Maestro} class in the startup phase.
+	 * {@link bm.main.Maestro Maestro} in the startup phase.
 	 */
-	public void retrievePropertyTypes() {
+	public void retrievePropertyTypesFromDB() {
 		LOG.info("Retrieving property types from DB...");
 		RawDBEReq request = new RawDBEReq(idg.generateERQSRequestID(), dbe, getPropertyTypesQuery);
 		Object o;
@@ -165,7 +164,7 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 	/**
 	 * Adds a product object to the repository. <b>NOTE:</b> Product is added ONLY to the repository and does not
 	 * handle the persistence of a product to the Symphony database.
-	 * @param product The product object to be added
+	 * @param product The {@link Product} to be added
 	 */
 	public void addProduct(Product product) {
 		products.put(product.getSSID(), product);
@@ -191,7 +190,7 @@ public class ProductRepository /*extends AbstRepository */ implements Initializa
 	/**
 	 * Adds a property type object to the repository. <b>NOTE:</b> Property type is added ONLY to the repository and
 	 * does not handle the persistence of a property type to the Symphony database.
-	 * @param ptype The property type object to be added
+	 * @param ptype The {@link PropertyType} to be added
 	 */
 	public void addPropertyType(PropertyType ptype) {
 		propertyTypes.put(ptype.getSSID(), ptype);

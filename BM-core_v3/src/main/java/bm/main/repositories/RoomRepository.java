@@ -15,42 +15,47 @@ import bm.main.engines.requests.DBEngine.RawDBEReq;
 import bm.main.interfaces.Initializable;
 import bm.tools.IDGenerator;
 
-public class RoomRepository /*extends AbstRepository*/ implements Initializable {
+/**
+ * The RoomRepository is the container for all the the rooms in the Symphony Environment. Only one RoomRepository
+ * object must exist in the Symphony Environment.
+ */
+public class RoomRepository implements Initializable {
 	private Logger LOG;
 	private String logDomain;
 	protected DBEngine dbe;
 	protected HashMap<String, Room> rooms = new HashMap<String, Room>(1);
 	private String getRoomsQuery;
 	protected IDGenerator idg;
-//	private DBAdaptor dba;
 	private Room recentlyAddedRoom;
 
-	public RoomRepository(DBEngine dbe, String getRoomsQuery, String logDomain, IDGenerator idg
-			/*DBAdaptor dba, */) {
+	public RoomRepository(DBEngine dbe, String getRoomsQuery, String logDomain, IDGenerator idg) {
 		this.LOG = Logger.getLogger(logDomain + "." + RoomRepository.class.getSimpleName());
 		this.logDomain = logDomain;
 		this.dbe = dbe;
 		this.getRoomsQuery = getRoomsQuery;
 		this.idg = idg;
-//		this.dba = dba;
 	}
-	
+
+	/**
+	 * @see Initializable#initialize()
+	 */
 	@Override
 	public void initialize() throws Exception {
 		retrieveRoomsFromDB();
-//		updateRoomsInEnvironment();
 	}
-	
+
+	/**
+	 * Retrieves all rooms from the Symphony Database. This method is ONLY USUALLY called by the
+	 * {@link bm.main.Maestro Maestro} in the startup phase.
+	 */
 	public void retrieveRoomsFromDB() {
 		LOG.info("Retrieving rooms from DB...");
 		RawDBEReq request = new RawDBEReq(idg.generateERQSRequestID(), dbe, getRoomsQuery);
 		Object o;
 		try {
 			o = dbe.putRequest(request, Thread.currentThread(), true);
-		} catch (EngineException e1) {
-			EngineException e = e1;
-			LOG.fatal("Cannot retrieve rooms from DB!", e);
-			return;
+		} catch (EngineException e) {
+			throw(new SQLException("Cannot retrieve rooms from DB!", e));
 		}
 		ResultSet rooms_rs = (ResultSet) o;
 		try {
@@ -73,46 +78,23 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 			LOG.debug(rooms.size() + " rooms added!");
 			rooms_rs.close();
 		} catch (SQLException e) {
-			LOG.fatal("Cannot retrieve rooms from DB!", e);
-//			mp.publishToErrorTopic("Cannot retrieve rooms from DB!");
-			return;
+			throw(new SQLException("Cannot retrieve rooms from DB!", e));
 		}
-		
-		/*
-		 * Sets all parent rooms after all rooms from DB was retrieved 
-		 */
-//		while(v_rooms.isEmpty()) {
-//			for(int i = 0; i < v_rooms.size(); i++) { 
-//				Room room = v_rooms.get(i);
-//				if(room.getParentRoom() != null) {
-//					Room parent = room.getParentRoom();
-//					if(room.getIndex() <= parent.getRooms().length) {
-//						room.setRoom(rooms.get(parent.getSSID()));
-//						v_rooms.remove(i);
-//					}
-//				} else {
-//					v_rooms.remove(i);
-//				}
-//			}
-//		}
 		Iterator<Room> roomObjs = rooms.values().iterator();
 		while(roomObjs.hasNext()) { 
 			Room room = roomObjs.next();
 			if(room.getParentRoom() != null) {
 				Room parent = room.getParentRoom();
 				room.setRoom(rooms.get(parent.getSSID()));
-//				try {
-//					room.setRoom(rooms.get(parent.getSSID()));
-//				} catch (AdaptorException e) {
-//					LOG.error("Room " + room.getSSID() + " (" + room.getName() + ") cannot be put into "
-//							+ "its parent room (ID:" + parent.getSSID() + ", name:" + parent.getName() +")!", 
-//							e);
-//				}
 			}
 		}
 		LOG.debug("Room retrieval complete!");
 	}
 
+	/**
+	 * Calls an update to all the adaptors connected to the rooms. This method is ONLY USUALLY called by the
+	 * {@link bm.main.Maestro Maestro} in the startup phase.
+	 */
 	public void updateRoomsInEnvironment() {
 	    LOG.debug("Updating rooms in Symphony Environment...");
         Iterator<Room> rooms = this.rooms.values().iterator();
@@ -128,41 +110,20 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
     }
 	
 	/**
-	 * Updates the OpenHAB instance. Adds an item representation for each room in OpenHAB and removes 
-	 * the ones that are not included in this repository<br><br>
-	 * 
-	 * <b>NOTE:</b> Rooms must be retrieved from DB first! Otherwise, OpenHAB will be wiped of group
-	 * items! 
-	 */
-	//TASK Remove this. This function must exist outside of core Maestro functionality.
-//	public void updateOH() {
-//		LOG.debug("Updating OpenHAB item registry!");
-//		Iterator<Room> rooms = this.rooms.values().iterator();
-//		while(rooms.hasNext()) {
-//			try {
-//				rooms.next().createExcept(new AbstAdaptor[]{dba}, logDomain, false);
-//			} catch (AdaptorException e) {
-//				LOG.fatal("Cannot updateRules rooms in OpenHAB sitemap! OpenHAB will show erroneous sitemap contents!",
-//						e);
-////				mp.publishToErrorTopic("Cannot updateRules rooms in OpenHAB sitemap! See log details!");
-//			}
-//		}
-//	}
-	
-	/**
 	 * Checks if the room with the specified room ID exists.
 	 * 
 	 * @param roomID The room ID to check
-	 * @return <b>True</b> if repository contains the room, <b>false</b> otherwise
+	 * @return <b>true</b> if the room exists, <b>false</b> if not
 	 */
 	public boolean containsRoom(String roomID) {
 		return rooms.containsKey(roomID);
 	}
 	
 	/**
-	 * Adds a Room object to this RoomRepository
+	 * Adds a room object to the repository. <b>NOTE:</b> Room is added ONLY to the repository. To integrate
+	 * room to the environment completely, {@link Room#create(String, boolean)} must be called.
 	 * 
-	 * @param r The Room object to be added
+	 * @param r The {@link Room} to be added
 	 */
 	public void addRoom(Room r) {
 		rooms.put(r.getSSID(), r);
@@ -170,10 +131,11 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 	}
 	
 	/**
-	 * Deletes the Room object that represents a room in the Symphony system.
+	 * Removes a room object from the repository. <b>NOTE:</b> Room is added ONLY to the repository. To integrate
+	 * room to the environment completely, {@link Room#create(String, boolean)} must be called.
 	 * 
 	 * @param roomID The room ID of the Room object to delete
-	 * @return The Room object with the specified room ID, <i>null</i> if the room ID does not exist in the 
+	 * @return The {@link Room} with the specified room ID, <i>null</i> if the room ID does not exist in the
 	 * 		repository
 	 */
 	public Room removeRoom(String roomID) {
@@ -181,9 +143,9 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 	}
 	
 	/**
-	 * Returns the most recently added room in this RoomRepository
+	 * Returns the most recently added room in the repository
 	 * 
-	 * @return The room object
+	 * @return The {@link Room}
 	 */
 	public Room getRecentlyAddedRoom() {
 		return recentlyAddedRoom;
@@ -201,9 +163,9 @@ public class RoomRepository /*extends AbstRepository*/ implements Initializable 
 	}
 	
 	/**
-	 * Returns all the rooms in this RoomRepository
+	 * Returns all the rooms in the repository
 	 * 
-	 * @return An array of Room objects
+	 * @return An array of {@link Room Rooms}
 	 */
 	public Room[] getAllRooms() {
 		return rooms.values().toArray(new Room[rooms.size()]);

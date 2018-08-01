@@ -7,11 +7,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import bm.comms.Protocol;
-import bm.context.products.Product;
 import bm.context.properties.Property;
-import bm.context.rooms.Room;
-import bm.jeep.JEEPManager;
-import bm.jeep.vo.JEEPRequest;
 import org.apache.log4j.Logger;
 
 import bm.context.adaptors.exceptions.AdaptorException;
@@ -62,15 +58,15 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	
 	@Override
 	public void initialize() throws Exception {
-		retrieveDevices();
+		retrieveDevicesFromDB();
 		updateDevicesInEnvironment();
 	}
 	
 	/**
 	 * Retrieves all registered devices from the Symphony Database. This method is ONLY USUALLY called by the
-	 * {@link bm.main.Maestro Maestro} class in the startup phase.
+	 * {@link bm.main.Maestro Maestro} in the startup phase.
 	 */
-	public void retrieveDevices() {
+	public void retrieveDevicesFromDB() {
 		try {
 			LOG.info("Retrieving devices from DB...");
 			RawDBEReq dber1 = new RawDBEReq(idg.generateERQSRequestID(), mainDBE, deviceQuery);
@@ -126,8 +122,8 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	}
 
 	/**
-	 * Calls an update to all the adaptors connected to the device and the device's properties. This method is ONLY
-	 * USUALLY called by the {@link bm.main.Maestro Maestro} class in the startup phase.
+	 * Calls an update to all the adaptors connected to the devices and the devices' properties. This method is ONLY
+	 * USUALLY called by the {@link bm.main.Maestro Maestro} in the startup phase.
 	 */
     public void updateDevicesInEnvironment() {
         LOG.debug("Updating devices in Symphony Environment...");
@@ -205,7 +201,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	/**
 	 * Adds a device object to the repository. <b>NOTE:</b> Device is added ONLY to the repository. To integrate
 	 * device to the environment completely, {@link Device#create(String, boolean)} must be called.
-	 * @param device The device object to be added
+	 * @param device The {@link Device} to be added
 	 */
 	public void addDevice(Device device) {
 		devices.put(device.getSSID(), device);
@@ -262,7 +258,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 
 	/**
 	 * Removes a device object from the repository. <b>NOTE:</b> Device is removed ONLY from the repository. To
-	 * integrate device to the environment completely, {@link Device#delete(String, boolean)} must be called.
+	 * delete device from the environment completely, {@link Device#delete(String, boolean)} must be called.
 	 * @param s The SSID or MAC address of the device to be removed
 	 */
 	public Device removeDevice(String s) {

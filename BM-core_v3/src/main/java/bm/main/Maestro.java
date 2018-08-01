@@ -146,8 +146,6 @@ public class Maestro {
 		}
 
 		//updates Environment
-//        rr.updateRoomsInEnvironment();
-//		dr.updateDevicesInEnvironment();
 		LOG.info("BusinessMachine started!");
 	}
 
