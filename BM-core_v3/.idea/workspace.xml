@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bdadd4a-a8b2-4822-9eda-abbd8ead1a0f" name="Default" comment="Added productless registration">
+    <list default="true" id="7bdadd4a-a8b2-4822-9eda-abbd8ead1a0f" name="Default" comment="Fixed startup phase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration/spring/modules-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/spring/modules-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,15 +63,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4284" />
-          <entry key="txt" value="34" />
+          <entry key="java" value="4293" />
+          <entry key="txt" value="58" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4284" />
-          <entry key="PLAIN_TEXT" value="34" />
+          <entry key="JAVA" value="4293" />
+          <entry key="PLAIN_TEXT" value="58" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
@@ -86,7 +81,7 @@
           <entry key="PROPERTIES" value="1" />
           <entry key="backup" value="1" />
           <entry key="cir" value="3" />
-          <entry key="java" value="21" />
+          <entry key="java" value="22" />
           <entry key="properties" value="1" />
           <entry key="xml" value="5" />
         </counts>
@@ -94,7 +89,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="2" />
-          <entry key="JAVA" value="21" />
+          <entry key="JAVA" value="22" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="5" />
@@ -107,15 +102,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configuration/bm.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="125" column="30" selection-start-line="125" selection-start-column="30" selection-end-line="125" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -143,6 +129,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -161,11 +156,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="328" column="80" selection-start-line="328" selection-start-column="80" selection-end-line="328" selection-end-column="80" />
+            <state relative-caret-position="175">
+              <caret line="335" column="50" lean-forward="true" selection-start-line="335" selection-start-column="50" selection-end-line="335" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -295,12 +290,12 @@
         <option value="$PROJECT_DIR$/src/main/java/bm/main/Maestro.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/ProductRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java" />
         <option value="$PROJECT_DIR$/configuration/spring/modules-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/POOPModule.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java" />
       </list>
     </option>
   </component>
@@ -608,7 +603,7 @@
       <workItem from="1533133185462" duration="434000" />
       <workItem from="1533166525858" duration="9000" />
       <workItem from="1533167923222" duration="200000" />
-      <workItem from="1533339112593" duration="2069000" />
+      <workItem from="1533339112593" duration="2295000" />
     </task>
     <task id="LOCAL-00001" summary="Introduced AdaptorManager and streamlined context objects.">
       <created>1528467532761</created>
@@ -680,11 +675,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532796312593</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed startup phase">
+      <created>1533389823894</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1533389823895</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196389000" />
+    <option name="totallyTimeSpent" value="196615000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -699,7 +701,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5123384" visible="true" weight="0.21944444" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5123384" visible="true" weight="0.21944444" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -783,7 +785,8 @@
     <MESSAGE value="Core functions functional." />
     <MESSAGE value="Added productless registration" />
     <MESSAGE value="Added javadoc (pt. 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added javadoc (pt. 1)" />
+    <MESSAGE value="Fixed startup phase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed startup phase" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/388d9b2e-6786-4fb4-b87f-221dfdcbd980/console_1.sql">
@@ -1025,13 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="153" column="7" selection-start-line="153" selection-start-column="7" selection-end-line="153" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2790">
@@ -1116,8 +1112,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="328" column="80" selection-start-line="328" selection-start-column="80" selection-end-line="328" selection-end-column="80" />
+        <state relative-caret-position="175">
+          <caret line="335" column="50" lean-forward="true" selection-start-line="335" selection-start-column="50" selection-end-line="335" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/RoomRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
         </state>
       </provider>
     </entry>
