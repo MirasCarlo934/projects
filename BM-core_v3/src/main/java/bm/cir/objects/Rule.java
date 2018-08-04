@@ -12,7 +12,6 @@ import org.dom4j.Element;
 public class Rule implements HTMLTransformable {
 	private int index;
 	private String name;
-//	private Conditional condition;
 	private Argument[] arguments;
 	private ExecutionBlock[] execBlocks;
 	
@@ -26,18 +25,9 @@ public class Rule implements HTMLTransformable {
 	public Rule(int index, String name, Argument[] arguments, ExecutionBlock[] execBlocks) {
 		this.index = index;
 		this.name = name;
-//		setCondition(condition);
 		setArguments(arguments);
 		setExecBlocks(execBlocks);
 	}
-
-//	public Rule(int index, String name, Conditional condition, Argument[] arguments, ExecutionBlock[] execBlocks) {
-//		this.index = index;
-//		this.name = name;
-//		setCondition(condition);
-//		setArguments(arguments);
-//		setExecBlocks(execBlocks);
-//	}
 	
 	/**
 	 * Checks if the specified component, property, and property value satisfies an argument in this rule

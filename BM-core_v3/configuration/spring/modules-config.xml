@@ -43,12 +43,10 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<constructor-arg name="logDomain" value="${log.domain.poop}"/>
 		<constructor-arg name="errorLogDomain" value="${log.domain.error}"/>
 		<constructor-arg name="RTY" value="${rty.poop}"/>
-		<!-- <constructor-arg name="mp" ref="MQTTPublisher"/> -->
 		<constructor-arg name="dr" ref="Devices"/>
 		<constructor-arg name="jeepManager" ref="JEEPManager"/>
 		<constructor-arg name="propIDParam" value="${poop.param.propertyID}"/>
 		<constructor-arg name="propValParam" value="${poop.param.propertyValue}"/>
-		<constructor-arg name="sysTimer" ref="SystemTimer"/>
 		<!-- <constructor-arg name="extensions">
 			<array>
 				<ref bean="OH.POOPExtension"/>

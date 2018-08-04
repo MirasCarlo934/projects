@@ -5,10 +5,10 @@ public abstract class CodeBlock {
 	private int propIndex;
 	private Object propValue;
 	
-	public CodeBlock(String comID, String comProperty, Object comValue) {
-		setDeviceID(comID);
-		setDeviceProperty(Integer.parseInt(comProperty));
-		setPropValue(comValue);
+	public CodeBlock(String devID, String devProperty, Object propValue) {
+		setDeviceID(devID);
+		setDeviceProperty(Integer.parseInt(devProperty));
+		setPropValue(propValue);
 	}
 	
 	/**

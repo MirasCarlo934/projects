@@ -48,7 +48,7 @@ public class RoomRepository implements Initializable {
 	 * Retrieves all rooms from the Symphony Database. This method is ONLY USUALLY called by the
 	 * {@link bm.main.Maestro Maestro} in the startup phase.
 	 */
-	public void retrieveRoomsFromDB() {
+	public void retrieveRoomsFromDB() throws SQLException{
 		LOG.info("Retrieving rooms from DB...");
 		RawDBEReq request = new RawDBEReq(idg.generateERQSRequestID(), dbe, getRoomsQuery);
 		Object o;

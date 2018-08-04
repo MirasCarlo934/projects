@@ -287,7 +287,7 @@ public class CIRManager implements Initializable, Runnable {
 					List<Element> raw_args_com_props = raw_args_com.getChildren("property");
 					for(int k = 0; k < raw_args_com_props.size(); k++) { //for each component property argument
 						Element raw_args_com_prop = raw_args_com_props.get(k);
-						String pid = raw_args_com_prop.getAttributeValue("id");
+						String pid = raw_args_com_prop.getAttributeValue("index");
 						Object pval = raw_args_com_prop.getAttributeValue("value");
 						if(!dev.containsProperty(pid)) {
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property \"" + pid + "\" in "
@@ -326,7 +326,7 @@ public class CIRManager implements Initializable, Runnable {
 					List<Element> raw_execs_com_props = raw_execs_com.getChildren("property");
 					for(int k = 0; k < raw_execs_com_props.size(); k++) {
 						Element raw_execs_com_prop = raw_execs_com_props.get(k);
-						String pid = raw_execs_com_prop.getAttributeValue("id");
+						String pid = raw_execs_com_prop.getAttributeValue("index");
 						Object pval = raw_execs_com_prop.getAttributeValue("value");
 						if(!dev.containsProperty(pid)) {
 							LOG.warn("Rule \"" + rule_name + "\" contains invalid property \"" + pid + "\" in "
