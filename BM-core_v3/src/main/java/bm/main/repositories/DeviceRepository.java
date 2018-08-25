@@ -8,6 +8,9 @@ import java.util.Vector;
 
 import bm.comms.Protocol;
 import bm.context.properties.Property;
+import bm.context.properties.PropertyMode;
+import bm.context.properties.PropertyType;
+import bm.jeep.JEEPManager;
 import org.apache.log4j.Logger;
 
 import bm.context.adaptors.exceptions.AdaptorException;
@@ -34,6 +37,7 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 	private ProductRepository pr;
 	private RoomRepository rr;
 	private HashMap<String, Protocol> protocols;
+	private JEEPManager jm;
 
 	/**
 	 * Constructs the DeviceRepository. The DeviceRepository is initialized by {@link bm.main.Maestro Maestro} in
@@ -90,22 +94,29 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 				int index = devs_rs.getInt("index");
 				String protocol = devs_rs.getString("protocol");
 				
-				String prop_index = devs_rs.getString("prop_index");
+				int prop_index = devs_rs.getInt("prop_index");
+//				String prop_dispname = devs_rs.getString("prop_name");
+//				PropertyType ptype = pr.getPropertyType(devs_rs.getString("prop_type"));
+//				PropertyMode pmode = PropertyMode.parseFromString(devs_rs.getString("prop_mode"));
 				Object prop_val = devs_rs.getString("prop_value");
 				String prop_id = SSID + "_" + prop_index;
 				if(devices.containsKey(SSID)) {
-					Property prop = getDevice(SSID).getProperty(prop_id);
+					Property prop = getDevice(SSID).getProperty(prop_index);
 					LOG.debug("Setting property: " + prop_id + " (" + prop.getDisplayName() + ") of device: " + SSID +
 							" with value: " + prop_val);
 					prop.setValue(prop_val);
 				} else {
 				    if(protocols.containsKey(protocol)) {
                         LOG.debug("Adding device " + SSID + " (" + name + ") to repository!");
-                        Device d = pr.getProduct(prod_id).createDevice(SSID, MAC, name, topic,
-                                protocols.get(protocol), rr.getRoom(room), active, index);
+						Device d = pr.getProduct(prod_id).createDevice(SSID, MAC, name, topic,
+								protocols.get(protocol), rr.getRoom(room), active, index);
+                        if(prod_id.equals("0000")) {
+                        	//TASK FIX THIS!!!
+//							d.addProperty(new Property(ptype, prop_index, prop_dispname, pmode, jm));
+						}
                         LOG.debug("Setting property: " + prop_id + " of device: " + SSID +
                                 " with value: " + prop_val);
-                        d.getProperty(prop_id).setValue(prop_val);
+                        d.getProperty(prop_index).setValue(prop_val);
                         devices.put(SSID, d);
                         registeredMACs.put(MAC, SSID);
                     } else {

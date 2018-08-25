@@ -1,2 +1,1 @@
-2018-07-29 00:45:31,761 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB
-2018-07-29 00:45:44,675 WARN  [Thread1:Process1] (DB.DBAdaptor) 'propertyDeleted()' method is not supported in DBAdaptor.
+2018-08-06 23:35:44,593 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB

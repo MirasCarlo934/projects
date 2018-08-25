@@ -350,7 +350,7 @@ public class Device extends SymphonyObject {
 	 * @param pid The property ID
 	 * @return <b>true</b> if the property exists, <b>false</b> otherwise
 	 */
-	public boolean containsProperty(String pid) {
+	public boolean containsProperty(int pid) {
 		return properties.containsKey(pid);
 	}
 	
@@ -483,6 +483,11 @@ public class Device extends SymphonyObject {
     		p.setDevice(this);
 		}
 		this.properties = properties;
+	}
+
+	public void addProperty(Property property) {
+    	property.setDevice(this);
+    	properties.put(property.getIndex(), property);
 	}
 
 	@Override

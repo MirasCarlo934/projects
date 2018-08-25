@@ -92,7 +92,7 @@ public class JEEPManager {
     public void sendPOOPRequest(Property property) {
         LOG.debug("Sending POOP request...");
         JEEPMessage msg = new ReqPOOP(idg.generateRID(), property.getDevice().getSSID(), poopRTY,
-                property.getDevice().getProtocol(), poopPropIdParam, poopPropValParam, property.getSSID(),
+                property.getDevice().getProtocol(), poopPropIdParam, poopPropValParam, property.getIndex(),
                 property.getValue());
         msg.send();
     }

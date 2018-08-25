@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SymphonyMotionSensor-clion"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_REBUILD_PROJECT_INDEX">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_REBUILD_PROJECT_INDEX"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPDATE_ALL">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPDATE_ALL"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPLOADFS">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPLOADFS"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_BUILD">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_BUILD"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_PROGRAM">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_PROGRAM"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_TEST">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_TEST"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_CLEAN">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_CLEAN"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SymphonyMotionSensor-clion">
+				<Option output="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/SymphonyMotionSensor-clion" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Ethernet/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/GDBStub/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Hash/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SD/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SPISlave/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Servo/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SoftwareSerial"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/TFT_Touch_Shield_V2"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/esp8266/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include/c++/4.8.2"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include/c++/4.8.2/xtensa-lx106-elf"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include-fixed"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/tool-unity"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 SymphonyMotionSensor-clion"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SymphonyMotionSensor-clion/fast">
+				<Option output="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/SymphonyMotionSensor-clion" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/cores/esp8266"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Ethernet/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/GDBStub/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Hash/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SD/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SPISlave/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Servo/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/SoftwareSerial"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/TFT_Touch_Shield_V2"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/framework-arduinoespressif8266/libraries/esp8266/src"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include/c++/4.8.2"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include/c++/4.8.2/xtensa-lx106-elf"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/toolchain-xtensa/lib/gcc/xtensa-lx106-elf/4.8.2/include-fixed"/>
+					<Add directory="/Users/carlomiras/.platformio/packages/tool-unity"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 SymphonyMotionSensor-clion/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PLATFORMIO_UPLOAD">
+				<Option working_dir="/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 PLATFORMIO_UPLOAD"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/.clang-format">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/.gitattributes">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/.github/ISSUE_TEMPLATE.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/.gitignore">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/.library.json">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/.mbedignore">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/.travis.yml">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/ArduinoJson.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/CHANGELOG.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/CMakeLists.txt">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/CONTRIBUTING.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/LICENSE.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/README.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/SUPPORT.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/appveyor.yml">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/banner.svg">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/JsonConfigFile/JsonConfigFile.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/JsonGeneratorExample/JsonGeneratorExample.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/JsonHttpClient/JsonHttpClient.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/JsonParserExample/JsonParserExample.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/JsonServer/JsonServer.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/JsonUdpBeacon/JsonUdpBeacon.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/ProgmemExample/ProgmemExample.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/examples/StringExample/StringExample.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/keywords.txt">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/library.json">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/library.properties">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Configuration.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/Encoding.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/JsonBufferAllocated.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/JsonFloat.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/JsonInteger.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/JsonVariantAs.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/JsonVariantContent.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/JsonVariantDefault.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/JsonVariantType.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/List.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/ListConstIterator.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/ListIterator.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/ListNode.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/NonCopyable.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/ReferenceType.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Data/ValueSaver.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Deserialization/Comments.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Deserialization/JsonParser.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Deserialization/JsonParserImpl.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Deserialization/StringWriter.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/DynamicJsonBuffer.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonArray.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonArrayImpl.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonArraySubscript.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonBuffer.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonBufferBase.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonBufferImpl.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonObject.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonObjectImpl.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonObjectSubscript.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonPair.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonVariant.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonVariantBase.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonVariantCasts.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonVariantComparisons.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonVariantImpl.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonVariantOr.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/JsonVariantSubscripts.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Polyfills/attributes.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Polyfills/ctype.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Polyfills/isFloat.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Polyfills/isInteger.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Polyfills/math.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Polyfills/parseFloat.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Polyfills/parseInteger.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/RawJson.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/DummyPrint.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/DynamicStringBuilder.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/FloatParts.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/IndentedPrint.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/JsonPrintable.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/JsonSerializer.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/JsonSerializerImpl.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/JsonWriter.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/Prettyfier.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/StaticStringBuilder.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/Serialization/StreamPrintAdapter.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/StaticJsonBuffer.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/StringTraits/ArduinoStream.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/StringTraits/CharPointer.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/StringTraits/FlashString.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/StringTraits/StdStream.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/StringTraits/StdString.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/StringTraits/StringTraits.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/EnableIf.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/FloatTraits.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsArray.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsBaseOf.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsChar.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsConst.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsFloatingPoint.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsIntegral.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsSame.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsSignedIntegral.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsUnsignedIntegral.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/IsVariant.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/RemoveConst.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/TypeTraits/RemoveReference.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/ArduinoJson_ID64/src/ArduinoJson/version.hpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/.gitignore">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/.library.json">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/.travis.yml">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/CHANGES.txt">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/LICENSE.txt">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/README.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/examples/mqtt_auth/mqtt_auth.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/examples/mqtt_basic/mqtt_basic.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/examples/mqtt_esp8266/mqtt_esp8266.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/examples/mqtt_publish_in_callback/mqtt_publish_in_callback.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/examples/mqtt_reconnect_nonblocking/mqtt_reconnect_nonblocking.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/examples/mqtt_stream/mqtt_stream.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/keywords.txt">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/library.json">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/library.properties">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/src/PubSubClient.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/PubSubClient_ID89/src/PubSubClient.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/.gitignore">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/.library.json">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/.travis.yml">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/README.md">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/Nginx/esp8266.ssl.reverse.proxy.conf">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/avr/WebSocketClientAVR/WebSocketClientAVR.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp32/WebSocketClient/WebSocketClient.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp32/WebSocketClientSSL/WebSocketClientSSL.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp32/WebSocketServer/WebSocketServer.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketClient/WebSocketClient.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketClientSSL/WebSocketClientSSL.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketClientSocketIO/WebSocketClientSocketIO.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketClientStomp/WebSocketClientStomp.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketClientStompOverSockJs/WebSocketClientStompOverSockJs.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketServer/WebSocketServer.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketServerFragmentation/WebSocketServerFragmentation.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketServerHttpHeaderValidation/WebSocketServerHttpHeaderValidation.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/esp8266/WebSocketServer_LEDcontrol/WebSocketServer_LEDcontrol.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/examples/particle/ParticleWebSocketClient/application.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/library.json">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/library.properties">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/WebSockets.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/WebSockets.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/WebSocketsClient.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/WebSocketsClient.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/WebSocketsServer.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/WebSocketsServer.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/libb64/cdecode.c">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/libb64/cdecode_inc.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/libb64/cencode.c">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/libb64/cencode_inc.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/libsha1/libsha1.c">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/src/libsha1/libsha1.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/.piolibdeps/WebSockets_ID549/travis/common.sh">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/.DS_Store">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/CloudMqttUtil/CloudMqttUtil.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/CloudMqttUtil/CloudMqttUtil.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/MqttUtil/MqttUtil.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/MqttUtil/MqttUtil.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/PushBullet/PushBullet.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/PushBullet/PushBullet.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SpiffsUtil/SpiffsUtil.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SpiffsUtil/SpiffsUtil.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SymphonyCore/SymphonyCore.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SymphonyCore/SymphonyCore.cpp1">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SymphonyCore/SymphonyCore.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SymphonyCore/SymphonyCore.h1">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SymphonyProduct/SymphonyProduct.cpp">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/SymphonyProduct/SymphonyProduct.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/mainhtml/mainhtml.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/mainhtml2/mainhtml2.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/mainhtml3/mainhtml3.h">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/lib/readme.txt">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/src/SymphonyMotionSensor.ino">
+			<Option target="SymphonyMotionSensor-clion"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyMotionSensor-clion/CMakeListsPrivate.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,11 @@
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir
+/Users/carlomiras/git/SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="SymphonyCore_v2" targetName="DEBUG" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_BUILD" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_CLEAN" />
+      <config projectName="SymphonyCore_v2" targetName="SymphonyCore_v2" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_UPDATE_ALL" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_TEST" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_REBUILD_PROJECT_INDEX" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_PROGRAM" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_UPLOAD" />
+      <config projectName="SymphonyCore_v2" targetName="PLATFORMIO_UPLOADFS" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/clion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/platformio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/lib/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/platformio.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/src/test.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/clion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/platformio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/MqttUtil/MqttUtil.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platformio.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/serialmonitor_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/platformio.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/src/SymphonyMotionSensor.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.idea/SymphonyMotionSensor.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-esp-clion/src/test.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/configuration/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/configuration/log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/Maestro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/Maestro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/ui/webapp/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/ui/webapp/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.cproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.ino.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.settings/language.settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.settings/org.eclipse.cdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.ino.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.ino.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/CloudMqttUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/CloudMqttUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/MqttUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/MqttUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/PushBullet.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/PushBullet.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SpiffsUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SpiffsUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.elf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyProduct.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyProduct.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/arduino.ar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin-v1.1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin.html.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/control.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/control.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/sample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony-v1.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/readme/Mkspiffs_esptool_settings.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/readme/load_datafile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/spiffs/data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../esp8266-clion/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../esp8266-clion/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../esp8266-clion/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../esp8266-clion/platformio.ini" afterDir="false" />
+    </list>
+    <ignored path="platformio.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="474920684">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cpp" value="1" />
+          <entry key="ino" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="ObjectiveC" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="ini" value="2" />
+          <entry key="ino" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Ini" value="2" />
+          <entry key="ObjectiveC" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.cidr.testingFrameworks.usages" />
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="SymphonyCore_v2" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/platformio.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/test.ino" />
+        <option value="$PROJECT_DIR$/platformio.ini" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="40" />
+    <option name="y" value="23" />
+    <option name="width" value="1400" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>C/C++</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SymphonyCore_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SymphonyCore_v2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SymphonyCore_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SymphonyCore_v2" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SymphonyCore_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SymphonyCore_v2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SymphonyCore_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="SymphonyCore_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="SymphonyCore_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FullScreen" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/MqttUtil" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.PLATFORMIO_BUILD">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_BUILD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_BUILD" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_CLEAN" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_CLEAN" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_PROGRAM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_PROGRAM" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_REBUILD_PROJECT_INDEX" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_REBUILD_PROJECT_INDEX" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_TEST" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_TEST" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_UPDATE" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_UPDATE_ALL" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_UPLOAD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_UPLOAD" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_UPLOADFS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="PLATFORMIO_UPLOADFS" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SymphonyCore_v2" TARGET_NAME="SymphonyCore_v2" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.PLATFORMIO_BUILD" />
+      <item itemvalue="Application.PLATFORMIO_UPLOAD" />
+      <item itemvalue="Application.PLATFORMIO_CLEAN" />
+      <item itemvalue="Application.PLATFORMIO_TEST" />
+      <item itemvalue="Application.PLATFORMIO_PROGRAM" />
+      <item itemvalue="Application.PLATFORMIO_UPLOADFS" />
+      <item itemvalue="Application.PLATFORMIO_UPDATE" />
+      <item itemvalue="Application.PLATFORMIO_REBUILD_PROJECT_INDEX" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="" />
+      <created>1435919971910</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1435919971910</updated>
+      <workItem from="1533084273659" duration="1925000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1925000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Project" order="0" visible="true" weight="0.24236111" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32902467" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32902467" />
+      <window_info anchor="bottom" id="CMake" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="right" id="Database" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platformio.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

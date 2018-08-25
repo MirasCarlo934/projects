@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_REBUILD_PROJECT_INDEX" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_UPDATE_ALL" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_UPLOADFS" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_BUILD" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO" />
+      <config projectName="esp8266-clion" targetName="DEBUG" />
+      <config projectName="esp8266-clion" targetName="esp8266-clion" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_PROGRAM" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_UPLOAD" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_CLEAN" />
+      <config projectName="esp8266-clion" targetName="PLATFORMIO_TEST" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="Committing all projects">
+      <change afterPath="$USER_HOME$/CLionProjects/Test/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$USER_HOME$/CLionProjects/Test/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/clion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/platformio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/lib/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/platformio.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore-v2/src/test.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/clion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/platformio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/lib/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/platformio.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore_v2/src/test.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/serialmonitor_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test-esp-clion/src/test.ino" afterDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.classpath" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.gitignore" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.project" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.settings/org.springframework.ide.eclipse.core.prefs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/.springBeans" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/BM-core (2).iml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/BM-core-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/BM-core.iml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/BM-core_v3.iml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/VM_12345678-tcplocalhost/.lck" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/cir/rules.cir" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/cir/rules.cir.backup" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/cir/rules.v3_2018-01-01_22-48-07.439.cir" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/application.properties" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/bm.properties" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/bm.properties.backup" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/log4j.out.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/log4j.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/adaptors-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/app-config.xml.backup" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/bm-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/comms-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/core-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/core-config.xml.backup" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/engines-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/main-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/modules-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/openhab-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/product-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/repositories-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/servlet-context.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/spring/tools-config.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/ui.properties" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/user.properties" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/configuration/user.properties.backup" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/bm_logs.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/engines/cir.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/engines/db.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/engines/openhab.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/errors.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/modules/deactivation.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/modules/detachment.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/modules/poop.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/modules/registration.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/mqtt/mqtt.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/logs/system.log" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/pom.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/pom.xml.boot" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/js/maestro-v1.1.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/js/maestro.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/js/maestrocomposer.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/js/maestrocomposer_v2.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/VirtualMaestro.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/add_btn.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/close.ico" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/edit.svg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/clock.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/motion.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/poweroutlet_us.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/rgb.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/switch.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/television.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/temperature_cold.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/video.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/iconset/wallswitch.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/info.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/info2.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/max.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/min.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/move.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/remove.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/save.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/settings_white.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/settings_white2.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/pics/symbol_white.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/animations.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/devices-overview.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/form_actions.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/lib/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/lib/jquery-sortable.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/lib/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/lib/jquery.ui.sortable-animation.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/lib/jscolor.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/lib/masonry.pkgd.min.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/maestrocomposer_v2.5.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/scripts/objects.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles.backup2018-1-01/input.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles.backup2018-1-01/layout.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles.backup2018-1-01/navigation.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles.backup2018-1-01/pics.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles.backup2018-1-01/smarthome.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles.backup2018-1-01/theme.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/input.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/layout-cels.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/layout.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/navigation-cels.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/navigation.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/pics.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/smarthome.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/theme-cels.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles/theme.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles_celso/input.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles_celso/layout.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles_celso/navigation.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles_celso/pics.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/static/styles_celso/theme.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/MaestroRules.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/admin/products.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/ajax/notifBox.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/ajax/redirect.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/ajax/responses.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/devices-composer.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/devices-overview.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/devices-overview.html.backup" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/devices-overview.html.backup2" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/devices.html.backup1" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/error.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/fragments/devices-overview-fragments.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/fragments/static-fragments.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/login.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/register.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/resources/templates/settings.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/CIRAdaptor.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/CIRManager.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/exceptions/CIRSSyntaxException.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/ArgOperator.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/Argument.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/CIRStatementBuilder.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/CodeBlock.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/Conditional.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/ExecutionBlock.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/Relationship.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/cir/objects/Rule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/Listener.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/Sender.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/HTTPException.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/HTTPSender.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/DeleteHTTPReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/GetHTTPReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/HTTPErrorResponse.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/HTTPRequest.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/HTTPRequestType.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/HTTPResponse.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/PostHTTPReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/http/messages/PutHTTPReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/mqtt/MQTTClient.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/mqtt/MQTTListener.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/mqtt/MQTTPublisher.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/comms/mqtt/objects/MQTTMessage.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/HTMLTransformable.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/OHItemmable.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/SymphonyElement.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/SymphonyObject.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/adaptors/AbstAdaptor.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/adaptors/AdaptorManager.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/adaptors/DBAdaptor.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/adaptors/exceptions/AdaptorException.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/devices/Device.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/products/Product.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/products/ProductFactory.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/properties/Property.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/properties/PropertyMode.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/properties/PropertyType.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/properties/PropertyValueType.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/properties/bindings/Binding.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/context/rooms/Room.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/JEEPMessage.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/JEEPMessageType.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/JEEPRequest.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/JEEPResponse.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/RawMessage.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/admin/JEEPAdminRequest.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/admin/ReqCreateRoom.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/JEEPErrorResponse.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ReqDeleteRoom.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ReqPOOP.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ReqPlex.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ReqRegister.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ReqRequest.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ResBasic.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ResError.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ResGetRooms.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ResPOOP.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/jeep/device/ResRegister.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/ConfigLoader.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/Initializables.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/Maestro.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/UserPropertyManager.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/controller/ControllerThreadFactory.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/controller/ModuleDispatcher.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/controller/ThreadPool.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/controller/ThreadRejectionHandler.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/AbstEngine.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/DBEngine.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/FileEngine.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/exceptions/EngineException.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/DBEngine/DBEngineRequest.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/DBEngine/DeleteDBEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/DBEngine/InsertDBEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/DBEngine/QueryType.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/DBEngine/RawDBEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/DBEngine/SelectDBEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/DBEngine/UpdateDBEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/EngineRequest.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/ClearFileFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/DeleteStringFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/FileEngineRequest.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/FileEngineRequestType.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/GetInputStreamFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/InsertToFileFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/OverwriteFileFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/ReadAllLinesFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/UpdateFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/engines/requests/FileEngine/VersionizeFileFEReq.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/interfaces/Initializable.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/AbstModuleExtension.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/B_AbstModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/DeactivationModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/DetachmentModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/MultiModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/POOPModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/RegistrationModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/SimpleModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/admin/AbstAdminModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/admin/CreateRoomModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/admin/DeleteRoomModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/modules/admin/GetRoomsModule.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/repositories/AbstRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/main/repositories/TimerRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/tools/ArrayConfig.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/tools/Cipher.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/tools/IDGenerator.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/tools/JSONReader.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/tools/StringTools.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/tools/SystemTimer.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/bm/tools/VersionManager.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/oh/context/adaptors/OHAdaptor.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/oh/main/initializables/OH_Initializer.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/oh/modules/extensions/OH_CreateRoomExtension.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/oh/modules/extensions/OH_DetachmentExtension.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/oh/modules/extensions/OH_DeviceChangeStateExtension.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/oh/modules/extensions/OH_POOPExtension.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/oh/modules/extensions/OH_RegistrationExtension.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/context/UISymphonyObject.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/context/adaptors/UIAdaptor.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/context/devices/UIDevice.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/context/devices/products/UIProduct.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/context/properties/UIProperty.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/context/rooms/UIRoom.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/main/initializables/UI_Initializer.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/main/repositories/UIDeviceRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/main/repositories/UIProductRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/main/repositories/UIRoomRepository.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/webapp/AbstController.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/webapp/AdminController.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/webapp/BaseController.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/webapp/DevicesController.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/webapp/ErrorController.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/java/ui/webapp/SettingsController.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/src/main/resources/log4j.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/MaestroComposer.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/MaestroRules.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/devices_temp.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/home-backup.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/home.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/login.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/notifBox.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/register.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/settings.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/templates/test.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/tmp/bm.properties.versions" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/tmp/home.rules.versions" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/tmp/home.sitemap.versions" beforeDir="false" />
+      <change beforePath="$USER_HOME$/BM-core_v3/tmp/rules.cir.versions" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/info/readme.txt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/adaptor/ChildAddedListener.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/adaptor/ChildChangedEventListener.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/adaptor/DeviceValueEventListener.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/adaptor/Firebase.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/adaptor/SymphonyMqttCB.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/test/Test.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/test/TestFirebase.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/vo/FirebaseDevice.java" beforeDir="false" />
+      <change beforePath="$USER_HOME$/adaptors/firebase-admin/src/symphony/firebase/vo/Property.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/configuration/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/configuration/log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/Maestro.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/Maestro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/ui/webapp/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/ui/webapp/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.cproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.ino.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.settings/language.settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/.settings/org.eclipse.cdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.ino.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/.ino.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/CloudMqttUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/CloudMqttUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/MqttUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/MqttUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/PushBullet.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/PushBullet.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SpiffsUtil.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SpiffsUtil.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyCore.elf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyProduct.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/SymphonyProduct.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/Release/arduino.ar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin-v1.1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/admin.html.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/control.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/control.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/sample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony-v1.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/data/symphony.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/readme/Mkspiffs_esptool_settings.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/readme/load_datafile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/spiffs/data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/platformio.ini" afterDir="false" />
+      <change beforePath="$USER_HOME$/mp2/.cproject" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/.gitignore" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/.project" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/.settings/language.settings.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/.txt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/hehe.txt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/public_tweets.txt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/src/miras_201700076_mp2.c" beforeDir="false" />
+      <change beforePath="$USER_HOME$/mp2/users.txt" beforeDir="false" />
+    </list>
+    <ignored path="platformio.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="-619204891">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cpp" value="6" />
+          <entry key="h" value="8" />
+          <entry key="ini" value="6" />
+          <entry key="ino" value="2" />
+          <entry key="txt" value="6" />
+          <entry key="yml" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CMakeLists.txt" value="6" />
+          <entry key="Ini" value="6" />
+          <entry key="ObjectiveC" value="16" />
+          <entry key="YAML" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cpp" value="8" />
+          <entry key="h" value="42" />
+          <entry key="ini" value="6" />
+          <entry key="txt" value="23" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Ini" value="6" />
+          <entry key="ObjectiveC" value="50" />
+          <entry key="PLAIN_TEXT" value="23" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.cidr.testingFrameworks.usages" />
+    </session>
+    <session id="235974520">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="esp8266-clion" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/platformio.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MqttUtil.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="22" selection-start-line="22" selection-end-line="43" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SymphonyCore.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="44" column="40" selection-start-line="44" selection-end-line="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SymphonyCore.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-203" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SymphonyProduct.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SpiffsUtil.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MqttUtil.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3840">
+              <caret line="256" column="14" selection-start-line="256" selection-start-column="14" selection-end-line="256" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SymphonyProduct.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-570">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/MqttUtil.h" />
+        <option value="$PROJECT_DIR$/src/MqttUtil.cpp" />
+        <option value="$PROJECT_DIR$/platformio.ini" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="77" />
+    <option name="y" value="23" />
+    <option name="width" value="1241" />
+    <option name="height" value="826" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>C/C++</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="esp8266-clion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esp8266-clion" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="esp8266-clion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="esp8266-clion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FullScreen" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.pioenvs/esp12e" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.PLATFORMIO_BUILD">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_BUILD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_BUILD" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_CLEAN" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_CLEAN" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_PROGRAM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_PROGRAM" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_REBUILD_PROJECT_INDEX" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_REBUILD_PROJECT_INDEX" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_TEST" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_TEST" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_UPDATE" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_UPDATE_ALL" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_UPLOAD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_UPLOAD" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PLATFORMIO_UPLOADFS" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="PLATFORMIO_UPLOADFS" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="esp8266-clion" TARGET_NAME="esp8266-clion" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.PLATFORMIO_UPDATE" />
+      <item itemvalue="Application.PLATFORMIO_BUILD" />
+      <item itemvalue="Application.PLATFORMIO_CLEAN" />
+      <item itemvalue="Application.PLATFORMIO_PROGRAM" />
+      <item itemvalue="Application.PLATFORMIO_REBUILD_PROJECT_INDEX" />
+      <item itemvalue="Application.PLATFORMIO_TEST" />
+      <item itemvalue="Application.PLATFORMIO_UPLOAD" />
+      <item itemvalue="Application.PLATFORMIO_UPLOADFS" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="" />
+      <created>1435919971910</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1435919971910</updated>
+      <workItem from="1532782472230" duration="29000" />
+      <workItem from="1532782519762" duration="2999000" />
+      <workItem from="1532787920153" duration="2108000" />
+      <workItem from="1532791255034" duration="36000" />
+      <workItem from="1532791312923" duration="429000" />
+      <workItem from="1533026125608" duration="466000" />
+      <workItem from="1533077299074" duration="95000" />
+      <workItem from="1533077468536" duration="5424000" />
+    </task>
+    <task id="LOCAL-00001" summary="Committing all projects">
+      <created>1532784731056</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532784731056</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11586000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="77" y="23" width="1241" height="826" extended-state="0" />
+    <layout>
+      <window_info active="true" id="Project" order="0" sideWeight="0.49895614" visible="true" weight="0.19339243" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3271523" />
+      <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CMake" order="2" weight="0.32847682" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32902467" />
+      <window_info active="true" anchor="bottom" id="Serial Monitor" order="5" visible="true" weight="0.3278496" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Inspection Results" order="7" weight="0.3287841" />
+      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.4331126" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Structure" order="1" sideWeight="0.50104386" side_tool="true" visible="true" weight="0.19097503" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Committing all projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Committing all projects" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/MqttUtil.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3840">
+          <caret line="256" column="14" selection-start-line="256" selection-start-column="14" selection-end-line="256" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SpiffsUtil.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SymphonyProduct.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SymphonyProduct.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MqttUtil.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="22" selection-start-line="22" selection-end-line="43" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SymphonyCore.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-203" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SymphonyCore.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="44" column="40" selection-start-line="44" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platformio.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

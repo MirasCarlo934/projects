@@ -7,7 +7,7 @@ import bm.tools.StringTools;
 public class ExecutionBlock extends CodeBlock {
 	private static final Logger logger = Logger.getLogger(ExecutionBlock.class);
 	
-	public ExecutionBlock(String comID, String comProperty, Object comValue) {
+	public ExecutionBlock(String comID, int comProperty, Object comValue) {
 		super(comID, comProperty, comValue);
 	}
 

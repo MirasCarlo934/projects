@@ -9,7 +9,7 @@ public class Argument extends CodeBlock {
 	private ArgOperator operator;
 	private Relationship relationshipWithNextArgument;
 
-	public Argument(String comID, String comProperty, Object comValue, ArgOperator operator, 
+	public Argument(String comID, int comProperty, Object comValue, ArgOperator operator,
 			Relationship relationshipWithNextArgument) {
 		super(comID, comProperty, comValue);
 		setOperator(operator);

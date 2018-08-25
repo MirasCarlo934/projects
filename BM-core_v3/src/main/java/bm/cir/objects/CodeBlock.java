@@ -5,9 +5,9 @@ public abstract class CodeBlock {
 	private int propIndex;
 	private Object propValue;
 	
-	public CodeBlock(String devID, String devProperty, Object propValue) {
+	public CodeBlock(String devID, int devProperty, Object propValue) {
 		setDeviceID(devID);
-		setDeviceProperty(Integer.parseInt(devProperty));
+		setDeviceProperty(devProperty);
 		setPropValue(propValue);
 	}
 	

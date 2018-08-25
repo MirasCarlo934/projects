@@ -9,26 +9,26 @@ public class ReqPOOP extends JEEPRequest {
 	public int propIndex;
 	public Object propValue;
 
-	public ReqPOOP(JSONObject json, Protocol protocol, String propIDParam, String propValParam) {
+	public ReqPOOP(JSONObject json, Protocol protocol, String propIndexParam, String propValParam) {
 		super(json, protocol);
-		assignVariablesFromJSON(json, propIDParam, propValParam);
+		assignVariablesFromJSON(json, propIndexParam, propValParam);
 	}
 	
-	public ReqPOOP(JEEPRequest request, String propIDParam, String propValParam) {
+	public ReqPOOP(JEEPRequest request, String propIndexParam, String propValParam) {
 		super(request.getJSON(), request.getProtocol());
-		assignVariablesFromJSON(request.getJSON(), propIDParam, propValParam);
+		assignVariablesFromJSON(request.getJSON(), propIndexParam, propValParam);
 	}
 	
-	public ReqPOOP(String rid, String cid, String rty, Protocol protocol, String propIDParam, String propValParam,
-			String propID, Object propVal) {
+	public ReqPOOP(String rid, String cid, String rty, Protocol protocol, String propIndexParam, String propValParam,
+			int propIndex, Object propVal) {
 		super(rid, cid, rty, protocol);
-		json.put(propIDParam, propID);
+		json.put(propIndexParam, propIndex);
 		json.put(propValParam, propVal);
-		assignVariablesFromJSON(json, propIDParam, propValParam);
+		assignVariablesFromJSON(json, propIndexParam, propValParam);
 	}
 	
-	private void assignVariablesFromJSON(JSONObject json, String propIDParam, String propValParam) {
-		propIndex = json.getInt(propIDParam);
+	private void assignVariablesFromJSON(JSONObject json, String propIndexParam, String propValParam) {
+		propIndex = json.getInt(propIndexParam);
 		propValue = json.get(propValParam);
 	}
 }

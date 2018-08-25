@@ -287,7 +287,8 @@ public class RegistrationModule extends Module {
 				indexes.sort(Comparator.naturalOrder());
 				int i = 0;
 				for(int a : indexes) {
-                    if(a != 0) {
+					LOG.fatal("INDEX: " + a);
+                    if(a != i) {
                         throw new SecondaryMessageCheckingException("'proplist' parameter skipped an index " +
                                 "(" + i + ")");
                     }
