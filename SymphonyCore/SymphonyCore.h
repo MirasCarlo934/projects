@@ -47,11 +47,11 @@ class Symphony {
 	    void print();
 	    void setProduct(SymphProduct p);
 	    void setWsCallback(int (* WsCallback) (uint8_t * payload, size_t length));
-	    void setMqttCallback(attribStruct (* myMqttCB)(attribStruct property, int cmd));
+	    void setMqttCallback(propStruct (* myMqttCB)(propStruct property, int cmd));
 //	    void setMqttCallback(attribStruct (* MyMqttCallback) (attribStruct property, int scmd));
 //	    void static doCommand(String ssid, String scmd);  //static method for handling the command for the SSID
 //	    void static doCommand(const char *ssid, const char *scmd);  //static method for handling the command for the SSID. DEPRECATED Apr 15 2017
-	    void static setProperty(const char *ssid, const char *scmd);  //static method for setting the property for the SSID
+	    void static setProperty(const char *index, const char *scmd);  //static method for setting the property for the SSID
 	    void showStatus();
 	    void on(const char* uri, ESP8266WebServer::THandlerFunction handler);
 	    void static sendResponse(const char *response);
@@ -60,7 +60,7 @@ class Symphony {
 	private:
 	    String myName, ap_ssid, ap_passphrase = "12345678";
 	    IPAddress apIP = IPAddress (192, 168, 7, 1);
-	    String ssid, pwd;
+	    String index, pwd;
 	    int wifiMaxConnCount=50;  //max counter when connecting to wifi AP, corresponds to 10secs
 	    long restartTimer = 0;  //the restart timer in millis.  this will restart every maxrestartTimer if wifi is not connected.
 	    const long maxRestartTimer = 120000; //the max millis before restart.  2 mins
@@ -73,7 +73,7 @@ class Symphony {
 
 	    void connectToWifi();
 	    void setupAP();
-	    void createMyName();
+	    char* createMACstr();
 //	    void startOTA();
 };
 
@@ -82,11 +82,11 @@ class WsData
   public:
 	WsData(uint8_t * payload, size_t length);
 	String getDeviceName();
-	String getSSID();
+	String getIndex();
 	String getValue();
   private:
 	String deviceName;
-	String ssid;
+	String index;
 	String value;
 };
 #endif /* SYMPHONYCORE_H_ */

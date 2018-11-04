@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+	"/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -227,6 +227,33 @@ PLATFORMIO_UPLOAD/fast:
 	$(MAKE) -f CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make CMakeFiles/PLATFORMIO_UPLOAD.dir/build
 .PHONY : PLATFORMIO_UPLOAD/fast
 
+lib/MqttUtil/MqttUtil.o: lib/MqttUtil/MqttUtil.cpp.o
+
+.PHONY : lib/MqttUtil/MqttUtil.o
+
+# target to build an object file
+lib/MqttUtil/MqttUtil.cpp.o:
+	$(MAKE) -f CMakeFiles/SymphonyCore_v2.dir/build.make CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o
+.PHONY : lib/MqttUtil/MqttUtil.cpp.o
+
+lib/MqttUtil/MqttUtil.i: lib/MqttUtil/MqttUtil.cpp.i
+
+.PHONY : lib/MqttUtil/MqttUtil.i
+
+# target to preprocess a source file
+lib/MqttUtil/MqttUtil.cpp.i:
+	$(MAKE) -f CMakeFiles/SymphonyCore_v2.dir/build.make CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.i
+.PHONY : lib/MqttUtil/MqttUtil.cpp.i
+
+lib/MqttUtil/MqttUtil.s: lib/MqttUtil/MqttUtil.cpp.s
+
+.PHONY : lib/MqttUtil/MqttUtil.s
+
+# target to generate assembly for a file
+lib/MqttUtil/MqttUtil.cpp.s:
+	$(MAKE) -f CMakeFiles/SymphonyCore_v2.dir/build.make CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.s
+.PHONY : lib/MqttUtil/MqttUtil.cpp.s
+
 lib/SymphonyProduct/SymphonyProduct.o: lib/SymphonyProduct/SymphonyProduct.cpp.o
 
 .PHONY : lib/SymphonyProduct/SymphonyProduct.o
@@ -271,6 +298,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... PLATFORMIO_CLEAN"
 	@echo "... PLATFORMIO_UPLOAD"
+	@echo "... lib/MqttUtil/MqttUtil.o"
+	@echo "... lib/MqttUtil/MqttUtil.i"
+	@echo "... lib/MqttUtil/MqttUtil.s"
 	@echo "... lib/SymphonyProduct/SymphonyProduct.o"
 	@echo "... lib/SymphonyProduct/SymphonyProduct.i"
 	@echo "... lib/SymphonyProduct/SymphonyProduct.s"

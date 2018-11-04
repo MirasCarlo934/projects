@@ -2,17 +2,17 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="SymphonyMotionSensor-clion" targetName="SymphonyMotionSensor-clion" />
-      <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_PROGRAM" />
+      <config projectName="SymphonyMotionSensor-clion" targetName="DEBUG" />
       <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_BUILD" />
+      <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_PROGRAM" />
+      <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_CLEAN" />
+      <config projectName="SymphonyMotionSensor-clion" targetName="SymphonyMotionSensor-clion" />
       <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_UPLOAD" />
       <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_UPLOADFS" />
+      <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_UPDATE_ALL" />
       <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO" />
       <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_REBUILD_PROJECT_INDEX" />
       <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_TEST" />
-      <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_UPDATE_ALL" />
-      <config projectName="SymphonyMotionSensor-clion" targetName="DEBUG" />
-      <config projectName="SymphonyMotionSensor-clion" targetName="PLATFORMIO_CLEAN" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -21,7 +21,147 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="Commit" />
+    <list default="true" id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/SymphonyMotionSensor-clion.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/.idea/dataSources/388d9b2e-6786-4fb4-b87f-221dfdcbd980.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/.idea/dataSources/388d9b2e-6786-4fb4-b87f-221dfdcbd980.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/cir/rules.cir" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/cir/rules.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/configuration/bm.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/configuration/bm.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/bm_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/cir.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/db.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/engines/openhab.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/poop.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/modules/registration.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/logs/mqtt/mqtt.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/context/adaptors/DBAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/context/adaptors/DBAdaptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BM-core_v3/src/main/java/bm/main/repositories/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/_ino.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/SymphonyCore_v2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/SymphonyCore_v2.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/platformio.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/src/test.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/src/test.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyIR/.ino.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyIR/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyIR/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyIR/.settings/org.eclipse.cdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyIR/.settings/org.eclipse.cdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/CloudMqttUtil/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/CloudMqttUtil/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/MqttUtil/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/MqttUtil/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/PushBullet/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/PushBullet/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SpiffsUtil/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SpiffsUtil/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyProduct/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyProduct/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/mainhtml/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/mainhtml2/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/mainhtml3/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/platformio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/platformio.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/serialmonitor_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SymphonyMotionSensor-clion.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SymphonyMotionSensor-clion.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/CloudMqttUtil/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/CloudMqttUtil/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/MqttUtil/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/MqttUtil/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/PushBullet/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/PushBullet/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SpiffsUtil/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SpiffsUtil/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SymphonyCore/SymphonyCore.cpp1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SymphonyCore/SymphonyCore.h1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SymphonyProduct/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/SymphonyProduct/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/mainhtml/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/mainhtml2/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-backup1/mainhtml3/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/CloudMqttUtil/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/CloudMqttUtil/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/MqttUtil/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/PushBullet/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/PushBullet/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SpiffsUtil/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SpiffsUtil/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SymphonyProduct/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SymphonyProduct/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainhtml/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainhtml2/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainhtml3/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/platformio.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SymphonyMotionSensor.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.cproject" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.cproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.ino.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/org.eclipse.cdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/org.eclipse.cdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.ino.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.ino.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/SymphonyMotionSensor.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/SymphonyMotionSensor.elf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/arduino.ar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.xcworkspace/xcuserdata/carlomiras.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.xcworkspace/xcuserdata/carlomiras.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter/ViewController.swift" afterDir="false" />
+    </list>
     <ignored path="platformio.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -39,46 +179,34 @@
     <session id="507593514">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.1" value="4" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.opened" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="cpp" value="8" />
-          <entry key="h" value="5" />
-          <entry key="ino" value="2" />
-          <entry key="md" value="1" />
-          <entry key="txt" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CMakeLists.txt" value="3" />
-          <entry key="ObjectiveC" value="15" />
-          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="16" />
-          <entry key="h" value="6" />
-          <entry key="ini" value="18" />
-          <entry key="ino" value="108" />
-          <entry key="txt" value="6" />
+          <entry key="ini" value="74" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ini" value="18" />
-          <entry key="ObjectiveC" value="130" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Ini" value="74" />
         </counts>
       </usages-collector>
-      <usages-collector id="statistics.cidr.testingFrameworks.usages" />
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="ino" value="1" />
+          <entry key="txt" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CMakeLists.txt" value="1" />
+          <entry key="ObjectiveC" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FavoritesManager">
@@ -87,38 +215,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp">
+        <entry file="file://$PROJECT_DIR$/platformio.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-577" />
+            <state relative-caret-position="375">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/MqttUtil/MqttUtil.h">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/SymphonyMotionSensor-clion.ino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="96" selection-start-line="96" selection-end-line="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-152" />
+          </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>mqttutil</find>
-      <find>throw</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/SymphonyCore/SymphonyCore.h" />
-        <option value="$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp" />
-        <option value="$PROJECT_DIR$/lib/SymphonyCore/SymphonyCore.cpp" />
         <option value="$PROJECT_DIR$/platformio.ini" />
-        <option value="$PROJECT_DIR$/.piolibdeps/PubSubClient_ID89/src/PubSubClient.h" />
-        <option value="$PROJECT_DIR$/src/SymphonyMotionSensor.ino" />
+        <option value="$PROJECT_DIR$/src/SymphonyMotionSensor-clion.ino" />
       </list>
     </option>
   </component>
@@ -129,8 +268,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="252" />
+    <option name="y" value="21" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -150,10 +291,21 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="SymphonyMotionSensor-clion" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,43 +313,10 @@
               <item name="SymphonyMotionSensor-clion" type="b2602c69:ProjectViewProjectNode" />
               <item name="SymphonyMotionSensor-clion" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SymphonyMotionSensor-clion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SymphonyMotionSensor-clion" type="462c0819:PsiDirectoryNode" />
-              <item name=".pioenvs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SymphonyMotionSensor-clion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SymphonyMotionSensor-clion" type="462c0819:PsiDirectoryNode" />
-              <item name=".piolibdeps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SymphonyMotionSensor-clion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SymphonyMotionSensor-clion" type="462c0819:PsiDirectoryNode" />
-              <item name=".piolibdeps" type="462c0819:PsiDirectoryNode" />
-              <item name="PubSubClient_ID89" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SymphonyMotionSensor-clion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SymphonyMotionSensor-clion" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SymphonyMotionSensor-clion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SymphonyMotionSensor-clion" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="MqttUtil" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SymphonyMotionSensor-clion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SymphonyMotionSensor-clion" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -208,15 +327,6 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/SymphonyProduct" />
-      <recent name="$PROJECT_DIR$/lib/SymphonyCore" />
-      <recent name="$PROJECT_DIR$/lib/SpiffsUtil" />
-      <recent name="$PROJECT_DIR$/lib/PushBullet" />
-      <recent name="$PROJECT_DIR$/lib/MqttUtil" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -230,7 +340,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PLATFORMIO_UPLOAD">
+  <component name="RunManager" selected="Application.PLATFORMIO_BUILD">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -312,43 +422,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1435919971910</updated>
-      <workItem from="1532788044320" duration="693000" />
-      <workItem from="1532788744768" duration="1058000" />
-      <workItem from="1532790059393" duration="1187000" />
-      <workItem from="1533085282526" duration="2904000" />
-      <workItem from="1533129337271" duration="301000" />
-      <workItem from="1533129692921" duration="763000" />
-      <workItem from="1533130759067" duration="907000" />
+      <workItem from="1535272918889" duration="719000" />
     </task>
-    <task id="LOCAL-00001" summary="Commit">
-      <created>1533130866337</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1533130866337</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7813000" />
+    <option name="totallyTimeSpent" value="719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" id="Project" order="0" sideWeight="0.4987593" visible="true" weight="0.21180555" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.33019978" />
-      <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="CMake" order="3" weight="0.3278496" />
-      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Serial Monitor" order="6" weight="0.5707196" />
-      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.37015277" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Structure" order="1" sideWeight="0.5012407" side_tool="true" visible="true" weight="0.21180555" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info active="true" id="Project" order="0" visible="true" weight="0.24236111" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" weight="0.32902467" />
+      <window_info anchor="bottom" id="CMake" visible="true" weight="0.32902467" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="right" id="Database" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,86 +459,32 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp">
+    <entry file="file://$PROJECT_DIR$/lib/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3120">
-          <caret line="208" column="9" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.piolibdeps/PubSubClient_ID89/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.piolibdeps/PubSubClient_ID89/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platformio.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/SymphonyCore/SymphonyCore.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/SymphonyCore/SymphonyCore.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10320">
-          <caret line="688" column="22" selection-start-line="688" selection-start-column="22" selection-end-line="688" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.piolibdeps/PubSubClient_ID89/src/PubSubClient.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/SymphonyProduct/SymphonyProduct.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
+        <state relative-caret-position="-152" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        <state relative-caret-position="366">
+          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.piolibdeps/PubSubClient_ID89/src/PubSubClient.h">
+    <entry file="file://$PROJECT_DIR$/platformio.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        <state relative-caret-position="375">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SymphonyMotionSensor.ino">
+    <entry file="file://$PROJECT_DIR$/src/SymphonyMotionSensor-clion.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+        <state relative-caret-position="1440">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/MqttUtil/MqttUtil.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-577" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/MqttUtil/MqttUtil.h">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">

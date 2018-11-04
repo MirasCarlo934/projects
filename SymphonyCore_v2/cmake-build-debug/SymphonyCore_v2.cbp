@@ -235,6 +235,12 @@
 		<Unit filename="/Users/carlomiras/git/SymphonyCore_v2/lib/.DS_Store">
 			<Option target="SymphonyCore_v2"/>
 		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp">
+			<Option target="SymphonyCore_v2"/>
+		</Unit>
+		<Unit filename="/Users/carlomiras/git/SymphonyCore_v2/lib/MqttUtil/MqttUtil.h">
+			<Option target="SymphonyCore_v2"/>
+		</Unit>
 		<Unit filename="/Users/carlomiras/git/SymphonyCore_v2/lib/SymphonyProduct/SymphonyProduct.cpp">
 			<Option target="SymphonyCore_v2"/>
 		</Unit>

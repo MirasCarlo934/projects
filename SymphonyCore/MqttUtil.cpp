@@ -15,7 +15,7 @@ const char* MqttUtil::clientID = "defaultID";
 WiFiClient MqttUtil::wifiClient;
 PubSubClient *MqttUtil::client;
 const char* MqttUtil::willTopic = "BM";
-SymphProduct MqttUtil::product;
+SymphDevice MqttUtil::device;
 boolean MqttUtil::isConnectedToBM = false;
 
 boolean isMqttMsgForMe = false;
@@ -168,15 +168,15 @@ MqttUtil::MqttUtil() {
  * connects to the mqtt server
  * MQTT.connect (clientID, willTopic, willQoS, willRetain, willMessage)
  */
-boolean MqttUtil::connectToMQTT(const char *id, const char *url, int port, PubSubClient *c, WiFiClient wc, SymphProduct p) { //to connect to MQTT server
+boolean MqttUtil::connectToMQTT(const char *id, const char *url, int port, PubSubClient *c, WiFiClient wc, SymphDevice d) { //to connect to MQTT server
     boolean isConnected = false;
     MqttUtil::clientID = id;
     MqttUtil::server = url;
     MqttUtil::mqttPort = port;
-    MqttUtil::product = p;
+    MqttUtil::device = d;
 #ifdef DEBUG_
     Serial.println("Product in connectToMQTT");
-    MqttUtil::product.print();
+    MqttUtil::device.getProduct().print();
     Serial.printf("[connectToMQTT]connecting to %s(%d) as %s\n", url, port, MqttUtil::clientID);
 #endif
     PubSubClient pubsubclient = PubSubClient (MqttUtil::server, MqttUtil::mqttPort, MqttUtil::wifiClient);
@@ -207,7 +207,7 @@ boolean MqttUtil::connectToMQTT(const char *id, const char *url, int port, PubSu
 		} else {
 			Serial.println("\tSubscribe to error_topic failed");
 		}
-		MqttUtil::signin(p.name, p.room, p.productType);
+		MqttUtil::register_basic(d.getName(), d.getRoom(), d.getProduct().getID());
 	}
     return isConnected;
 }
@@ -221,10 +221,8 @@ boolean MqttUtil::connectToMQTT(const char *id, const char *url, int port, PubSu
     name String Name of the registering component. This is the name that will be seen by the users.
     roomID String SSID of the room in which this component belongs to.
  */
-void MqttUtil::signin(String ngalan, String room, String product) {
-
+void MqttUtil::register_basic(String ngalan, String room, String product) {
 //  String payload = "{RID:5ccf7f15a492,CID:0000,RTY:register,name:Ngalan,roomID:J444,product:0000}";
-
     String payload = "{RID:"; payload += MqttUtil::clientID;
     payload += ",CID:"; payload += product;
     payload += ",RTY:register";
@@ -243,6 +241,27 @@ void MqttUtil::signin(String ngalan, String room, String product) {
     }
 }
 
+void MqttUtil::register_with_proplist(String ngalan, String room, prop_declaration[] proplist, int proplist_size) {
+//  String payload = "{RID:5ccf7f15a492,CID:0000,RTY:register,name:Ngalan,roomID:J444,product:0000}";
+	String payload = "{RID:"; payload += MqttUtil::clientID;
+	payload += ",CID:"; payload += product;
+	payload += ",RTY:register";
+	payload += ",name:"; payload += ngalan;
+	payload += ",roomID:"; payload += room;
+	payload += ",proplist:[{";
+	for(int i = 0; i < )
+	payload += "}";
+#ifdef DEBUG_
+	Serial.print("\SignIn to BM topic:");Serial.println(payload);
+	Serial.print("\tpayload length is:");Serial.println(payload.length());
+#endif
+	if ( client->publish("BM", (byte*) payload.c_str(), payload.length())) {
+	  Serial.println("\tPublish to BM topic success.  Waiting for response from BM.");
+	} else {
+	  Serial.println("\tPublish to BM topic failed ");
+	}
+}
+
 /*
  * Sends the command to MQTT
  */
@@ -250,13 +269,13 @@ void MqttUtil::sendCommand(String ssid, int value) {
 	if (isConnectedToBM) {
 #ifdef DEBUG_
 	Serial.println("Product in sendCommand");
-	MqttUtil::product.print();
+	MqttUtil::device.getProduct().print();
     Serial.print("inside sendCommand. CID:");
     Serial.print(cid);Serial.print(" topic:");Serial.println(myTopic);
     Serial.print("\tvalue=");Serial.println(value);
     Serial.print(" ssid=");Serial.println(ssid);
 #endif
-    String payload = "{\"RID\":\""; payload += product.deviceID; payload +="\"";
+    String payload = "{\"RID\":\""; payload += device.getID(); payload +="\"";
     payload += ",\"CID\":\""; payload += cid; payload +="\"";
     payload += ",\"property\":\"";payload += ssid; payload +="\"";
     payload += ",\"value\":\""; payload += value; payload +="\"";
@@ -303,7 +322,7 @@ void MqttUtil::unRegister() {
 #ifdef DEBUG_
   Serial.print("inside unRegister. CID:");Serial.print(clientID);Serial.print(", topic:");Serial.println(myTopic);
 #endif
-  String payload = "{\"RID\":\""; payload += product.deviceID.c_str(); payload +="\"";
+  String payload = "{\"RID\":\""; payload += device.getID(); payload +="\"";
   payload += ",\"CID\":\""; payload += cid; payload +="\"";
   payload += ",\"RTY\":\"detach\"}";
 #ifdef DEBUG_

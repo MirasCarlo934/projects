@@ -1,16 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<rules>
-  <rule name="Turn On Lights">
-    <arguments>
-      <component id="D6N7">
-        <property id="1" value="1" operator="="/>
-      </component>
-    </arguments>
-    <execution>
-      <component id="B6SM">
-        <property id="1" value="1"/>
-      </component>
-    </execution>
-  </rule>
-</rules>
+<rules/>

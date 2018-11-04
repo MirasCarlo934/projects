@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o"
   "CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o"
   "SymphonyCore_v2.pdb"
   "SymphonyCore_v2"

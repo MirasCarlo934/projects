@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MacBook Main DB">
-  <database-model serializer="dbm" rdbms="DERBY" format-version="4.9">
+  <database-model serializer="dbm" rdbms="DERBY" format-version="4.10">
     <root id="1">
       <ServerVersion>10.12</ServerVersion>
     </root>
@@ -274,7 +274,7 @@
       <Position>5</Position>
       <DataType>VARCHAR(10)|12s</DataType>
     </column>
-    <column id="73" parent="18" name="FUNCTN">
+    <column id="73" parent="18" name="PRODUCT">
       <Position>6</Position>
       <DataType>VARCHAR(10)|12s</DataType>
     </column>
@@ -319,7 +319,7 @@
     </index>
     <index id="82" parent="18" name="SQL160702232956540">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>FUNCTN</ColNames>
+      <ColNames>PRODUCT</ColNames>
     </index>
     <key id="83" parent="18" name="SQL160622110623480">
       <NameSurrogate>1</NameSurrogate>
@@ -351,7 +351,7 @@
     </foreign-key>
     <foreign-key id="88" parent="18" name="SQL160702232956540">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>FUNCTN</ColNames>
+      <ColNames>PRODUCT</ColNames>
       <RefSchemaName>APP</RefSchemaName>
       <RefTableName>PRODUCTS</RefTableName>
       <RefKeyName>SQL160626214657950</RefKeyName>
@@ -492,11 +492,23 @@
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;null&apos;</DefaultExpression>
     </column>
-    <index id="115" parent="22" name="SQL171227010101030">
+    <column id="115" parent="22" name="PROP_TYPE">
+      <Position>5</Position>
+      <DataType>VARCHAR(10)|12s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;null&apos;</DefaultExpression>
+    </column>
+    <column id="116" parent="22" name="PROP_MODE">
+      <Position>6</Position>
+      <DataType>VARCHAR(10)|12s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;null&apos;</DefaultExpression>
+    </column>
+    <index id="117" parent="22" name="SQL171227010101030">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>COM_ID</ColNames>
     </index>
-    <foreign-key id="116" parent="22" name="dev_id">
+    <foreign-key id="118" parent="22" name="dev_id">
       <ColNames>COM_ID</ColNames>
       <RefSchemaName>APP</RefSchemaName>
       <RefTableName>DEVICES</RefTableName>
@@ -504,78 +516,78 @@
       <RefColNames>SSID</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="117" parent="23" name="SSID">
+    <column id="119" parent="23" name="SSID">
       <Position>1</Position>
       <DataType>VARCHAR(10)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="118" parent="23" name="NAME">
+    <column id="120" parent="23" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR(25)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="119" parent="23" name="MINIM">
+    <column id="121" parent="23" name="MINIM">
       <Position>3</Position>
       <DataType>INTEGER|4s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="120" parent="23" name="MAXIM">
+    <column id="122" parent="23" name="MAXIM">
       <Position>4</Position>
       <DataType>INTEGER|4s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="121" parent="23" name="DESCRIPTION">
+    <column id="123" parent="23" name="DESCRIPTION">
       <Position>5</Position>
       <DataType>VARCHAR(140)|12s</DataType>
     </column>
-    <column id="122" parent="23" name="OH_ITEM">
+    <column id="124" parent="23" name="OH_ITEM">
       <Position>6</Position>
       <DataType>VARCHAR(25)|12s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;switch&apos;</DefaultExpression>
     </column>
-    <index id="123" parent="23" name="SQL160626215325320">
+    <index id="125" parent="23" name="SQL160626215325320">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SSID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="124" parent="23" name="SQL160626215325320">
+    <key id="126" parent="23" name="SQL160626215325320">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SSID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="125" parent="24" name="SSID">
+    <column id="127" parent="24" name="SSID">
       <Position>1</Position>
       <DataType>VARCHAR(10)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="126" parent="24" name="NAME">
+    <column id="128" parent="24" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR(50)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="127" parent="24" name="PARENT_ROOM">
+    <column id="129" parent="24" name="PARENT_ROOM">
       <Position>3</Position>
       <DataType>VARCHAR(4)|12s</DataType>
     </column>
-    <column id="128" parent="24" name="INDEX">
+    <column id="130" parent="24" name="INDEX">
       <Position>4</Position>
       <DataType>INTEGER|4s</DataType>
       <DefaultExpression>1</DefaultExpression>
     </column>
-    <column id="129" parent="24" name="COLOR">
+    <column id="131" parent="24" name="COLOR">
       <Position>5</Position>
       <DataType>VARCHAR(25)|12s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;black&apos;</DefaultExpression>
     </column>
-    <index id="130" parent="24" name="SQL160622110932120">
+    <index id="132" parent="24" name="SQL160622110932120">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SSID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="131" parent="24" name="SQL160622110932120">
+    <key id="133" parent="24" name="SQL160622110932120">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SSID</ColNames>
       <Primary>1</Primary>

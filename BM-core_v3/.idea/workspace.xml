@@ -2,8 +2,334 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bdadd4a-a8b2-4822-9eda-abbd8ead1a0f" name="Default" comment="Fixed startup phase">
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/Arduino-Websocket-master.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/ArduinoJson.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/appveyor.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/examples/JsonGeneratorExample/JsonGeneratorExample.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/examples/JsonHttpClient/JsonHttpClient.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/examples/JsonParserExample/JsonParserExample.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/examples/JsonServer/JsonServer.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/examples/JsonUdpBeacon/JsonUdpBeacon.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/examples/ProgmemExample/ProgmemExample.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/examples/StringExample/StringExample.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/keywords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/library.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/library.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/build-arduino-package.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/build-single-header.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/create-build-envs.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/create-size-graph.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/oss-fuzz/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/oss-fuzz/Vagrantfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/travis/arduino.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/travis/cmake.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/travis/coverage.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/scripts/travis/platformio.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Configuration.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/Encoding.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonBufferAllocated.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonFloat.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonInteger.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantAs.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantComparer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantContent.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantDefault.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/JsonVariantType.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/List.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/ListConstIterator.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/ListIterator.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/ListNode.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/NonCopyable.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/ReferenceType.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Data/ValueSetter.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Deserialization/Comments.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Deserialization/JsonParser.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Deserialization/JsonParserImpl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Deserialization/StringWriter.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/DynamicJsonBuffer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonArray.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonArrayImpl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonArraySubscript.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonBuffer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonBufferBase.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonBufferImpl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonObject.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonObjectImpl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonObjectSubscript.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonPair.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonVariant.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonVariantBase.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonVariantComparisons.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/JsonVariantImpl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Polyfills/attributes.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Polyfills/ctype.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Polyfills/isFloat.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Polyfills/isInteger.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Polyfills/math.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Polyfills/parseFloat.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Polyfills/parseInteger.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/RawJson.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/DummyPrint.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/DynamicStringBuilder.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/FloatParts.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/IndentedPrint.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonPrintable.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonSerializer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonSerializerImpl.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/JsonWriter.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/Prettyfier.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/StaticStringBuilder.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/Serialization/StreamPrintAdapter.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/StaticJsonBuffer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/StringTraits/ArduinoStream.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/StringTraits/CharPointer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/StringTraits/FlashString.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/StringTraits/StdStream.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/StringTraits/StdString.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/StringTraits/StringTraits.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/EnableIf.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/FloatTraits.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsArray.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsBaseOf.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsChar.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsConst.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsFloatingPoint.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsIntegral.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsSame.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsSignedIntegral.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/IsUnsignedIntegral.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/RemoveConst.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/src/ArduinoJson/TypeTraits/RemoveReference.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/alloc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/createArray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/createObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/no_memory.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/size.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/startString.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/DynamicJsonBuffer/strdup.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/IntegrationTests/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/IntegrationTests/gbathree.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/IntegrationTests/round_trip.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/add.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/basics.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/copyFrom.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/copyTo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/invalid.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/iterator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/prettyPrintTo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/printTo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/remove.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/set.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonArray/subscript.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonBuffer/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonBuffer/nested.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonBuffer/nestingLimit.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonBuffer/parse.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonBuffer/parseArray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonBuffer/parseObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/basics.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/containsKey.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/get.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/invalid.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/iterator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/prettyPrintTo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/printTo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/remove.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/set.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonObject/subscript.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/as.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/compare.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/copy.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/is.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/printTo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/set_get.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/subscript.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/success.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonVariant/undefined.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonWriter/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonWriter/writeFloat.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/JsonWriter/writeString.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/FloatParts.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/StringBuilder.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/TypeTraits.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/deprecated.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/std_stream.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/std_string.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/unsigned_char.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Misc/vla.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Polyfills/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Polyfills/isFloat.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Polyfills/isInteger.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Polyfills/parseFloat.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/Polyfills/parseInteger.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/alloc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/createArray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/createObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/parseArray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/parseObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/size.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/test/StaticJsonBuffer/startString.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/third-party/catch/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/third-party/catch/catch.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/ArduinoJson/third-party/catch/catch.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/Jamfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/StandardCplusplus.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/algorithm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/algorithm.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/associative_base" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/associative_base.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/basic_definitions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/bitset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/bitset.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cassert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cctype" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cerrno" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cfloat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/char_traits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/char_traits.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/climits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/clocale" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cmath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/complex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/complex.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/csetjmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/csignal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cstdarg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cstddef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cstdio" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cstdlib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cstring" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/ctime" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cwchar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/cwctype" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/del_op.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/del_opnt.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/del_opv.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/del_opvnt.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/deque" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/deque.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/eh_alloc.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/eh_globals.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/examples/serstream/Jamfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/examples/serstream/more.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/examples/serstream/runtests.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/examples/serstream/serstream.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/examples/serstream/test.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/examples/string_vector/Jamfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/examples/string_vector/string_vector.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/exception" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/exception.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/fstream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/fstream.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/func_exception" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/func_exception.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/functional" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/initializer_list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iomanip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iomanip.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/ios" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/ios.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iosfwd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iostream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iostream.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/istream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/istream.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/istream_helpers" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iterator" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iterator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/iterator_base" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/limits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/limits.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/list.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/locale" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/locale.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/map.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/memory" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/new_handler.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/new_op.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/new_opnt.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/new_opv.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/new_opvnt.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/numeric" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/numeric.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/ostream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/ostream.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/ostream_helpers" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/queue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/queue.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/serstream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/set" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/set.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/sstream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/sstream.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/stack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/stack.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/stdexcept" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/stdexcept.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/streambuf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/streambuf.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/string" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/string.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/string_iostream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/support" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/support.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/system_configuration.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/type_traits" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/typeinfo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/typeinfo.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/uartbuf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/unwind-cxx.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/utility.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/utility.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/valarray" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/valarray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/vector" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/StandardCplusplus-master/vector.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../0_esp_libraries/arduinoWebSockets-master.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/.idea/SymphonyCore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/SymphonyDeviceCredentials.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyCore/SymphonyDeviceCredentials.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/src/SymphonyMotionSensor-clion.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/SymphonyMotionSensor.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../eee13/ME4/ME4.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../eee13/ME4/ME4.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../eee13/ME4/ME4.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../eee13/ME4/ME4.xcodeproj/project.xcworkspace/xcuserdata/carlomiras.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../eee13/ME4/ME4.xcodeproj/xcuserdata/carlomiras.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../eee13/ME4/ME4/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/388d9b2e-6786-4fb4-b87f-221dfdcbd980.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/388d9b2e-6786-4fb4-b87f-221dfdcbd980.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_0_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_0_BUILD_SNAPSHOT.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cir/rules.cir" beforeDir="false" afterPath="$PROJECT_DIR$/cir/rules.cir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/bm.properties" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/bm.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/bm_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/bm_logs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/engines/cir.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/engines/cir.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/engines/db.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/engines/db.log" afterDir="false" />
@@ -11,15 +337,137 @@
       <change beforePath="$PROJECT_DIR$/logs/modules/poop.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/modules/poop.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/modules/registration.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/modules/registration.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/mqtt/mqtt.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/mqtt/mqtt.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/Argument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/CodeBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/cir/objects/ExecutionBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/cir/objects/ExecutionBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/jeep/JEEPManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/jeep/JEEPManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/ReqPOOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/ReqPOOP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/modules/RegistrationModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/modules/RegistrationModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/SpiffsUtil.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyCore.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore/_ino.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/SymphonyCore_v2.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/SymphonyCore_v2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/cmake-build-debug/SymphonyCore_v2.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/platformio.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyCore_v2/src/test.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore_v2/src/test.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyIR/.ino.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyIR/sloeber.ino.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyIR/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyIR/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyIR/.settings/org.eclipse.cdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyIR/.settings/org.eclipse.cdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyIR/SymphonyIR.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyIR/SymphonyIR.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/CloudMqttUtil/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/CloudMqttUtil/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/MqttUtil/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/MqttUtil/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/PushBullet/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/PushBullet/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SpiffsUtil/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SpiffsUtil/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyProduct/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/SymphonyProduct/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/mainhtml/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/mainhtml2/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/mainhtml3/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion-rebuild/lib/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/platformio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/platformio.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/serialmonitor_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/SymphonyMotionSensor-clion.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/SymphonyMotionSensor-clion.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/cmake-build-debug/SymphonyMotionSensor-clion.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/CloudMqttUtil/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/CloudMqttUtil/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/MqttUtil/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/MqttUtil/MqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/PushBullet/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/PushBullet/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SpiffsUtil/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SpiffsUtil/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SymphonyCore/SymphonyCore.cpp1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SymphonyCore/SymphonyCore.h1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SymphonyProduct/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/SymphonyProduct/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/mainhtml/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/mainhtml2/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib-backup1/mainhtml3/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/CloudMqttUtil/CloudMqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/CloudMqttUtil/CloudMqttUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/MqttUtil/MqttUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/MqttUtil/MqttUtil.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyCore/MqttUtil.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/PushBullet/PushBullet.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/PushBullet/PushBullet.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/SpiffsUtil/SpiffsUtil.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/SpiffsUtil/SpiffsUtil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/SymphonyCore/SymphonyCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/SymphonyCore/SymphonyCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/SymphonyProduct/SymphonyProduct.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/SymphonyProduct/SymphonyProduct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/mainhtml/mainhtml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/mainhtml2/mainhtml2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/lib/mainhtml3/mainhtml3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/platformio.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor-clion/src/SymphonyMotionSensor.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.cproject" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.cproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.ino.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/sloeber.ino.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.project" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/org.eclipse.cdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/.settings/org.eclipse.cdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.ino.cpp.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/.ino.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/SymphonyMotionSensor.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/SymphonyMotionSensor.elf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SymphonyMotionSensor/Release/arduino.ar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.xcworkspace/xcuserdata/carlomiras.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter.xcodeproj/project.xcworkspace/xcuserdata/carlomiras.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iCounter/iCounter/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../iCounter/iCounter/ViewController.swift" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,86 +517,100 @@
     <session id="419483286">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.17" value="5" />
-          <entry key="project.open.time.18" value="2" />
+          <entry key="project.closed" value="18" />
+          <entry key="project.open.time.17" value="6" />
+          <entry key="project.open.time.18" value="3" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.23" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.21" value="3" />
+          <entry key="project.open.time.22" value="2" />
+          <entry key="project.open.time.23" value="2" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cir" value="151" />
-          <entry key="java" value="5665" />
+          <entry key="cell" value="1" />
+          <entry key="cir" value="162" />
+          <entry key="java" value="6005" />
+          <entry key="properties" value="74" />
+          <entry key="sql" value="41" />
           <entry key="txt" value="58" />
-          <entry key="xml" value="2" />
+          <entry key="xml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5665" />
-          <entry key="PLAIN_TEXT" value="209" />
-          <entry key="XML" value="2" />
+          <entry key="JAVA" value="6005" />
+          <entry key="PLAIN_TEXT" value="220" />
+          <entry key="Properties" value="74" />
+          <entry key="SQL" value="41" />
+          <entry key="Scratch" value="1" />
+          <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="DEVICES" value="4" />
+          <entry key="COMPROPLIST" value="1" />
+          <entry key="DEVICES" value="5" />
           <entry key="PRODUCTS" value="1" />
           <entry key="PROPCAT" value="1" />
           <entry key="PROPERTIES" value="4" />
+          <entry key="PVALCAT" value="1" />
           <entry key="ROOMS" value="1" />
           <entry key="backup" value="1" />
-          <entry key="cir" value="6" />
-          <entry key="java" value="39" />
-          <entry key="properties" value="2" />
+          <entry key="cir" value="7" />
+          <entry key="html" value="2" />
+          <entry key="java" value="43" />
+          <entry key="js" value="1" />
+          <entry key="properties" value="3" />
           <entry key="sql" value="2" />
-          <entry key="xml" value="6" />
+          <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="11" />
-          <entry key="JAVA" value="39" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Properties" value="2" />
+          <entry key="Database Element" value="14" />
+          <entry key="HTML" value="2" />
+          <entry key="JAVA" value="43" />
+          <entry key="JavaScript" value="1" />
+          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="Properties" value="3" />
           <entry key="Scratch" value="2" />
-          <entry key="XML" value="6" />
+          <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.spring.boot.mvc.usages" />
       <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bm/cir/objects/Rule.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+              <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cir/rules.cir">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/engines/DBEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+            <state relative-caret-position="1125">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/bm.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2070">
+              <caret line="138" selection-start-line="138" selection-end-line="143" selection-end-column="243" />
             </state>
           </provider>
         </entry>
@@ -156,35 +618,61 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="63" column="17" lean-forward="true" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+            <state relative-caret-position="45">
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/DEVICES">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/PROPERTIES">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java">
+        <entry file="file://$PROJECT_DIR$/configuration/spring/adaptors-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6675">
-              <caret line="489" column="54" selection-start-line="489" selection-start-column="54" selection-end-line="489" selection-end-column="54" />
+            <state relative-caret-position="630">
+              <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/static/scripts/animations.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="556">
+              <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/templates/devices-overview.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9868">
+              <folding>
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/templates/settings.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="121" column="61" lean-forward="true" selection-start-line="121" selection-start-column="61" selection-end-line="121" selection-end-column="61" />
+              <folding>
+                <element signature="n#style#0;n#table#0;n#form#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/spring/repositories-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
@@ -287,12 +775,9 @@
         <option value="$PROJECT_DIR$/src/main/java/bm/context/products/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/jeep/vo/device/InboundRegistrationRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/main/modules/DetachmentModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/context/SymphonyObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/context/rooms/Room.java" />
         <option value="$PROJECT_DIR$/src/main/java/oh/context/adaptors/OHAdaptor.java" />
-        <option value="$PROJECT_DIR$/configuration/bm.properties" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/configuration/spring/product-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ui/webapp/AbstController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/AbstRepository.java" />
@@ -312,9 +797,12 @@
         <option value="$PROJECT_DIR$/src/main/java/bm/cir/objects/Argument.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/388d9b2e-6786-4fb4-b87f-221dfdcbd980/console_2.sql" />
         <option value="$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/bm/cir/CIRManager.java" />
         <option value="$PROJECT_DIR$/cir/rules.cir" />
+        <option value="$PROJECT_DIR$/configuration/bm.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -343,9 +831,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -353,7 +842,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -369,32 +859,37 @@
             <path>
               <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
               <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
               <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
               <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BM-core_v3" type="b2602c69:ProjectViewProjectNode" />
               <item name="BM-core_v3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -437,7 +932,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Maestro">
+  <component name="RunManager" selected="Maven.Maestro Compile">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -599,6 +1094,13 @@
       <workItem from="1533562108924" duration="5569000" />
       <workItem from="1533626578975" duration="55000" />
       <workItem from="1533691308370" duration="109000" />
+      <workItem from="1534498746529" duration="3229000" />
+      <workItem from="1534676552528" duration="272000" />
+      <workItem from="1535072097786" duration="353000" />
+      <workItem from="1535333284376" duration="1813000" />
+      <workItem from="1535347083260" duration="218000" />
+      <workItem from="1539261491767" duration="975000" />
+      <workItem from="1539604231623" duration="108000" />
     </task>
     <task id="LOCAL-00001" summary="Introduced AdaptorManager and streamlined context objects.">
       <created>1528467532761</created>
@@ -688,7 +1190,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202452000" />
+    <option name="totallyTimeSpent" value="209420000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -700,10 +1202,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.50881314" visible="true" weight="0.21944444" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.58312654" visible="true" weight="0.21944444" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -711,15 +1213,15 @@
       <window_info id="Learn" order="5" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="7" />
-      <window_info id="Structure" order="8" sideWeight="0.49118683" side_tool="true" visible="true" weight="0.21944444" />
+      <window_info id="Structure" order="8" sideWeight="0.41687346" side_tool="true" visible="true" weight="0.21944444" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32900944" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.39518073" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.5851939" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.493537" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32891566" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3278496" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32900944" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.3266745" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32891566" />
@@ -791,62 +1293,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed startup phase" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2385">
-          <caret line="170" column="40" selection-start-line="170" selection-start-column="40" selection-end-line="170" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/rooms/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/SymphonyObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="102" selection-start-line="12" selection-start-column="102" selection-end-line="12" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/SymphonyElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3600">
-          <caret line="259" column="29" selection-start-line="259" selection-start-column="29" selection-end-line="259" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/PVALCAT">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/oh/context/adaptors/OHAdaptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3735">
-          <caret line="266" column="36" selection-start-line="266" selection-start-column="36" selection-end-line="266" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/PROPERTIES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/spring/engines-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://c10ee378-70e8-4005-9948-7a64a050e474/schema/APP/table/DEVICES">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -866,13 +1312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/spring/repositories-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -993,13 +1432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/properties/Property.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="147" column="20" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bm/jeep/JEEPManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1025,13 +1457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/bm.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="143" column="200" lean-forward="true" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="200" />
         </state>
       </provider>
     </entry>
@@ -1077,10 +1502,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6675">
+          <caret line="489" column="54" selection-start-line="489" selection-start-column="54" selection-end-line="489" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cir/rules.cir">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        <state relative-caret-position="165">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/COMPROPLIST">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://388d9b2e-6786-4fb4-b87f-221dfdcbd980/schema/APP/table/PVALCAT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="113" column="33" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1098,10 +1551,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/devices/Device.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/properties/Property.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6675">
-          <caret line="489" column="54" selection-start-line="489" selection-start-column="54" selection-end-line="489" selection-end-column="54" />
+        <state relative-caret-position="2760">
+          <caret line="203" column="16" selection-start-line="203" selection-start-column="16" selection-end-line="203" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/context/adaptors/DBAdaptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/engines/DBEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/bm.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="138" selection-start-line="138" selection-end-line="143" selection-end-column="243" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/spring/adaptors-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/spring/repositories-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
@@ -1112,17 +1607,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/resources/static/scripts/animations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="63" column="17" lean-forward="true" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+        <state relative-caret-position="556">
+          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bm/main/repositories/DeviceRepository.java">
+    <entry file="file://$PROJECT_DIR$/resources/templates/devices-overview.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+        <state relative-caret-position="-9868">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="121" column="61" lean-forward="true" selection-start-line="121" selection-start-column="61" selection-end-line="121" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#form#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

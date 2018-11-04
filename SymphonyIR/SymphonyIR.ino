@@ -16,7 +16,7 @@
 #include <IRsend.h>
 
 Symphony s = Symphony();
-SymphProduct product = SymphProduct();
+SymphProduct device = SymphProduct();
 
 enum propertyIndex : uint8_t {
 	OnOff = 1,	//digital
@@ -41,7 +41,7 @@ int WsCallback(uint8_t * payload, size_t length) {
 	WsData wsdata = WsData(payload, length);
 	Serial.printf("WsCallback payload=%s ssid=%s value=%s\n", payload, wsdata.getSSID().c_str(), wsdata.getValue().c_str());
 	int propValue = 1-atoi(wsdata.getValue().c_str());
-	product.setValue(wsdata.getSSID(),  propValue);
+	device.setValue(wsdata.getSSID(),  propValue);
 //	switch (product.getProperty(wsdata.getSSID()).index) {
 //		    case OnOff:
 //		    	if (propValue == 0) {
@@ -74,9 +74,9 @@ attribStruct MyMqttCallback(attribStruct property, int scmd) {
 
 	Serial.println("MyMqttcallback called");
 
-	MqttUtil::product.setValue(property.ssid, scmd);
-	MqttUtil::product.setDone(property.ssid);
-	switch (MqttUtil::product.getProperty(property.ssid).index) {
+	MqttUtil::device.setValue(property.ssid, scmd);
+	MqttUtil::device.setDone(property.ssid);
+	switch (MqttUtil::device.getProperty(property.ssid).index) {
 
 	    case OnOff:
 	    	if (scmd == 0) {
@@ -100,19 +100,19 @@ attribStruct MyMqttCallback(attribStruct property, int scmd) {
 	    	Serial.println("MyMqttcallback case default");
 	    	break;
 	}
-	return (MqttUtil::product.getProperty(property.ssid));
+	return (MqttUtil::device.getProperty(property.ssid));
 }
 void setup()
 {
 	Serial.begin(115200);
 	irsend.begin();
 	Serial.println("\n************START Symphony***************1");
-	product.productType = "0014";
-	product.room = "U7YY";  //salas
-	product.name = "AC_Remote";
-	product.addProperty(OnOff, "0061", false, SymphProduct::createGui("AC", BUTTON_OUT, "On/Off", 0, 1, 0));
-	product.addProperty(AutoOnOff, "0062", false, SymphProduct::createGui("AC", BUTTON_OUT, "Auto", 0, 1, 0));
-	s.setProduct(product);  //always set the product first before running the setup
+	device.productType = "0014";
+	device.room = "U7YY";  //salas
+	device.name = "AC_Remote";
+	device.addProperty(OnOff, "0061", false, SymphProduct::createGui("AC", BUTTON_OUT, "On/Off", 0, 1, 0));
+	device.addProperty(AutoOnOff, "0062", false, SymphProduct::createGui("AC", BUTTON_OUT, "Auto", 0, 1, 0));
+	s.setProduct(device);  //always set the product first before running the setup
 	s.setWsCallback(&WsCallback);
 	s.setMqttCallback(&MyMqttCallback);
 	s.setup();

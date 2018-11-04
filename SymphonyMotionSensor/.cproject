@@ -23,13 +23,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/core/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/SymphonyCore}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoJson}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoJson/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoOTA}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/DNSServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266WebServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266WiFi}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/PubSubClient}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/PubSubClient/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266mDNS}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/arduinoWebSockets}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Hash}&quot;"/>
@@ -37,7 +35,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WiFiManager}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266HTTPUpdateServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WebSockets}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WebSockets/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Ethernet}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Ethernet/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/DNSServer/src}&quot;"/>
@@ -59,13 +56,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/core/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/SymphonyCore}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoJson}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoJson/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoOTA}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/DNSServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266WebServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266WiFi}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/PubSubClient}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/PubSubClient/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266mDNS}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/arduinoWebSockets}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Hash}&quot;"/>
@@ -73,7 +68,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WiFiManager}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266HTTPUpdateServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WebSockets}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WebSockets/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Ethernet}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Ethernet/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/DNSServer/src}&quot;"/>
@@ -95,13 +89,11 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/core/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/SymphonyCore}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoJson}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoJson/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ArduinoOTA}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/DNSServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266WebServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266WiFi}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/PubSubClient}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/PubSubClient/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266mDNS}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/arduinoWebSockets}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Hash}&quot;"/>
@@ -109,7 +101,6 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WiFiManager}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/ESP8266HTTPUpdateServer}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WebSockets}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/WebSockets/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Ethernet}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/Ethernet/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SymphonyMotionSensor/libraries/DNSServer/src}&quot;"/>

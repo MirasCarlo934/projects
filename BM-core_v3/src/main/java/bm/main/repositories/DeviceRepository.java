@@ -88,31 +88,39 @@ public class DeviceRepository /*extends AbstRepository*/ implements Initializabl
 				String topic = devs_rs.getString("topic");
 				String MAC = devs_rs.getString("MAC");
 				String room = devs_rs.getString("room");
-				String prod_id = devs_rs.getString("functn");
+				String prod_id = devs_rs.getString("product");
 				String name = devs_rs.getString("name");
 				boolean active = devs_rs.getBoolean("active");
 				int index = devs_rs.getInt("index");
 				String protocol = devs_rs.getString("protocol");
 				
 				int prop_index = devs_rs.getInt("prop_index");
-//				String prop_dispname = devs_rs.getString("prop_name");
-//				PropertyType ptype = pr.getPropertyType(devs_rs.getString("prop_type"));
-//				PropertyMode pmode = PropertyMode.parseFromString(devs_rs.getString("prop_mode"));
+				String prop_dispname = devs_rs.getString("prop_name");
+				PropertyType ptype = pr.getPropertyType(devs_rs.getString("prop_type"));
+				PropertyMode pmode = PropertyMode.parseFromString(devs_rs.getString("prop_mode"));
 				Object prop_val = devs_rs.getString("prop_value");
 				String prop_id = SSID + "_" + prop_index;
 				if(devices.containsKey(SSID)) {
-					Property prop = getDevice(SSID).getProperty(prop_index);
-					LOG.debug("Setting property: " + prop_id + " (" + prop.getDisplayName() + ") of device: " + SSID +
-							" with value: " + prop_val);
-					prop.setValue(prop_val);
+				    Device dev = getDevice(SSID);
+				    if(dev.containsProperty(prop_index)) {
+                        Property prop = dev.getProperty(prop_index);
+                        LOG.debug("Setting property: " + prop_id + " (" + prop.getDisplayName() + ") of device: " + SSID +
+                                " with value: " + prop_val);
+                        prop.setValue(prop_val);
+                    } else { //only productless devices get to this point
+                        LOG.debug("Setting property: " + prop_id + " of device: " + SSID +
+                                " with value: " + prop_val);
+				        Property prop = new Property(ptype, prop_index, prop_dispname, pmode, jm);
+				        prop.setValue(prop_val);
+                        dev.addProperty(prop);
+                    }
 				} else {
 				    if(protocols.containsKey(protocol)) {
                         LOG.debug("Adding device " + SSID + " (" + name + ") to repository!");
 						Device d = pr.getProduct(prod_id).createDevice(SSID, MAC, name, topic,
 								protocols.get(protocol), rr.getRoom(room), active, index);
                         if(prod_id.equals("0000")) {
-                        	//TASK FIX THIS!!!
-//							d.addProperty(new Property(ptype, prop_index, prop_dispname, pmode, jm));
+							d.addProperty(new Property(ptype, prop_index, prop_dispname, pmode, jm));
 						}
                         LOG.debug("Setting property: " + prop_id + " of device: " + SSID +
                                 " with value: " + prop_val);

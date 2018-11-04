@@ -1,711 +1,191 @@
-2018-08-06 23:35:41,056 INFO  [main] (MAIN.Maestro) Starting Maestro... 
-2018-08-06 23:35:41,262 INFO  [restartedMain] (MAIN.Maestro) Starting Maestro... 
-2018-08-06 23:35:41,878 INFO  [restartedMain] (bm.main.Maestro) Starting Maestro on Carlos-MacBook-Pro-2.local with PID 5407 (/Users/carlomiras/git/BM-core_v3/target/classes started by carlomiras in /Users/carlomiras/git/BM-core_v3)
-2018-08-06 23:35:41,878 DEBUG [restartedMain] (bm.main.Maestro) Running with Spring Boot v2.0.2.RELEASE, Spring v5.1.0.BUILD-SNAPSHOT
-2018-08-06 23:35:41,894 INFO  [restartedMain] (bm.main.Maestro) No active profile set, falling back to default profiles: default
-2018-08-06 23:35:44,410 INFO  [restartedMain] (UI.AdminController) AdminController started!
-2018-08-06 23:35:44,526 INFO  [restartedMain] (MAIN.UserPropertyManager) UserPropertyManager started!
-2018-08-06 23:35:44,593 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB
-2018-08-06 23:35:44,631 INFO  [restartedMain] (MAIN.Controller) Controller started!
-2018-08-06 23:35:44,634 INFO  [restartedMain] (MAIN.ResponseManager) ResponseManager started!
-2018-08-06 23:35:44,650 INFO  [restartedMain] (MainMQTTPublisher.MQTT) Starting MQTT Sender...
-2018-08-06 23:35:44,650 INFO  [restartedMain] (MainMQTTPublisher.MQTT) MQTT Sender started!
-2018-08-06 23:35:44,666 INFO  [restartedMain] (UI.BaseController) BaseController started!
-2018-08-06 23:35:44,680 INFO  [restartedMain] (UI.DevicesController) DevicesController started!
-2018-08-06 23:35:44,699 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
-2018-08-06 23:35:44,718 INFO  [restartedMain] (CIR.CIRManager) CIRManager started!
-2018-08-06 23:35:44,726 INFO  [restartedMain] (MAIN.AdaptorsDBEngine) AdaptorsDBEngine started @ URL: jdbc:derby://localhost:1527/products
-2018-08-06 23:35:44,741 INFO  [restartedMain] (MainHTTPSender.MAIN) Starting MAIN Sender...
-2018-08-06 23:35:44,741 INFO  [restartedMain] (MainHTTPSender.MAIN) MAIN Sender started!
-2018-08-06 23:35:44,741 INFO  [restartedMain] (MainHTTPSender.MAIN) MainHTTPSender started!
-2018-08-06 23:35:44,747 INFO  [restartedMain] (OH.OH-SitemapFileEngine) FileEngine for file 'home.sitemap' started!
-2018-08-06 23:35:44,752 INFO  [restartedMain] (UI.ErrorController) ErrorController started!
-2018-08-06 23:35:44,757 INFO  [restartedMain] (UI.SettingsController) SettingsController started!
-2018-08-06 23:35:45,061 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
-2018-08-06 23:35:45,063 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
-2018-08-06 23:35:45,063 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
-2018-08-06 23:35:45,063 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
-2018-08-06 23:35:45,092 INFO  [restartedMain] (OH.OH-RulesFileEngine) FileEngine for file 'home.rules' started!
-2018-08-06 23:35:45,101 INFO  [restartedMain] (MAIN.PropertiesFileEngine) FileEngine for file 'bm.properties' started!
-2018-08-06 23:35:45,946 INFO  [restartedMain] (bm.main.Maestro) Started Maestro in 4.678 seconds (JVM running for 5.793)
-2018-08-06 23:35:45,970 DEBUG [restartedMain] (MAIN.Maestro) Initializing repositories...
-2018-08-06 23:35:45,970 INFO  [restartedMain] (MAIN.RoomRepository) Retrieving rooms from DB...
-2018-08-06 23:35:46,078 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room J444 (Kitchen) to repository!
-2018-08-06 23:35:46,080 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room U7YY (Dining Area) to repository!
-2018-08-06 23:35:46,080 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room RJ2L (Lanai) to repository!
-2018-08-06 23:35:46,080 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room DKF5 (Salas) to repository!
-2018-08-06 23:35:46,080 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room CRL0 (Kuya's Bedroom) to repository!
-2018-08-06 23:35:46,080 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room XKWG (2nd Floor) to repository!
-2018-08-06 23:35:46,080 DEBUG [restartedMain] (MAIN.RoomRepository) 6 rooms added!
-2018-08-06 23:35:46,081 DEBUG [restartedMain] (MAIN.RoomRepository) Room retrieval complete!
-2018-08-06 23:35:46,081 INFO  [restartedMain] (MAIN.ProductRepository) Retrieving property types from DB...
-2018-08-06 23:35:46,089 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type D (Digital) to repository!
-2018-08-06 23:35:46,089 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A1 (Analog) to repository!
-2018-08-06 23:35:46,090 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A2 (Percent) to repository!
-2018-08-06 23:35:46,090 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A3 (AnalogHue) to repository!
-2018-08-06 23:35:46,090 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type STR (String) to repository!
-2018-08-06 23:35:46,090 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INN (Innate) to repository!
-2018-08-06 23:35:46,090 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INT (Integer) to repository!
-2018-08-06 23:35:46,090 DEBUG [restartedMain] (MAIN.ProductRepository) 7 property types added!
-2018-08-06 23:35:46,090 INFO  [restartedMain] (MAIN.ProductRepository) Populating products from DB...
-2018-08-06 23:35:46,103 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0010 (Timer)
-2018-08-06 23:35:46,105 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Active" (index: 1) to product "Timer" (SSID: 0010)!
-2018-08-06 23:35:46,105 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Time" (index: 2) to product "Timer" (SSID: 0010)!
-2018-08-06 23:35:46,106 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
-2018-08-06 23:35:46,106 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
-2018-08-06 23:35:46,106 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0011 (WS2812B)
-2018-08-06 23:35:46,107 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Warmwhite" (index: 1) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,107 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Red" (index: 2) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,107 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Random" (index: 3) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,107 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Sequence" (index: 4) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,107 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Off" (index: 5) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,107 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Group" (index: 6) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Groups" (index: 7) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Timer" (index: 8) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Start Timer" (index: 9) to product "WS2812B" (SSID: 0011)!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
-2018-08-06 23:35:46,108 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0012 (VirtualSwitch)
-2018-08-06 23:35:46,109 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 1) to product "VirtualSwitch" (SSID: 0012)!
-2018-08-06 23:35:46,110 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0012 (VirtualSwitch) added to repository!
-2018-08-06 23:35:46,110 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0013 (VirtualSlider)
-2018-08-06 23:35:46,110 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Slider" (index: 1) to product "VirtualSlider" (SSID: 0013)!
-2018-08-06 23:35:46,111 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0013 (VirtualSlider) added to repository!
-2018-08-06 23:35:46,111 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0002 (SoloLightRGB)
-2018-08-06 23:35:46,111 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Warm White" (index: 1) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,111 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Red" (index: 4) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,112 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Green" (index: 5) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,112 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Blue" (index: 6) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,112 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "StartTimer" (index: 2) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,112 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Timer(Mins)" (index: 3) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,112 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Off" (index: 9) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,112 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "brightness" (index: 8) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,112 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Orange" (index: 7) to product "SoloLightRGB" (SSID: 0002)!
-2018-08-06 23:35:46,113 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,113 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,113 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,113 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,113 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,113 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,113 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0008 (PIRSensor)
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "MotionDetected" (index: 1) to product "PIRSensor" (SSID: 0008)!
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "PIR Indicator" (index: 2) to product "PIRSensor" (SSID: 0008)!
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,114 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0005 (PlexMediaPlayer)
-2018-08-06 23:35:46,115 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Now Playing" (index: 1) to product "PlexMediaPlayer" (SSID: 0005)!
-2018-08-06 23:35:46,115 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Progress" (index: 4) to product "PlexMediaPlayer" (SSID: 0005)!
-2018-08-06 23:35:46,115 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player Status" (index: 5) to product "PlexMediaPlayer" (SSID: 0005)!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player URL" (index: 0) to product "PlexMediaPlayer" (SSID: 0005)!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player Client Identifier" (index: 0) to product "PlexMediaPlayer" (SSID: 0005)!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Play" (index: 2) to product "PlexMediaPlayer" (SSID: 0005)!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Stop" (index: 4) to product "PlexMediaPlayer" (SSID: 0005)!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-08-06 23:35:46,116 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0009 (SamsungRemote)
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "TogglePower" (index: 1) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Left" (index: 2) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Right" (index: 3) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Up" (index: 4) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Down" (index: 5) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Voume Up" (index: 6) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Volume Down" (index: 7) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,117 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Menu" (index: 8) to product "SamsungRemote" (SSID: 0009)!
-2018-08-06 23:35:46,118 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,118 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0006 (TFTSwitch)
-2018-08-06 23:35:46,118 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "EnablePushSwitch" (index: 2) to product "TFTSwitch" (SSID: 0006)!
-2018-08-06 23:35:46,118 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "State" (index: 3) to product "TFTSwitch" (SSID: 0006)!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 4) to product "TFTSwitch" (SSID: 0006)!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "EnableToggleSwitch" (index: 1) to product "TFTSwitch" (SSID: 0006)!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,119 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,120 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
-2018-08-06 23:35:46,120 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-08-06 23:35:46,120 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-08-06 23:35:46,120 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
-2018-08-06 23:35:46,120 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0003 (Symphony Socket)
-2018-08-06 23:35:46,120 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Socket Switch" (index: 1) to product "Symphony Socket" (SSID: 0003)!
-2018-08-06 23:35:46,121 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0003 (Symphony Socket) added to repository!
-2018-08-06 23:35:46,121 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,121 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
-2018-08-06 23:35:46,121 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0001 (SoloLight)
-2018-08-06 23:35:46,121 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 1) to product "SoloLight" (SSID: 0001)!
-2018-08-06 23:35:46,121 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0001 (SoloLight) added to repository!
-2018-08-06 23:35:46,121 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0007 (Test1)
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "DO1" (index: 1) to product "Test1" (SSID: 0007)!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "DO2" (index: 2) to product "Test1" (SSID: 0007)!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "AO1" (index: 3) to product "Test1" (SSID: 0007)!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "AO2" (index: 4) to product "Test1" (SSID: 0007)!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
-2018-08-06 23:35:46,122 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-08-06 23:35:46,123 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
-2018-08-06 23:35:46,123 DEBUG [restartedMain] (MAIN.ProductRepository) 13 products added!
-2018-08-06 23:35:46,123 INFO  [restartedMain] (MAIN.DeviceRepository) Retrieving devices from DB...
-2018-08-06 23:35:46,125 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device D6N7 (TestComponent1) to repository!
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: D6N7_1 of device: D6N7 with value: 1
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device C3I4 (RGB) to repository!
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_1 of device: C3I4 with value: 0
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_2 (StartTimer) of device: C3I4 with value: 0
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_3 (Timer(Mins)) of device: C3I4 with value: 0
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_4 (Red) of device: C3I4 with value: 0
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_5 (Green) of device: C3I4 with value: 0
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_6 (Blue) of device: C3I4 with value: 0
-2018-08-06 23:35:46,126 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_7 (Orange) of device: C3I4 with value: 0
-2018-08-06 23:35:46,127 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_8 (brightness) of device: C3I4 with value: 20
-2018-08-06 23:35:46,127 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: C3I4_9 (Off) of device: C3I4 with value: 0
-2018-08-06 23:35:46,127 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device B6SM (Test) to repository!
-2018-08-06 23:35:46,127 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: B6SM_1 of device: B6SM with value: 1
-2018-08-06 23:35:46,127 INFO  [restartedMain] (MAIN.DeviceRepository) 3 devices retrieved!
-2018-08-06 23:35:46,127 DEBUG [restartedMain] (MAIN.DeviceRepository) Updating devices in Symphony Environment...
-2018-08-06 23:35:46,127 DEBUG [restartedMain] (MAIN.DeviceRepository) Devices updated in Symphony Environment!
-2018-08-06 23:35:46,148 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.tools.IDGenerator
-2018-08-06 23:35:46,148 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.context.adaptors.AdaptorManager
-2018-08-06 23:35:46,149 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptors to products...
-2018-08-06 23:35:46,224 INFO  [restartedMain] (MAIN.AdaptorManager) 0 adaptor-product links made. 0 adaptor-product links failed. 0 total.
-2018-08-06 23:35:46,224 INFO  [restartedMain] (MAIN.AdaptorManager) No links found for 3 adaptors. Assuming to be universal adaptors. Linking to all products...
-2018-08-06 23:35:46,224 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all devices...
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all devices...
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all devices...
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) Universal adaptors linked!
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) Linking all adaptors to all rooms...
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all rooms!
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all rooms!
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all rooms!
-2018-08-06 23:35:46,225 INFO  [restartedMain] (MAIN.AdaptorManager) All adaptors linked to rooms!
-2018-08-06 23:35:46,226 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.cir.CIRManager
-2018-08-06 23:35:46,226 DEBUG [restartedMain] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:35:46,247 DEBUG [restartedMain] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:35:46,247 DEBUG [restartedMain] (CIR.CIRManager) CIR updated!
-2018-08-06 23:35:46,248 INFO  [restartedMain] (MAIN.Maestro) BusinessMachine started!
-2018-08-06 23:35:48,713 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:35:48,714 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-"RID":"testnoprod1",
-"CID":"0000",
-"RTY":"register",
-"name":"Sprinkler 1",
-"roomID":"RJ2L",
-"proplist":[
-	{
-	"ptype":"D",
-	"name":"On/Off",
-	"mode":"O",
-	"index":0
-	},
-	{
-	"ptype":"A2",
-	"name":"Sprinkle Strength",
-	"mode":"O",
-	"index":1
-	}
-],
-"icon":"switch"
-}
-2018-08-06 23:35:48,868 DEBUG [Thread1:Process1] (REG.RegistrationModule) RegistrationModule request processing started!
-2018-08-06 23:35:48,870 FATAL [Thread1:Process1] (REG.RegistrationModule) INDEX: 0
-2018-08-06 23:35:48,870 FATAL [Thread1:Process1] (REG.RegistrationModule) INDEX: 1
-2018-08-06 23:35:48,871 INFO  [Thread1:Process1] (REG.RegistrationModule) Registering device testnoprod1 to Environment...
-2018-08-06 23:35:48,871 DEBUG [Thread1:Process1] (REG.RegistrationModule) Creating Device object...
-2018-08-06 23:35:48,871 DEBUG [Thread1:Process1] (REG.RegistrationModule) Device is productless! Retrieving properties and device icon from registration request...
-2018-08-06 23:35:48,871 FATAL [Thread1:Process1] (REG.RegistrationModule) [{"mode":"O","name":"On/Off","index":0,"ptype":"D"},{"mode":"O","name":"Sprinkle Strength","index":1,"ptype":"A2"}]
-2018-08-06 23:35:48,871 DEBUG [Thread1:Process1] (REG.RegistrationModule) Properties retrieved!
-2018-08-06 23:35:48,871 DEBUG [Thread1:Process1] (REG.RegistrationModule) Icon retrieved!
-2018-08-06 23:35:48,871 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Creating device G54Y in CIRAdaptor...
-2018-08-06 23:35:48,871 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Device G54Y created in CIRAdaptor!
-2018-08-06 23:35:48,871 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Creating device G54Y in DBAdaptor...
-2018-08-06 23:35:48,911 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Device G54Y created in DBAdaptor!
-2018-08-06 23:35:48,912 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Creating device G54Y in OHAdaptor...
-2018-08-06 23:35:48,913 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Device G54Y created in OHAdaptor!
-2018-08-06 23:35:48,913 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Creating properties of device G54Y in Environment...
-2018-08-06 23:35:48,913 DEBUG [Thread1:Process1] (REG.G54Y_0) Creating property G54Y_0 in CIRAdaptor...
-2018-08-06 23:35:48,913 DEBUG [Thread1:Process1] (REG.G54Y_0) Property G54Y_0 created!
-2018-08-06 23:35:48,913 DEBUG [Thread1:Process1] (REG.G54Y_0) Creating property G54Y_0 in DBAdaptor...
-2018-08-06 23:35:48,925 DEBUG [Thread1:Process1] (REG.G54Y_0) Property G54Y_0 created!
-2018-08-06 23:35:48,925 DEBUG [Thread1:Process1] (REG.G54Y_0) Creating property G54Y_0 in OHAdaptor...
-2018-08-06 23:35:48,925 DEBUG [Thread1:Process1] (REG.G54Y_0) Property G54Y_0 created!
-2018-08-06 23:35:48,926 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Property G54Y_0 of device G54Y created!
-2018-08-06 23:35:48,926 DEBUG [Thread1:Process1] (REG.G54Y_1) Creating property G54Y_1 in CIRAdaptor...
-2018-08-06 23:35:48,926 DEBUG [Thread1:Process1] (REG.G54Y_1) Property G54Y_1 created!
-2018-08-06 23:35:48,926 DEBUG [Thread1:Process1] (REG.G54Y_1) Creating property G54Y_1 in DBAdaptor...
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (REG.G54Y_1) Property G54Y_1 created!
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (REG.G54Y_1) Creating property G54Y_1 in OHAdaptor...
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (REG.G54Y_1) Property G54Y_1 created!
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Property G54Y_1 of device G54Y created!
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (MAIN.DEV:G54Y) Device G54Y created!
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (REG.G54Y_0) Updating value of property G54Y_0 in CIRAdaptor...
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (REG.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:35:48,939 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:35:48,939 DEBUG [Thread1:Process1] (REG.G54Y_0) Updating value of property G54Y_0 in DBAdaptor...
-2018-08-06 23:35:48,990 DEBUG [Thread1:Process1] (REG.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:35:48,990 DEBUG [Thread1:Process1] (REG.G54Y_0) Updating value of property G54Y_0 in OHAdaptor...
-2018-08-06 23:35:48,990 DEBUG [Thread1:Process1] (REG.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:35:48,990 DEBUG [Thread1:Process1] (REG.G54Y_1) Updating value of property G54Y_1 in CIRAdaptor...
-2018-08-06 23:35:48,990 DEBUG [Thread1:Process1] (REG.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:35:48,990 DEBUG [Thread1:Process1] (REG.G54Y_1) Updating value of property G54Y_1 in DBAdaptor...
-2018-08-06 23:35:48,998 DEBUG [Thread1:Process1] (REG.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:35:48,999 DEBUG [Thread1:Process1] (REG.G54Y_1) Updating value of property G54Y_1 in OHAdaptor...
-2018-08-06 23:35:48,999 DEBUG [Thread1:Process1] (REG.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:35:48,999 INFO  [Thread1:Process1] (REG.RegistrationModule) Sending device credentials to actual device...
-2018-08-06 23:35:48,999 DEBUG [Thread1:Process1] (MAIN.JEEPManager) Sending registration response...
-2018-08-06 23:35:49,003 INFO  [Thread1:Process1] (REG.RegistrationModule) Registration complete!
-2018-08-06 23:35:49,003 INFO  [Thread1:Process1] (REG.RegistrationModule) Request processing finished!
-2018-08-06 23:35:49,013 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:35:49,013 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:35:49,013 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_0 changed value. Checking CIR...
-2018-08-06 23:35:49,014 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:35:49,014 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:35:49,023 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:35:49,023 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:35:49,023 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_1 changed value. Checking CIR...
-2018-08-06 23:35:49,023 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:35:49,048 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"register","success":true,"topic":"G54Y_topic","id":"G54Y","RID":"testnoprod1","CID":"G54Y"} to default_topic
-2018-08-06 23:35:49,117 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:35:50,293 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:35:50,294 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-"RID":"testnoprod2",
-"CID":"0000",
-"RTY":"register",
-"name":"Moisture Sensor",
-"roomID":"RJ2L",
-"proplist":[
-	{
-	"ptype":"A2",
-	"name":"Soil Moisture",
-	"mode":"I",
-	"index":0
-	}
-],
-"icon":"switch"
-}
-2018-08-06 23:35:50,324 DEBUG [Thread2:Process2] (REG.RegistrationModule) RegistrationModule request processing started!
-2018-08-06 23:35:50,325 FATAL [Thread2:Process2] (REG.RegistrationModule) INDEX: 0
-2018-08-06 23:35:50,325 INFO  [Thread2:Process2] (REG.RegistrationModule) Registering device testnoprod2 to Environment...
-2018-08-06 23:35:50,325 DEBUG [Thread2:Process2] (REG.RegistrationModule) Creating Device object...
-2018-08-06 23:35:50,325 DEBUG [Thread2:Process2] (REG.RegistrationModule) Device is productless! Retrieving properties and device icon from registration request...
-2018-08-06 23:35:50,325 FATAL [Thread2:Process2] (REG.RegistrationModule) [{"mode":"I","name":"Soil Moisture","index":0,"ptype":"A2"}]
-2018-08-06 23:35:50,325 DEBUG [Thread2:Process2] (REG.RegistrationModule) Properties retrieved!
-2018-08-06 23:35:50,325 DEBUG [Thread2:Process2] (REG.RegistrationModule) Icon retrieved!
-2018-08-06 23:35:50,325 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Creating device XWP3 in CIRAdaptor...
-2018-08-06 23:35:50,325 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Device XWP3 created in CIRAdaptor!
-2018-08-06 23:35:50,326 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Creating device XWP3 in DBAdaptor...
-2018-08-06 23:35:50,401 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Device XWP3 created in DBAdaptor!
-2018-08-06 23:35:50,401 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Creating device XWP3 in OHAdaptor...
-2018-08-06 23:35:50,401 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Device XWP3 created in OHAdaptor!
-2018-08-06 23:35:50,401 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Creating properties of device XWP3 in Environment...
-2018-08-06 23:35:50,401 DEBUG [Thread2:Process2] (REG.XWP3_0) Creating property XWP3_0 in CIRAdaptor...
-2018-08-06 23:35:50,401 DEBUG [Thread2:Process2] (REG.XWP3_0) Property XWP3_0 created!
-2018-08-06 23:35:50,401 DEBUG [Thread2:Process2] (REG.XWP3_0) Creating property XWP3_0 in DBAdaptor...
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (REG.XWP3_0) Property XWP3_0 created!
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (REG.XWP3_0) Creating property XWP3_0 in OHAdaptor...
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (REG.XWP3_0) Property XWP3_0 created!
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Property XWP3_0 of device XWP3 created!
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (MAIN.DEV:XWP3) Device XWP3 created!
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (REG.XWP3_0) Updating value of property XWP3_0 in CIRAdaptor...
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (REG.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:35:50,406 DEBUG [Thread2:Process2] (REG.XWP3_0) Updating value of property XWP3_0 in DBAdaptor...
-2018-08-06 23:35:50,407 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:35:50,417 DEBUG [Thread2:Process2] (REG.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:35:50,417 DEBUG [Thread2:Process2] (REG.XWP3_0) Updating value of property XWP3_0 in OHAdaptor...
-2018-08-06 23:35:50,417 DEBUG [Thread2:Process2] (REG.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:35:50,417 INFO  [Thread2:Process2] (REG.RegistrationModule) Sending device credentials to actual device...
-2018-08-06 23:35:50,417 DEBUG [Thread2:Process2] (MAIN.JEEPManager) Sending registration response...
-2018-08-06 23:35:50,417 INFO  [Thread2:Process2] (REG.RegistrationModule) Registration complete!
-2018-08-06 23:35:50,417 INFO  [Thread2:Process2] (REG.RegistrationModule) Request processing finished!
-2018-08-06 23:35:50,417 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"register","success":true,"topic":"XWP3_topic","id":"XWP3","RID":"testnoprod2","CID":"XWP3"} to default_topic
-2018-08-06 23:35:50,419 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:35:50,449 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:35:50,449 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:35:50,449 DEBUG [CIRManager] (CIR.CIRManager) Property XWP3_0 changed value. Checking CIR...
-2018-08-06 23:35:50,449 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:19,256 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:19,257 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'100'}
-2018-08-06 23:37:19,288 DEBUG [Thread3:Process3] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:19,290 INFO  [Thread3:Process3] (POOP.POOPModule) Changing property 0 of device XWP3 to 100...
-2018-08-06 23:37:19,290 DEBUG [Thread3:Process3] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:19,290 DEBUG [Thread3:Process3] (POOP.XWP3_0) Updating value of property XWP3_0 in CIRAdaptor...
-2018-08-06 23:37:19,290 DEBUG [Thread3:Process3] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:19,290 DEBUG [Thread3:Process3] (POOP.XWP3_0) Updating value of property XWP3_0 in DBAdaptor...
-2018-08-06 23:37:19,290 DEBUG [Thread3:Process3] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:19,290 DEBUG [Thread3:Process3] (POOP.XWP3_0) Updating value of property XWP3_0 in OHAdaptor...
-2018-08-06 23:37:19,291 DEBUG [Thread3:Process3] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:19,291 DEBUG [Thread3:Process3] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:19,291 INFO  [Thread3:Process3] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:19,291 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"4854213584","value":"100","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:19,291 INFO  [Thread3:Process3] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:19,292 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:19,318 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:19,360 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:19,360 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:19,360 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:19,360 DEBUG [CIRManager] (CIR.CIRManager) Property XWP3_0 changed value. Checking CIR...
-2018-08-06 23:37:19,360 FATAL [CIRManager] (CIR.CIRManager) 11111
-2018-08-06 23:37:19,361 FATAL [CIRManager] (CIR.CIRManager) Soil Moisture::100.0<50.0
-2018-08-06 23:37:19,361 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:19,453 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:19,453 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'100'}
-2018-08-06 23:37:19,521 DEBUG [Thread1:Process4] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:19,521 INFO  [Thread1:Process4] (POOP.POOPModule) Changing property 0 of device XWP3 to 100...
-2018-08-06 23:37:19,522 INFO  [Thread1:Process4] (POOP.POOPModule) Property is already set to 100!
-2018-08-06 23:37:19,522 DEBUG [Thread1:Process4] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:19,522 INFO  [Thread1:Process4] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:19,522 INFO  [Thread1:Process4] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:19,530 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"6000864717","value":"100","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:19,530 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:26,034 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:26,034 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'31'}
-2018-08-06 23:37:26,129 DEBUG [Thread2:Process5] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:26,130 INFO  [Thread2:Process5] (POOP.POOPModule) Changing property 0 of device XWP3 to 31...
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (POOP.XWP3_0) Updating value of property XWP3_0 in CIRAdaptor...
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (POOP.XWP3_0) Updating value of property XWP3_0 in DBAdaptor...
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (POOP.XWP3_0) Updating value of property XWP3_0 in OHAdaptor...
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:26,130 DEBUG [Thread2:Process5] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:26,130 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"3001886876","value":"31","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:26,130 INFO  [Thread2:Process5] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:26,130 INFO  [Thread2:Process5] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:26,133 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:26,158 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:26,159 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:26,159 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:26,159 DEBUG [CIRManager] (CIR.CIRManager) Property XWP3_0 changed value. Checking CIR...
-2018-08-06 23:37:26,159 FATAL [CIRManager] (CIR.CIRManager) 11111
-2018-08-06 23:37:26,160 INFO  [CIRManager] (CIR.CIRManager) Property XWP3_0 value change triggered 1 rules! Executing...
-2018-08-06 23:37:26,160 DEBUG [CIRManager] (CIR.CIRManager) Updating property G54Y_0...
-2018-08-06 23:37:26,186 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Updating value of property G54Y_0 in CIRAdaptor...
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Updating value of property G54Y_0 in DBAdaptor...
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Updating value of property G54Y_0 in OHAdaptor...
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Sending property value to device...
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:26,208 DEBUG [CIRManager] (CIR.G54Y_0) Property value sent!
-2018-08-06 23:37:26,209 INFO  [CIRManager] (CIR.CIRManager) Property G54Y_0 updated from rule "Turn On Lights"
-2018-08-06 23:37:26,209 DEBUG [CIRManager] (CIR.CIRManager) Updating property G54Y_1...
-2018-08-06 23:37:26,213 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","property":0,"RID":"7681000867","value":"1","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:26,214 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:26,237 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:26,237 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'31'}
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (CIR.G54Y_1) Updating value of property G54Y_1 in CIRAdaptor...
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (CIR.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (CIR.G54Y_1) Updating value of property G54Y_1 in DBAdaptor...
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (CIR.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (CIR.G54Y_1) Updating value of property G54Y_1 in OHAdaptor...
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (CIR.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (CIR.G54Y_1) Sending property value to device...
-2018-08-06 23:37:26,251 DEBUG [CIRManager] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:26,252 DEBUG [CIRManager] (CIR.G54Y_1) Property value sent!
-2018-08-06 23:37:26,252 INFO  [CIRManager] (CIR.CIRManager) Property G54Y_1 updated from rule "Turn On Lights"
-2018-08-06 23:37:26,252 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:26,252 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","property":1,"RID":"3544170115","value":"80","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:26,266 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:26,284 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:26,284 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:26,284 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:26,284 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_0 changed value. Checking CIR...
-2018-08-06 23:37:26,284 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:26,284 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:26,286 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:26,286 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:26,286 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:26,286 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_1 changed value. Checking CIR...
-2018-08-06 23:37:26,293 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:26,338 DEBUG [Thread3:Process6] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:26,338 INFO  [Thread3:Process6] (POOP.POOPModule) Changing property 0 of device XWP3 to 31...
-2018-08-06 23:37:26,338 INFO  [Thread3:Process6] (POOP.POOPModule) Property is already set to 31!
-2018-08-06 23:37:26,338 DEBUG [Thread3:Process6] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:26,338 INFO  [Thread3:Process6] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:26,338 INFO  [Thread3:Process6] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:26,353 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"1118111302","value":"31","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:26,354 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:36,547 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:36,548 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'G54Y',RTY:'poop',property:'1',value:'7'}
-2018-08-06 23:37:36,599 DEBUG [Thread1:Process7] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:36,600 INFO  [Thread1:Process7] (POOP.POOPModule) Changing property 1 of device G54Y to 7...
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (POOP.G54Y_1) Updating value of property G54Y_1 in CIRAdaptor...
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (POOP.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (POOP.G54Y_1) Updating value of property G54Y_1 in DBAdaptor...
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (POOP.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:36,600 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (POOP.G54Y_1) Updating value of property G54Y_1 in OHAdaptor...
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (POOP.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:36,600 DEBUG [Thread1:Process7] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:36,600 INFO  [Thread1:Process7] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:36,600 INFO  [Thread1:Process7] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:36,614 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"G54Y_1","RID":"8502568681","value":"7","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:36,615 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:36,650 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:36,650 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:36,650 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:36,650 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_1 changed value. Checking CIR...
-2018-08-06 23:37:36,650 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:36,746 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:36,747 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'G54Y',RTY:'poop',property:'1',value:'7'}
-2018-08-06 23:37:36,871 DEBUG [Thread2:Process8] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:36,871 INFO  [Thread2:Process8] (POOP.POOPModule) Changing property 1 of device G54Y to 7...
-2018-08-06 23:37:36,872 INFO  [Thread2:Process8] (POOP.POOPModule) Property is already set to 7!
-2018-08-06 23:37:36,872 DEBUG [Thread2:Process8] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:36,872 INFO  [Thread2:Process8] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:36,872 INFO  [Thread2:Process8] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:36,872 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"G54Y_1","RID":"6876484411","value":"7","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:36,918 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:37,384 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:37,384 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'G54Y',RTY:'poop',property:'0',value:'0'}
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:37,438 INFO  [Thread3:Process9] (POOP.POOPModule) Changing property 0 of device G54Y to 0...
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.G54Y_0) Updating value of property G54Y_0 in CIRAdaptor...
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:37,438 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.G54Y_0) Updating value of property G54Y_0 in DBAdaptor...
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.G54Y_0) Updating value of property G54Y_0 in OHAdaptor...
-2018-08-06 23:37:37,438 DEBUG [Thread3:Process9] (POOP.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:37,439 DEBUG [Thread3:Process9] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:37,439 INFO  [Thread3:Process9] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:37,439 INFO  [Thread3:Process9] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:37,439 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"G54Y_0","RID":"1021834380","value":"0","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:37,466 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:37,466 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:37,466 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:37,466 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:37,466 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_0 changed value. Checking CIR...
-2018-08-06 23:37:37,466 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:39,706 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:39,706 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'84'}
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:39,721 INFO  [Thread1:Process10] (POOP.POOPModule) Changing property 0 of device XWP3 to 84...
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.XWP3_0) Updating value of property XWP3_0 in CIRAdaptor...
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.XWP3_0) Updating value of property XWP3_0 in DBAdaptor...
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.XWP3_0) Updating value of property XWP3_0 in OHAdaptor...
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:39,721 DEBUG [Thread1:Process10] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:39,721 INFO  [Thread1:Process10] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:39,721 INFO  [Thread1:Process10] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:39,757 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:39,774 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:39,774 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:39,774 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:39,774 DEBUG [CIRManager] (CIR.CIRManager) Property XWP3_0 changed value. Checking CIR...
-2018-08-06 23:37:39,774 FATAL [CIRManager] (CIR.CIRManager) 11111
-2018-08-06 23:37:39,774 FATAL [CIRManager] (CIR.CIRManager) Soil Moisture::84.0<50.0
-2018-08-06 23:37:39,774 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:39,781 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"5461122062","value":"84","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:39,781 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:39,906 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:39,906 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'84'}
-2018-08-06 23:37:39,932 DEBUG [Thread2:Process11] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:39,932 INFO  [Thread2:Process11] (POOP.POOPModule) Changing property 0 of device XWP3 to 84...
-2018-08-06 23:37:39,932 INFO  [Thread2:Process11] (POOP.POOPModule) Property is already set to 84!
-2018-08-06 23:37:39,932 DEBUG [Thread2:Process11] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:39,932 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"5344318785","value":"84","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:39,932 INFO  [Thread2:Process11] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:39,932 INFO  [Thread2:Process11] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:40,044 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:42,752 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:42,752 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'G54Y',RTY:'poop',property:'1',value:'33'}
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:42,778 INFO  [Thread3:Process12] (POOP.POOPModule) Changing property 1 of device G54Y to 33...
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.G54Y_1) Updating value of property G54Y_1 in CIRAdaptor...
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.G54Y_1) Updating value of property G54Y_1 in DBAdaptor...
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.G54Y_1) Updating value of property G54Y_1 in OHAdaptor...
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (POOP.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:42,778 DEBUG [Thread3:Process12] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:42,778 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"G54Y_1","RID":"7847852453","value":"33","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:42,778 INFO  [Thread3:Process12] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:42,778 INFO  [Thread3:Process12] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:42,779 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:42,793 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:42,830 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:42,831 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:42,831 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:42,831 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_1 changed value. Checking CIR...
-2018-08-06 23:37:42,831 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:42,950 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:42,950 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'G54Y',RTY:'poop',property:'1',value:'33'}
-2018-08-06 23:37:42,969 DEBUG [Thread1:Process13] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:42,969 INFO  [Thread1:Process13] (POOP.POOPModule) Changing property 1 of device G54Y to 33...
-2018-08-06 23:37:42,969 INFO  [Thread1:Process13] (POOP.POOPModule) Property is already set to 33!
-2018-08-06 23:37:42,969 DEBUG [Thread1:Process13] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:42,969 INFO  [Thread1:Process13] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:42,969 INFO  [Thread1:Process13] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:42,979 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"G54Y_1","RID":"8330880886","value":"33","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:42,980 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:45,772 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:45,773 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'80'}
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:45,780 INFO  [Thread2:Process14] (POOP.POOPModule) Changing property 0 of device XWP3 to 80...
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.XWP3_0) Updating value of property XWP3_0 in CIRAdaptor...
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:45,780 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.XWP3_0) Updating value of property XWP3_0 in DBAdaptor...
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.XWP3_0) Updating value of property XWP3_0 in OHAdaptor...
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:45,780 DEBUG [Thread2:Process14] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:45,780 INFO  [Thread2:Process14] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:45,780 INFO  [Thread2:Process14] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:45,787 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"1054571387","value":"80","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:45,787 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:45,790 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:45,810 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:45,810 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:45,810 DEBUG [CIRManager] (CIR.CIRManager) Property XWP3_0 changed value. Checking CIR...
-2018-08-06 23:37:45,810 FATAL [CIRManager] (CIR.CIRManager) 11111
-2018-08-06 23:37:45,810 FATAL [CIRManager] (CIR.CIRManager) Soil Moisture::80.0<50.0
-2018-08-06 23:37:45,810 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:45,972 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:45,972 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'80'}
-2018-08-06 23:37:46,085 DEBUG [Thread3:Process15] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:46,085 INFO  [Thread3:Process15] (POOP.POOPModule) Changing property 0 of device XWP3 to 80...
-2018-08-06 23:37:46,085 INFO  [Thread3:Process15] (POOP.POOPModule) Property is already set to 80!
-2018-08-06 23:37:46,085 DEBUG [Thread3:Process15] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:46,085 INFO  [Thread3:Process15] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:46,085 INFO  [Thread3:Process15] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:46,108 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"3881614083","value":"80","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:46,108 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:52,713 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:52,713 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'0'}
-2018-08-06 23:37:52,740 DEBUG [Thread1:Process16] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:52,740 INFO  [Thread1:Process16] (POOP.POOPModule) Changing property 0 of device XWP3 to 0...
-2018-08-06 23:37:52,740 DEBUG [Thread1:Process16] (POOP.POOPModule) Updating property in system...
-2018-08-06 23:37:52,740 DEBUG [Thread1:Process16] (POOP.XWP3_0) Updating value of property XWP3_0 in CIRAdaptor...
-2018-08-06 23:37:52,741 DEBUG [Thread1:Process16] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:52,741 DEBUG [Thread1:Process16] (POOP.XWP3_0) Updating value of property XWP3_0 in DBAdaptor...
-2018-08-06 23:37:52,741 DEBUG [Thread1:Process16] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:52,741 DEBUG [Thread1:Process16] (POOP.XWP3_0) Updating value of property XWP3_0 in OHAdaptor...
-2018-08-06 23:37:52,741 DEBUG [Thread1:Process16] (POOP.XWP3_0) Property XWP3_0 updated!
-2018-08-06 23:37:52,741 DEBUG [Thread1:Process16] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:52,741 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"4681457738","value":"0","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:52,741 INFO  [Thread1:Process16] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:52,741 INFO  [Thread1:Process16] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:52,742 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:52,770 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.CIRManager) Property XWP3_0 changed value. Checking CIR...
-2018-08-06 23:37:52,814 FATAL [CIRManager] (CIR.CIRManager) 11111
-2018-08-06 23:37:52,814 INFO  [CIRManager] (CIR.CIRManager) Property XWP3_0 value change triggered 1 rules! Executing...
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.CIRManager) Updating property G54Y_0...
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.G54Y_0) Updating value of property G54Y_0 in CIRAdaptor...
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.G54Y_0) Updating value of property G54Y_0 in DBAdaptor...
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:52,814 DEBUG [CIRManager] (CIR.G54Y_0) Updating value of property G54Y_0 in OHAdaptor...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_0) Property G54Y_0 updated!
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_0) Sending property value to device...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_0) Property value sent!
-2018-08-06 23:37:52,815 INFO  [CIRManager] (CIR.CIRManager) Property G54Y_0 updated from rule "Turn On Lights"
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.CIRManager) Updating property G54Y_1...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Updating value of property G54Y_1 in CIRAdaptor...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Updating value of property G54Y_1 in DBAdaptor...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Updating value of property G54Y_1 in OHAdaptor...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Property G54Y_1 updated!
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Sending property value to device...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.G54Y_1) Property value sent!
-2018-08-06 23:37:52,815 INFO  [CIRManager] (CIR.CIRManager) Property G54Y_1 updated from rule "Turn On Lights"
-2018-08-06 23:37:52,815 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:52,816 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:52,816 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:52,816 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:52,816 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_0 changed value. Checking CIR...
-2018-08-06 23:37:52,816 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:52,816 DEBUG [CIRManager] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:37:52,818 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:52,818 DEBUG [CIRManager] (CIR.CIRManager) Adding rule "Turn On Lights" to repository
-2018-08-06 23:37:52,819 DEBUG [CIRManager] (CIR.CIRManager) CIR updated!
-2018-08-06 23:37:52,819 DEBUG [CIRManager] (CIR.CIRManager) Property G54Y_1 changed value. Checking CIR...
-2018-08-06 23:37:52,819 DEBUG [CIRManager] (CIR.CIRManager) No rules found!
-2018-08-06 23:37:52,823 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","property":0,"RID":"6307421646","value":"1","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:52,824 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:52,851 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","property":1,"RID":"1744350774","value":"80","CID":"G54Y"} to G54Y_topic
-2018-08-06 23:37:52,852 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:37:52,986 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:37:52,986 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{RID:'OH-POOP', CID:'XWP3',RTY:'poop',property:'0',value:'0'}
-2018-08-06 23:37:53,048 DEBUG [Thread2:Process17] (POOP.POOPModule) POOPModule request processing started!
-2018-08-06 23:37:53,048 INFO  [Thread2:Process17] (POOP.POOPModule) Changing property 0 of device XWP3 to 0...
-2018-08-06 23:37:53,048 INFO  [Thread2:Process17] (POOP.POOPModule) Property is already set to 0!
-2018-08-06 23:37:53,048 DEBUG [Thread2:Process17] (MAIN.JEEPManager) Sending POOP request...
-2018-08-06 23:37:53,048 INFO  [Thread2:Process17] (POOP.POOPModule) Property changed. POOP processing complete!
-2018-08-06 23:37:53,048 INFO  [Thread2:Process17] (POOP.POOPModule) Request processing finished!
-2018-08-06 23:37:53,069 DEBUG [MQTT] (MainMQTTPublisher.MQTT) Publishing message:{"RTY":"poop","success":true,"property":"XWP3_0","RID":"6765323530","value":"0","CID":"XWP3"} to XWP3_topic
-2018-08-06 23:37:53,072 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message published!
-2018-08-06 23:38:41,784 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:38:41,785 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-RID:"testmac",
-CID:"XWP3",
-RTY:"detach"
-}
-2018-08-06 23:38:41,846 DEBUG [Thread3:Process18] (DETACH.DetachmentModule) DetachmentModule request processing started!
-2018-08-06 23:38:41,847 INFO  [Thread3:Process18] (DETACH.DetachmentModule) Detaching device XWP3 from system...
-2018-08-06 23:38:41,847 INFO  [Thread3:Process18] (CIR.CIRManager) Removing rules with property XWP3_0 as argument...
-2018-08-06 23:38:41,860 INFO  [Thread3:Process18] (CIR.CIRManager) Removing rule "Turn On Lights"...
-2018-08-06 23:38:41,860 DEBUG [Thread3:Process18] (CIR.CIRManager) Overwriting rules!
-2018-08-06 23:38:41,865 DEBUG [Thread3:Process18] (CIR.CIRManager) Updating CIR...
-2018-08-06 23:38:50,891 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message arrived at topic BM
-2018-08-06 23:38:50,892 DEBUG [MQTT Call: VM_12345678] (MQTT.MainMQTTListener) Message is: 
-{
-RID:"testmac",
-CID:"G54Y",
-RTY:"detach"
-}
-2018-08-06 23:38:50,897 DEBUG [Thread1:Process19] (DETACH.DetachmentModule) DetachmentModule request processing started!
-2018-08-06 23:38:50,897 INFO  [Thread1:Process19] (DETACH.DetachmentModule) Detaching device G54Y from system...
-2018-08-06 23:38:50,897 INFO  [Thread1:Process19] (CIR.CIRManager) Removing rules with property G54Y_0 as argument...
-2018-08-06 23:38:50,898 DEBUG [Thread1:Process19] (CIR.CIRManager) Overwriting rules!
-2018-08-06 23:38:50,899 DEBUG [Thread1:Process19] (CIR.CIRManager) Updating CIR...
+2018-08-17 18:26:45,396 INFO  [main] (MAIN.Maestro) Starting Maestro... 
+2018-08-17 18:26:45,580 INFO  [restartedMain] (MAIN.Maestro) Starting Maestro... 
+2018-08-17 18:26:45,931 INFO  [restartedMain] (bm.main.Maestro) Starting Maestro on Carlos-MacBook-Pro-2.local with PID 35466 (/Users/carlomiras/git/BM-core_v3/target/classes started by carlomiras in /Users/carlomiras/git/BM-core_v3)
+2018-08-17 18:26:45,932 DEBUG [restartedMain] (bm.main.Maestro) Running with Spring Boot v2.0.2.RELEASE, Spring v5.1.0.BUILD-SNAPSHOT
+2018-08-17 18:26:45,932 INFO  [restartedMain] (bm.main.Maestro) No active profile set, falling back to default profiles: default
+2018-08-17 18:26:48,177 INFO  [restartedMain] (UI.AdminController) AdminController started!
+2018-08-17 18:26:48,272 INFO  [restartedMain] (MAIN.UserPropertyManager) UserPropertyManager started!
+2018-08-17 18:26:48,351 INFO  [restartedMain] (DB.MainDBEngine) MainDBEngine started @ URL: jdbc:derby://localhost:1527/DB
+2018-08-17 18:26:48,381 INFO  [restartedMain] (MAIN.Controller) Controller started!
+2018-08-17 18:26:48,383 INFO  [restartedMain] (MAIN.ResponseManager) ResponseManager started!
+2018-08-17 18:26:48,389 INFO  [restartedMain] (MainMQTTPublisher.MQTT) Starting MQTT Sender...
+2018-08-17 18:26:48,389 INFO  [restartedMain] (MainMQTTPublisher.MQTT) MQTT Sender started!
+2018-08-17 18:26:48,399 INFO  [restartedMain] (UI.BaseController) BaseController started!
+2018-08-17 18:26:48,407 INFO  [restartedMain] (UI.DevicesController) DevicesController started!
+2018-08-17 18:26:48,420 INFO  [restartedMain] (CIR.CIR-FileEngine) FileEngine for file 'rules.cir' started!
+2018-08-17 18:26:48,437 INFO  [restartedMain] (CIR.CIRManager) CIRManager started!
+2018-08-17 18:26:48,444 INFO  [restartedMain] (MAIN.AdaptorsDBEngine) AdaptorsDBEngine started @ URL: jdbc:derby://localhost:1527/products
+2018-08-17 18:26:48,451 INFO  [restartedMain] (MainHTTPSender.MAIN) Starting MAIN Sender...
+2018-08-17 18:26:48,452 INFO  [restartedMain] (MainHTTPSender.MAIN) MAIN Sender started!
+2018-08-17 18:26:48,452 INFO  [restartedMain] (MainHTTPSender.MAIN) MainHTTPSender started!
+2018-08-17 18:26:48,455 INFO  [restartedMain] (OH.OH-SitemapFileEngine) FileEngine for file 'home.sitemap' started!
+2018-08-17 18:26:48,460 INFO  [restartedMain] (UI.ErrorController) ErrorController started!
+2018-08-17 18:26:48,462 INFO  [restartedMain] (UI.SettingsController) SettingsController started!
+2018-08-17 18:26:48,651 INFO  [restartedMain] (MQTT.MQTTClient) Connected to MQTT!
+2018-08-17 18:26:48,659 DEBUG [restartedMain] (MQTT.MQTTClient) Subscribed to BM topic!
+2018-08-17 18:26:48,660 DEBUG [restartedMain] (MQTT.MQTTClient) Listener set!
+2018-08-17 18:26:48,660 DEBUG [restartedMain] (MQTT.MQTTClient) Publisher set!
+2018-08-17 18:26:48,672 INFO  [restartedMain] (OH.OH-RulesFileEngine) FileEngine for file 'home.rules' started!
+2018-08-17 18:26:48,677 INFO  [restartedMain] (MAIN.PropertiesFileEngine) FileEngine for file 'bm.properties' started!
+2018-08-17 18:26:49,375 INFO  [restartedMain] (bm.main.Maestro) Started Maestro in 3.791 seconds (JVM running for 4.66)
+2018-08-17 18:26:49,395 DEBUG [restartedMain] (MAIN.Maestro) Initializing repositories...
+2018-08-17 18:26:49,395 INFO  [restartedMain] (MAIN.RoomRepository) Retrieving rooms from DB...
+2018-08-17 18:26:49,461 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room J444 (Kitchen) to repository!
+2018-08-17 18:26:49,461 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room U7YY (Dining Area) to repository!
+2018-08-17 18:26:49,461 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room RJ2L (Lanai) to repository!
+2018-08-17 18:26:49,461 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room DKF5 (Salas) to repository!
+2018-08-17 18:26:49,461 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room CRL0 (Kuya's Bedroom) to repository!
+2018-08-17 18:26:49,461 DEBUG [restartedMain] (MAIN.RoomRepository) Adding room XKWG (2nd Floor) to repository!
+2018-08-17 18:26:49,462 DEBUG [restartedMain] (MAIN.RoomRepository) 6 rooms added!
+2018-08-17 18:26:49,481 DEBUG [restartedMain] (MAIN.RoomRepository) Room retrieval complete!
+2018-08-17 18:26:49,481 INFO  [restartedMain] (MAIN.ProductRepository) Retrieving property types from DB...
+2018-08-17 18:26:49,513 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type D (Digital) to repository!
+2018-08-17 18:26:49,514 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A1 (Analog) to repository!
+2018-08-17 18:26:49,514 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A2 (Percent) to repository!
+2018-08-17 18:26:49,514 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type A3 (AnalogHue) to repository!
+2018-08-17 18:26:49,514 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type STR (String) to repository!
+2018-08-17 18:26:49,514 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INN (Innate) to repository!
+2018-08-17 18:26:49,515 DEBUG [restartedMain] (MAIN.ProductRepository) Adding property type INT (Integer) to repository!
+2018-08-17 18:26:49,515 DEBUG [restartedMain] (MAIN.ProductRepository) 7 property types added!
+2018-08-17 18:26:49,524 INFO  [restartedMain] (MAIN.ProductRepository) Populating products from DB...
+2018-08-17 18:26:49,533 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0010 (Timer)
+2018-08-17 18:26:49,537 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Active" (index: 1) to product "Timer" (SSID: 0010)!
+2018-08-17 18:26:49,537 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Time" (index: 2) to product "Timer" (SSID: 0010)!
+2018-08-17 18:26:49,538 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
+2018-08-17 18:26:49,538 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0010 (Timer) added to repository!
+2018-08-17 18:26:49,538 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0011 (WS2812B)
+2018-08-17 18:26:49,539 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Warmwhite" (index: 1) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Red" (index: 2) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Random" (index: 3) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Sequence" (index: 4) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Off" (index: 5) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Group" (index: 6) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Groups" (index: 7) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Timer" (index: 8) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,540 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Start Timer" (index: 9) to product "WS2812B" (SSID: 0011)!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0011 (WS2812B) added to repository!
+2018-08-17 18:26:49,541 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0012 (VirtualSwitch)
+2018-08-17 18:26:49,542 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 1) to product "VirtualSwitch" (SSID: 0012)!
+2018-08-17 18:26:49,542 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0012 (VirtualSwitch) added to repository!
+2018-08-17 18:26:49,542 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0013 (VirtualSlider)
+2018-08-17 18:26:49,545 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Slider" (index: 1) to product "VirtualSlider" (SSID: 0013)!
+2018-08-17 18:26:49,545 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0013 (VirtualSlider) added to repository!
+2018-08-17 18:26:49,545 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0002 (SoloLightRGB)
+2018-08-17 18:26:49,546 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Warm White" (index: 1) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,546 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Red" (index: 4) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,546 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Green" (index: 5) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Blue" (index: 6) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "StartTimer" (index: 2) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Timer(Mins)" (index: 3) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Off" (index: 9) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "brightness" (index: 8) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Orange" (index: 7) to product "SoloLightRGB" (SSID: 0002)!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,547 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,548 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0008 (PIRSensor)
+2018-08-17 18:26:49,548 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "MotionDetected" (index: 1) to product "PIRSensor" (SSID: 0008)!
+2018-08-17 18:26:49,548 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "PIR Indicator" (index: 2) to product "PIRSensor" (SSID: 0008)!
+2018-08-17 18:26:49,549 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
+2018-08-17 18:26:49,549 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0008 (PIRSensor) added to repository!
+2018-08-17 18:26:49,549 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
+2018-08-17 18:26:49,549 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0000 (System) added to repository!
+2018-08-17 18:26:49,549 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,549 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0005 (PlexMediaPlayer)
+2018-08-17 18:26:49,550 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Now Playing" (index: 1) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-08-17 18:26:49,550 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Progress" (index: 4) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-08-17 18:26:49,550 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player Status" (index: 5) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-08-17 18:26:49,550 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player URL" (index: 0) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-08-17 18:26:49,550 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Player Client Identifier" (index: 0) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-08-17 18:26:49,550 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Play" (index: 2) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-08-17 18:26:49,550 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Stop" (index: 4) to product "PlexMediaPlayer" (SSID: 0005)!
+2018-08-17 18:26:49,551 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-08-17 18:26:49,551 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-08-17 18:26:49,551 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-08-17 18:26:49,551 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0009 (SamsungRemote)
+2018-08-17 18:26:49,552 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "TogglePower" (index: 1) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,552 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Left" (index: 2) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,552 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Right" (index: 3) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,553 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Up" (index: 4) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,553 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Down" (index: 5) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,553 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Voume Up" (index: 6) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,553 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Volume Down" (index: 7) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,553 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Menu" (index: 8) to product "SamsungRemote" (SSID: 0009)!
+2018-08-17 18:26:49,553 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,553 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0006 (TFTSwitch)
+2018-08-17 18:26:49,554 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "EnablePushSwitch" (index: 2) to product "TFTSwitch" (SSID: 0006)!
+2018-08-17 18:26:49,554 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "State" (index: 3) to product "TFTSwitch" (SSID: 0006)!
+2018-08-17 18:26:49,554 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 4) to product "TFTSwitch" (SSID: 0006)!
+2018-08-17 18:26:49,554 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "EnableToggleSwitch" (index: 1) to product "TFTSwitch" (SSID: 0006)!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,555 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,556 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0009 (SamsungRemote) added to repository!
+2018-08-17 18:26:49,556 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-08-17 18:26:49,556 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-08-17 18:26:49,556 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0006 (TFTSwitch) added to repository!
+2018-08-17 18:26:49,556 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0003 (Symphony Socket)
+2018-08-17 18:26:49,556 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Socket Switch" (index: 1) to product "Symphony Socket" (SSID: 0003)!
+2018-08-17 18:26:49,556 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0003 (Symphony Socket) added to repository!
+2018-08-17 18:26:49,557 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,557 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0002 (SoloLightRGB) added to repository!
+2018-08-17 18:26:49,557 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0001 (SoloLight)
+2018-08-17 18:26:49,557 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "Switch" (index: 1) to product "SoloLight" (SSID: 0001)!
+2018-08-17 18:26:49,557 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0001 (SoloLight) added to repository!
+2018-08-17 18:26:49,557 DEBUG [restartedMain] (MAIN.ProductFactory) Constructing product 0007 (Test1)
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "DO1" (index: 1) to product "Test1" (SSID: 0007)!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "DO2" (index: 2) to product "Test1" (SSID: 0007)!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "AO1" (index: 3) to product "Test1" (SSID: 0007)!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductFactory) Adding property "AO2" (index: 4) to product "Test1" (SSID: 0007)!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0007 (Test1) added to repository!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductRepository) Product 0005 (PlexMediaPlayer) added to repository!
+2018-08-17 18:26:49,558 DEBUG [restartedMain] (MAIN.ProductRepository) 13 products added!
+2018-08-17 18:26:49,559 INFO  [restartedMain] (MAIN.DeviceRepository) Retrieving devices from DB...
+2018-08-17 18:26:49,561 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device S281 (TestComponent1) to repository!
+2018-08-17 18:26:49,562 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: S281_1 of device: S281 with value: 1
+2018-08-17 18:26:49,562 DEBUG [restartedMain] (MAIN.DeviceRepository) Adding device E740 (TestNoProd1) to repository!
+2018-08-17 18:26:49,562 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: E740_0 of device: E740 with value: 1
+2018-08-17 18:26:49,562 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: E740_1 of device: E740 with value: 0
+2018-08-17 18:26:49,562 DEBUG [restartedMain] (MAIN.DeviceRepository) Setting property: E740_2 of device: E740 with value: 0
+2018-08-17 18:26:49,562 INFO  [restartedMain] (MAIN.DeviceRepository) 2 devices retrieved!
+2018-08-17 18:26:49,562 DEBUG [restartedMain] (MAIN.DeviceRepository) Updating devices in Symphony Environment...
+2018-08-17 18:26:49,563 DEBUG [restartedMain] (MAIN.DeviceRepository) Devices updated in Symphony Environment!
+2018-08-17 18:26:49,595 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.tools.IDGenerator
+2018-08-17 18:26:49,596 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.context.adaptors.AdaptorManager
+2018-08-17 18:26:49,596 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptors to products...
+2018-08-17 18:26:49,701 INFO  [restartedMain] (MAIN.AdaptorManager) 0 adaptor-product links made. 0 adaptor-product links failed. 0 total.
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) No links found for 3 adaptors. Assuming to be universal adaptors. Linking to all products...
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all devices...
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all devices...
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all devices...
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Universal adaptors linked!
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Linking all adaptors to all rooms...
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000001 to all rooms!
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000000 to all rooms!
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) Linking adaptor 0000000002 to all rooms!
+2018-08-17 18:26:49,702 INFO  [restartedMain] (MAIN.AdaptorManager) All adaptors linked to rooms!
+2018-08-17 18:26:49,702 DEBUG [restartedMain] (MAIN.Initializables) Initializing bm.cir.CIRManager
+2018-08-17 18:26:49,702 DEBUG [restartedMain] (CIR.CIRManager) Updating CIR...
+2018-08-17 18:26:49,713 DEBUG [restartedMain] (CIR.CIRManager) CIR updated!
+2018-08-17 18:26:49,713 INFO  [restartedMain] (MAIN.Maestro) BusinessMachine started!

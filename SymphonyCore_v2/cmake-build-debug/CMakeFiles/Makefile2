@@ -50,10 +50,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -108,7 +108,7 @@ clean: CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir/clean
 CMakeFiles/SymphonyCore_v2.dir/all:
 	$(MAKE) -f CMakeFiles/SymphonyCore_v2.dir/build.make CMakeFiles/SymphonyCore_v2.dir/depend
 	$(MAKE) -f CMakeFiles/SymphonyCore_v2.dir/build.make CMakeFiles/SymphonyCore_v2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target SymphonyCore_v2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target SymphonyCore_v2"
 .PHONY : CMakeFiles/SymphonyCore_v2.dir/all
 
 # Include target in all.
@@ -118,7 +118,7 @@ all: CMakeFiles/SymphonyCore_v2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SymphonyCore_v2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SymphonyCore_v2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/SymphonyCore_v2.dir/rule

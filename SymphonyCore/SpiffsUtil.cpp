@@ -22,7 +22,7 @@ SpiffsUtil::~SpiffsUtil() {
 /*
  * Below is for saving to SPIFFS
  */
-void SpiffsUtil::saveToSPIFFS(const char * filename, const char * data) {
+void SpiffsUtil::saveToSPIFFS(const char* filename, const char* data) {
   // always use this to "mount" the filesystem
   bool result = SPIFFS.begin();
 #ifdef DEBUG_
@@ -138,6 +138,18 @@ String SpiffsUtil::readMqttIP() {
 //  String line = readFrSPIFFS("/mqtt.txt");
   return readFrSPIFFS("/mqtt.txt");
 }
+
+void SpiffsUtil::saveDeviceCredentials(const char* deviceID, const char* name, const char* topic,
+		const char* room) {
+	const char* s = "{" +
+			"id:" + deviceID +
+			",name:" + name +
+			",topic:" + topic +
+			",room:" + room +
+			"}";
+	saveToSPIFFS("/d.txt", s);
+}
+
 /*
  * Below is for saving the Product ID of this device
  */
@@ -147,39 +159,82 @@ String SpiffsUtil::readMqttIP() {
  String SpiffsUtil::readProductID() {
   return readFrSPIFFS("/p.txt");
 }
- /*
- * Below is for saving the Display name of this device
- */
- void SpiffsUtil::saveDisplayName(const char * dispName) {
-  saveToSPIFFS("/d.txt", dispName);
- }
- String SpiffsUtil::readDisplayName(){
-//  String line = readFrSPIFFS("/d.txt");
-  return readFrSPIFFS("/d.txt");
- }
- /*
- * Below is for saving the room where this device is installed
- */
- void SpiffsUtil::saveRoom(const char * room){
-  saveToSPIFFS("/r.txt", room);
- }
- String SpiffsUtil::readRoom(){
+
+/*
+* Below is for saving the Display name of this device
+*/
+void SpiffsUtil::saveDisplayName(const char * dispName) {
+	saveToSPIFFS("/d.txt", dispName);
+}
+String SpiffsUtil::readDisplayName(){
+	//  String line = readFrSPIFFS("/d.txt");
+	return readFrSPIFFS("/d.txt");
+}
+/*
+* Below is for saving the room where this device is installed
+*/
+void SpiffsUtil::saveRoom(const char* room){
+	saveToSPIFFS("/r.txt", room);
+}
+
+String SpiffsUtil::readSsid() {
+	//	String line = readFrSPIFFS("/ssid.txt");
+	return readFrSPIFFS("/ssid.txt");
+}
+
+const char* SpiffsUtil::readDeviceID() {
+	String s = readFrSPIFFS("/d.txt");
+	int beginIndex = s.indexOf("id:");
+	if(beginIndex == -1) {
+		return NULL;
+	}
+	String id = s.substring(s.indexOf("room:") + 3, s.indexOf('}') - 1);
+	return id;
+}
+
+const char* SpiffsUtil::readDeviceName() {
+	String s = readFrSPIFFS("/d.txt");
+	int beginIndex = s.indexOf("name:");
+	if(beginIndex == -1) {
+		return NULL;
+	}
+	String name = s.substring(s.indexOf("room:") + 5, s.indexOf('}') - 1);
+	return name;
+}
+
+const char* SpiffsUtil::readDeviceTopic() {
+	String s = readFrSPIFFS("/d.txt");
+	int beginIndex = s.indexOf("name:");
+	if(beginIndex == -1) {
+		return NULL;
+	}
+	String topic = s.substring(s.indexOf("topic:") + 6, s.indexOf('}') - 1);
+	return topic;
+}
+
+const char* SpiffsUtil::readDeviceRoom(){
 //  String line = readFrSPIFFS("/r.txt");
-  return readFrSPIFFS("/r.txt");
+	String s = readFrSPIFFS("/d.txt");
+	int beginIndex = s.indexOf("room:");
+	if(beginIndex == -1) {
+		return NULL;
+	}
+	String room = s.substring(s.indexOf("room:") + 5, s.indexOf('}') - 1);
+	return room;
+//	 return readFrSPIFFS("/r.txt");
  }
+
  /*
   * Below is for saving the SSID where we need to connect
   */
 void SpiffsUtil::saveSsid(const char * ssid) {
 	saveToSPIFFS("/ssid.txt", ssid);
 }
-String SpiffsUtil::readSsid() {
-//	String line = readFrSPIFFS("/ssid.txt");
-	return readFrSPIFFS("/ssid.txt");
-}
+
 void SpiffsUtil::savePwd(const char * pwd) {
 	saveToSPIFFS("/pwd.txt", pwd);
 }
+
 String SpiffsUtil::readPwd() {
 //	String line = readFrSPIFFS("/pwd.txt");
 //	Serial.println(readFrSPIFFS("/control.css"));

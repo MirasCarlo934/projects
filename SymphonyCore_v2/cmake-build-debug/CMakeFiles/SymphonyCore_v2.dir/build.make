@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.76/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = "/Users/carlomiras/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/182.3911.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -57,9 +57,22 @@ include CMakeFiles/SymphonyCore_v2.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SymphonyCore_v2.dir/flags.make
 
+CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o: CMakeFiles/SymphonyCore_v2.dir/flags.make
+CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o: ../lib/MqttUtil/MqttUtil.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o"
+	/Users/carlomiras/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o -c /Users/carlomiras/git/SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp
+
+CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.i"
+	/Users/carlomiras/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/carlomiras/git/SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp > CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.i
+
+CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.s"
+	/Users/carlomiras/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/carlomiras/git/SymphonyCore_v2/lib/MqttUtil/MqttUtil.cpp -o CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.s
+
 CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o: CMakeFiles/SymphonyCore_v2.dir/flags.make
 CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o: ../lib/SymphonyProduct/SymphonyProduct.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o"
 	/Users/carlomiras/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o -c /Users/carlomiras/git/SymphonyCore_v2/lib/SymphonyProduct/SymphonyProduct.cpp
 
 CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.i: cmake_force
@@ -72,15 +85,17 @@ CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.s: cmake_
 
 # Object files for target SymphonyCore_v2
 SymphonyCore_v2_OBJECTS = \
+"CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o" \
 "CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o"
 
 # External object files for target SymphonyCore_v2
 SymphonyCore_v2_EXTERNAL_OBJECTS =
 
+SymphonyCore_v2: CMakeFiles/SymphonyCore_v2.dir/lib/MqttUtil/MqttUtil.cpp.o
 SymphonyCore_v2: CMakeFiles/SymphonyCore_v2.dir/lib/SymphonyProduct/SymphonyProduct.cpp.o
 SymphonyCore_v2: CMakeFiles/SymphonyCore_v2.dir/build.make
 SymphonyCore_v2: CMakeFiles/SymphonyCore_v2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable SymphonyCore_v2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/carlomiras/git/SymphonyCore_v2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable SymphonyCore_v2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SymphonyCore_v2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

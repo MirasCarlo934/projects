@@ -18,12 +18,19 @@ public:
 	static String readFrSPIFFS(const char * filename, int b);
 	static void saveMqttIP(const char * mqttIP);
 	static String readMqttIP();
+	static void saveDeviceCredentials(const char* deviceID, const char* name, const char* topic,
+			const char* room);
 	static void saveProductID(const char * productID);
 	static String readProductID();
 	static void saveDisplayName(const char * dispName);
 	static String readDisplayName();
+
+	static const char* readDeviceID();
+	static const char* readDeviceName();
+	static const char* readDeviceTopic();
+	static const char* readDeviceRoom();
 	static void saveRoom(const char * room);
-	static String readRoom();
+
 	static void saveSsid(const char * ssid);
 	static String readSsid();
 	static void savePwd(const char * pwd);

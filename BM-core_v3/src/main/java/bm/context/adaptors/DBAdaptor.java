@@ -39,7 +39,7 @@ public class DBAdaptor extends AbstAdaptor {
 		valuesCom.put("mac", d.getMAC());
 		valuesCom.put("name", d.getName());
 		valuesCom.put("room", d.getParentRoom().getSSID());
-		valuesCom.put("functn", d.getProduct().getSSID());
+		valuesCom.put("product", d.getProduct().getSSID());
 		valuesCom.put("active", d.isActive());
 		valuesCom.put("index", d.getIndex());
 		insertCom = new InsertDBEReq(idg.generateERQSRequestID(), dbe, devsTable, valuesCom);
@@ -147,6 +147,8 @@ public class DBAdaptor extends AbstAdaptor {
 		values.put("prop_name", p.getDisplayName());
 		values.put("prop_value", String.valueOf(p.getValue()));
 		values.put("index", p.getIndex());
+		values.put("prop_type", p.getPropType().getSSID());
+		values.put("prop_mode", p.getMode().toString());
 		
 		LOG.trace("Inserting property " + p.getDevice().getSSID() + "_" + p.getSSID() + " to " + propsTable +
 				" table!");

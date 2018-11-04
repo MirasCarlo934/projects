@@ -81,7 +81,7 @@ char firmwareUpdateMsg[100] = "";
  * Below callback that the sketch should use to calculate the value to be set to a pin in ESP
  * this is used in the interpretation of the responses from MQTT
  */
-attribStruct (* MyMqttCallback_) (attribStruct property, int cmd);
+propStruct (* MyMqttCallback_) (propStruct property, int cmd);
 
 /*
  * Below callback will be used to calculate the value to be set to a pin in ESP
@@ -107,11 +107,11 @@ String mac = getMAC();
  * Callback for MQTT events
  * March 26 2017 - this is deprecated, can be deleted
  */
-attribStruct MqttCallback(attribStruct property, int scmd) {
+propStruct MqttCallback(propStruct property, int scmd) {
 #ifndef PROD
-	Serial.printf("\tMqttCallback index=%u scmd=%i ssid=%s value=%i\n", property.index, scmd,property.ssid.c_str(), property.gui.value);
+	Serial.printf("\tMqttCallback index=%u scmd=%i ssid=%s value=%i\n", property.index, scmd,property.ssid.c_str(), property.value);
 #endif
-	String data = ""; data += MqttUtil::product.name; data += ":";
+	String data = ""; data += MqttUtil::device.getName(); data += ":";
 	data += property.ssid; data += "="; data += scmd;
 	for (int i=0; i<=webSocketClientCount; i++) {
 		webSocketServer.sendTXT(i, data);
@@ -123,10 +123,10 @@ attribStruct MqttCallback(attribStruct property, int scmd) {
 #endif
 
 	}
-	MqttUtil::product.setValue(property.ssid, scmd);
-	attribStruct returnPs;
+	MqttUtil::device.setPropertyValue(property.index, scmd);
+	propStruct returnPs;
 	returnPs.pin = 15;
-	returnPs.gui.value = scmd;
+//	returnPs.gui.value = scmd;
 	returnPs.gui.pinType = SLIDER_OUT;
 	return returnPs;
 }
@@ -145,25 +145,25 @@ void BmStatusCallBack () {
  * 	1. webSocketEvent as a local Function when an event from a websocket arrives.
  *  2. MqttUtil as a callback when a MQTT data arrives
  */
-void CommandCallback(String ssid, String scmd) {
+void CommandCallback(uint8_t p_index, String scmd) {
 #ifndef PROD
-	Serial.printf("\t\rCommandCallback ssid:%s, cmd:%s\n", ssid.c_str(), scmd.c_str());
+	Serial.printf("\t\rCommandCallback ssid:%i, cmd:%s\n", p_index, scmd.c_str());
 #endif
-	if (strcmp(ssid.c_str(), "BM_EXIT")==0) {
+	if (strcmp(scmd.c_str(), "BM_EXIT")==0) {
 
 	} else {
 		int cmd = -1;
 		  cmd = scmd.toInt();
-		  attribStruct property = MqttUtil::product.getProperty(ssid);
+		  propStruct property = MqttUtil::device.getProperty(p_index);
 	#ifdef DEBUG_
-		  Serial.print("\rReceived instruction SSID:");Serial.print(ssid);
+		  Serial.print("\rReceived instruction SSID:");Serial.print(p_index);
 		  Serial.print("\tgot the property from array. prop.pin=");Serial.print(property.pin);
 		  Serial.print(", prop.pinType=");Serial.print(property.gui.pinType);
 		  Serial.print(", prop.usepin=");Serial.print(property.usePin);
 		  Serial.print(", prop.ssid=");Serial.print(property.ssid);
 		  Serial.print(", prop.index=");Serial.println(property.index);
 	#endif
-		  attribStruct commandPs;
+		  propStruct commandPs;
 		  if (property.index >= 0 ) {
 		    if (property.usePin) {
 		      //we will use the passed parameter as the value to set
@@ -203,7 +203,7 @@ void CommandCallback(String ssid, String scmd) {
 
 		  }
 		  char data[200];
-		  strcpy(data, MqttUtil::product.name.c_str());
+		  strcpy(data, MqttUtil::device.getName());
 		  strcat(data, ":");
 		  strcat(data, property.ssid.c_str());
 		  strcat(data, "=");
@@ -466,7 +466,7 @@ void handleRegister() {
  */
 void doUnRegister() {
 	server.send(200, "text/html", "<h1>will do UnRegister!</h1>");
-	Serial.printf("Manually unregister name=%s, ssid=%s\n", MqttUtil::product.name.c_str(), MqttUtil::product.attributes->ssid.c_str());
+	Serial.printf("Manually unregister name=%s, ssid=%s\n", MqttUtil::product.name.c_str(), MqttUtil::product.attributes->index.c_str());
 	MqttUtil::unRegister();
 }
 
@@ -556,7 +556,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
 
                 int propSize = MqttUtil::product.getSize();
                 for (int ctr=0; ctr<propSize; ctr++) {
-                	attribStruct theProperty = MqttUtil::product.getKeyVal(ctr);
+                	propStruct theProperty = MqttUtil::product.getKeyVal(ctr);
                 	char keyVal[30];
                 	sprintf(keyVal, "%s:%s=%d", MqttUtil::product.name.c_str(), theProperty.ssid.c_str(), theProperty.gui.value);
                     webSocketServer.sendTXT(num, keyVal);
@@ -572,16 +572,16 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
 				WsData wsdata = WsData(payload, length);
 				String value = wsdata.getValue();
 				String data = ""; data += wsdata.getDeviceName(); data += ":";
-				data += wsdata.getSSID(); data += "="; data += value;
+				data += wsdata.getIndex(); data += "="; data += value;
 				//we also need to send this to BM
-				MqttUtil::sendCommand(wsdata.getSSID(), value.toInt());
-				attribStruct ps = MqttUtil::product.getProperty(wsdata.getSSID());
+				MqttUtil::sendCommand(wsdata.getIndex(), value.toInt());
+				propStruct ps = MqttUtil::product.getProperty(wsdata.getIndex());
 #ifndef PROD
 				Serial.printf("[%u] get Text: %s\n", num, payload); //payload is of the form SSID=value
 				Serial.printf("Pin is %d, label is %s\n", ps.pin, ps.gui.label.c_str()); //payload is of the form SSID=value
 				Serial.printf("webSocketClientCount is %d\n", webSocketClientCount); //webSocketClientCount
 #endif
-    		    CommandCallback(wsdata.getSSID(), value);//call the commandcallback to handle the data from websocket
+    		    CommandCallback(wsdata.getIndex(), value);//call the commandcallback to handle the data from websocket
 //				for (int i=0; i<=webSocketClientCount; i++) {
 //					if (num!=i) {
 //						webSocketServer.sendTXT(i, data);
@@ -639,7 +639,7 @@ void Symphony::setup() {
 	hostName.toLowerCase();
 	Serial.println();
 	Serial.println("---Start core setup---");
-	createMyName();
+	createMACstr();
 	Serial.printf("Hostname is %s.%s\n", hostName.c_str(),"local");
 	product.room = SpiffsUtil::readRoom();
 	Serial.printf("Room is %s\n", product.room.c_str());
@@ -739,7 +739,7 @@ void Symphony::loop() {
 		if (!isUpdating) {
 			if (!MqttUtil::isConnectedToBM && (bmLoginAttemptTimer - bmLoginAttemptTimerPrev)>=maxBmLoginDelay) {
 				Serial.println("Symphony::loop login to BM");
-				MqttUtil::signin(product.name, product.room, product.productType);
+				MqttUtil::signin(product.name, product.room, product.productID);
 				bmLoginAttemptTimerPrev = bmLoginAttemptTimer;
 				bmLoginAttemptTimer = 0;
 			}
@@ -817,7 +817,7 @@ void Symphony::setupAP() {
 /*
  * this creates the unique name of this device based on its mac address
  */
-void Symphony::createMyName() {
+char* Symphony::createMACstr() {
 	// Generate device name based on MAC address
 	myName = "";
 	ap_ssid = "AP_";
@@ -860,7 +860,7 @@ void Symphony::setWsCallback(int (* Callback) (uint8_t * payload, size_t length)
  * This callback is called by the Mqtt event
  *
  */
-void Symphony::setMqttCallback(attribStruct (* myMqttCB) (attribStruct property, int cmd)) {
+void Symphony::setMqttCallback(propStruct (* myMqttCB) (propStruct property, int cmd)) {
 //void Symphony::setMqttCallback(attribStruct (* MyMqttCallback) (attribStruct property, int scmd)) {
 	MyMqttCallback_ = myMqttCB;
 }
@@ -980,7 +980,7 @@ void Symphony::sendToWSClient() {
  *    ex 0006=1
  */
 WsData::WsData(uint8_t * payload, size_t length){
-	ssid = "";
+	index = "";
 	value = "";
 	boolean isDelimeter = false;
 	boolean afterDelimeter = false;
@@ -1000,18 +1000,18 @@ WsData::WsData(uint8_t * payload, size_t length){
 	}
 	Serial.println(tmp);
 	deviceName = tmp.substring(0, tmp.indexOf(':'));
-	ssid = tmp.substring(tmp.indexOf(':') + 1);
+	index = tmp.substring(tmp.indexOf(':') + 1);
 #ifdef DEBUG_
 	Serial.print("  deviceName=");Serial.print(deviceName);
-	Serial.print("  ssid=");Serial.print(ssid);
+	Serial.print("  ssid=");Serial.print(index);
 	Serial.print("  value=");Serial.println(value);
 #endif
 }
 String WsData::getDeviceName() {
 	return deviceName;
 }
-String WsData::getSSID() {
-	return ssid;
+String WsData::getIndex() {
+	return index;
 }
 String WsData::getValue() {
 	return value;

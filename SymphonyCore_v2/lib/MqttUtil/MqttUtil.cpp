@@ -252,11 +252,11 @@ void MqttUtil::registerBasicWithPropvals(String name, String room, String produc
         if(props.count(i)) {
             payload += + i + ":" + props[i];
         } else {
-            if(i == 0) {
-                throw "Indices must always start with 0 !";
-            } else {
-                throw "Indices are not consecutive!";
-            }
+//            if(i == 0) {
+//                throw "Indices must always start with 0 !";
+//            } else {
+//                throw "Indices are not consecutive!";
+//            }
         }
         if(i + 1 != props.size()) {
             payload += ",";

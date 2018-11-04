@@ -14,9 +14,16 @@
 #include <ArduinoJson.h>
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
-#include "SymphonyProduct.h"
+#include "SymphonyDeviceCredentials.h"
 
 #define DEBUG_
+
+struct prop_declaration {
+	String ptype;
+	String name;
+	String mode;
+	int index;
+};
 
 class MqttUtil {
 	public:
@@ -28,11 +35,15 @@ class MqttUtil {
 	static int mqttPort;
 	static const char* willTopic;
 	static boolean isConnectedToBM;
-	static boolean connectToMQTT(const char *id, const char url[], int port, PubSubClient *c, WiFiClient wc, SymphProduct p); //to connect to MQTT server
-	static void signin(String ngalan, String room, String product);
+//	static boolean connectToMQTT(const char *id, const char url[], int port, PubSubClient *c, WiFiClient wc, SymphProduct p); //to connect to MQTT server
+	static boolean connectToMQTT(const char *id, const char url[], int port, PubSubClient *c, WiFiClient wc, SymphDevice d); //to connect to MQTT server
+
+	static void register_basic(String ngalan, String room, String product);
+//	static void register_with_proplist(String ngalan, String room, vector<prop_declaration> proplist);
 	static void sendCommand(String ssid, int value);  //should return a response code
-	static SymphProduct product;
-	static void setMqttCallback(attribStruct (* MqttCallback) (attribStruct property, int scmd));//todo mar 14 2017, remove this
+	static SymphDevice device;
+//	static SymphProduct product;
+	static void setMqttCallback(propStruct (* MqttCallback) (propStruct property, int scmd));//todo mar 14 2017, remove this
 	static void setCommandCallback(void (* CommandCallback) (String ssid, String cmd));
 	static void setBmStatusCB(void (* BmStatusCB) ());
 	static void unRegister();
