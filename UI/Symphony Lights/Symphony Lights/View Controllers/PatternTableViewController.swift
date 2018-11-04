@@ -9,6 +9,9 @@
 import UIKit
 
 class PatternTableViewController: UITableViewController {
+    
+    //MARK: Properties
+    var pattern: LightPattern?
 
     override func viewDidLoad() {
         super.viewDidLoad()

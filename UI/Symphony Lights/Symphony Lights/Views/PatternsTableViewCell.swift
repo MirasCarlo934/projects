@@ -10,6 +10,12 @@ import UIKit
 
 class PatternsTableViewCell: UITableViewCell {
 
+    //MARK: Properties
+    var pattern: LightPattern?
+    
+    @IBOutlet weak var patternLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

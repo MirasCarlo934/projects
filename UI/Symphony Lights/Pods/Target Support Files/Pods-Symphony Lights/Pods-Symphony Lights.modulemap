@@ -1,0 +1,6 @@
+framework module Pods_Symphony_Lights {
+  umbrella header "Pods-Symphony Lights-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		F30DE834217D6DDC00D12C1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DE833217D6DDC00D12C1D /* AppDelegate.swift */; };
-		F30DE836217D6DDC00D12C1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DE835217D6DDC00D12C1D /* ViewController.swift */; };
+		F30DE836217D6DDC00D12C1D /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DE835217D6DDC00D12C1D /* PersonViewController.swift */; };
 		F30DE839217D6DDC00D12C1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30DE837217D6DDC00D12C1D /* Main.storyboard */; };
 		F30DE83B217D6DDE00D12C1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30DE83A217D6DDE00D12C1D /* Assets.xcassets */; };
 		F30DE83E217D6DDE00D12C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30DE83C217D6DDE00D12C1D /* LaunchScreen.storyboard */; };
 		F30DE849217D6DDE00D12C1D /* LedLightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DE848217D6DDE00D12C1D /* LedLightsTests.swift */; };
+		F33B42A02180A14300CD5229 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B429F2180A14300CD5229 /* RatingControl.swift */; };
+		F3971E452180C89800678B68 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3971E442180C89800678B68 /* Person.swift */; };
+		F3B5E6542181885200A2BF72 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5E6532181885200A2BF72 /* PersonTableViewCell.swift */; };
+		F3B5E656218189BC00A2BF72 /* PersonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B5E655218189BC00A2BF72 /* PersonTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +32,7 @@
 /* Begin PBXFileReference section */
 		F30DE830217D6DDC00D12C1D /* LedLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LedLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30DE833217D6DDC00D12C1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F30DE835217D6DDC00D12C1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F30DE835217D6DDC00D12C1D /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		F30DE838217D6DDC00D12C1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F30DE83A217D6DDE00D12C1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30DE83D217D6DDE00D12C1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +40,10 @@
 		F30DE844217D6DDE00D12C1D /* LedLightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LedLightsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30DE848217D6DDE00D12C1D /* LedLightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedLightsTests.swift; sourceTree = "<group>"; };
 		F30DE84A217D6DDE00D12C1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F33B429F2180A14300CD5229 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		F3971E442180C89800678B68 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		F3B5E6532181885200A2BF72 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		F3B5E655218189BC00A2BF72 /* PersonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				F30DE833217D6DDC00D12C1D /* AppDelegate.swift */,
-				F30DE835217D6DDC00D12C1D /* ViewController.swift */,
+				F33B429F2180A14300CD5229 /* RatingControl.swift */,
+				F3971E442180C89800678B68 /* Person.swift */,
+				F30DE835217D6DDC00D12C1D /* PersonViewController.swift */,
+				F3B5E6532181885200A2BF72 /* PersonTableViewCell.swift */,
+				F3B5E655218189BC00A2BF72 /* PersonTableViewController.swift */,
 				F30DE837217D6DDC00D12C1D /* Main.storyboard */,
 				F30DE83A217D6DDE00D12C1D /* Assets.xcassets */,
 				F30DE83C217D6DDE00D12C1D /* LaunchScreen.storyboard */,
@@ -197,7 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30DE836217D6DDC00D12C1D /* ViewController.swift in Sources */,
+				F30DE836217D6DDC00D12C1D /* PersonViewController.swift in Sources */,
+				F33B42A02180A14300CD5229 /* RatingControl.swift in Sources */,
+				F3B5E656218189BC00A2BF72 /* PersonTableViewController.swift in Sources */,
+				F3971E452180C89800678B68 /* Person.swift in Sources */,
+				F3B5E6542181885200A2BF72 /* PersonTableViewCell.swift in Sources */,
 				F30DE834217D6DDC00D12C1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

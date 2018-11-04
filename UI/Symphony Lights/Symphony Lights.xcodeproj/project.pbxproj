@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FBB9A11D2DB6A1847B776D3 /* Pods_Symphony_Lights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC316DFE71218A407D1664B7 /* Pods_Symphony_Lights.framework */; };
+		F31651C8218C3FDB00892890 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = F31651C7218C3FDB00892890 /* Views */; };
+		F31651CC218C423D00892890 /* UISliderBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31651CB218C423D00892890 /* UISliderBarView.swift */; };
+		F31651D0218C9CFE00892890 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31651CF218C9CFE00892890 /* BlockButton.swift */; };
+		F3334F09218C18C60059D2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F08218C18C60059D2BE /* AppDelegate.swift */; };
+		F3334F0B218C18C60059D2BE /* LightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F0A218C18C60059D2BE /* LightViewController.swift */; };
+		F3334F0E218C18C60059D2BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3334F0C218C18C60059D2BE /* Main.storyboard */; };
+		F3334F10218C18C80059D2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3334F0F218C18C80059D2BE /* Assets.xcassets */; };
+		F3334F13218C18C80059D2BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3334F11218C18C80059D2BE /* LaunchScreen.storyboard */; };
+		F3334F1E218C18C80059D2BE /* Symphony_LightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F1D218C18C80059D2BE /* Symphony_LightsTests.swift */; };
+		F3334F29218C1AF00059D2BE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F28218C1AF00059D2BE /* HomeTableViewCell.swift */; };
+		F3334F2B218C1C810059D2BE /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F2A218C1C810059D2BE /* Light.swift */; };
+		F3334F2D218C1D620059D2BE /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F2C218C1D620059D2BE /* HomeTableViewController.swift */; };
+		F3334F33218C33A90059D2BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F3334F32218C33A90059D2BE /* Podfile */; };
+		F3BB0616218DEBC60041E4F3 /* PatternsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB0615218DEBC60041E4F3 /* PatternsTableViewCell.swift */; };
+		F3BB061A218DF3780041E4F3 /* Data Sources in Resources */ = {isa = PBXBuildFile; fileRef = F3BB0619218DF3780041E4F3 /* Data Sources */; };
+		F3BB061E218E17E70041E4F3 /* PatternTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB061D218E17E70041E4F3 /* PatternTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3334F1A218C18C80059D2BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3334EFD218C18C60059D2BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3334F04218C18C60059D2BE;
+			remoteInfo = "Symphony Lights";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		99FBEC8065682D6097FE4A85 /* Pods-Symphony Lights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Symphony Lights.release.xcconfig"; path = "Pods/Target Support Files/Pods-Symphony Lights/Pods-Symphony Lights.release.xcconfig"; sourceTree = "<group>"; };
+		AC316DFE71218A407D1664B7 /* Pods_Symphony_Lights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Symphony_Lights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA5F84C54EEC0C010E721ECF /* Pods-Symphony Lights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Symphony Lights.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Symphony Lights/Pods-Symphony Lights.debug.xcconfig"; sourceTree = "<group>"; };
+		F31651C7218C3FDB00892890 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
+		F31651CB218C423D00892890 /* UISliderBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISliderBarView.swift; sourceTree = "<group>"; };
+		F31651CF218C9CFE00892890 /* BlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockButton.swift; sourceTree = "<group>"; };
+		F3334F05218C18C60059D2BE /* Symphony Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Symphony Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3334F08218C18C60059D2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F3334F0A218C18C60059D2BE /* LightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewController.swift; sourceTree = "<group>"; };
+		F3334F0D218C18C60059D2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3334F0F218C18C80059D2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3334F12218C18C80059D2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F3334F19218C18C80059D2BE /* Symphony LightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Symphony LightsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3334F1D218C18C80059D2BE /* Symphony_LightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symphony_LightsTests.swift; sourceTree = "<group>"; };
+		F3334F1F218C18C80059D2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3334F28218C1AF00059D2BE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		F3334F2A218C1C810059D2BE /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		F3334F2C218C1D620059D2BE /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		F3334F32218C33A90059D2BE /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F3BB0615218DEBC60041E4F3 /* PatternsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatternsTableViewCell.swift; path = Views/PatternsTableViewCell.swift; sourceTree = "<group>"; };
+		F3BB0619218DF3780041E4F3 /* Data Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Data Sources"; sourceTree = "<group>"; };
+		F3BB061D218E17E70041E4F3 /* PatternTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatternTableViewController.swift; path = "View Controllers/PatternTableViewController.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3334F02218C18C60059D2BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FBB9A11D2DB6A1847B776D3 /* Pods_Symphony_Lights.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3334F16218C18C80059D2BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B564058C8231A99614EC6549 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC316DFE71218A407D1664B7 /* Pods_Symphony_Lights.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E28EDA5AE3D8DD8A99FB1559 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F84C54EEC0C010E721ECF /* Pods-Symphony Lights.debug.xcconfig */,
+				99FBEC8065682D6097FE4A85 /* Pods-Symphony Lights.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F3334EFC218C18C60059D2BE = {
+			isa = PBXGroup;
+			children = (
+				F3334F32218C33A90059D2BE /* Podfile */,
+				F3334F07218C18C60059D2BE /* Symphony Lights */,
+				F3334F1C218C18C80059D2BE /* Symphony LightsTests */,
+				F3334F06218C18C60059D2BE /* Products */,
+				E28EDA5AE3D8DD8A99FB1559 /* Pods */,
+				B564058C8231A99614EC6549 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F3334F06218C18C60059D2BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3334F05218C18C60059D2BE /* Symphony Lights.app */,
+				F3334F19218C18C80059D2BE /* Symphony LightsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3334F07218C18C60059D2BE /* Symphony Lights */ = {
+			isa = PBXGroup;
+			children = (
+				F31651CF218C9CFE00892890 /* BlockButton.swift */,
+				F31651CB218C423D00892890 /* UISliderBarView.swift */,
+				F3BB0619218DF3780041E4F3 /* Data Sources */,
+				F31651C7218C3FDB00892890 /* Views */,
+				F3334F08218C18C60059D2BE /* AppDelegate.swift */,
+				F3334F28218C1AF00059D2BE /* HomeTableViewCell.swift */,
+				F3BB0615218DEBC60041E4F3 /* PatternsTableViewCell.swift */,
+				F3334F2C218C1D620059D2BE /* HomeTableViewController.swift */,
+				F3334F0A218C18C60059D2BE /* LightViewController.swift */,
+				F3BB061D218E17E70041E4F3 /* PatternTableViewController.swift */,
+				F3334F0C218C18C60059D2BE /* Main.storyboard */,
+				F3334F2A218C1C810059D2BE /* Light.swift */,
+				F3334F0F218C18C80059D2BE /* Assets.xcassets */,
+				F3334F11218C18C80059D2BE /* LaunchScreen.storyboard */,
+			);
+			path = "Symphony Lights";
+			sourceTree = "<group>";
+		};
+		F3334F1C218C18C80059D2BE /* Symphony LightsTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3334F1D218C18C80059D2BE /* Symphony_LightsTests.swift */,
+				F3334F1F218C18C80059D2BE /* Info.plist */,
+			);
+			path = "Symphony LightsTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3334F04218C18C60059D2BE /* Symphony Lights */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3334F22218C18C80059D2BE /* Build configuration list for PBXNativeTarget "Symphony Lights" */;
+			buildPhases = (
+				9A7CB8D2C52BCACD7D94A90C /* [CP] Check Pods Manifest.lock */,
+				F3334F01218C18C60059D2BE /* Sources */,
+				F3334F02218C18C60059D2BE /* Frameworks */,
+				F3334F03218C18C60059D2BE /* Resources */,
+				3037E30C0D9D1B05913910C6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Symphony Lights";
+			productName = "Symphony Lights";
+			productReference = F3334F05218C18C60059D2BE /* Symphony Lights.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F3334F18218C18C80059D2BE /* Symphony LightsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3334F25218C18C80059D2BE /* Build configuration list for PBXNativeTarget "Symphony LightsTests" */;
+			buildPhases = (
+				F3334F15218C18C80059D2BE /* Sources */,
+				F3334F16218C18C80059D2BE /* Frameworks */,
+				F3334F17218C18C80059D2BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3334F1B218C18C80059D2BE /* PBXTargetDependency */,
+			);
+			name = "Symphony LightsTests";
+			productName = "Symphony LightsTests";
+			productReference = F3334F19218C18C80059D2BE /* Symphony LightsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3334EFD218C18C60059D2BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Symphony;
+				TargetAttributes = {
+					F3334F04218C18C60059D2BE = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					F3334F18218C18C80059D2BE = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F3334F04218C18C60059D2BE;
+					};
+				};
+			};
+			buildConfigurationList = F3334F00218C18C60059D2BE /* Build configuration list for PBXProject "Symphony Lights" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F3334EFC218C18C60059D2BE;
+			productRefGroup = F3334F06218C18C60059D2BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3334F04218C18C60059D2BE /* Symphony Lights */,
+				F3334F18218C18C80059D2BE /* Symphony LightsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3334F03218C18C60059D2BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3BB061A218DF3780041E4F3 /* Data Sources in Resources */,
+				F3334F13218C18C80059D2BE /* LaunchScreen.storyboard in Resources */,
+				F3334F10218C18C80059D2BE /* Assets.xcassets in Resources */,
+				F3334F33218C33A90059D2BE /* Podfile in Resources */,
+				F3334F0E218C18C60059D2BE /* Main.storyboard in Resources */,
+				F31651C8218C3FDB00892890 /* Views in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3334F17218C18C80059D2BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3037E30C0D9D1B05913910C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Symphony Lights/Pods-Symphony Lights-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FlexColorPicker/FlexColorPicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexColorPicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Symphony Lights/Pods-Symphony Lights-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A7CB8D2C52BCACD7D94A90C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Symphony Lights-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3334F01218C18C60059D2BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3334F29218C1AF00059D2BE /* HomeTableViewCell.swift in Sources */,
+				F3334F0B218C18C60059D2BE /* LightViewController.swift in Sources */,
+				F3BB061E218E17E70041E4F3 /* PatternTableViewController.swift in Sources */,
+				F3BB0616218DEBC60041E4F3 /* PatternsTableViewCell.swift in Sources */,
+				F3334F2B218C1C810059D2BE /* Light.swift in Sources */,
+				F31651CC218C423D00892890 /* UISliderBarView.swift in Sources */,
+				F3334F09218C18C60059D2BE /* AppDelegate.swift in Sources */,
+				F3334F2D218C1D620059D2BE /* HomeTableViewController.swift in Sources */,
+				F31651D0218C9CFE00892890 /* BlockButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3334F15218C18C80059D2BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3334F1E218C18C80059D2BE /* Symphony_LightsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3334F1B218C18C80059D2BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3334F04218C18C60059D2BE /* Symphony Lights */;
+			targetProxy = F3334F1A218C18C80059D2BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F3334F0C218C18C60059D2BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3334F0D218C18C60059D2BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F3334F11218C18C80059D2BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3334F12218C18C80059D2BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F3334F20218C18C80059D2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F3334F21218C18C80059D2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F3334F23218C18C80059D2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA5F84C54EEC0C010E721ECF /* Pods-Symphony Lights.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PRE39YF2Q2;
+				INFOPLIST_FILE = "Symphony Lights/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "symphony.ledlights.ui.Symphony-Lights";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F3334F24218C18C80059D2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99FBEC8065682D6097FE4A85 /* Pods-Symphony Lights.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PRE39YF2Q2;
+				INFOPLIST_FILE = "Symphony Lights/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "symphony.ledlights.ui.Symphony-Lights";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F3334F26218C18C80059D2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PRE39YF2Q2;
+				INFOPLIST_FILE = "Symphony LightsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "symphony.ledlights.ui.Symphony-LightsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Symphony Lights.app/Symphony Lights";
+			};
+			name = Debug;
+		};
+		F3334F27218C18C80059D2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PRE39YF2Q2;
+				INFOPLIST_FILE = "Symphony LightsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "symphony.ledlights.ui.Symphony-LightsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Symphony Lights.app/Symphony Lights";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3334F00218C18C60059D2BE /* Build configuration list for PBXProject "Symphony Lights" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3334F20218C18C80059D2BE /* Debug */,
+				F3334F21218C18C80059D2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3334F22218C18C80059D2BE /* Build configuration list for PBXNativeTarget "Symphony Lights" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3334F23218C18C80059D2BE /* Debug */,
+				F3334F24218C18C80059D2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3334F25218C18C80059D2BE /* Build configuration list for PBXNativeTarget "Symphony LightsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3334F26218C18C80059D2BE /* Debug */,
+				F3334F27218C18C80059D2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3334EFD218C18C60059D2BE /* Project object */;
+}

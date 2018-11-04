@@ -1,24 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jVO-La-VFa">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Persons List-->
+        <scene sceneID="faO-EJ-Vr3">
+            <objects>
+                <tableViewController id="9wL-WH-ECM" customClass="PersonTableViewController" customModule="LedLights" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cbS-5a-xGf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonTableViewCell" rowHeight="90" id="xFc-Tc-F8r" customClass="PersonTableViewCell" customModule="LedLights" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xFc-Tc-F8r" id="CLL-uu-5yg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a8V-bf-2Gs">
+                                            <rect key="frame" x="0.0" y="0.0" width="349.5" height="89.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="celsoPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="C5F-DO-cWx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="89.5" height="89.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="89.5" id="UGW-s1-gpd"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BVJ-N5-oaQ">
+                                                    <rect key="frame" x="97.5" y="0.0" width="252" height="89.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEa-2x-SlE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="252" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oml-IV-ZQn" customClass="RatingControl" customModule="LedLights" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="20.5" width="252" height="69"/>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="a8V-bf-2Gs" secondAttribute="bottom" id="OXI-fG-mJb"/>
+                                        <constraint firstItem="a8V-bf-2Gs" firstAttribute="top" secondItem="CLL-uu-5yg" secondAttribute="top" id="RcA-fN-Da3"/>
+                                        <constraint firstItem="a8V-bf-2Gs" firstAttribute="leading" secondItem="CLL-uu-5yg" secondAttribute="leading" id="b7y-ll-zZV"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="SEa-2x-SlE" id="TX9-Mx-iZp"/>
+                                    <outlet property="photoImageView" destination="C5F-DO-cWx" id="fvA-1E-fdA"/>
+                                    <outlet property="ratingControl" destination="oml-IV-ZQn" id="TWI-0J-CPn"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowPersonDetails" id="Qeq-Eg-NVb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9wL-WH-ECM" id="FO6-r8-ocp"/>
+                            <outlet property="delegate" destination="9wL-WH-ECM" id="m84-h6-gcL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Persons List" id="AYq-2T-Xwq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Shq-cx-kqm">
+                            <connections>
+                                <segue destination="CJf-05-kzE" kind="presentation" identifier="AddPerson" id="CT6-yd-PgT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2s-gj-5AI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--New Person-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PersonViewController" customModule="LedLights" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="NZR-ux-vHZ">
+                                <rect key="frame" x="32" y="80" width="311" height="416"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Iv6-pU-v8P">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="SSu-3W-580">
+                                        <rect key="frame" x="0.0" y="43" width="311" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SSu-3W-580" secondAttribute="height" multiplier="311:320" id="9M2-Dv-d45"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="TdU-R9-jqJ" appends="YES" id="8Mc-M2-NsV"/>
+                                        </connections>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="car-0M-QrV" customClass="RatingControl" customModule="LedLights" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="376" width="311" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lQE-Ag-k8J"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                <size key="value" width="40" height="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NZR-ux-vHZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="630-oS-ThZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NZR-ux-vHZ" secondAttribute="trailing" constant="32" id="Je6-Op-tgV"/>
+                            <constraint firstItem="NZR-ux-vHZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="hVa-Kw-KwL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Person" id="HIu-MS-krq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NVl-rw-jUA">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="VrR-7q-WeQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="1oD-eR-kaY">
+                            <connections>
+                                <segue destination="YNq-iY-3qS" kind="unwind" unwindAction="unwindToPersonListWithSender:" id="Qa0-6W-3nU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imgView" destination="SSu-3W-580" id="d2I-Zo-lfW"/>
+                        <outlet property="nameTextBox" destination="Iv6-pU-v8P" id="4Zh-Eo-kwj"/>
+                        <outlet property="ratingControl" destination="car-0M-QrV" id="gk1-Sz-eS7"/>
+                        <outlet property="saveButton" destination="1oD-eR-kaY" id="hEx-zm-Tay"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="YNq-iY-3qS" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="TdU-R9-jqJ">
+                    <connections>
+                        <action selector="setImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="rZd-x2-dmJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="2076" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q0c-iU-lyR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jVO-La-VFa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pGS-dX-rDG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9wL-WH-ECM" kind="relationship" relationship="rootViewController" id="Waj-nd-tpa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qzy-ge-T3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-570.39999999999998" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lg5-xX-UZd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CJf-05-kzE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="axM-kb-Sjy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bd1-jz-UPy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eTH-a3-f7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1201" y="490"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="celsoPhoto" width="455" height="619"/>
+        <image name="defaultPhoto" width="2048" height="2048"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bd1-jz-UPy"/>
+    </inferredMetricsTieBreakers>
 </document>

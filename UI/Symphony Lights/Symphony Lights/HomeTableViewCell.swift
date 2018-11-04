@@ -10,6 +10,10 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
 
+    //MARK: Properties
+    @IBOutlet weak var lightNameLabel: UILabel!
+    @IBOutlet weak var lightStatusLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
