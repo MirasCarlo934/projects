@@ -84,7 +84,7 @@ public abstract class SymphonyElement {
 //	}
 
 	/**
-	 * Persists this object. The common objective of this method is to use all the injected adaptors 
+	 * Persists this object. The objective of this method is to use all the injected adaptors
 	 * to persist this object to various external systems and services. <br><br>
 	 * 
 	 * <i><b>Note:</b> This method does NOT guarantee that this object will be persisted into the BusinessMachine

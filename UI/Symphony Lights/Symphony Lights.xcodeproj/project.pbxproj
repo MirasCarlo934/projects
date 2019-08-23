@@ -8,22 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		2FBB9A11D2DB6A1847B776D3 /* Pods_Symphony_Lights.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC316DFE71218A407D1664B7 /* Pods_Symphony_Lights.framework */; };
-		F31651C8218C3FDB00892890 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = F31651C7218C3FDB00892890 /* Views */; };
-		F31651CC218C423D00892890 /* UISliderBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31651CB218C423D00892890 /* UISliderBarView.swift */; };
-		F31651D0218C9CFE00892890 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31651CF218C9CFE00892890 /* BlockButton.swift */; };
 		F3334F09218C18C60059D2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F08218C18C60059D2BE /* AppDelegate.swift */; };
-		F3334F0B218C18C60059D2BE /* LightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F0A218C18C60059D2BE /* LightViewController.swift */; };
 		F3334F0E218C18C60059D2BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3334F0C218C18C60059D2BE /* Main.storyboard */; };
 		F3334F10218C18C80059D2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3334F0F218C18C80059D2BE /* Assets.xcassets */; };
 		F3334F13218C18C80059D2BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3334F11218C18C80059D2BE /* LaunchScreen.storyboard */; };
 		F3334F1E218C18C80059D2BE /* Symphony_LightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F1D218C18C80059D2BE /* Symphony_LightsTests.swift */; };
-		F3334F29218C1AF00059D2BE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F28218C1AF00059D2BE /* HomeTableViewCell.swift */; };
-		F3334F2B218C1C810059D2BE /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F2A218C1C810059D2BE /* Light.swift */; };
-		F3334F2D218C1D620059D2BE /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3334F2C218C1D620059D2BE /* HomeTableViewController.swift */; };
 		F3334F33218C33A90059D2BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F3334F32218C33A90059D2BE /* Podfile */; };
-		F3BB0616218DEBC60041E4F3 /* PatternsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB0615218DEBC60041E4F3 /* PatternsTableViewCell.swift */; };
+		F34D290B21E24709000D29EF /* ColorWheelNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34D290A21E24709000D29EF /* ColorWheelNavigationController.swift */; };
+		F353140E226A0A1100BEEF85 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F353140D226A0A1100BEEF85 /* Debouncer.swift */; };
+		F366D24822E0B57700FEDB3D /* PatternsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D24722E0B57700FEDB3D /* PatternsTableViewCell.swift */; };
+		F366D24C22E0BFCF00FEDB3D /* RoundedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366D24B22E0BFCF00FEDB3D /* RoundedTableViewCell.swift */; };
+		F37603D021DFB6AF0053A90E /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37603CE21DFB6AF0053A90E /* BlockButton.swift */; };
+		F37603D121DFB6AF0053A90E /* UISliderBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37603CF21DFB6AF0053A90E /* UISliderBarView.swift */; };
+		F37603D721DFCBAD0053A90E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37603D621DFCBAD0053A90E /* API.swift */; };
+		F3846170226B393700F86A52 /* RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384616F226B393700F86A52 /* RoundedRect.swift */; };
+		F386772C21DE4A400093EB6A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386772421DE4A400093EB6A /* HomeTableViewCell.swift */; };
+		F386772E21DE4A400093EB6A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386772621DE4A400093EB6A /* HomeTableViewController.swift */; };
+		F386772F21DE4A400093EB6A /* PatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386772721DE4A400093EB6A /* PatternViewController.swift */; };
+		F386773021DE4A400093EB6A /* PatternViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386772921DE4A400093EB6A /* PatternViewNavigationController.swift */; };
+		F386773121DE4A400093EB6A /* LightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386772A21DE4A400093EB6A /* LightViewController.swift */; };
+		F386773221DE4A400093EB6A /* ColorWheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386772B21DE4A400093EB6A /* ColorWheelViewController.swift */; };
 		F3BB061A218DF3780041E4F3 /* Data Sources in Resources */ = {isa = PBXBuildFile; fileRef = F3BB0619218DF3780041E4F3 /* Data Sources */; };
-		F3BB061E218E17E70041E4F3 /* PatternTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BB061D218E17E70041E4F3 /* PatternTableViewController.swift */; };
+		F3D9B92021FE0608000BAC54 /* 0_Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9B91E21FE0608000BAC54 /* 0_Errors.swift */; };
+		F3D9B92121FE0608000BAC54 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9B91F21FE0608000BAC54 /* Light.swift */; };
+		F3D9B92321FE066D000BAC54 /* LightPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9B92221FE066D000BAC54 /* LightPattern.swift */; };
+		F3D9B92521FE1FAA000BAC54 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9B92421FE1FAA000BAC54 /* Package.swift */; };
+		F3EFF76E22E0B43C00DBE171 /* AddPatternTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFF76D22E0B43C00DBE171 /* AddPatternTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,25 +50,35 @@
 		99FBEC8065682D6097FE4A85 /* Pods-Symphony Lights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Symphony Lights.release.xcconfig"; path = "Pods/Target Support Files/Pods-Symphony Lights/Pods-Symphony Lights.release.xcconfig"; sourceTree = "<group>"; };
 		AC316DFE71218A407D1664B7 /* Pods_Symphony_Lights.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Symphony_Lights.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5F84C54EEC0C010E721ECF /* Pods-Symphony Lights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Symphony Lights.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Symphony Lights/Pods-Symphony Lights.debug.xcconfig"; sourceTree = "<group>"; };
-		F31651C7218C3FDB00892890 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
-		F31651CB218C423D00892890 /* UISliderBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISliderBarView.swift; sourceTree = "<group>"; };
-		F31651CF218C9CFE00892890 /* BlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockButton.swift; sourceTree = "<group>"; };
 		F3334F05218C18C60059D2BE /* Symphony Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Symphony Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3334F08218C18C60059D2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3334F0A218C18C60059D2BE /* LightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewController.swift; sourceTree = "<group>"; };
 		F3334F0D218C18C60059D2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3334F0F218C18C80059D2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3334F12218C18C80059D2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3334F19218C18C80059D2BE /* Symphony LightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Symphony LightsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3334F1D218C18C80059D2BE /* Symphony_LightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symphony_LightsTests.swift; sourceTree = "<group>"; };
 		F3334F1F218C18C80059D2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3334F28218C1AF00059D2BE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		F3334F2A218C1C810059D2BE /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
-		F3334F2C218C1D620059D2BE /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		F3334F32218C33A90059D2BE /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F3BB0615218DEBC60041E4F3 /* PatternsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatternsTableViewCell.swift; path = Views/PatternsTableViewCell.swift; sourceTree = "<group>"; };
+		F34D290A21E24709000D29EF /* ColorWheelNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheelNavigationController.swift; sourceTree = "<group>"; };
+		F353140D226A0A1100BEEF85 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		F366D24722E0B57700FEDB3D /* PatternsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatternsTableViewCell.swift; path = "/Users/carlomiras/git/UI/Symphony Lights/Symphony Lights/Views/LightView/PatternsTableViewCell.swift"; sourceTree = "<absolute>"; };
+		F366D24B22E0BFCF00FEDB3D /* RoundedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTableViewCell.swift; sourceTree = "<group>"; };
+		F37603CE21DFB6AF0053A90E /* BlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockButton.swift; sourceTree = "<group>"; };
+		F37603CF21DFB6AF0053A90E /* UISliderBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderBarView.swift; sourceTree = "<group>"; };
+		F37603D621DFCBAD0053A90E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F384616F226B393700F86A52 /* RoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRect.swift; sourceTree = "<group>"; };
+		F386772421DE4A400093EB6A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		F386772621DE4A400093EB6A /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		F386772721DE4A400093EB6A /* PatternViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternViewController.swift; sourceTree = "<group>"; };
+		F386772921DE4A400093EB6A /* PatternViewNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternViewNavigationController.swift; sourceTree = "<group>"; };
+		F386772A21DE4A400093EB6A /* LightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightViewController.swift; sourceTree = "<group>"; };
+		F386772B21DE4A400093EB6A /* ColorWheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheelViewController.swift; sourceTree = "<group>"; };
 		F3BB0619218DF3780041E4F3 /* Data Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Data Sources"; sourceTree = "<group>"; };
-		F3BB061D218E17E70041E4F3 /* PatternTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatternTableViewController.swift; path = "View Controllers/PatternTableViewController.swift"; sourceTree = "<group>"; };
+		F3D9B91E21FE0608000BAC54 /* 0_Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 0_Errors.swift; sourceTree = "<group>"; };
+		F3D9B91F21FE0608000BAC54 /* Light.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		F3D9B92221FE066D000BAC54 /* LightPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightPattern.swift; sourceTree = "<group>"; };
+		F3D9B92421FE1FAA000BAC54 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		F3EFF76D22E0B43C00DBE171 /* AddPatternTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatternTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +120,7 @@
 		F3334EFC218C18C60059D2BE = {
 			isa = PBXGroup;
 			children = (
+				F3D9B92421FE1FAA000BAC54 /* Package.swift */,
 				F3334F32218C33A90059D2BE /* Podfile */,
 				F3334F07218C18C60059D2BE /* Symphony Lights */,
 				F3334F1C218C18C80059D2BE /* Symphony LightsTests */,
@@ -121,18 +142,12 @@
 		F3334F07218C18C60059D2BE /* Symphony Lights */ = {
 			isa = PBXGroup;
 			children = (
-				F31651CF218C9CFE00892890 /* BlockButton.swift */,
-				F31651CB218C423D00892890 /* UISliderBarView.swift */,
+				F3D9B91D21FE0608000BAC54 /* Objects */,
+				F37603D521DFCB9A0053A90E /* API */,
+				F386772221DE4A400093EB6A /* Views */,
 				F3BB0619218DF3780041E4F3 /* Data Sources */,
-				F31651C7218C3FDB00892890 /* Views */,
 				F3334F08218C18C60059D2BE /* AppDelegate.swift */,
-				F3334F28218C1AF00059D2BE /* HomeTableViewCell.swift */,
-				F3BB0615218DEBC60041E4F3 /* PatternsTableViewCell.swift */,
-				F3334F2C218C1D620059D2BE /* HomeTableViewController.swift */,
-				F3334F0A218C18C60059D2BE /* LightViewController.swift */,
-				F3BB061D218E17E70041E4F3 /* PatternTableViewController.swift */,
 				F3334F0C218C18C60059D2BE /* Main.storyboard */,
-				F3334F2A218C1C810059D2BE /* Light.swift */,
 				F3334F0F218C18C80059D2BE /* Assets.xcassets */,
 				F3334F11218C18C80059D2BE /* LaunchScreen.storyboard */,
 			);
@@ -146,6 +161,109 @@
 				F3334F1F218C18C80059D2BE /* Info.plist */,
 			);
 			path = "Symphony LightsTests";
+			sourceTree = "<group>";
+		};
+		F353140C226A09FF00BEEF85 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F353140D226A0A1100BEEF85 /* Debouncer.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F37603CC21DFB6750053A90E /* PatternView */ = {
+			isa = PBXGroup;
+			children = (
+				F386772921DE4A400093EB6A /* PatternViewNavigationController.swift */,
+				F386772721DE4A400093EB6A /* PatternViewController.swift */,
+			);
+			path = PatternView;
+			sourceTree = "<group>";
+		};
+		F37603CD21DFB6AF0053A90E /* 0_Elements */ = {
+			isa = PBXGroup;
+			children = (
+				F37603CE21DFB6AF0053A90E /* BlockButton.swift */,
+				F37603CF21DFB6AF0053A90E /* UISliderBarView.swift */,
+				F384616F226B393700F86A52 /* RoundedRect.swift */,
+				F366D24B22E0BFCF00FEDB3D /* RoundedTableViewCell.swift */,
+			);
+			path = 0_Elements;
+			sourceTree = "<group>";
+		};
+		F37603D221DFB7200053A90E /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				F386772621DE4A400093EB6A /* HomeTableViewController.swift */,
+				F386772421DE4A400093EB6A /* HomeTableViewCell.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		F37603D321DFB7780053A90E /* ColorView */ = {
+			isa = PBXGroup;
+			children = (
+				F386772B21DE4A400093EB6A /* ColorWheelViewController.swift */,
+				F34D290A21E24709000D29EF /* ColorWheelNavigationController.swift */,
+			);
+			path = ColorView;
+			sourceTree = "<group>";
+		};
+		F37603D421DFB7990053A90E /* LightView */ = {
+			isa = PBXGroup;
+			children = (
+				F386772A21DE4A400093EB6A /* LightViewController.swift */,
+				F366D24722E0B57700FEDB3D /* PatternsTableViewCell.swift */,
+				F3EFF76D22E0B43C00DBE171 /* AddPatternTableViewCell.swift */,
+			);
+			path = LightView;
+			sourceTree = "<group>";
+		};
+		F37603D521DFCB9A0053A90E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F37603D621DFCBAD0053A90E /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F386772221DE4A400093EB6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F37603CD21DFB6AF0053A90E /* 0_Elements */,
+				F37603D221DFB7200053A90E /* HomeView */,
+				F37603D421DFB7990053A90E /* LightView */,
+				F37603CC21DFB6750053A90E /* PatternView */,
+				F37603D321DFB7780053A90E /* ColorView */,
+				F386772321DE4A400093EB6A /* TableView */,
+				F386772821DE4A400093EB6A /* Navigation */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F386772321DE4A400093EB6A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		F386772821DE4A400093EB6A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F3D9B91D21FE0608000BAC54 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				F353140C226A09FF00BEEF85 /* Tools */,
+				F3D9B91E21FE0608000BAC54 /* 0_Errors.swift */,
+				F3D9B91F21FE0608000BAC54 /* Light.swift */,
+				F3D9B92221FE066D000BAC54 /* LightPattern.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +354,6 @@
 				F3334F10218C18C80059D2BE /* Assets.xcassets in Resources */,
 				F3334F33218C33A90059D2BE /* Podfile in Resources */,
 				F3334F0E218C18C60059D2BE /* Main.storyboard in Resources */,
-				F31651C8218C3FDB00892890 /* Views in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,12 +377,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Symphony Lights/Pods-Symphony Lights-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FlexColorPicker/FlexColorPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexColorPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -301,15 +424,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3334F29218C1AF00059D2BE /* HomeTableViewCell.swift in Sources */,
-				F3334F0B218C18C60059D2BE /* LightViewController.swift in Sources */,
-				F3BB061E218E17E70041E4F3 /* PatternTableViewController.swift in Sources */,
-				F3BB0616218DEBC60041E4F3 /* PatternsTableViewCell.swift in Sources */,
-				F3334F2B218C1C810059D2BE /* Light.swift in Sources */,
-				F31651CC218C423D00892890 /* UISliderBarView.swift in Sources */,
+				F386772E21DE4A400093EB6A /* HomeTableViewController.swift in Sources */,
+				F3D9B92021FE0608000BAC54 /* 0_Errors.swift in Sources */,
+				F386773021DE4A400093EB6A /* PatternViewNavigationController.swift in Sources */,
+				F37603D021DFB6AF0053A90E /* BlockButton.swift in Sources */,
+				F3D9B92521FE1FAA000BAC54 /* Package.swift in Sources */,
+				F386772C21DE4A400093EB6A /* HomeTableViewCell.swift in Sources */,
+				F3D9B92321FE066D000BAC54 /* LightPattern.swift in Sources */,
+				F386773221DE4A400093EB6A /* ColorWheelViewController.swift in Sources */,
+				F386772F21DE4A400093EB6A /* PatternViewController.swift in Sources */,
+				F366D24822E0B57700FEDB3D /* PatternsTableViewCell.swift in Sources */,
+				F37603D721DFCBAD0053A90E /* API.swift in Sources */,
+				F3846170226B393700F86A52 /* RoundedRect.swift in Sources */,
 				F3334F09218C18C60059D2BE /* AppDelegate.swift in Sources */,
-				F3334F2D218C1D620059D2BE /* HomeTableViewController.swift in Sources */,
-				F31651D0218C9CFE00892890 /* BlockButton.swift in Sources */,
+				F366D24C22E0BFCF00FEDB3D /* RoundedTableViewCell.swift in Sources */,
+				F37603D121DFB6AF0053A90E /* UISliderBarView.swift in Sources */,
+				F34D290B21E24709000D29EF /* ColorWheelNavigationController.swift in Sources */,
+				F353140E226A0A1100BEEF85 /* Debouncer.swift in Sources */,
+				F3EFF76E22E0B43C00DBE171 /* AddPatternTableViewCell.swift in Sources */,
+				F3D9B92121FE0608000BAC54 /* Light.swift in Sources */,
+				F386773121DE4A400093EB6A /* LightViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "symphony.ledlights.ui.Symphony-Lights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -502,6 +637,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "symphony.ledlights.ui.Symphony-Lights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
